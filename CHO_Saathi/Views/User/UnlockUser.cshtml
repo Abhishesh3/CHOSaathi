@@ -1,0 +1,276 @@
+﻿@model IEnumerable<CHO_Saathi.Models.User>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Unlock Users";
+    if (@Context.Session.GetString("SirjanID") == "1")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<style>
+    .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0px solid #72def6;
+        border-radius: .25rem;
+    }
+
+    .bgButton {
+        background: #bfd600 !important;
+        border-color: #bfd600 !important;
+    }
+
+        .bgButton:hover {
+            background: #b2c607 !important;
+            border-color: #b2c607 !important;
+        }
+
+
+    .bgbagheader {
+        background: #b9f2ff; /* Old browsers */
+    }
+
+    .dataTables_length {
+        margin-left: 10px;
+    }
+
+    .btn-orang {
+        color: #fff;
+        background-color: #f39c12;
+        border-color: #f39c12;
+    }
+
+        .btn-orang:hover {
+            color: #fff;
+            background-color: #fe8936;
+            border-color: #fe8936;
+        }
+
+    button.dt-button, div.dt-button, a.dt-button {
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        margin-right: 0.333em;
+        padding: 0.5em 1em;
+        border: 1px solid #999;
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 0.88em;
+        color: black;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: #e9e9e9;
+        background-image: -webkit-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -moz-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -ms-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -o-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#e9e9e9');
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        text-decoration: none;
+        outline: none;
+    }
+
+    div.dt-buttons {
+        position: relative;
+        float: left;
+        /*padding: 0px;
+        margin: 13px 12px 0px 12px;*/
+    }
+    /*.buttons-html5 {
+        background-color: #4CAF50 !important;*/ /* Green */
+    /*border: none !important;
+        color: white !important;
+        text-align: center !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+        padding: 5px;
+        margin: 2px;
+    }*/
+    #SearchInput {
+        background-image: url('images/icons8-search-48.png');
+        background-size: 26px 26px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        padding-left: 36px;
+        /* background-position: 10px 12px;
+            background-repeat: no-repeat;*/
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 0px;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+        input[type="radio"] + label {
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 20px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+            input[type="radio"] + label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 1px;
+                width: 18px;
+                height: 18px;
+                border: 2px solid #007bff;
+                border-radius: 50%;
+                background-color: white;
+                transition: all 0.3s ease;
+            }
+
+        input[type="radio"]:checked + label:before {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+    .rowSearch {
+        margin-bottom: 20px;
+    }
+
+        .rowSearch b {
+            margin-right: 10px;
+        }
+</style>
+
+<section id="AboutSection">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <h4 class="Headingcolorbg">Unlock Users</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <table id="userTable" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Username)</th>
+                            <th>@Html.DisplayNameFor(model => model.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.MobileNo)</th>
+                            <th>@Html.DisplayNameFor(model => model.EmailId)</th>
+                            <th>Is Locked</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Username)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.MobileNo)</td>
+                                <td>@Html.DisplayFor(modelItem => item.EmailId)</td>
+                                <td>
+                                    @if (item.WrongNoofLogin < 3)
+                                    {
+                                        <span style='color:green'><b>Unlocked</b></span>
+                                    }
+                                    else
+                                    {
+                                        <span style='color:red'><b>Locked</b></span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.WrongNoofLogin < 3)
+                                    {
+                                        <a href="javascript:void(0)" onclick="lockUser(@item.UserId)" class="text-success" title="Lock">
+                                            <i class="fa fa-unlock text-success" aria-hidden="true"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="javascript:void(0)" onclick="editUser(@item.UserId)" class="text-success" title="Unlock">
+                                            <i class="fa fa-lock text-danger" aria-hidden="true"></i>
+                                        </a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#userTable').DataTable({
+
+            dom: 'lBfrtip',
+            buttons: [
+                'excelHtml5'
+            ],
+            'paging': true,
+            'lengthChange': false,
+            "scrollX": true,
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+
+        });
+    });
+
+    function editUser(userId) {
+        var p = { "userId": userId };
+        $.ajax({
+            url: '@Url.Content("~/User/Islock")',
+            type: "POST",
+            data: p,
+            success: function (result) {
+                alert(result.message);
+                location.reload();
+            },
+            error: function () {
+
+            }
+        });
+    }
+
+    function lockUser(userId) {
+        var p = { "userId": userId };
+        $.ajax({
+            url: '@Url.Content("~/User/locked")',
+            type: "POST",
+            data: p,
+            success: function (result) {
+                alert(result.message);
+                location.reload();
+            },
+            error: function () {
+
+            }
+        });
+    }
+</script>

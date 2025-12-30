@@ -1,0 +1,112 @@
+﻿@model CHO_Saathi.Models.Cho
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Delete">
+<input type="hidden" asp-for="Choid" />
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-4">
+                            <h4 class="Headingcolorbg">Delete CHO User</h4>
+                        </div>
+                        <div class="col-xl-4"></div>
+                        <div class="col-xl-4">
+                            <div class="float-end">
+                                <a asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-angles-left"></i>&nbsp;Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row offset-lg-3">
+                        <div class="col-xl-8">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2"><h5 class="text-danger">Are you sure you want to delete this?</h5></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><label>Username</label></td>
+                                            <td> @Html.DisplayFor(model => model.Username)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Name</label></td>
+                                            <td>@Html.DisplayFor(model => model.Choname)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <button type="button" class="btn btn-danger float-end" onclick="deleteBenchmark()"><i class="fa-solid fa-trash"></i>&nbsp;Delete</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+<script type="text/javascript">
+    function deleteBenchmark() 
+    {
+        var Choid = $('#Choid').val();
+
+        if (!Choid || isNaN(Choid))
+        {
+            alert("Invalid Choid ID.");
+            return;
+        }
+
+        // show confirmation popup
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you really want to delete this record?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',   // red button
+            cancelButtonColor: '#3085d6', // blue button
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) 
+            {
+                var p = { Choid: parseInt(Choid) };
+
+                $.ajax({
+                    url: '/CHO/deleteBenchmarkRecord',
+                    type: 'POST',
+                    data: JSON.stringify(p),
+                    contentType: 'application/json',
+                    success: function (response) {
+                        setTimeout(function () {
+                            window.location.href = '/CHO/Index';
+                        }, 200);
+                    },
+                    error: function (xhr, status, error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: xhr.responseText || error
+                        });
+                    }
+                });
+            }
+        });
+    }
+</script>
+

@@ -1,0 +1,69 @@
+﻿@model CHO_Saathi.Models.LocationDistrict
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Delete District";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- ADD TOP & LEFT MARGIN -->
+<section id="AboutSection" class="mt-4 ms-4">
+    <div class="container-fluid">
+
+        <!-- HEADER ROW -->
+        <div class="row">
+            <h4 class="Headingcolorbg col-xl-3 col-lg-3">Delete District</h4>
+
+            <div class="col-xl-6 col-lg-6">
+                <div class="alert alert-danger p-2" style="font-size:14px" role="alert">
+                    Are you sure you want to delete this?
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 text-end">
+                @* <a asp-action="Index" class="btn btn-primary backtodetailbutton">Back to List</a> *@
+                <a asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-angles-left"></i>&nbsp;Back to List</a>
+            </div>
+        </div>
+
+        <!-- SEPARATOR -->
+        <div class="row">
+            <div class="col-12">
+                <hr />
+            </div>
+        </div>
+
+        <!-- DETAILS TABLE -->
+        <div class="row mt-3">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><label class="control-label">State</label></td>
+                            <td>@Html.DisplayFor(model => model.State.StateName)</td>
+                        </tr>
+                        <tr>
+                            <td><label class="control-label">District</label></td>
+                            <td>@Html.DisplayFor(model => model.District)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- DELETE BUTTON -->
+        <div class="row mt-2">
+            <div class="col-xl-12 col-lg-12 text-end">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="DistrictId" />
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>&nbsp;Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+

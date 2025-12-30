@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model UserCommonModel
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12">
+        <h4 class="Headingcolorbg">Transfer Current Location</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-lg-12">
+        <table id="ANMArea" class="table table-hover table-bordered table-striped datatablerowfont">
+            <thead>
+                <tr>
+                    <th>Facility</th>
+                    <th>Sub Facility</th>
+                    <th>Village</th>
+                </tr>
+            </thead>
+            <tbody id="modaltbody">
+                @foreach (var LRF in Model.LSTANMCatchmentArea)
+                {
+                    <tr id="@LRF.AnmareaId">
+
+                        <td>@LRF.Village.Facility.FacilityName</td>
+                        <td>@LRF.Village.SubFacility.SubFacility</td>
+                        <td>@LRF.Village.Village</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-lg-12">
+        <h4 class="Headingcolorbg">Transfer History Logs</h4>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-xl-12 col-lg-12">
+        
+        <table id="ANMTransfedList" class="table table-hover table-bordered table-striped datatablerowfont">
+            <thead>
+                <tr>
+                    <th>Facility</th>
+                    <th>Sub Facility</th>
+                    <th>Village</th>
+                    <th>Transfer By</th>
+                    <th>Transfer Date</th>
+                </tr>
+            </thead>
+            <tbody id="ANMTransfed">
+                @foreach (var LRF in Model.LSTANMCatchmentAreaTransHists)
+                {
+                    <tr id="@LRF.Anmid">
+
+                        <td>@LRF.Village.Facility.FacilityName</td>
+                        <td>@LRF.Village.SubFacility.SubFacility</td>
+                        <td>@LRF.Village.Village</td>
+                        <td>@LRF.CreatedByNavigation.Username</td>
+                        <td>@Convert.ToDateTime(LRF.TransferedOn).ToString("dd/MM/yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

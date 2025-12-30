@@ -1,0 +1,117 @@
+﻿@model CHO_Saathi.Models.LocationFacilityType
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Add Facility Type";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <!-- ADD TOP & LEFT MARGIN -->
+    <section id="AboutSection" class="mt-4 ms-4">
+
+        <div class="container-fluid">
+
+            <!-- HEADER ROW -->
+            <div class="row">
+                <div class="col-xl-3 col-lg-3">
+                    <h4 class="Headingcolorbg">Add Facility Type</h4>
+                </div>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="alert alert-danger p-2" style="font-size:14px" role="alert">
+                        NOTE : Fields marked with (*) are compulsory fields
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 text-end">
+                    @* <a asp-action="Index" class="btn btn-primary backtodetailbutton">
+                        Back to List
+                    </a> *@
+                    <a asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-angles-left"></i>&nbsp;Back to List</a>
+                </div>
+            </div>
+
+            <!-- SEPARATOR -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <hr />
+                </div>
+            </div>
+
+            <!-- FORM ROW -->
+            <div class="row">
+
+                <!-- FACILITY TYPE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Facility Type</label>
+                        <span class="mandatory"> *</span>
+                        <input asp-for="FacilityType" autocomplete="off"
+                               maxlength="70"
+                               class="form-control"
+                               id="FTType"
+                               required />
+                        <span asp-validation-for="FacilityType" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- FACILITY TYPE CODE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Facility Type Code</label>
+                        <span class="mandatory"> *</span>
+                        <input asp-for="FacilityTypeCode" autocomplete="off"
+                               maxlength="5"
+                               class="form-control"
+                               id="FTTypeCode"
+                               required />
+                        <span asp-validation-for="FacilityTypeCode" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- EMPTY COLUMN (DESIGN BALANCE) -->
+                <div class="col-xl-4 col-lg-4"></div>
+
+            </div>
+
+            <!-- SAVE BUTTON -->
+            <div class="row mt-3">
+                <div class="col-xl-12 text-end">
+                    @* <input type="submit"
+                           value="Save"
+                           class="btn btn-success savebutton" /> *@
+                    <button type="submit" class="btn btn-success float-end"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Save</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</form>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#FTType').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z ]+$");
+            var strigChar = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(strigChar)) {
+                return true;
+            }
+            return false
+        });
+
+        $('#FTTypeCode').on('keypress', function (event) {
+            var regex = new RegExp("^[0-9]*$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+
+    });
+</script>
+

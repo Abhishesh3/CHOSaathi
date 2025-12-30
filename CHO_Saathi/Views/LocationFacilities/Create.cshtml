@@ -1,0 +1,341 @@
+﻿@model CHO_Saathi.Models.LocationFacility
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Add New Facility";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // if (@Context.Session.GetString("SirjanID") == "1")
+    // {
+    //     Layout = "~/Views/Shared/_Layout.cshtml";
+    // }
+    // else
+    // {
+    //     Layout = "~/Views/Shared/_Layout.cshtml";
+    // }
+}
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <!-- ADD TOP & LEFT MARGIN -->
+    <section id="AboutSection" class="mt-4 ms-4">
+
+        <div class="container-fluid">
+
+            <!-- HEADER ROW -->
+            <div class="row">
+                <div class="col-xl-3 col-lg-3">
+                    <h4 class="Headingcolorbg">Add New Facility</h4>
+                </div>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="alert alert-danger p-2" style="font-size:14px" role="alert">
+                        NOTE : Fields marked with (*) are compulsory fields
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 text-end">
+                    @* <a asp-action="Index" class="btn btn-primary backtodetailbutton">Back to List</a> *@
+                    <a asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-angles-left"></i>&nbsp;Back to List</a>
+                </div>
+            </div>
+
+            <!-- SEPARATOR -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <hr />
+                </div>
+            </div>
+
+            <!-- FORM ROW 1 -->
+            <div class="row">
+
+                <!-- STATE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">State</label><span class="mandatory"> *</span>
+                        <select asp-for="StateId" id="StateID" class="form-control" asp-items="ViewBag.StateID">
+                            <option value="">Select</option>
+                        </select>
+                        @* <select id="StateID" asp-for="StateId" asp-items="ViewBag.StateList" class="form-control">
+                            <option value="">Select</option>
+                        </select> *@
+                    </div>
+                </div>
+
+                <!-- DISTRICT -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">District</label><span class="mandatory"> *</span>
+                        <select asp-for="DistrictId" id="DistrictID" class="form-control" asp-items="ViewBag.DistrictID">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- BLOCK -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Block</label><span class="mandatory"> *</span>
+                        <select asp-for="BlockId" id="BlockID" class="form-control" asp-items="ViewBag.BlockID">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORM ROW 2 -->
+            <div class="row mt-2">
+
+                <!-- FACILITY TYPE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Facility Type</label><span class="mandatory"> *</span>
+                        <select asp-for="FacilityTypeId" class="form-control" asp-items="ViewBag.FacilityTypeID">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- FACILITY NAME -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Facility Name</label><span class="mandatory"> *</span>
+                        <input asp-for="FacilityName" maxlength="50" required class="form-control" />
+                        <span asp-validation-for="FacilityName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- FACILITY CODE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Facility Code</label><span class="mandatory"> *</span>
+                        <input asp-for="FacilityCode" maxlength="5" required class="form-control" />
+                        <span asp-validation-for="FacilityCode" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORM ROW 3 -->
+            <div class="row mt-2">
+
+                <!-- CONTACT NO -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Contact No.</label><span class="mandatory"> *</span>
+                        <input asp-for="FacilityContactNo" maxlength="10" required class="form-control" />
+                        <span asp-validation-for="FacilityContactNo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- ADDRESS -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Address</label><span class="mandatory"> *</span>
+                        <textarea asp-for="FacilityAddress" maxlength="100" required class="form-control"></textarea>
+                        <span asp-validation-for="FacilityAddress" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- EMPTY COLUMN (DESIGN MATCH) -->
+                <div class="col-xl-4 col-lg-4"></div>
+            </div>
+
+            <!-- SAVE BUTTON -->
+            <div class="row mt-3">
+                <div class="col-xl-12 text-end">
+                    @* <input type="submit" value="Save" class="btn btn-success savebutton" /> *@
+                    <button type="submit" class="btn btn-success float-end"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Save</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</form>
+
+
+@if (TempData["message"] != null)
+{
+    <script>
+        //alert('@TempData["message"]');
+        $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> @TempData["message"]", {
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            offset: { from: 'top', amount: 155 }, // 'top', or 'bottom'
+            allow_dismiss: true,
+            delay: 3000
+        });
+    </script>
+}
+
+<script type="text/javascript">
+
+    $('#StateID').change(function () {
+
+        var url = '@Url.Content("~/")' + "LocationFacilities/GetDistrict";
+        var stateId = $('#StateID').val();
+
+        $.getJSON(url, { stateId: stateId }, function (data) {
+
+            var districtitems = "<option value=''>Select</option>";
+            $("#DistrictID").empty();
+
+            $.each(data, function (i, district) {
+                districtitems += "<option value='" + district.districtId + "'>" +
+                                  district.district + "</option>";
+            });
+
+            $('#DistrictID').html(districtitems);
+            $('#BlockID').html("<option value=''>Select</option>");
+        });
+    });
+
+
+    $('#DistrictID').change(function () {
+        debugger;
+        var url = '@Url.Content("~/")' + "LocationFacilities/GetBlock";
+        var districtId = $('#DistrictID').val();
+
+        if (districtId && districtId !== "0") {
+            $.getJSON(url, { districtId: districtId }, function (data) {
+
+                var blockitems = "<option value=''>Select</option>";
+                $("#BlockID").empty();
+
+                $.each(data, function (i, block) {
+                    blockitems += "<option value='" + block.blockId + "'>" +
+                                   block.blockName + "</option>";
+                });
+
+                $('#BlockID').html(blockitems);
+            });
+        }
+        else {
+            $('#BlockID').html("<option value=''>Select</option>");
+        }
+    });
+
+
+    
+
+
+
+    $(document).ready(function ()
+    {
+        //$('#FTName').bind('keyup blur', function () {
+        //    $(this).val($(this).val().replace(/[^A-Za-z]/g, ''));
+        //}
+        //);
+
+
+        $('#FTName').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z ]+$");
+            var strigChar = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(strigChar)) {
+                return true;
+            }
+            return false
+        });
+
+        $('#FTAddress').on('keypress', function (event) {
+            var regex = new RegExp("^[  ,/-_]*[a-zA-Z0-9 ,/-][a-zA-Z0-9 _ ,/-]*$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+        //$('#FTAddress').on('keypress', function (event) {
+        //    var regex = new RegExp("/^[a-z\d\-_\s]+$/i");
+        //    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+        //    if (!regex.test(key)) {
+        //        event.preventDefault();
+        //        return false;
+        //    }
+        //});
+
+        $('#FTTypeCode').on('keypress', function (event) {
+            var regex = new RegExp("^[0-9]*$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+
+        $('#txtMOB').keypress(function (e) {
+            var arr = [];
+            var kk = e.which;
+
+            for (i = 48; i < 58; i++)
+                arr.push(i);
+
+            if (!(arr.indexOf(kk) >= 0))
+                e.preventDefault();
+        });
+
+        $("#txtMOB").blur(function () {
+            if ($("#txtMOB").val() == "") {
+                $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> Please enter Contact Number", {
+                    type: 'danger',
+                    align: 'center',
+                    width: 'auto',
+                    offset: { from: 'top', amount: 100 }, // 'top', or 'bottom'
+                    allow_dismiss: true,
+                    delay: 1000
+                });
+                //alert("Please enter Contact Number");
+            }
+            else {
+                var mob = /^[6-9]{1}[0-9]{9}$/;
+                var mobile = $("#txtMOB").val();
+                // if ()
+                if ($("#txtMOB").val().length < 10 && mob.test(mobile) == false) {
+                    $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> Please enter valid Contact Number", {
+                        type: 'danger',
+                        align: 'center',
+                        width: 'auto',
+                        offset: { from: 'top', amount: 100 }, // 'top', or 'bottom'
+                        allow_dismiss: true,
+                        delay: 1000
+                    });
+                    // alert("Please enter valid Contact Number");
+                    return false;
+                }
+
+            }
+        });
+
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var dropdown = document.getElementById("BlockID");
+        var FTName = document.getElementById("FTName");
+        var FTTypeCode = document.getElementById("FTTypeCode");
+        var txtMOB = document.getElementById("txtMOB");
+        var FTAddress = document.getElementById("FTAddress");
+        FTTypeCode.readOnly = true;
+        txtMOB.readOnly = true;
+        FTAddress.readOnly = true;
+        FTName.readOnly = true;
+        dropdown.addEventListener("change", function () {
+            if (dropdown.value === "0") {
+                FTTypeCode.readOnly = true;
+                txtMOB.readOnly = true;
+                FTAddress.readOnly = true;
+                FTName.readOnly = true;
+            } else {
+                FTTypeCode.readOnly = false;
+                txtMOB.readOnly = false;
+                FTAddress.readOnly = false;
+                FTName.readOnly = false;
+            }
+        });
+    });
+
+
+</script>

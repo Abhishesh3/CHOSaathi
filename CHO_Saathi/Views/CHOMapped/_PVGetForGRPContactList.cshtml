@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@model CHOCommonModel
+
+@if (ViewBag.flag == "NEWVL")
+{
+    <table id="tblContactList" class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Village</th>
+                <th>Sub Facility</th>
+                <th>Facility</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model?.LSTLocationVillages != null && Model?.LSTChoMapped != null)
+            {
+                foreach (var LRF in Model.LSTLocationVillages)
+                {
+                    if (Model.LSTChoMapped.Any(p => p.VillageId == LRF.VillageId))
+                    {
+                        // Already mapped, do nothing (or handle differently if needed)
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>@LRF.Village</td>
+                            <td>@LRF.SubFacility?.SubFacility</td>
+                            <td>@LRF.Facility?.FacilityName</td>
+                            <td>
+                                <a class="btn btn-primary" onclick="LinkVllGroup(@LRF.FacilityId,@LRF.SubFacilityId,@LRF.VillageId, this)" data-toggle="tooltip" data-placement="bottom" title="Add Village"><i class="fa-solid fa-plus"></i>&nbsp;Add</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+}
+
+
+
+
+
+

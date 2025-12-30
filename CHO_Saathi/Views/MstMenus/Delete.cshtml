@@ -1,0 +1,81 @@
+﻿@model CHO_Saathi.Models.MstMenu
+@{
+    ViewData["Title"] = "Delete Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="MenuDeleteSection">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="text-danger">Are you sure you want to delete this?</h3>
+
+            <table class="table table-bordered">
+                <tr><td>Menu</td><td>@Model.Menu</td></tr>
+                <tr><td>Controller</td><td>@Model.Controller</td></tr>
+                <tr><td>Action</td><td>@Model.Action</td></tr>
+                <tr><td>Style Class</td><td>@Model.StyleClass</td></tr>
+            </table>
+
+            <form id="deleteForm">
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="MenuId" value="@Model.MenuId" />
+                <button type="button" class="btn btn-danger float-end" onclick="deleteMenu(@Model.MenuId)">
+                    <i class="fa-solid fa-trash"></i>&nbsp;Delete
+                </button>
+                <a asp-action="Index" class="btn btn-secondary float-end me-2">Back to List</a>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+
+   @*  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> *@
+
+    <script type="text/javascript">
+        function deleteMenu(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you really want to delete this menu?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                            $.ajax({
+            url: '/MstMenus/Delete',   
+            type: 'POST',
+            data: {
+                id: id,
+                __RequestVerificationToken: $('#deleteForm input[name="__RequestVerificationToken"]').val()
+            },
+            success: function (response) {
+                if (response.success) {
+                    window.location.href = '/MstMenus/Index';
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message || 'Something went wrong.'
+                    });
+                }
+            },
+            error: function (xhr) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: xhr.responseText || 'An error occurred while processing your request.'
+                });
+            }
+        });
+
+                }
+            });
+        }
+    </script>
+}

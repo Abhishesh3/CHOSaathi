@@ -1,0 +1,428 @@
+﻿@model UserCommonModel
+@{
+    ViewData["Title"] = "ANMTransferList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    //$(function () {
+    //    $('#ANMArea').DataTable({
+    //        dom: 'lBfrtip',
+    //        buttons: [
+
+    //        ],
+    //        'paging': true,
+    //        'lengthChange': false,
+    //        "scrollX": true,
+    //        'searching': true,
+    //        'ordering': true,
+    //        'info': true,
+    //        'autoWidth': false
+
+    //    })
+    //})
+    //$(function () {
+    //    $('#ANMTransfedList').DataTable({
+    //        dom: 'lBfrtip',
+    //        buttons: [
+
+    //        ],
+    //        'paging': true,
+    //        'lengthChange': false,
+    //        "scrollX": true,
+    //        'searching': true,
+    //        'ordering': true,
+    //        'info': true,
+    //        'autoWidth': false
+
+    //    })
+    //})
+</script>
+<style>
+    .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0px solid #72def6;
+        border-radius: .25rem;
+    }
+
+    .bgButton {
+        background: #bfd600 !important;
+        border-color: #bfd600 !important;
+    }
+
+        .bgButton:hover {
+            background: #b2c607 !important;
+            border-color: #b2c607 !important;
+        }
+
+
+    .bgbagheader {
+        background: #b9f2ff; /* Old browsers */
+    }
+
+    .dataTables_length {
+        margin-left: 10px;
+    }
+
+    .btn-orang {
+        color: #fff;
+        background-color: #f39c12;
+        border-color: #f39c12;
+    }
+
+        .btn-orang:hover {
+            color: #fff;
+            background-color: #fe8936;
+            border-color: #fe8936;
+        }
+
+    button.dt-button, div.dt-button, a.dt-button {
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        margin-right: 0.333em;
+        padding: 0.5em 1em;
+        border: 1px solid #999;
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 0.88em;
+        color: black;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: #e9e9e9;
+        background-image: -webkit-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -moz-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -ms-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -o-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#e9e9e9');
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        text-decoration: none;
+        outline: none;
+    }
+
+    div.dt-buttons {
+        position: relative;
+        float: left;
+        /*padding: 0px;
+        margin: 13px 12px 0px 12px;*/
+    }
+    /*.buttons-html5 {
+        background-color: #4CAF50 !important;*/ /* Green */
+    /*border: none !important;
+        color: white !important;
+        text-align: center !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+        padding: 5px;
+        margin: 2px;
+    }*/
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        function initializeDataTable(tableId) {
+            if ($.fn.DataTable.isDataTable(tableId)) {
+                $(tableId).DataTable().destroy();
+            }
+            $(tableId).DataTable({
+                dom: 'lBfrtip',
+                buttons: [],
+                paging: true,
+                lengthChange: false,
+                scrollX: true,
+                searching: true,
+                ordering: true,
+                info: true,
+                autoWidth: false,
+                pagingType: 'simple', 
+                pageLength: 10
+            });
+        }
+
+        initializeDataTable('#ANMArea');
+        initializeDataTable('#ANMTransfedList');
+    });
+</script>
+
+<section id="AboutSection">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <h4 class="Headingcolorbg">@ViewBag.ANMName</h4>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <div class="pull-right">
+                    <a data-toggle="modal" data-target="#ModalshowVillageList" class="btn btn-primary savebutton">Add Transfer Location</a>
+                    &nbsp;&nbsp;
+                    <a asp-action="Index" class="btn btn-primary backtodetailbutton">Back to List</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <hr />
+            </div>
+        </div>
+        <div id="renderList">
+            @{
+                Html.RenderPartial("_PVANMHISTRYLIST");
+            }
+        </div>
+    </div>
+</section>
+<input type="hidden" id="hdUserID" value="@ViewBag.ANMID" />
+
+
+
+<input type="hidden" id="strhdvillageid" />
+
+<div id="ModalshowVillageList" class="modal fade" tabindex="-1" role="dialog"
+     aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="font-weight:600">ANM</h5>
+                <button type="button" class="close" onclick="ClosePop(@ViewBag.ANMID)" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body p-4">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">State</label><span class="mandatory"> *</span>
+                            <select id="TStateID" class="form-control" asp-items="ViewBag.StateID">
+                                <option value="0">Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">District</label><span class="mandatory"> *</span>
+                            <select id="TDistrictID" class="form-control">
+                                <option value="0">Select</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Block</label><span class="mandatory"> *</span>
+                            <select id="TBlockID" class="form-control">
+                                <option value="0">Select</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Facility Type</label><span class="mandatory"> *</span>
+                            <select id="TFacilityTypeId" class="form-control" asp-items="ViewBag.FaclityTypeID">
+                                <option value="0">Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Facility</label><span class="mandatory"> *</span>
+                            <select id="TFacilityID" class="form-control">
+                                <option value="0">Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Sub Facility</label>
+                            <select id="TSubFacilityID" onchange="getselectedlist('TR');" class="form-control">
+                                <option value="0">Select</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="DVLINKLIST"></div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                    <input onclick="LinkGroup('TR');" class="btn btn-primary" value="Tranfer" />
+                </div>
+            </div>
+        </div>
+
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script>
+     $(document).ready(function ()
+    {
+        $('#TStateID').change(function () {
+                var url = '@Url.Content("~/")' + "ANM/GetDistrict";
+                var ddlsource = "#TStateID";
+                $.getJSON(url, { stateid: $(ddlsource).val() }, function (data) {
+                    var districtitems = "<option value='0'>All</option>";
+                    $("#TDistrictID").empty();
+                    $("#TBlockID").html("<option value='0'>All</option>")
+                    $.each(data, function (i, district) {
+                        districtitems += "<option value='" + district.districtID + "'>" + district.district + "</option>";
+                    });
+                    $('#TDistrictID').html(districtitems);
+                });
+    });
+
+        $('#TDistrictID').change(function () {
+        var url = '@Url.Content("~/")' + "ANM/GetBlock";
+                var ddlsource = "#TDistrictID";
+                $.getJSON(url, { districtId: $(ddlsource).val() }, function (data) {
+                    var blockitems = "<option value='0'>All</option>";
+                    $("#TBlockID").empty();
+                    $.each(data, function (i, block) {
+                        blockitems += "<option value='" + block.blockID + "'>" + block.blockName + "</option>";
+                    });
+                    $('#TBlockID').html(blockitems);
+                });
+     });
+
+        $('#TFacilityTypeId').change(function () {
+            var url = '@Url.Content("~/")' + "ANM/GetFacility";
+            var ddlsource = "#TBlockID";
+            var ddlfacilitytypeid = "#TFacilityTypeId";
+            $.getJSON(url, { blockId: $(ddlsource).val(), FacilityTypeId : $(ddlfacilitytypeid).val() }, function (data) {
+                    var Facilityitems = "<option value='0'>Select</option>";
+                    $("#TFacilityID").empty();
+                  $.each(data, function (i, Facility) {
+                      Facilityitems += "<option value='" + Facility.facilityID + "'>" + Facility.facilityName + "</option>";
+                    });
+                  $('#TFacilityID').html(Facilityitems);
+                });
+        });
+
+        $('#TFacilityID').change(function () {
+        var url = '@Url.Content("~/")' + "ANM/GetSubFacility";
+        var ddlsource = "#TFacilityID";
+        $.getJSON(url, { faclitityId: $(ddlsource).val() }, function (data) {
+                    var SubFacilityitems = "<option value='0'>All</option>";
+                     $("#TSubFacilityID").empty();
+                  $.each(data, function (i, SubFacility) {
+                      SubFacilityitems += "<option value='" + SubFacility.subFacilityID + "'>" + SubFacility.subFacility + "</option>";
+                    });
+            $('#TSubFacilityID').html(SubFacilityitems);
+                });
+    });
+
+     });
+
+    function LinkGroup()
+    {
+        
+
+        var P_formdata = [];
+
+        //------------------------------------------------------------//
+        var checkboxes = document.getElementsByName('Check_ctr1');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].type == 'checkbox') {
+                if (checkboxes[i].name == 'Check_ctr1') {
+                    if (checkboxes[i].checked == true) {
+                        P_formdata.push({
+                            PVillageID: checkboxes[i].value
+                        });
+                    }
+                }
+            }
+        }
+        //------------------------------------------------------------//
+
+        P_formdata = JSON.stringify(P_formdata);
+
+        var p = { "ANMID": $('#hdUserID').val(), "facilityid": $('#TFacilityID').val(), "SubFacilityID": $('#TSubFacilityID').val(), "VillageId": P_formdata };
+
+          $.ajax({
+              url: "@Url.Action("LinkMember", "ANM")", //Your path should be here
+            type: "POST",
+            data: p,
+            success: function (result) {
+
+                $('#ModalshowVillageList').modal('toggle');
+                $('#renderList').html(result);
+                //var url = '@Url.Content("~/")' + "ANM/ANMTransferList";
+                //    window.location.href = url;  
+                var anmid = $('#hdUserID').val();
+                var url = '@Url.Content("~/")' + "ANM/ANMTransferList/" + anmid + "";
+                window.location.href = url;
+            },
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
+            }
+            });
+
+    }
+
+      function checkAll(ele) {
+        var checkboxes = document.getElementsByTagName('input');
+        if (ele.checked) {
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].type == 'checkbox') {
+                    checkboxes[i].checked = true;
+                }
+            }
+        } else {
+            for (var i = 0; i < checkboxes.length; i++) {
+                console.log(i)
+                if (checkboxes[i].type == 'checkbox') {
+                    checkboxes[i].checked = false;
+                }
+            }
+        }
+    }
+
+      function getselectedlist(flag) {
+          var p = { "ANMID": $('#hdUserID').val(), "Flag": flag, "SubFacilityID": $('#TSubFacilityID').val() };
+        $.ajax({
+                    url: "@Url.Action("getvillage", "ANM")", //Your path should be here
+                    type: "POST",
+                    data: p,
+                    success: function (result) {
+
+
+                        /*fillsubfacility(ANMID);*/
+                        $('#DVLINKLIST').html(result);
+
+
+
+                    },
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                    }
+                });
+    }
+
+    function ClosePop(ANMID) {
+
+        $('#ModalshowVillageList').modal('toggle');
+        var url = '@Url.Content("~/")' + "ANM/ANMTransferList/" + anmid + "";
+        window.location.href = url;
+    }
+    
+
+
+</script>

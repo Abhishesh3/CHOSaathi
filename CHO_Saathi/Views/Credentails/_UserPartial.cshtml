@@ -1,0 +1,176 @@
+﻿@model IEnumerable<CHO_Saathi.Models.User>
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Manage User";
+}
+
+<style>
+    .inline-pager {
+        display: inline-flex;
+    }
+
+        .inline-pager .disabled {
+            background-color: #efefef;
+            cursor: not-allowed;
+            color: #777777;
+            outline: 0;
+        }
+
+        .inline-pager .active {
+            background-color: #0275d8;
+            border-color: #0275d8;
+            color: #ffffff;
+        }
+
+        .inline-pager button {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            box-sizing: content-box;
+            line-height: 1.8em;
+            padding: 0.25em;
+            cursor: pointer;
+            min-width: 2em;
+        }
+
+        .inline-pager .page-size-select {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            box-sizing: content-box;
+            line-height: 1.8em;
+            margin: 0 0.5em;
+            min-width: 2em;
+        }
+
+    .grid-filter {
+        background-color: rgba(0, 0, 0, 0.03);
+        transition: background-color 0.5s;
+        font-family: 'GridGlyphs';
+        position: absolute;
+        font-weight: bold;
+        width: 2.75em;
+        border: none;
+        height: 100%;
+        right: 0;
+        top: 0;
+    }
+</style>
+
+
+    
+    <table id="UserTables" class="table table-striped table-bordered cell-border " style="width:100%;" overflow="auto">
+            <thead>
+                <tr>
+                    <th>
+                        S.No.
+                    </th>
+                    <th>
+                        @Html.DisplayName("Username")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Email")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Role")
+                    </th>                   
+                    <th>
+                        @Html.DisplayName("Status")
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int a = (Convert.ToInt32(TempData["PageIndex"]) * Convert.ToInt32(TempData["PageSize"])) - (Convert.ToInt32(TempData["PageSize"]) - 1);
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@a</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Username)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmailId)
+                            </td>
+                            <td>
+                               @Html.DisplayFor(modelItem => item.Role.Role1)
+                            </td>
+                            <td>
+                                @if (item.IsActive == true)
+                                {
+
+                                    @Html.Raw("<span style='color:green'><b>Active</b></span>")
+                                }
+                                else
+                                {
+                                    @Html.Raw("<span style='color:red'><b>InActive</b></span>")
+                                }
+                            </td>
+                            <td>
+
+                        <a asp-action="Edit" asp-route-id="@item.UserId" class="text-primary edicon" title="Change Password" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-key" aria-hidden="true"></i></a>
+
+                            </td>
+
+
+                        </tr>
+                        a += 1;
+                    }
+                }
+            </tbody>
+        </table>
+   
+    <div class="text-right mt-2">
+        <div class="inline-pager">
+            @if (TempData["PageIndex"].ToString() == "1")
+            {
+                <button type="button" class="disabled">«</button>
+                <button type="button" class="disabled">‹</button>
+                <button type="button" class="active">1</button>
+                @if (Convert.ToInt32(TempData["MaxPageIndex"]) <= 1)
+                {
+                    <button type="button" class="disabled">›</button>
+                    <button type="button" class="disabled">»</button>
+                }
+                else
+                {
+                    <button type="button" onclick="getServerdt(2)">›</button>
+                    <button type="button" onclick="getServerdt(@TempData["MaxPageIndex"])">»</button>
+                }
+            }
+            else
+            {
+                int pageIndexTopBack = 1;
+                int pageIndexBack = (Convert.ToInt32(TempData["PageIndex"]) - 1);
+                int pageIndexTopNext = Convert.ToInt32(TempData["MaxPageIndex"]);
+                int pageIndexNext = (Convert.ToInt32(TempData["PageIndex"]) + 1);
+
+                <button type="button" onclick="getServerdt(@pageIndexTopBack)">«</button>
+                <button type="button" onclick="getServerdt(@pageIndexBack)">‹</button>
+                <button type="button" class="active">@TempData["PageIndex"]</button>
+                @if (Convert.ToInt32(TempData["MaxPageIndex"]) <= 1 || Convert.ToInt32(TempData["MaxPageIndex"]) == Convert.ToInt32(TempData["PageIndex"]))
+                {
+                    <button type="button" class="disabled">›</button>
+                    <button type="button" class="disabled">»</button>
+                }
+                else
+                {
+                    <button type="button" onclick="getServerdt(@pageIndexNext)">›</button>
+                    <button type="button" onclick="getServerdt(@TempData["MaxPageIndex"])">»</button>
+                }
+            }
+            <select class="page-size-select" id="pageSize" onchange="getServerdt(1)">
+                <option value="10">10</option>
+                <option value="30">30</option>
+            </select>
+        </div>
+    </div>
+
+

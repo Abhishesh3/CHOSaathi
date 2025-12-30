@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<CHO_Saathi.Models.MstMenu>
+
+
+<ul class="navbar-nav me-auto">
+    @foreach (var MenuHeader in Model.Where(s => s.MenuParentId == 0))
+    {
+        @if (Model.Count(p => p.MenuParentId == MenuHeader.MenuId) > 0)
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="@MenuHeader.StyleClass me-1"></i>&nbsp;@MenuHeader.Menu
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach (var Menu in Model.Where(s => s.MenuParentId == MenuHeader.MenuId))
+                    {
+                        <li><a asp-controller="@Menu.Controller" onclick="SetMenuId('@Menu.MenuId')" asp-action="@Menu.Action" class="dropdown-item"><i class="far fa-arrow-alt-circle-right"></i>&nbsp;@Menu.Menu</a></li>
+                    }
+                </ul>
+            </li>          
+        }
+        else
+        {
+            <li class="nav-item">
+                <a asp-controller="@MenuHeader.Controller" onclick="SetMenuId('@MenuHeader.MenuId')" asp-action="@MenuHeader.Action" class="nav-link"><i class="@MenuHeader.StyleClass me-1"></i> @MenuHeader.Menu</a>
+            </li>
+        }
+    }
+</ul>
+
+<script type="text/javascript">
+    function SetMenuId(MenuID) {
+        var p = { "MenuId": MenuID };
+        $.ajax({
+            url: '@Url.Content("/")' + "Dashboard/SetMenuId", //Your path should be here
+            type: "POST",
+            data: p,
+            async: false,
+            success: function (result) {
+                //$('#MenuDV').html(result);
+            },
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
+            }
+        });
+    }
+</script>
+
+

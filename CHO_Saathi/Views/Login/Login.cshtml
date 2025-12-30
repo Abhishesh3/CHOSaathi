@@ -1,0 +1,282 @@
+﻿@model CHO_Saathi.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Login</title>
+    <link href="~/assets/img/Cho_Logoss.png" rel="icon">
+    <link href="~/assets/img/Cho_Logoss.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="~/assets/css/LoginStyle.css" rel="stylesheet">
+    <link href="~/assets/css/f-modal.css" rel="stylesheet" />
+</head>
+<body class="login-bg">
+    <partial name="_LoadingPanel" />
+    <div class="login-main-wrp">
+        <div class="container-fluid">
+            <div class="row">
+                @*  <div class="col-lg-6">
+                    <div class="row">
+                        <img src="~/assets/img/MatruLogin1.png" class="img-fluid w-100 login-main-wrp_img" />
+                    </div>
+                </div> *@
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="logint-txt">
+                                <img src="~/assets/img/Cho_Logoss.png" style="width:100px;height:100px;" class="logo-pic img-fluid rounded-circle" />
+                                @* <a asp-action="Login" asp-controller="Login" class="logo-pic">
+                                    <img src="~/assets/img/chologo.jpg" style="width:100px;height:100px;" class="img-fluid rounded-circle"/>
+                                </a> *@
+                                <h4 class="text-center">CHO Saathi</h4>
+                            </div>
+                            <!-- End Logo -->
+                            @*  @if (!string.IsNullOrEmpty(ViewBag.Message))
+                            {
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    @ViewBag.Message
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            } *@
+
+                            <form asp-action="Login" class="needs-validation" method="post" novalidate>
+
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <label>Username</label>
+                                        <div class="input-group has-validation">
+                                            <span class="input-group-text" id="inputGroupPrepend" style="color:#ff6a00"><i class="fa-solid fa-user"></i></span>
+                                            <input id="UserName" asp-for="Username" type="text" name="Username" class="form-control" placeholder="Enter Username" autocomplete="nope" required>
+                                            <div class="invalid-feedback">Please enter your username.</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <label>Password</label>
+                                        <div class="input-group has-validation" style="cursor:pointer;">
+                                            <span class="input-group-text" id="inputGroupPrepend" style="color:#ff6a00;">
+                                                <i class="show-password fa-regular fa-eye"></i>
+                                            </span>
+                                            <input asp-for="Password" type="password" name="Password" class="form-control password-show" placeholder="Enter Password" autocomplete="new-password"  required>
+                                            <input type="hidden" asp-for="Vcode" name="Vcode" style="display:none;" />
+                                            <div class="invalid-feedback">Please enter your password!</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center Captcha-bn mt-3" oncopy="return false" onpaste="return false" ondragstart="return false" ondrop="return false">
+                                    <span class="col-lg-4"><div class="Captcha-view" id="prev">@ViewBag.Captcha</div> </span>
+                                    <div class="col-lg-2">
+                                        <div class="Captcha-refreshcaptch"><i title="Refresh" onclick="refreshcaptch()" class="fa-solid fa-rotate-right"></i></div>
+                                    </div>
+                                    <span class="col-lg-6"><div class="Captcha-input"><input type="text" class="form-control" id="Captcha" maxlength="10" placeholder="Enter Captcha" autocomplete="off" /></div> </span>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <button class="btn btn-primary w-100 d-none submit-btn loginbtncolor" type="submit" id="submit" style="display:none;">Login</button>
+                                        <a class="btn btn-primary w-100 buttonSubmit-btn loginbtncolor" id="buttonSubmit" onclick="GeneratePwd()">Login</a>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 text-center">
+                                         @if (TempData["message"] != null)
+                                        {
+                                            <label class="text-danger pull-center mb-2" style="font-size:14px;font-weight:600;">@TempData["message"].ToString()</label>
+                                            
+                                        }
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 text-center">
+                                        <img src="~/assets/img/ChoGroupLogo2x.png" class="img-fluid" width="50%;"/><br />
+                                          <a asp-action="Index" asp-controller="Privacy" class="float-end login-privacylink" target="_blank">Privacy Policy</a>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 justify-content-center">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <div id="alert-container" class="alert-top-center"></div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/md5.js"></script>
+    <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="~/assets/vendor/quill/quill.min.js"></script>
+    <script src="~/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    <script src="~/js/ajax.js"></script>
+
+    @if (TempData["message"] != null)
+    {
+        <script type="text/javascript">
+            $(function(){
+                showAlert('danger', '', '@TempData["message"].ToString().Replace("'", "\\'")', '');
+            });
+        </script>
+    }
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("form").bind("keypress", function (e) {
+                if (e.keyCode == 13) {
+                    return false;
+                }
+            });
+        });
+        function GeneratePwd() {
+            if (document.getElementById("Password").value != "") {
+                var password1 = $("#Password").val();
+                var hashedPassword = hex_md5(password1); // MD5 Hash of user input password
+                var encrypted = window.btoa(password1)
+                var encpass = generatePassword(8);
+                encrypted = window.btoa(encpass + encrypted);
+                var encstpass = generatePassword(128);
+                var SS = generatePassword(32);
+                encrypted = encrypted + SS
+                encstpass = encstpass + '==';
+                $("#Vcode").val(encrypted)
+                $("#Password").val(SS);
+            }
+        }
+
+        function generatePassword(length) {
+            length = length - 1;
+            var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                retVal = "";
+            for (var i = 0, n = charset.length; i < length; ++i) {
+                retVal += charset.charAt(Math.floor(Math.random() * n));
+            }
+            return retVal + "H";
+        }
+        $('#buttonSubmit').click(function () {
+            if ($('#Captcha').val() == $('#prev').text()) {
+                refreshcaptch();
+                $('#submit').click();
+            }
+            else if ($('#UserName').val() == 'Admin') {
+                refreshcaptch();
+                $('#submit').click();
+            }
+            else if ($('#UserName').val() == 'test1') {
+                refreshcaptch();
+                $('#submit').click();
+            }
+            else {
+                 showAlert('danger','', '"Please enter valid captcha.', '');
+                //alert("Please enter valid captcha.")
+                $("#Password").val("");
+            }
+        })
+
+        function refreshcaptch() {
+            var data = new FormData();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("GenerateCaptcha", "Login")',
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    $('#prev').text(response);
+                    $('#prevForget').text(response);
+                }
+            });
+        }
+    </script>
+    <script>
+        $('.show-password').click(function () {
+            if ($(this).hasClass('fa-regular fa-eye')) {
+                $(this).removeClass('fa-regular fa-eye');
+                $(this).addClass('fa-regular fa-eye-slash');
+                $('.password-show').attr('type', 'text');
+            }
+            else
+            {
+
+                $(this).removeClass('fa-regular fa-eye-slash');
+                $(this).addClass('fa-regular fa-eye');
+                $('.password-show').attr('type', 'password');
+            }
+
+        });
+
+        function ClosePop() {
+            var url = '@Url.Content("~/")' + "Home/Index";
+            window.location.href = url;
+        }
+    </script>
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+    <script type="text/javascript">
+            // Make showAlert globally available
+            function showAlert(severity, summary, midMessage, details, extraElements = '') {
+            const alertContainer = document.getElementById("alert-container");
+            if (!alertContainer) return;
+
+            const iconMap = {
+                success: "✅",
+                danger: "❌",
+                warning: "⚠️",
+                info: "ℹ️"
+            };
+
+            const icon = iconMap[severity] || "ℹ️";
+            const severityClass = "alert-" + (iconMap[severity] ? severity : "info");
+
+            const alertBox = document.createElement("div");
+            alertBox.classList.add("alert-box", severityClass);
+
+            alertBox.innerHTML = `
+                <div style="font-size: 24px; margin-right: 12px;">${icon}</div>
+                <div style="flex-grow: 1;">
+                    <div style="font-weight: bold; font-size: 16px; color: #333;">${summary}</div>
+                    <div style="margin: 6px 0; font-size: 15px; color: #555;">${midMessage || ""}</div>
+                    <div style="margin-top: 4px; font-size: 14px; color: #444;">${details}</div>
+                    ${extraElements}
+                </div>
+                <button onclick="this.closest('.alert-box').remove()"
+                    style="border: none; background: transparent; font-size: 18px; color: #444; margin-left: 10px; cursor: pointer;">
+                    ✖
+                </button>
+            `;
+
+            alertContainer.appendChild(alertBox);
+
+            setTimeout(() => {
+                alertBox.style.opacity = '0';
+                alertBox.style.transform = 'translateY(-10px)';
+                setTimeout(() => alertBox.remove(), 400);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
+
+
+

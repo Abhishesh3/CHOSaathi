@@ -1,0 +1,259 @@
+﻿@model CHO_Saathi.Models.LocationSubFacility
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Add Sub Facility";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <!-- ADD TOP & LEFT MARGIN -->
+    <section id="AboutSection" class="mt-4 ms-4">
+
+        <div class="container-fluid">
+
+            <!-- HEADER ROW -->
+            <div class="row">
+                <div class="col-xl-3 col-lg-3">
+                    <h4 class="Headingcolorbg">Add Sub Facility</h4>
+                </div>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="alert alert-danger p-2" style="font-size:14px" role="alert">
+                        NOTE : Fields marked with (*) are compulsory fields
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 text-end">
+                    @* <a asp-action="Index" class="btn btn-primary backtodetailbutton">Back to List</a> *@
+                    <a asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-angles-left"></i>&nbsp;Back to List</a>
+                </div>
+            </div>
+
+            <!-- SEPARATOR -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <hr />
+                </div>
+            </div>
+
+            <!-- FORM ROW 1 -->
+            <div class="row">
+
+                <!-- STATE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">State</label><span class="mandatory"> *</span>
+                        <select id="StateID" asp-for="StateId" asp-items="ViewBag.StateID" class="form-control">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- DISTRICT -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">District</label><span class="mandatory"> *</span>
+                        <select asp-for="DistrictId" id="DistrictID" class="form-control" asp-items="ViewBag.DistrictID">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- BLOCK -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Block</label><span class="mandatory"> *</span>
+                        <select asp-for="BlockId" id="BlockID" class="form-control" asp-items="ViewBag.BlockID">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FORM ROW 2 -->
+            <div class="row mt-2">
+
+                <!-- FACILITY TYPE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Facility Type</label><span class="mandatory"> *</span>
+                        <select asp-for="FacilityTypeId" id="FacilityTypeID" class="form-control" asp-items="ViewBag.FacilityTypeID">
+                            <option value="">Select</option>
+                        </select>
+                        <span asp-validation-for="FacilityTypeId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- FACILITY -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Facility</label><span class="mandatory"> *</span>
+                        <select asp-for="FacilityId" id="FacilityID" class="form-control" asp-items="ViewBag.FacilityID">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SUB FACILITY NAME -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Sub Facility</label><span class="mandatory"> *</span>
+                        <input asp-for="SubFacility" maxlength="50" class="form-control" id="SBFid" />
+                        <span asp-validation-for="SubFacility" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FORM ROW 3 -->
+            <div class="row mt-2">
+
+                <!-- SUB FACILITY CODE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Sub Facility Code</label><span class="mandatory"> *</span>
+                        <input asp-for="SubFacilityCode" maxlength="5" class="form-control" id="SBFCode" />
+                        <span asp-validation-for="SubFacilityCode" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- EMPTY COLUMNS TO MATCH DESIGN -->
+                <div class="col-xl-4 col-lg-4"></div>
+                <div class="col-xl-4 col-lg-4"></div>
+
+            </div>
+
+            <!-- SAVE BUTTON -->
+            <div class="row mt-3">
+                <div class="col-xl-12 text-end">
+                    @* <input type="submit" value="Save" class="btn btn-success savebutton" /> *@
+                    <button type="submit" class="btn btn-success float-end"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Save</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</form>
+
+@if (TempData["message"] != null)
+{
+    <script>
+        //alert('@TempData["message"]');
+        $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> @TempData["message"]", {
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            offset: { from: 'top', amount: 155 }, // 'top', or 'bottom'
+            allow_dismiss: true,
+            delay: 3000
+        });
+    </script>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function ()
+    {
+         $('#StateID').change(function () {
+            var url = '@Url.Content("~/")' + "LocationSubFacilities/GetDistrict";
+            var ddlsource = "#StateID";
+            $.getJSON(url, { stateid: $(ddlsource).val() }, function (data) {
+                var districtitems = "<option value='0'>Select</option>";
+                $("#DistrictID").empty();
+                $.each(data, function (i, district) {
+                    districtitems += "<option value='" + district.districtId + "'>" + district.district + "</option>";
+                });
+                $('#DistrictID').html(districtitems);
+         });
+
+
+    });
+
+    $('#DistrictID').change(function () {
+        var districtId = $(this).val(); // get selected value
+        var url = '@Url.Action("GetBlock", "LocationSubFacilities")';
+
+        if (!districtId) {
+            $('#BlockID').html("<option value='0'>Select</option>");
+            return;
+        }
+
+        $.getJSON(url, { districtId: districtId }, function (data) {
+            var blockItems = "<option value='0'>Select</option>";
+            $.each(data, function (i, block) {
+                blockItems += "<option value='" + block.blockId + "'>" + block.blockName + "</option>";
+            });
+            $('#BlockID').html(blockItems);
+        });
+    });
+
+
+
+    $('#BlockID').change(function () {
+        debugger;
+        var url = '@Url.Content("~/")' + "LocationSubFacilities/GetFacility";
+        var ddlsource = "#BlockID";
+        $.getJSON(url, { blockId: $(ddlsource).val() }, function (data) {
+                    var Facilityitems = "<option value='0'>Select</option>";
+                    $("#FacilityID").empty();
+                  $.each(data, function (i, Facility) {
+                      Facilityitems += "<option value='" + Facility.facilityID + "'>" + Facility.facilityName + "</option>";
+                    });
+                  $('#FacilityID').html(Facilityitems);
+                });
+            });
+
+
+
+        //$('#SBFid').bind('keyup blur', function () {
+        //    $(this).val($(this).val().replace(/[^A-Za-z]/g, ''));
+        //}
+        //);
+
+        $('#SBFid').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z ]+$");
+            var strigChar = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(strigChar)) {
+                return true;
+            }
+            return false
+        });
+
+        $('#SBFCode').on('keypress', function (event) {
+            var regex = new RegExp("^[0-9]*$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var dropdown = document.getElementById("BlockID");
+        var SBFid = document.getElementById("SBFid");
+        var SBFCode = document.getElementById("SBFCode");
+        SBFid.readOnly = true;
+        SBFCode.readOnly = true;
+
+        dropdown.addEventListener("change", function () {
+            if (dropdown.value === "0") {
+                SBFid.readOnly = true;
+                SBFCode.readOnly = true;
+            } else {
+                SBFid.readOnly = false;
+                SBFCode.readOnly = false;
+            }
+        });
+    });
+
+
+</script>

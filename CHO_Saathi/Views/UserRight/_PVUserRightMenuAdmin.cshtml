@@ -1,0 +1,168 @@
+﻿@model IEnumerable<CHO_Saathi.Models.RoleMenu>
+
+<hr>
+@*<ul id="myUL">*@
+<table id="tblUserRight" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>Menu</th>
+            <th>Display</th>
+            <th>Add</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th style="text-align: end;display:none">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int a = 1;
+            @foreach (var menuHeader in Model.Where(m => m.Menu.IsDeleted == false && m.Menu.MenuType == 1).OrderBy(p => p.Menu.MenuSequence))
+            {
+                <tr>
+                <td>@a</td>
+                    <td style="width:27%;">
+                        @if (@menuHeader.Menu.MenuParentId == 0)
+                        {
+                            <b> @menuHeader.Menu.Menu</b>
+                        }
+                        else
+                        {
+                            @menuHeader.Menu.Menu
+                        }
+                    </td>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="label-switch switch-primary">
+                                    <input id="DS_@menuHeader.MenuId" type="checkbox" checked="@menuHeader.Display" class="switch-square switch-bootstrap status">
+                                    <span class="lable"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="label-switch switch-primary">
+                                    <input id="AD_@menuHeader.MenuId" type="checkbox" checked="@menuHeader.AddNew" class="switch-square switch-bootstrap status">
+                                    <span class="lable"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="label-switch switch-primary">
+                                    <input id="ED_@menuHeader.MenuId" type="checkbox" checked="@menuHeader.Edit" class="switch-square switch-bootstrap status">
+                                    <span class="lable"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="label-switch switch-primary">
+                                    @if (menuHeader.IsDeleted == 1)
+                                    {
+                                        <input id="DL_@menuHeader.MenuId" type="checkbox" checked class="switch-square switch-bootstrap status">
+                                    }
+                                    else
+                                    {
+                                        <input id="DL_@menuHeader.MenuId" type="checkbox" class="switch-square switch-bootstrap status">
+                                    }
+                                    <span class="lable"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="text-align: end;display:none">
+                        <a class="btn btn-primary" onclick="SaveUserRights('DS_@menuHeader.MenuId','AD_@menuHeader.MenuId','ED_@menuHeader.MenuId','DL_@menuHeader.MenuId',@menuHeader.RoleMenuId,@menuHeader.Menu.MenuParentId,@menuHeader.RoleId);" style="cursor:pointer;color:white">Save</a>
+                    </td>
+                    <td style="display:none">
+                        <input type="hidden" class="roleMenuId" value="@menuHeader.RoleMenuId" />
+                        <input type="hidden" class="parentId" value="@menuHeader.Menu.MenuParentId" />
+                        <input type="hidden" class="roleId" value="@menuHeader.RoleId" />
+                    </td>
+                </tr>
+                a += 1;
+            }
+        }
+    </tbody>
+</table>
+@*</ul>*@
+
+
+<script src="~/js/jquery.bootstrap-growl.js"></script>
+<script type="text/javascript">
+    function SaveUserRights(DS, AD, ED, DL, RoleMenuId, MenuParentid, roleid) {
+        debugger;
+        var DSP = false;
+        if ($('#' + DS + '').prop('checked') == true)
+            DSP = true;
+
+        var ADP = false;
+        if ($('#' + AD + '').prop('checked') == true)
+            ADP = true;
+
+        var EDP = false;
+        if ($('#' + ED + '').prop('checked') == true)
+            EDP = true;
+
+        var DLP = 1;
+        if ($('#' + DL + '').prop('checked') == true)
+            DLP = 0;
+
+
+        var p = { "DSN": DSP, "ADN": ADP, "EDN": EDP, "DLN": DLP, "RoleMenuIdN": RoleMenuId, "MenuParentid": MenuParentid, "roleid": roleid, "Flag": "Admin" };
+        $.ajax({
+            url: '@Url.Content("/")' + "UserRight/SaveUserRights", //Your path should be here
+            type: "POST",
+            data: p,
+            async: false,
+            success: function (result) {
+                $("#DVRenderMenuList").html('');
+                $("#DVRenderMenuList").html(result);
+                // $.bootstrapGrowl("<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> UPDATE SUCCESSFULLY.", {
+                //     type: 'info',
+                //     align: 'center',
+                //     width: 'auto',
+                //     allow_dismiss: true,
+                //     delay: 10000
+                // });
+                alert("Updated Succesfully");
+                var url = '@Url.Content("~/")' + "UserRight/AssignRightsToRole";
+                window.location.href = url;
+            },
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
+            }
+        });
+    }
+    // function SaveAllUserRights() {
+    //     $('#tblUserRight tbody tr').each(function () {
+    //         var MenuId = $(this).find('[id^=DS_]').attr('id').split('_')[1];
+    //         var display = $(this).find('[id^=DS_]').prop('checked');
+    //         var add = $(this).find('[id^=AD_]').prop('checked');
+    //         var edit = $(this).find('[id^=ED_]').prop('checked');
+    //         var del = $(this).find('[id^=DL_]').prop('checked');
+
+    //         // Find hidden fields within the current row
+    //         var roleMenuId = $(this).find(".roleMenuId").val();
+    //         var parentId = $(this).find(".parentId").val();
+    //         var roleId = $(this).find(".roleId").val();
+
+    //         SaveUserRights('DS_' + MenuId, 'AD_' + MenuId, 'ED_' + MenuId, 'DL_' + MenuId, roleMenuId, parentId, roleId);
+    //     });
+    // }
+
+
+
+
+
+
+
+</script>

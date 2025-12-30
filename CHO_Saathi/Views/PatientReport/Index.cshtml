@@ -1,0 +1,265 @@
+﻿@model IEnumerable<CHO_Saathi.ViewComponents.PatientViewModel>
+
+@{
+    ViewData["Title"] = "Patient List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="row mt-2">
+
+                        <div class="container mt-3">
+                            <div class="row">
+                                <!-- State Dropdown -->
+                                <div class="col-md-2">
+                                    <label for="StateID" class="form-label"><b>State</b></label>
+                                    <select class="form-control form-select" id="StateID" onchange="getPatientReport(1)">
+                                        <option value="0">All</option>
+                                        @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.State)
+                                        {
+                                            <option value="@d.Value">@d.Text</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <!-- District Dropdown -->
+                                <div class="col-md-2">
+                                    <label for="DistrictID" class="form-label"><b>District</b></label>
+                                    <select class="form-control form-select" id="DistrictID" onchange="getPatientReport(1)">
+                                        <option value="0">All</option>
+                                    </select>
+                                </div>
+
+                                <!-- Block Dropdown -->
+                                <div class="col-md-2">
+                                    <label for="BlockID" class="form-label"><b>Block</b></label>
+                                    <select class="form-control form-select" id="BlockID" onchange="getPatientReport(1)">
+                                        <option value="0">All</option>
+                                    </select>
+                                </div>
+
+                                <!-- Facility Dropdown -->
+                                <div class="col-md-2">
+                                    <label for="FacilityID" class="form-label"><b>Facility</b></label>
+                                    <select class="form-control form-select" id="FacilityID" onchange="getPatientReport(1)">
+                                        <option value="0">All</option>
+                                    </select>
+                                </div>
+
+                                <!-- Sub-Facility Dropdown -->
+                                <div class="col-md-2">
+                                    <label for="SubFacilityID" class="form-label"><b>SubFacility</b></label>
+                                    <select class="form-control form-select" id="SubFacilityID" onchange="getPatientReport(1)">
+                                        <option value="0">All</option>
+                                    </select>
+                                </div>
+
+                                <!-- Symptoms Dropdown -->
+                                <div class="col-md-2">
+                                    <label for="SymptomsID" class="form-label"><b>Symptoms</b></label>
+                                    <select class="form-control form-select" id="SymptomsID" onchange="getPatientReport(1)">
+                                        <option value="0">All</option>
+                                        @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.Symptoms)
+                                        {
+                                            <option value="@d.Value">@d.Text</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                
+                               
+                            </div>
+                        </div>
+
+                        <div class="col-xl-12">
+                            <hr />
+                        </div>
+
+                        <div class="col-md-12 ms-auto">
+                            <div class="d-flex justify-content-between gap-3">
+                                <!-- Export to Excel Button -->
+                                <button type="button" class="btn btn-success" onclick="ExportExcelZIP()"><i class="fa-solid fa-file-excel"></i>&nbsp;Export</button>
+                            </div>
+                        </div>
+
+                        <div class="overflow-auto"
+                             style="max-width: 100%; height: 400px; overflow-x: auto; overflow-y: auto; margin-right: 15px;">
+                            <div id="renderData"></div>
+
+                            <br />
+
+                            <input type="hidden" id="saveSizePage" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-info">@TempData["message"]</div>
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        getDistrictByState();
+        getBlocksByDistrict();
+        getFacilityByBlock();
+        getSubfacilityByFacility();
+        getPatientReport(1);
+    });
+
+    function getDistrictByState(){
+        $('#StateID').change(function () {
+            var stateId = $(this).val();
+            if (stateId != "0") {
+                $.ajax({
+                    url: '@Url.Action("GetDistricts", "PatientReport")',
+                    type: 'GET',
+                    data: { stateId: stateId },
+                    success: function (data) {
+                        var $district = $('#DistrictID');
+                        $district.empty();
+                        $district.append('<option value="0">Select District</option>');
+                        $.each(data, function (i, district) {
+                            $district.append('<option value="' + district.districtId + '">' + district.district + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#DistrictID').html('<option value="0">Select district</option>');
+            }
+        });
+    }
+
+    function getBlocksByDistrict(){
+        $('#DistrictID').change(function () {
+            var districtId = $(this).val();
+            if (districtId != "0") {
+                $.ajax({
+                    url: '@Url.Action("GetBlocks", "PatientReport")',
+                    type: 'GET',
+                    data: { districtId: districtId },
+                    success: function (data) {
+                        var $block = $('#BlockID');
+                        $block.empty();
+                        $block.append('<option value="0">Select Block</option>');
+                        $.each(data, function (i, block) {
+                            $block.append('<option value="' + block.blockId + '">' + block.blockName + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#BlockID').html('<option value="0">Select Block</option>');
+            }
+        });
+    }
+
+    function getFacilityByBlock(){
+        $('#BlockID').change(function () {
+            var blockId = $(this).val();
+            if (blockId != "0") {
+                $.ajax({
+                    url: '@Url.Action("GetFacility", "PatientReport")',
+                    type: 'GET',
+                    data: { blockId: blockId },
+                    success: function (data) {
+                        var $facility = $('#FacilityID');
+                        $facility.empty();
+                        $facility.append('<option value="0">Select Facility</option>');
+                        $.each(data, function (i, facility) {
+                            $facility.append('<option value="' + facility.facilityId + '">' + facility.facilityName + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#FacilityID').html('<option value="0">Select Facility</option>');
+            }
+        });
+    }
+
+    function getSubfacilityByFacility(){
+        $('#FacilityID').change(function () {
+            var facilityId = $(this).val();
+            if (facilityId != "0") {
+                $.ajax({
+                    url: '@Url.Action("GetSubfacility", "PatientReport")',
+                    type: 'GET',
+                    data: { facilityId: facilityId },
+                    success: function (data) {
+                        var $subFacility = $('#SubFacilityID');
+                        $subFacility.empty();
+                        $subFacility.append('<option value="0">Select Sub Facility</option>');
+                        $.each(data, function (i, subFacility) {
+                            $subFacility.append('<option value="' + subFacility.subFacilityId + '">' + subFacility.subFacility + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#SubFacilityID').html('<option value="0">Select Sub Facility</option>');
+            }
+        });
+    }
+
+    function getPatientReport(pageNumber){
+       debugger;
+       var pageSize = $('#pageSize').val()|| 10;
+        pageSize = parseInt(pageSize, 10);
+        $('#saveSizePage').val(pageSize);
+
+        var StateID = $('#StateID').val();
+        var DistrictID = $('#DistrictID').val();
+        var BlockID = $('#BlockID').val();
+        var FacilityID = $('#FacilityID').val();
+        var SubFacilityID = $('#SubFacilityID').val();
+        var SymptomsID = $('#SymptomsID').val();
+        var baseUrl = '@Url.Content("~/")';
+
+        $.ajax({
+            url: baseUrl + 'PatientReport/getPatientReport',
+            type: 'POST',
+            data: { pageIndex: pageNumber, pageSize: pageSize,StateId: StateID, DistrictId: DistrictID, BlockId: BlockID, FacilityId: FacilityID, SubfacilityId: SubFacilityID, SymptomsId: SymptomsID },
+            success: function (response) {
+                if (response.length > 0) {
+                    if(response == "0"){
+                        $('#renderData').html('');
+                    }else{
+                        $('#renderData').html(response);
+                        $('#pageSize').val($('#saveSizePage').val());
+                    }
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Error: " + error);
+            }
+        });
+    }
+
+    function ExportExcelZIP()
+    {
+        debugger;
+        var StateID = $("#StateID").val();
+        var DistrictID = $("#DistrictID").val();
+        var BlockID = $("#BlockID").val();
+        var FacilityID = $('#FacilityID').val();
+        var SubFacilityID = $('#SubFacilityID').val();
+        var SymptomsID = $('#SymptomsID').val();
+        var url = "/PatientReport/ExportToExcel?StateId=" + StateID + "&DistrictId=" + DistrictID + "&BlockId=" + BlockID + "&FacilityId=" + FacilityID + "&SubfacilityId=" + SubFacilityID + "&SymptomsId=" + SymptomsID;
+        window.location.href = url;
+    }
+
+</script>
+
+
+

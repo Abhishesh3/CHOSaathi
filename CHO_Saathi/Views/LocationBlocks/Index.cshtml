@@ -1,0 +1,338 @@
+﻿@model IEnumerable<CHO_Saathi.Models.LocationBlock>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Block";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .search-box {
+        position: relative;
+    }
+
+        .search-box .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #00bcd4;
+        }
+
+        .search-box input {
+            padding-left: 40px;
+            height: 45px;
+        }
+</style>
+
+<style>
+    .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0px solid #72def6;
+        border-radius: .25rem;
+    }
+
+    .bgButton {
+        background: #bfd600 !important;
+        border-color: #bfd600 !important;
+    }
+
+        .bgButton:hover {
+            background: #b2c607 !important;
+            border-color: #b2c607 !important;
+        }
+
+
+    .bgbagheader {
+        background: #b9f2ff; /* Old browsers */
+    }
+
+    .dataTables_length {
+        margin-left: 10px;
+    }
+
+    .btn-orang {
+        color: #fff;
+        background-color: #f39c12;
+        border-color: #f39c12;
+    }
+
+        .btn-orang:hover {
+            color: #fff;
+            background-color: #fe8936;
+            border-color: #fe8936;
+        }
+
+    button.dt-button, div.dt-button, a.dt-button {
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        margin-right: 0.333em;
+        padding: 0.5em 1em;
+        border: 1px solid #999;
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 0.88em;
+        color: black;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: #e9e9e9;
+        background-image: -webkit-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -moz-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -ms-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -o-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#e9e9e9');
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        text-decoration: none;
+        outline: none;
+    }
+
+    div.dt-buttons {
+        position: relative;
+        float: left;
+        /*padding: 0px;
+            margin: 13px 12px 0px 12px;*/
+    }
+    /*.buttons-html5 {
+            background-color: #4CAF50 !important;*/ /* Green */
+    /*border: none !important;
+            color: white !important;
+            text-align: center !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            padding: 5px;
+            margin: 2px;
+        }*/
+
+    #SearchInput {
+        background-image: url('images/icons8-search-48.png');
+        background-size: 26px 26px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        padding-left: 36px;
+        /* background-position: 10px 12px;
+                    background-repeat: no-repeat;*/
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 0px;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+        input[type="radio"] + label {
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 20px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+            input[type="radio"] + label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 1px;
+                width: 18px;
+                height: 18px;
+                border: 2px solid #007bff;
+                border-radius: 50%;
+                background-color: white;
+                transition: all 0.3s ease;
+            }
+
+        input[type="radio"]:checked + label:before {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+    .rowSearch {
+        margin-bottom: 20px;
+    }
+
+        .rowSearch b {
+            margin-right: 10px;
+        }
+</style>
+
+<section id="AboutSection" class="mt-4 ms-4">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Left Panel : Select Hierarchy -->
+            <div class="col-xl-2 col-lg-2">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <h4 class="Headingcolorbg">Select Hierarchy</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <hr />
+                    </div>
+                </div>
+
+                <!-- State -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="form-group">
+                            <label class="control-label">State</label>
+                            <select required id="StateID" class="form-control" asp-items="@ViewBag.StateID">
+                                <option value="0">All</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- District -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="form-group">
+                            <label class="control-label">District</label>
+                            <select required id="DistrictID" class="form-control" asp-items="@ViewBag.DistrictID">
+                                <option value="0">All</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Button -->
+                <div class="row mt-2">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary savebutton pull-right" onclick="FillBlockList(1)">
+                                <i class="fa fa-search"></i>&nbsp;Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel : Block List -->
+            <div class="col-xl-10 col-lg-10">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-2">
+                        <h4 class="Headingcolorbg">Block</h4>
+                    </div>
+
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="rowSearch">
+
+                            <b>Search By</b>
+                            <input type="radio" value="block" name="searchBy" id="blockRadio" checked />
+                            <label for="blockRadio">Block</label>&nbsp;
+
+                            <!-- Search Box (same UI as district design) -->
+                            <div class="search-box mt-2">
+                                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                <input type="text" id="SearchInput" placeholder="Search for block.." title="Type in a block name" autocomplete="off">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-2">
+                        <div class="pull-right">
+                            @* <a asp-action="Create" asp-controller="LocationBlocks" class="btn btn-primary backtodetailbutton">
+                                Add New Block
+                            </a> *@
+                            <a asp-action="Create" class="btn btn-primary"><i class="fa-solid fa-plus"></i>&nbsp;Add New Block</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partial View for Block List -->
+                <div id="divEvidencelist">
+                    @{
+                        Html.RenderPartial("_PVBlock.cshtml");
+                    }
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <input type="hidden" id="saveSizePage" />
+</section>
+
+
+<script type="text/javascript">
+
+    function getServerdt(pageNumber) {
+        debugger;
+        var selectedValue = document.querySelector('input[name="searchBy"]:checked').value;
+        var txtSearch = $("#SearchInput").val();
+
+        $('#saveSizePage').val($('#pageSize').val());
+        var p = { "pageIndex": pageNumber, "pageSize": $('#pageSize').val(), "State": $('#StateID').val(), "District": $('#DistrictID').val(),
+            "selectedValue": selectedValue, "txtSearch": txtSearch
+        };
+        $.ajax({
+            url: '@Url.Content("~/")' + "LocationBlocks/getServerdt", //Your path should be here
+            type: "POST",
+            data: p, success: function (result) {
+                if (result == "0") {
+                    $('#divEvidencelist').html('');
+                } else {
+                    $('#divEvidencelist').html(result);
+                    $('#pageSize').val($('#saveSizePage').val());
+                }
+            }
+        });
+    }
+
+    function FillBlockList(flag)
+    {
+        getServerdt(flag);
+    }
+
+    function applyFilter()
+    {
+        getServerdt(1);
+    }
+
+    $('#StateID').change(function () {
+        var url = '@Url.Content("~/")' + "LocationBlocks/GetDistrict";
+        var ddlsource = "#StateID";
+        $.getJSON(url, { stateid: $(ddlsource).val() }, function (data) {
+            var districtitems = "<option value='0'>All</option>";
+            $("#DistrictID").empty();
+            $.each(data, function (i, district) {
+                districtitems += "<option value='" + district.districtID + "'>" + district.district + "</option>";
+            });
+            $('#DistrictID').html(districtitems);
+        });
+    });
+
+
+    $(document).ready(function () {
+       
+        var delayTimer;
+        $("#SearchInput").keyup(function () {
+            clearTimeout(delayTimer);
+            delayTimer = setTimeout(function () {
+                getServerdt(1);
+            }, 500);
+        });
+    });
+</script>
+
+
+

@@ -1,0 +1,424 @@
+﻿@model IEnumerable<CHO_Saathi.Models.AnmcatchmentArea>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!----jstree--->
+
+<script type="text/javascript">
+    $(function () {
+        $('#ANMArea').DataTable({
+            dom: 'lBfrtip',
+            buttons: [
+                
+            ],
+            'paging': true,
+            'lengthChange': false,
+            "scrollX": true,
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+
+        })
+    })
+</script>
+<style>
+    .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0px solid #72def6;
+        border-radius: .25rem;
+    }
+
+    .bgButton {
+        background: #bfd600 !important;
+        border-color: #bfd600 !important;
+    }
+
+        .bgButton:hover {
+            background: #b2c607 !important;
+            border-color: #b2c607 !important;
+        }
+
+
+    .bgbagheader {
+        background: #b9f2ff; /* Old browsers */
+    }
+
+    .dataTables_length {
+        margin-left: 10px;
+    }
+
+    .btn-orang {
+        color: #fff;
+        background-color: #f39c12;
+        border-color: #f39c12;
+    }
+
+        .btn-orang:hover {
+            color: #fff;
+            background-color: #fe8936;
+            border-color: #fe8936;
+        }
+
+    button.dt-button, div.dt-button, a.dt-button {
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        margin-right: 0.333em;
+        padding: 0.5em 1em;
+        border: 1px solid #999;
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 0.88em;
+        color: black;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: #e9e9e9;
+        background-image: -webkit-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -moz-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -ms-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: -o-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+        background-image: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#e9e9e9');
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        text-decoration: none;
+        outline: none;
+    }
+
+    div.dt-buttons {
+        position: relative;
+        float: left;
+        /*padding: 0px;
+        margin: 13px 12px 0px 12px;*/
+    }
+    /*.buttons-html5 {
+        background-color: #4CAF50 !important;*/ /* Green */
+    /*border: none !important;
+        color: white !important;
+        text-align: center !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+        padding: 5px;
+        margin: 2px;
+    }*/
+</style>
+<section id="AboutSection">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <h4 class="Headingcolorbg">@ViewBag.ANMName</h4>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <div class="pull-right">
+                    <a data-toggle="modal" data-target="#ModalshowVillageList" onclick="ClearaddvillagePopupfield();" class="btn btn-primary savebutton">Add Location</a>
+                    &nbsp;&nbsp;
+                    <a asp-action="Index" class="btn btn-primary backtodetailbutton">Back to List</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-xl-12 col-lg-12">
+                    <table id="ANMArea" class="table table-hover table-bordered table-striped datatablerowfont">
+                        <thead>
+                            <tr>
+                                <th>Facility</th>
+                                <th>Sub Facility</th>
+                                <th>Village</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modaltbody">
+                            @foreach (var LRF in Model)
+                            {
+                            <tr id="@LRF.AnmareaId">
+
+                                <td>@LRF.Village.Facility.FacilityName</td>
+                                <td>@LRF.Village.SubFacility.SubFacility</td>
+                                <td>@LRF.Village.Village</td>
+                                <td>
+                                    <a style="font-size: 14px;" onclick="removeaddedvillage(@LRF.AnmareaId,this);" title="Remove Village"><i class="fa fa-trash" style="color:red;cursor:pointer" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                                </td>
+
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+ <input type="hidden" id="hdUserID" value="@ViewBag.ANMID" />
+
+
+
+<div id="ModalshowVillageList" class="modal fade" tabindex="-1" role="dialog"
+     aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="Headingcolorbg">Add Location</h4>
+                <button type="button" class="close" onclick="ClosePop(@ViewBag.ANMID)">&times;</button>
+            </div>
+            <div class="modal-body p-4" style="height:auto; overflow-y: auto;">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                           <span><strong>State : </strong></span> <label class="control-label">@ViewBag.stateName</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <span><strong>District : </strong></span> <label class="control-label">@ViewBag.DistrictName</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <span><strong>Block : </strong></span> <label class="control-label">@ViewBag.BlockName</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Facility Type</label><span class="mandatory"> *</span>
+                            <select id="FacilityTypeId" class="form-control" asp-items="ViewBag.FacilityType">
+                                <option value="0">Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Facility</label><span class="mandatory"> *</span>
+                            <select id="FacilityID" class="form-control">
+                                <option value="0">Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Sub Facility</label><span class="mandatory"> *</span>
+                            <select id="drpsubfacility" onchange="getselectedlist('NEWVL');" class="form-control">
+                                <option value="0">Select</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="DVLINKLIST">
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                    <a class="btn btn-danger" title="" onclick="setpagereset(@ViewBag.ANMID)"> Close</a>
+                    @*<input onclick="LinkGroup('AS');" class="btn btn-primary" value="Tag " />*@
+                </div>
+            </div>
+        </div>
+
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#FacilityTypeId').change(function () {
+            var url = '@Url.Content("~/")' + "ANM/GetFacilityForANMAreaLst";
+            var ddlsource = "#hdUserID";
+            var ddlfacilitytypeid = "#FacilityTypeId";
+            $.getJSON(url, { ANMID: $(ddlsource).val(), FacilityTypeId : $(ddlfacilitytypeid).val()}, function (data) {
+                    var Facilityitems = "<option value='0'>Select</option>";
+                    $("#FacilityID").empty();
+                  $.each(data, function (i, Facility) {
+                      Facilityitems += "<option value='" + Facility.facilityID + "'>" + Facility.facilityName + "</option>";
+                    });
+                  $('#FacilityID').html(Facilityitems);
+                });
+        });
+
+        $('#FacilityID').change(function () {
+            var url = '@Url.Content("~/")' + "ANM/GetSubFacility";
+              var ddlsource = "#FacilityID";
+            $.getJSON(url, { faclitityId: $(ddlsource).val() }, function (data) {
+
+                
+                  var SubFacilityitems = "<option value='0'>Select</option>";
+                $("#drpsubfacility").empty();
+                  $.each(data, function (i, SubFacility) {
+                      SubFacilityitems += "<option value='" + SubFacility.subFacilityID + "'>" + SubFacility.subFacility + "</option>";
+                    });
+                $('#drpsubfacility').html(SubFacilityitems);
+                });
+        });
+
+
+
+
+    });
+
+    function fillsubfacility() {
+        var p = { "FacilityID": $('#drpfacility').val() };
+
+                $.ajax({
+                    url: "@Url.Action("fillsubfacility", "ANM")", //Your path should be here
+                    type: "POST",
+                    data: p,
+                    success: function (result) {
+                        
+                        var districtitems = "<option value='0'>Select</option>";
+                        $("#drpsubfacility").empty();
+                        $.each(result, function (i, district) {
+                            districtitems += "<option value='" + district.subFacilityID + "'>" + district.subFacility + "</option>";
+                        });
+                        $('#drpsubfacility').html(districtitems);
+
+                    },
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                    }
+                });
+
+
+    }
+
+    function getselectedlist(flag) {
+        var p = { "ANMID": $('#hdUserID').val(), "Flag": flag, "SubFacilityID": $('#drpsubfacility').val() };
+        $.ajax({
+                    url: "@Url.Action("getvillage", "ANM")", //Your path should be here
+                    type: "POST",
+                    data: p,
+                    success: function (result) {
+
+
+                        /*fillsubfacility(ANMID);*/
+                        $('#DVLINKLIST').html(result);
+
+
+
+                    },
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                    }
+                });
+    }
+
+    function removeaddedvillage(anmareaid,id) {
+
+        var p = { "anmareaid": anmareaid };
+
+          $.ajax({
+              url: "@Url.Action("removeaddedvillage", "ANM")", //Your path should be here
+            type: "POST",
+            data: p,
+              success: function (result) {
+
+                  if (result == '0') {
+                      var row = $(id).parents("tr:first");
+
+                      row.remove();
+
+                  } else {
+                      alert('Something went wrong');
+                  }
+
+                @*$('#ModalshowVillageList').modal('toggle');
+                var url = '@Url.Content("~/")' + "ANM/Index";
+                         window.location.href = url;*@
+            },
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
+            }
+            });
+
+    }
+
+    function LinkVllGroup(Facilityid,Subfacilityid,villageid,id) {
+
+        var p = { "ANMID": $('#hdUserID').val(), "villageid": villageid, "Facilityid": Facilityid, "Subfacilityid": Subfacilityid };
+
+          $.ajax({
+              url: "@Url.Action("LinkVillage", "ANM")", //Your path should be here
+            type: "POST",
+            data: p,
+              success: function (result) {
+
+                  if (result == '0') {
+                      var row = $(id).parents("tr:first");
+
+                      row.remove();
+                  } else {
+
+                  }
+
+                @*$('#ModalshowVillageList').modal('toggle');
+                var url = '@Url.Content("~/")' + "ANM/Index";
+                         window.location.href = url;*@
+            },
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
+            }
+            });
+
+    }
+
+    function setpagereset(anmid) {
+
+        $('#ModalshowVillageList').modal('toggle');
+        var url = '@Url.Content("~/")' + "ANM/ANMAreaList/" + anmid +"";
+        window.location.href = url;
+    }
+
+    function ClearaddvillagePopupfield() {
+
+        $('#FacilityTypeId').val(0);
+
+        var Facilityitems = "<option value='0'>Select</option>";
+        $("#FacilityID").empty();
+        $('#FacilityID').html(Facilityitems);
+
+        var SFacilityitems = "<option value='0'>Select</option>";
+        $("#drpsubfacility").empty();
+        $('#drpsubfacility').html(SFacilityitems);
+
+        $('#DVLINKLIST').html('');
+    }
+
+    function ClosePop(anmid) {
+
+         $('#ModalshowVillageList').modal('toggle');
+           var url = '@Url.Content("~/")' + "ANM/ANMAreaList/" + anmid +"";
+            window.location.href = url;
+    }
+
+</script>

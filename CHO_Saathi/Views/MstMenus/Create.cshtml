@@ -1,0 +1,149 @@
+﻿@model CHO_Saathi.Models.MstMenu
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <section id="AboutSection">
+        <div class="card">
+            <div class="card-body">
+                <div class="container-fluid mt-4">
+                    <!-- Header -->
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-3">
+                            <div class="pagetitle">
+                                <h1>Menu Master</h1>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="alert alert-danger" style="font-size:14px" role="alert">
+                                <div class="col-sm-12">
+                                    NOTE : Fields marked with (*) are compulsory fields
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <a asp-action="Index" class="btn btn-primary backtodetailbutton float-end">
+                                <i class="fa-solid fa-angles-left"></i>&nbsp;Back to List
+                            </a>
+                        </div>
+                    </div>
+
+                 
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Menu Type <sup class="text-danger">*</sup></label>
+                                <select id="MenuType" class="form-control" required>
+                                    <option value="">Select Type</option>
+                                    <option value="parent">Parent Menu</option>
+                                    <option value="submenu">SubMenu</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        @* <div class="col-md-4" id="ParentMenuDiv" style="display:none;">
+                            <div class="form-group">
+                                <label class="control-label">Parent Menu</label>
+                                <select asp-for="MenuParentId" asp-items="ViewBag.ParentMenus" class="form-control" readonly></select>
+
+                                <input type="hidden" asp-for="MenuParentId" />
+                                <span asp-validation-for="MenuParentId" class="text-danger"></span>
+                            </div>
+                        </div>
+ *@
+                        <div class="col-md-4" id="SubMenuDiv" style="display:none;">
+                            <div class="form-group">
+                                <label class="control-label">Parent Menu</label>
+                                <select asp-for="MenuParentId" asp-items="ViewBag.SubMenus" class="form-control">
+                                    <option value="">Select</option>
+                                </select>
+                                <span asp-validation-for="MenuParentId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Menu <sup class="text-danger">*</sup></label>
+                                <input asp-for="Menu" class="form-control" maxlength="50" autocomplete="off" required />
+                                <span asp-validation-for="Menu" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Controller <sup class="text-danger">*</sup></label>
+                                <input asp-for="Controller" class="form-control" maxlength="50" autocomplete="off" required />
+                                <span asp-validation-for="Controller" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Action <sup class="text-danger">*</sup></label>
+                                <input asp-for="Action" class="form-control" maxlength="50" autocomplete="off" required />
+                                <span asp-validation-for="Action" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Style Class</label>
+                                <input asp-for="StyleClass" class="form-control" maxlength="50" autocomplete="off" />
+                                <span asp-validation-for="StyleClass" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+            
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success float-end">
+                                    <i class="fa-solid fa-floppy-disk"></i>&nbsp;Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+
+<script>
+    $("#MenuType").change(function () {
+        var type = $(this).val();
+
+        if (type === "parent") {
+            $("#ParentMenuDiv").show();
+            $("#ParentMenuDiv select").prop("disabled", true);
+            $("#SubMenuDiv").hide();
+        }
+        else if (type === "submenu") {
+            $("#ParentMenuDiv").hide();
+            $("#ParentMenuDiv select").prop("disabled", true);
+            $("#SubMenuDiv").show();
+        }
+        else {
+            $("#ParentMenuDiv").hide();
+            $("#SubMenuDiv").hide();
+        }
+    });
+</script>
+ 
+
+
+

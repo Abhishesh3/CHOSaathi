@@ -1,0 +1,129 @@
+﻿@model CHO_Saathi.Models.LocationState
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Add New State";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <!-- ADD TOP & LEFT MARGIN -->
+    <section id="AboutSection" class="mt-4 ms-4">
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xl-3 col-lg-3">
+                    <h4 class="Headingcolorbg">Add New State</h4>
+                </div>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="alert alert-danger p-2" style="font-size:14px" role="alert">
+                        NOTE : Fields marked with (*) are compulsory fields
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 text-end">
+                    @* <a asp-action="Index" class="btn btn-primary backtodetailbutton">Back to List</a> *@
+                    <a asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-angles-left"></i>&nbsp;Back to List</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <hr />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="form-group">
+                        <label class="control-label">State</label><span class="mandatory"> *</span>
+                        <input asp-for="StateName" required class="form-control" maxlength="50" autocomplete="off" id="STid" />
+                        <span asp-validation-for="StateName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="form-group">
+                        <label class="control-label">State Short Name</label><span class="mandatory"> *</span>
+                        <input asp-for="StateShortName" required class="form-control" autocomplete="off" maxlength="2" id="SSTName" />
+                        <span asp-validation-for="StateShortName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="form-group">
+                        <label class="control-label">State Code</label><span class="mandatory"> *</span>
+                        <input asp-for="StateCode" required class="form-control" maxlength="2" autocomplete="off" id="STCode" />
+                        <span asp-validation-for="StateCode" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xl-12">
+                    <div class="form-group text-end">
+                        @* <input type="submit" value="Save" class="btn btn-success savebutton" /> *@
+                        <button type="submit" class="btn btn-success float-end"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Save</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</form>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#SSTName').bind('keyup blur', function () {
+            $(this).val($(this).val().replace(/[^A-Za-z]/g, ''));
+        });
+
+        $('#STid').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z ]+$");
+            var strigChar = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(strigChar)) {
+                return true;
+            }
+            return false
+        });
+
+        //$('#STCode').on('keypress', function (event) {
+        //    var regex = new RegExp("^[a-zA-Z0-9]+$");
+        //    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+        //    if (!regex.test(key)) {
+        //        event.preventDefault();
+        //        return false;
+        //    }
+        //});
+
+        $('#STCode').on('keypress', function (event) {
+            var regex = new RegExp("^[0-9]*$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var districtCodeInput = document.getElementById("STCode");
+
+        districtCodeInput.addEventListener("input", function () {
+            var maxLength = 2;
+            if (districtCodeInput.value.length > maxLength) {
+                districtCodeInput.value = districtCodeInput.value.slice(0, maxLength);
+            }
+        });
+    });
+
+
+</script>

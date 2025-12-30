@@ -1,0 +1,145 @@
+﻿@model CHO_Saathi.Models.LocationDistrict
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Edit District";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="DistrictId" />
+
+    <!-- ADD TOP & LEFT MARGIN -->
+    <section id="AboutSection" class="mt-4 ms-4">
+
+        <div class="container-fluid">
+
+            <!-- HEADER ROW -->
+            <div class="row">
+                <h4 class="Headingcolorbg col-xl-3 col-lg-3">Edit District</h4>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="alert alert-danger p-2" style="font-size:14px" role="alert">
+                        NOTE : Fields marked with (*) are compulsory fields
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 text-end">
+                    @* <a asp-action="Index" class="btn btn-primary backtodetailbutton">Back to List</a> *@
+                    <a asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-angles-left"></i>&nbsp;Back to List</a>
+                </div>
+            </div>
+
+            <!-- SEPARATOR -->
+            <div class="row">
+                <div class="col-12">
+                    <hr />
+                </div>
+            </div>
+
+            <!-- FORM ROW -->
+            <div class="row">
+
+                <!-- STATE DROPDOWN -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">State</label><span class="mandatory"> *</span>
+                        <select asp-for="StateId" asp-items="ViewBag.StateList" class="form-control">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- DISTRICT NAME -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">District</label><span class="mandatory"> *</span>
+                        <input asp-for="District" required maxlength="50" class="form-control distClass" autocomplete="off" id="DisID" />
+                        <span asp-validation-for="District" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- DISTRICT CODE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">District Code</label><span class="mandatory"> *</span>
+                        <input asp-for="DistrictCode" required maxlength="5" class="form-control" autocomplete="off" id="DisCode" />
+                        <span asp-validation-for="DistrictCode" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- UPDATE BUTTON -->
+            <div class="row mt-3">
+                <div class="col-xl-12">
+                    <div class="form-group text-end">
+                        @* <input type="submit" value="Update" class="btn btn-success savebutton" /> *@
+                        <button type="submit" class="btn btn-success float-end"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Update</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</form>
+
+@if (TempData["message"] != null)
+{
+    <script>
+        //alert('@TempData["message"]');
+        $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> @TempData["message"]", {
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            offset: { from: 'top', amount: 155 }, // 'top', or 'bottom'
+            allow_dismiss: true,
+            delay: 3000
+        });
+    </script>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#DisID').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z ]+$");
+            var strigChar = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(strigChar)) {
+                return true;
+            }
+            return false
+        });
+
+
+        $('#DisCode').on('keypress', function (event) {
+            var regex = new RegExp("^[0-9]*$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var districtCodeInput = document.getElementById("DisCode");
+
+        districtCodeInput.addEventListener("input", function () {
+            var maxLength = 5;
+            if (districtCodeInput.value.length > maxLength) {
+                districtCodeInput.value = districtCodeInput.value.slice(0, maxLength);
+            }
+        });
+    });
+
+</script>
+

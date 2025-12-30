@@ -1,0 +1,481 @@
+﻿@model CHO_Saathi.Models.Anm
+@using Microsoft.AspNetCore.Http;
+@{
+    if (@Context.Session.GetString("SirjanID") == "1")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<style type="text/css">
+    .custom-control-label::before {
+        top: 0.1rem;
+        left: -1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: #fff;
+        border: 2px solid #007bff;
+    }
+
+    .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+        background-color: #fff;
+        border: 2px solid #007bff;
+    }
+
+    .custom-radio .custom-control-label:hover.custom-control-label::before {
+        box-shadow: 0px 2px 5px rgba(0, 117, 201, 0.6);
+    }
+
+    .custom-radio .custom-control-label::after {
+        top: 0.4rem;
+        left: -1.25rem;
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+        background-image: none;
+        background-color: #007bff;
+        border-radius: 50%;
+        border: 2px solid white;
+    }
+
+    .custom-radio .custom-control-input:disabled ~ .custom-control-label::before {
+        background-color: #e9ecef;
+        border: 2px solid #dee2e6;
+    }
+
+    .custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
+        background-color: #e9ecef;
+    }
+
+    .custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::after {
+        background-color: #9ca0b1;
+        background-image: none;
+        border-radius: 50%;
+        border: 2px solid #e9ecef;
+    }
+
+    .custom-control-label {
+        margin-bottom: 0.5rem;
+        padding-left: 5px;
+    }
+
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+        background-color: #fff;
+        border: 2px solid #007bff;
+    }
+
+    .custom-checkbox .custom-control-label:hover.custom-control-label::before {
+        box-shadow: 0px 2px 5px rgba(0, 117, 201, 0.6);
+    }
+
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='25.412' height='19.855' viewBox='0 0 25.412 19.855'%3e%3cpath id='check' d='M22.6,3.8,8,19.4,1.4,11.7,0,12.9l7.9,9.3L24,5.1Z' transform='translate(0.703 -3.095)' fill='%23007bff' stroke='%23007bff' stroke-width='1'/%3e%3c/svg%3e ");
+    }
+
+    .custom-checkbox .custom-control-label::after {
+        top: -0.1rem;
+        left: -1.75rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .custom-checkbox .custom-control-input:disabled ~ .custom-control-label::before {
+        background-color: #e9ecef;
+        border: 2px solid #dee2e6;
+    }
+
+    .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
+        background-color: #e9ecef;
+    }
+
+    .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::after {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='25.412' height='19.855' viewBox='0 0 25.412 19.855'%3e%3cpath id='check' d='M22.6,3.8,8,19.4,1.4,11.7,0,12.9l7.9,9.3L24,5.1Z' transform='translate(0.703 -3.095)' fill='%239ca0b1' stroke='%239ca0b1' stroke-width='1'/%3e%3c/svg%3e ");
+    }
+</style>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <section id="AboutSection">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3">
+                    <h4 class="Headingcolorbg">ANM Registration</h4>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="alert alert-danger" style="font-size:14px" role="alert">
+                        <div class="col-sm-12">
+                            NOTE : Fields marked with (*) are compulsory fields
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3">
+                    <div class="pull-right">
+                        <a asp-action="Index" class="btn btn-primary backtodetailbutton">Back to List</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <hr />
+                </div>
+            </div>
+
+            <div class="row">
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">State</label><span class="mandatory"> *</span>
+                        <select id="StateId" name="StateID" required class="form-control" asp-items="ViewBag.StateID">
+                            <option value="0">Select</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">District</label><span class="mandatory"> *</span>
+                        <select id="DistrictId" name="DistrictID" class="form-control" required>
+                            <option value="0">Select</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Block</label><span class="mandatory"> *</span>
+                        <select id="BlockId" name="BlockID" class="form-control" required>
+                            <option value="0">Select</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">ANM Name</label><span class="mandatory"> *</span>
+                        <input asp-for="Anmname" required maxlength="200" class="form-control" id="ANMNameID" />
+                        <span asp-validation-for="Anmname" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Password</label><span class="mandatory"> *</span>
+                        <div class="input-group">
+                            <input type="password" required maxlength="50" class="form-control password-show" id="PasswordID" name="Password" autocomplete="new-password" />
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="show-password  fa fa-eye"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="RoleId" class="control-label">Role</label><span class="mandatory"> *</span>
+                        <select asp-for="RoleId" required class="form-control" asp-items="ViewBag.RoleId">
+                            <option value="0">Select</option>
+                            @* <option value="14">CHO</option> *@
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label"> Gender </label><span class="mandatory"> *</span>
+                        <select id="GenderID" asp-for="GenderId" class="form-control" asp-items="ViewBag.GenderID" required>
+                            <option value="0">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label"> Age </label><span class="mandatory"> *</span>
+                        <input asp-for="Age" maxlength="3" class="form-control" required id="txtAge" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Mobile No</label><span class="mandatory"> *</span>
+                        <input asp-for="MobileNo" maxlength="10" class="form-control" required id="txtMOB" />
+                        <span asp-validation-for="MobileNo" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label"> Email </label><span class="mandatory"> *</span>
+                        <input asp-for="EmailId" maxlength="150" required placeholder="Enter your email" class="form-control" id="txtEMD" />
+                        <span asp-validation-for="EmailId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div style="margin-top:6%">
+                        <div class="custom-control custom-checkbox">
+                            @*<input name="IsActive" type="hidden" value="false" />*@
+                            <input data-val="true" data-val-required="The isActive field is required." class="custom-control-input" id="IsActive" name="IsActive" type="checkbox" value="true" checked />
+                            <label class="custom-control-label" for="IsActive">IsActive</label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-success pull-right savebutton" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+        $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> @ViewBag.Message", {
+            type: 'danger',
+            align: 'center',
+            width: 'auto',
+            offset: { from: 'top', amount: 100 }, // 'top', or 'bottom'
+            allow_dismiss: true,
+            delay: 1000
+        });
+
+
+            //window.onload = function () {
+            //    alert("");
+            //};
+    </script>
+
+}
+
+<script type="text/javascript">
+    $('.show-password').click(function () {
+
+        if ($(this).hasClass('fa-eye')) {
+
+            $(this).removeClass('fa-eye');
+
+            $(this).addClass('fa-eye-slash');
+
+            $('.password-show').attr('type', 'text');
+
+        } else {
+
+            $(this).removeClass('fa-eye-slash');
+
+            $(this).addClass('fa-eye');
+
+            $('.password-show').attr('type', 'password');
+        }
+    });
+
+
+    function limitInputLength(inputElement, maxLength) {
+        inputElement.addEventListener("input", function () {
+            if (inputElement.value.length > maxLength) {
+                inputElement.value = inputElement.value.slice(0, maxLength);
+            }
+        });
+    }
+
+
+    var txtAgeInput = document.getElementById("PasswordID");
+    limitInputLength(txtAgeInput, 40);
+
+    var txtAgeInput = document.getElementById("txtAge");
+    limitInputLength(txtAgeInput, 2);
+
+    var ANMNameInput = document.getElementById("ANMNameID");
+    limitInputLength(ANMNameInput, 50);
+
+    var emailInput = document.getElementById("txtEMD");
+    var maxLength = 150;
+    var emailRegex = /^[A-Za-z0-9._%+-]+@@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    emailInput.addEventListener("input", function () {
+
+        if (emailInput.value.length > maxLength) {
+            emailInput.value = emailInput.value.slice(0, maxLength);
+        }
+        if (!emailRegex.test(emailInput.value)) {
+            emailInput.setCustomValidity("Invalid email format");
+        } else {
+            emailInput.setCustomValidity("");
+        }
+    });
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+         $('#StateId').change(function () {
+                var url = '@Url.Content("~/")' + "ANM/GetDistrict";
+                var ddlsource = "#StateId";
+                $.getJSON(url, { stateid: $(ddlsource).val() }, function (data) {
+                    var districtitems = "<option value='0'>Select</option>";
+                    $("#DistrictId").empty();
+                    $("#BlockId").empty();
+                    $.each(data, function (i, district) {
+                        districtitems += "<option value='" + district.districtID + "'>" + district.district + "</option>";
+                    });
+                    $('#DistrictId').html(districtitems);
+                });
+     });
+
+
+    $('#DistrictId').change(function () {
+        var url = '@Url.Content("~/")' + "ANM/GetBlock";
+                var ddlsource = "#DistrictId";
+                $.getJSON(url, { districtId: $(ddlsource).val() }, function (data) {
+                    var blockitems = "<option value='0'>Select</option>";
+                    $("#BlockId").empty();
+                    $.each(data, function (i, block) {
+                        blockitems += "<option value='" + block.blockID + "'>" + block.blockName + "</option>";
+                    });
+                    $('#BlockId').html(blockitems);
+                });
+    });
+
+        $('#FacilityTypeId').change(function () {
+            var url = '@Url.Content("~/")' + "ANM/GetFacility";
+             var ddlsource = "#BlockId";
+            var ddlfacilitytypeid = "#FacilityTypeId";
+            $.getJSON(url, { blockId: $(ddlsource).val(), FacilityTypeId : $(ddlfacilitytypeid).val() }, function (data) {
+                    var Facilityitems = "<option value='0'>Select</option>";
+                    $("#FacilityID").empty();
+                  $.each(data, function (i, Facility) {
+                      Facilityitems += "<option value='" + Facility.facilityID + "'>" + Facility.facilityName + "</option>";
+                    });
+                  $('#FacilityID').html(Facilityitems);
+                });
+        });
+
+        $('#FacilityID').change(function () {
+            var url = '@Url.Content("~/")' + "ANM/GetSubFacility";
+              var ddlsource = "#FacilityID";
+            $.getJSON(url, { faclitityId: $(ddlsource).val() }, function (data) {
+
+
+                  var SubFacilityitems = "<option value='0'>Select</option>";
+                  $("#SubFacilityID").empty();
+                  $.each(data, function (i, SubFacility) {
+                      SubFacilityitems += "<option value='" + SubFacility.subFacilityID + "'>" + SubFacility.subFacility + "</option>";
+                    });
+                  $('#SubFacilityID').html(SubFacilityitems);
+                });
+        });
+
+
+         $('#SubFacilityID').change(function () {
+            var url = '@Url.Content("~/")' + "ANM/GetVillage";
+            var ddlsource = "#SubFacilityID";
+            $.getJSON(url, { SubFacilityID: $(ddlsource).val() }, function (data) {
+
+
+                  var Villageitems = "<option value='0'>Select</option>";
+                $("#VillageID").empty();
+                  $.each(data, function (i, Village) {
+                      Villageitems += "<option value='" + Village.villageID + "'>" + Village.village + "</option>";
+                    });
+                $('#VillageID').html(Villageitems);
+                });
+        });
+
+        //$('#ANMNameID').bind('keyup blur', function () {
+        //    $(this).val($(this).val().replace(/[^A-Za-z]/g, ''));
+        //}
+        //);
+
+        $('#ANMNameID').keypress(function (e) {
+            var regex = new RegExp("^[a-zA-Z ]+$");
+            var strigChar = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(strigChar)) {
+                return true;
+            }
+            return false
+        });
+
+        $('#txtMOB').keypress(function (e) {
+            var arr = [];
+            var kk = e.which;
+
+            for (i = 48; i < 58; i++)
+                arr.push(i);
+
+            if (!(arr.indexOf(kk) >= 0))
+                e.preventDefault();
+        });
+
+        $("#txtMOB").blur(function () {
+            if ($("#txtMOB").val() == "") {
+                $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> Please enter Contact Number", {
+                    type: 'danger',
+                    align: 'center',
+                    width: 'auto',
+                    offset: { from: 'top', amount: 100 }, // 'top', or 'bottom'
+                    allow_dismiss: true,
+                    delay: 1000
+                });
+                //alert("Please enter Contact Number");
+            }
+            else {
+                var mob = /^[6-9]{1}[0-9]{9}$/;
+                var mobile = $("#txtMOB").val();
+                // if ()
+                if ($("#txtMOB").val().length < 10 && mob.test(mobile) == false) {
+                    $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> Please enter valid Contact Number", {
+                        type: 'danger',
+                        align: 'center',
+                        width: 'auto',
+                        offset: { from: 'top', amount: 100 }, // 'top', or 'bottom'
+                        allow_dismiss: true,
+                        delay: 1000
+                    });
+                    // alert("Please enter valid Contact Number");
+                    return false;
+                }
+
+            }
+        });
+
+        //$('#txtEMD').blur(function () {
+        //    if ($('#txtEMD').val() != "") {
+        //        var regex = /^([a-zA-Z0-9_\.\-\+])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        //        if (!regex.test($('#txtEMD').val())) {
+        //            $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> Please Enter valid Email Id", {
+        //                type: 'danger',
+        //                align: 'center',
+        //                width: 'auto',
+        //                offset: { from: 'top', amount: 100 }, // 'top', or 'bottom'
+        //                allow_dismiss: true,
+        //                delay: 1000
+        //            });
+        //            // alert('Please Enter valid Email Id');
+        //            return false;
+        //        }
+        //        }
+        //});
+    });
+
+
+
+</script>
+

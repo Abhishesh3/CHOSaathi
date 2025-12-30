@@ -1,0 +1,118 @@
+﻿
+@using Microsoft.AspNetCore.Http;
+
+@model UserCommonModel
+
+
+@*<div class="modal-header">
+    <h5 style="font-weight:600">ANM</h5>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>*@
+@if (ViewBag.flag == "AS")
+{
+    <div class="modal-body p-4" style="height:400px; overflow-y: auto;">
+
+        <div class="row">
+            <table id="tblContactList" class="table table-hover table-striped datatablerowfont">
+                <thead>
+                    <tr>
+                        <th>Village</th>
+                        <th>Sub Facility</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var LRF in Model.LSTLocationVillages)
+                    {
+                    <tr style="font-size:14px">
+                        <td>@LRF.Village</td>
+                        <td>@LRF.SubFacility.SubFacility</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @*<input type="hidden" id="hdnsubfacility" value="@Model.LSTANMCatchmentArea.Select(p => p.SubFacilityID).FirstOrDefault()" />*@
+    </div>
+    <div class="modal-footer">
+        <div class="pull-right">
+            <a style="font-size: 14px;" title="" onclick="getselectedlist(@Model.LSTANMCatchmentArea.Select(p => p.Anmid).FirstOrDefault(),'MV')" data-toggle="tooltip" data-placement="bottom" data-original-title="Add Village"><i class="fa fa-plus-circle" style="color:blue" aria-hidden="true"></i>&nbsp; Add</a>
+            @*<input onclick="LinkGroup('AS');" class="btn btn-primary" value="Tag " />*@
+
+        </div>
+    </div>
+}
+else @if (ViewBag.flag == "NEWVL")
+{
+<table id="tblContactList" class="table table-hover table-striped datatablerowfont">
+    <thead>
+        <tr>
+            <th>Village</th>
+            <th>Sub Facility</th>
+            <th>Facility</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var LRF in Model.LSTLocationVillages)
+        {
+            @if (Model.LSTANMCatchmentArea.Where(p => p.VillageId == @LRF.VillageId).Count() > 0)
+            {
+
+            }
+            else
+            {
+                <tr style="font-size:14px">
+                    <td>@LRF.Village</td>
+                    <td>@LRF.SubFacility.SubFacility</td>
+                    <td>@LRF.Facility.FacilityName</td>
+                    <td>
+                        <a style="font-size: 14px;" class="btn btn-primary" title="" onclick="LinkVllGroup(@LRF.FacilityId,@LRF.SubFacilityId,@LRF.VillageId, this)" data-toggle="tooltip" data-placement="bottom" data-original-title="Add Village">Add</a>
+
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
+}
+else
+{
+<table id="tblContactList" class="table table-hover table-striped datatablerowfont">
+    <thead>
+        <tr>
+            <th> <input type="checkbox" name="Check_ctr" value="yes" onClick="checkAll(this)" /></th>
+            <th>Village</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var LRF in Model.LSTLocationVillages)
+        {
+            <tr style="font-size:14px">
+                <td>
+                    @if (Model.LSTANMCatchmentArea.Where(p => p.VillageId == @LRF.VillageId).Count() > 0)
+                    {
+                        @*<input type = "checkbox" checked value = "@LRF.VillageID" id = "chk_@LRF.VillageID" />*@
+                    }
+                    else
+                    {
+                        <input type="checkbox" value="@LRF.VillageId" id="chk_@LRF.VillageId" name="Check_ctr1" />
+                    }
+
+                </td>
+                <td>@LRF.Village</td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+}
+
+
+
+
+
+

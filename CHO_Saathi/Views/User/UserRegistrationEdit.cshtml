@@ -1,0 +1,340 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model CHO_Saathi.Models.User
+
+@{
+    ViewData["Title"] = "Edit User";
+    if (@Context.Session.GetString("SirjanID") == "1")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+<link href="~/jstree/jstree.min.css" rel="stylesheet" />
+<link href="~/jstree/style.min.css" rel="stylesheet" />
+<script src="~/jstree/jstree.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+
+<form asp-action="UserRegistrationEdit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <section id="AboutSection">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <h4 class="Headingcolorbg">Edit User</h4>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="pull-right">
+                        <a asp-action="Registration" class="btn btn-primary backtodetailbutton">Back to List</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Username" class="control-label">Username</label><span class="mandatory"> *</span>
+                        <input asp-for="Username" readonly onchange="CheckUserAvail()" id="txtUserName" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+
+                    @if (ViewBag.UserRole == 1 || ViewBag.UserRole == 7)
+                    {
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label">Password</label><span class="mandatory"> *</span>
+                            <input asp-for="Password" maxlength="20" class="form-control" type="password" onchange="CheckUserPasswordAvail()" id="txtPassword" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label">Password</label><span class="mandatory"> *</span>
+                            <input asp-for="Password" readonly maxlength="20" class="form-control" type="password" onchange="CheckUserPasswordAvail()" id="txtPassword" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    }
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">Name</label><span class="mandatory"> *</span>
+                        <input asp-for="Name" required maxlength="60" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="EmailId" class="control-label">Email</label><span class="mandatory"> *</span>
+                        <input required asp-for="EmailId" onchange="CheckUserEmailAvail()" type="email" id="txtUserEmail" maxlength="60" placeholder="example@mail.com" class="form-control" />
+                        <span asp-validation-for="EmailId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="MobileNo" class="control-label">Contact</label><span class="mandatory"> *</span>
+                        <input asp-for="MobileNo" maxlength="10" id="mobile" class="form-control" />
+                        <span asp-validation-for="MobileNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="RoleId" class="control-label">Role</label><span class="mandatory"> *</span>
+                        <select asp-for="RoleId" disabled class="form-control" asp-items="ViewBag.RoleId" onchange="setloctiontableflag()">
+                            <option value="0">Select</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @if (Model.IsActive == true)
+                    {
+
+                        <div style="margin-top:7%">
+                            <div class="custom-control custom-checkbox">
+                                <input data-val="true" data-val-required="The isActive field is required." class="custom-control-input" id="IsActive" name="IsActive" type="checkbox" value="true" checked />
+                                <label class="custom-control-label" for="IsActive">IsActive</label>
+                                @*<input name="IsActive" type="hidden" value="false" />*@
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="margin-top:7%">
+                            <div class="custom-control custom-checkbox">
+                                <input data-val="true" data-val-required="The isActive field is required." class="custom-control-input" id="IsActive" name="IsActive" type="checkbox" value="true" />
+                                <label class="custom-control-label" for="IsActive">IsActive</label>
+                                @*<input name="IsActive" type="hidden" value="false" />*@
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>         
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-xs-12">
+                    <input type="submit" value="Update" class="btn btn-success savebutton pull-right" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <input type="hidden" id="UserRoleID" value="@ViewBag.UserRoleID" />
+    <input type="hidden" id="LocationDetailselectedItems" name="LocationDetailselectedItems" value="hdd" />
+    <input type="hidden" id="LocationItems" name="LocationItems" value="hfdd" />
+</form>
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+        $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> @ViewBag.Message", {
+            type: 'danger',
+            align: 'center',
+            width: 'auto',
+            offset: { from: 'top', amount: 100 }, // 'top', or 'bottom'
+            allow_dismiss: true,
+            delay: 1000
+        });
+
+
+        //window.onload = function () {
+        //    alert("");
+        //};
+    </script>
+
+}
+
+<script>
+
+    function CheckUserAvail() {
+        var masterData = {
+            "UserName": $('#txtUserName').val()
+                };
+                $.ajax({
+                    url: '@Url.Content("~/")' + "UsersRegistration/IsUserAvailable",
+                    type: "POST",
+                    data: masterData,
+                    success: function (result) {
+                        if (result == false) {
+                            $.bootstrapGrowl("<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> User Name Already Exist ! Please try another.", {
+                                type: 'warning',
+                                align: 'center',
+                                width: 'auto',
+                                allow_dismiss: true,
+                                delay: 10000
+                            });
+                            $("#spanUserName").hide();
+                            $("#UserName").val('');
+                            $('#txtUserName').val('');
+                            $('#txtUserName').focus();
+                        }
+                    }
+                })
+
+    }
+
+
+    function CheckUserEmailAvail() {
+        var masterData = {
+            "UEmail": $('#txtUserEmail').val()
+                };
+                $.ajax({
+                    url: '@Url.Content("~/")' + "UsersRegistration/IsUserEmailAvailable",
+                    type: "POST",
+                    data: masterData,
+                    success: function (result) {
+                        if (result == false) {
+                            $.bootstrapGrowl("<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Email Already Exist ! Please try another.", {
+                                type: 'warning',
+                                align: 'center',
+                                width: 'auto',
+                                allow_dismiss: true,
+                                delay: 10000
+                            });
+                            $('#txtUserEmail').val('');
+                            $('#txtUserEmail').focus();
+                        }
+                    }
+                })
+
+    }
+
+    function CheckUserPasswordAvail() {
+        var masterData = {
+            "Password": $('#txtPassword').val()
+                };
+                $.ajax({
+                    url: '@Url.Content("~/")' + "UsersRegistration/IsAlreadySamePassword",
+                    type: "POST",
+                    data: masterData,
+                    success: function (result) {
+                        if (result == false) {
+                            $.bootstrapGrowl("<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Password Already Exist ! Please try another.", {
+                                type: 'warning',
+                                align: 'center',
+                                width: 'auto',
+                                allow_dismiss: true,
+                                delay: 10000
+                            });
+                            $('#txtPassword').val('');
+                            $('#txtPassword').focus();
+                        }
+                    }
+                })
+
+    }
+
+    $('#Name').keypress(function (e) {
+        var regex = new RegExp("^[a-zA-Z ]+$");
+        var strigChar = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(strigChar)) {
+            return true;
+        }
+        return false
+    });
+
+     $('#StateId').change(function () {
+                var url = '@Url.Content("~/")' + "User/GetDistrict";
+                var ddlsource = "#StateId";
+                $.getJSON(url, { stateid: $(ddlsource).val() }, function (data) {
+                    var districtitems = "<option value='0'>Select</option>";
+                    $("#DistrictId").empty();
+                    $("#BlockId").empty();
+                    $.each(data, function (i, district) {
+                        districtitems += "<option value='" + district.districtID + "'>" + district.district + "</option>";
+                    });
+                    $('#DistrictId').html(districtitems);
+                });
+     });
+
+
+    $('#DistrictId').change(function () {
+                var url = '@Url.Content("~/")' + "User/GetBlock";
+                var ddlsource = "#DistrictId";
+                $.getJSON(url, { districtId: $(ddlsource).val() }, function (data) {
+                    var blockitems = "<option value='0'>Select</option>";
+                    $("#BlockId").empty();
+                    $.each(data, function (i, block) {
+                        blockitems += "<option value='" + block.blockID + "'>" + block.blockName + "</option>";
+                    });
+                    $('#BlockId').html(blockitems);
+                });
+    });
+
+    $('#BlockId').change(function () {
+        var url = '@Url.Content("~/")' + "User/GetFacility";
+             var ddlsource = "#BlockId";
+        $.getJSON(url, { blockId: $(ddlsource).val() }, function (data) {
+                    var Facilityitems = "<option value='0'>Select</option>";
+                    $("#FacilityID").empty();
+                  $.each(data, function (i, Facility) {
+                      Facilityitems += "<option value='" + Facility.facilityID + "'>" + Facility.facilityName + "</option>";
+                    });
+                  $('#FacilityID').html(Facilityitems);
+                });
+    });
+
+    
+
+    $('#mobile').keypress(function (e) {
+        var arr = [];
+        var kk = e.which;
+
+        for (i = 48; i < 58; i++)
+            arr.push(i);
+
+        if (!(arr.indexOf(kk) >= 0))
+            e.preventDefault();
+    });
+
+    $("#mobile").blur(function () {
+        if ($("#mobile").val() == "") {
+            $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> Please enter Contact Number", {
+                type: 'danger',
+                align: 'center',
+                width: 'auto',
+                offset: { from: 'top', amount: 100 }, // 'top', or 'bottom'
+                allow_dismiss: true,
+                delay: 1000
+            });
+            //alert("Please enter Contact Number");
+        }
+        else {
+            var mob = /^[6-9]{1}[0-9]{9}$/;
+            var mobile = $("#txtMOB").val();
+            // if ()
+            if ($("#mobile").val().length < 10 && mob.test(mobile) == false) {
+                $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> Please enter valid Contact Number", {
+                    type: 'danger',
+                    align: 'center',
+                    width: 'auto',
+                    offset: { from: 'top', amount: 100 }, // 'top', or 'bottom'
+                    allow_dismiss: true,
+                    delay: 1000
+                });
+                // alert("Please enter valid Contact Number");
+                return false;
+            }
+
+        }
+    });
+   
+
+</script>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+

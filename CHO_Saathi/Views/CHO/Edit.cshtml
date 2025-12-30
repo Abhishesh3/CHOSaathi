@@ -1,0 +1,290 @@
+﻿@model CHO_Saathi.Models.Cho
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Choid" />
+    <div class="container-fluid mt-2">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <h4 class="Headingcolorbg">CHO Users</h4>
+                            </div>
+                            <div class="col-xl-4"></div>
+                            <div class="col-xl-4">
+                                <div class="float-end">
+                                    <a asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-angles-left"></i>&nbsp;Back to List</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">State</label>
+                                    <select asp-for="StateId" id="StateId" class="form-control form-select" asp-items="ViewBag.StateId" required>
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">District</label>
+                                    <select asp-for="DistrictId" id="DistrictID" class="form-control form-select" asp-items="ViewBag.DistrictId" required>
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">Block</label>
+                                    <select asp-for="BlockId" id="BlockId" class="form-control form-select" asp-items="ViewBag.BlockId" required>
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">Facility</label>
+                                    <select asp-for="FacilityId" id="FacilityId" class="form-control form-select" asp-items="ViewBag.FacilityId" required>
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">Subfacility</label>
+                                    <select asp-for="SubFacilityId" id="SubFacilityId" class="form-control form-select" asp-items="ViewBag.SubFacilityId" required>
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">Name</label>
+                                    <input asp-for="Choname" id="Choname" class="form-control" placeholder="Enter Name" autocomplete="nope" required />
+                                    <span asp-validation-for="Choname" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">Password<span class="text-danger">*</span></label>
+                                    <div class="input-group" style="cursor:pointer;">
+                                        <input type="password" name="Password" id="Password" min="7" maxlength="15" class="form-control password-show" placeholder="Enter Password" autocomplete="new-password" />
+                                        <span class="input-group-text" id="basic-addon2"><i class="show-password fa-regular fa-eye"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">Gender</label>
+                                    <select asp-for="GenderId" id="GenderId" class="form-control form-select" asp-items="ViewBag.GenderId" required>
+                                        <option value="0">Select</option>
+                                    </select>
+                                    <span asp-validation-for="GenderId" class="text-danger"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">Mobile No.</label>
+                                    <input asp-for="MobileNo" id="MobileNo" class="form-control" placeholder="Enter Mobile No." autocomplete="nope" required />
+                                    <span asp-validation-for="MobileNo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">Age</label>
+                                    <input asp-for="Age" id="AgeId" class="form-control" placeholder="Enter Age" autocomplete="nope" required />
+                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input asp-for="EmailId" id="EmailId" class="form-control" placeholder="Enter Email" autocomplete="nope"/>
+                                    <span asp-validation-for="EmailId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                @if (Model.IsActive == true)
+                                {
+                                    <div style="margin-top:6%">
+                                        <div class="checkbox checkbox-primary checkbox-circle">
+                                            <input data-val="true" data-val-required="The isActive field is required." class="styled" id="IsActive" name="IsActive" type="checkbox" value="true" checked />
+                                            <label class="custom-control-label" for="IsActive">Active</label>
+                                            @*<input name="IsActive" type="hidden" value="false" />*@
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style="margin-top:6%">
+                                        <div class="checkbox checkbox-primary checkbox-circle">
+                                            <input data-val="true" data-val-required="The isActive field is required." class="styled" id="IsActive" name="IsActive" type="checkbox" value="true" />
+                                            <label class="custom-control-label" for="IsActive">Active</label>
+                                            @*<input name="IsActive" type="hidden" value="false" />*@
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-xl-12">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success float-end"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Update</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                <div class="form-group">
+                                    <div class="alert alert-danger" style="font-size:14px" role="alert">
+                                        <b>NOTE : Password Requirements:</b>
+                                        <br />
+                                        • Must contain at least one uppercase letter
+                                        <br />
+                                        • Must contain at least one lowercase letter
+                                        <br />
+                                        • Must include at least one digit
+                                        <br />
+                                        • Must include at least one special character (e.g.,@@, #, $, etc.)
+                                        <br />
+                                        • Must be at least 6 characters long
+                                        <br />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            var alertType = '@TempData["AlertType"]';
+            var alertMessage = '@TempData["AlertMessage"]';
+
+            if (alertType && alertMessage)
+            {
+                showAlert(alertType, '', alertMessage,  '');
+            }
+        });
+    </script>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function ()
+    {
+
+    $('#StateId').change(function () {
+                var url = '@Url.Content("~/")' + "CHO/GetDistrict";
+                var ddlsource = "#StateId";
+                $.getJSON(url, { stateid: $(ddlsource).val() }, function (data) {
+                    var districtitems = "<option value='0'>Select</option>";
+                     $("#DistrictId").empty();
+                    $("#BlockId").html("<option value='0'>Select</option>")
+                    $.each(data, function (i, district) {
+                        districtitems += "<option value='" + district.districtID + "'>" + district.districtName + "</option>";
+                    });
+                    $('#DistrictID').html(districtitems);
+                });
+    });
+
+
+
+    $('#DistrictID').change(function () {
+        var url = '@Url.Content("~/")' + "CHO/GetBlock";
+                var ddlsource = "#DistrictID";
+                $.getJSON(url, { districtId: $(ddlsource).val() }, function (data) {
+                    var blockitems = "<option value='0'>Select</option>";
+                    $("#BlockId").empty();
+                    $.each(data, function (i, block) {
+                        blockitems += "<option value='" + block.blockID + "'>" + block.blockName + "</option>";
+                    });
+                    $('#BlockId').html(blockitems);
+                });
+     });
+
+    $('#BlockId').change(function () {
+        var url = '@Url.Content("~/")' + "CHO/GetFacility";
+        var ddlsource = "#BlockId";
+        $.getJSON(url, { blockId: $(ddlsource).val() }, function (data) {
+                    var Facilityitems = "<option value='0'>Select</option>";
+                    $("#FacilityId").empty();
+                   $("#SubFacilityId").html("<option value='0'>Select</option>")
+                  $.each(data, function (i, Facility) {
+                      Facilityitems += "<option value='" + Facility.facilityID + "'>" + Facility.facilityName + "</option>";
+                    });
+                  $('#FacilityId').html(Facilityitems);
+        });
+    });
+
+    $('#FacilityId').change(function () {
+        var url = '@Url.Content("~/")' + "CHO/GetSubFacility";
+        var ddlsource = "#FacilityId";
+        $.getJSON(url, { facilityId: $(ddlsource).val() }, function (data) {
+                    var SubFacilityitems = "<option value='0'>All</option>";
+                     $("#SubFacilityId").empty();
+                  $.each(data, function (i, SubFacility) {
+                      SubFacilityitems += "<option value='" + SubFacility.subFacilityID + "'>" + SubFacility.subFacilityName + "</option>";
+                    });
+            $('#SubFacilityId').html(SubFacilityitems);
+                });
+    });
+    });
+
+
+     $('.show-password').click(function () {
+
+            if ($(this).hasClass('fa-regular fa-eye')) {
+
+                $(this).removeClass('fa-regular fa-eye');
+
+                $(this).addClass('fa-regular fa-eye-slash');
+
+                $('.password-show').attr('type', 'text');
+
+            } else {
+
+                $(this).removeClass('fa-regular fa-eye-slash');
+
+                $(this).addClass('fa-regular fa-eye');
+
+                $('.password-show').attr('type', 'password');
+            }
+        });
+
+</script>
+
+

@@ -1,0 +1,166 @@
+﻿@using CHO_Saathi.ViewModelEntity
+@model IEnumerable<CHO_Saathi.ViewModelEntity.RoleRightsRequestDto>
+
+
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-xl-4">
+                        <h4>Menu List</h4>
+                    </div>
+                    <div class="col-xl-8">
+                        <div class="float-end">
+                            <button type="button" class="CollapseAll btn btn-primary"><i class="fa-solid fa-up-down"></i>&nbsp;Collapse And Expand All</button>&nbsp;
+                            <button type="button" onclick="getCheckValues()" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Save Selected Role Rights</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-12">
+                        @{
+                            List<RoleRightsRequestDto> parentMenu = ViewBag.roleDetails;
+                            var isCheck = string.Empty;
+                        }
+                        @if (parentMenu != null)
+                        {
+                            if (parentMenu.Count == 0)
+                            {
+                                <span>No Parent Menu found.</span>
+                            }
+                            else
+                            {
+                                <ul class="treeview tree2 tvState">
+                                    @foreach (var L1 in parentMenu.Where(p => p.MenuParentID == 0 || p.MenuParentID == null))
+                                    {
+                                        isCheck = null;
+                                        if (Model.Any(x => x.MenuParentID == L1.MenuParentID && x.URL == L1.URL)) { if (L1.RoleId > 0) { isCheck = "checked"; } }
+
+                                        <li style="list-style: none;" id="li@(L1.MenuId)">
+                                            <input type="checkbox" class="Lavel1 form-check-input" id="chkT@(L1.MenuId)" value="@(L1.MenuId)" @isCheck />
+                                            &nbsp; @L1.Menu
+                                            @{
+                                                var L2Menu = parentMenu.Where(p => p.MenuParentID == L1.MenuId);
+                                            }
+
+                                            @if (L2Menu.Any())
+                                            {
+                                                <ul class="treeview tree2 tvDistrict">
+                                                    @foreach (var L2 in L2Menu)
+                                                    {
+                                                        isCheck = null;
+                                                        var L3Menu = parentMenu.Where(p => p.MenuParentID == L2.MenuId);
+                                                        if (Model.Any(x => x.MenuParentID == L2.MenuParentID && x.MenuId == L2.MenuId))
+                                                        {
+                                                            if (L2.RoleId > 0) { isCheck = "checked"; }
+                                                        }
+
+                                                        <li style="list-style: none;">
+                                                            <input type="checkbox" class="Lavel2 form-check-input" id="chkS@(L2.MenuId)" value="@(L2.MenuId)" @isCheck />
+                                                            &nbsp; @L2.Menu
+                                                        </li>
+
+                                                        if (L3Menu.Any())
+                                                        {
+                                                            <ul class="tree2 tvBlock tree">
+                                                                @foreach (var L3 in L3Menu)
+                                                                {
+                                                                    isCheck = null;
+                                                                    if (Model.Any(x => x.MenuParentID == L3.MenuParentID && x.MenuId == L3.MenuId)) { if (L3.RoleId > 0) { isCheck = "checked"; } }
+
+                                                                    <li style="list-style: none;">
+                                                                        <input type="checkbox" class="Lavel3 form-check-input" id="chkS@(L3.MenuId)" value="@(L3.MenuId)" @isCheck />
+                                                                        &nbsp; @L3.Menu
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                        }
+                                                    }
+                                                </ul>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@* <script src="~/scripts/jsTree.js" asp-append-version="true"></script> *@
+<script src="~/assets/js/jstree.js"></script>
+
+<script>
+    $(".CollapseAll").click(function () {
+        $('.tree2 .branch').each(function () {
+            let icon = $(this).children('i:first');
+            icon.toggleClass('fa-solid fa-circle-chevron-down fa-solid fa-circle-chevron-right');
+            $(this).children().children().toggle();
+        });
+    });
+
+
+        function getCheckValues(e)
+        {
+            let roleId = $("#drpRole option:selected").val();
+
+            if (roleId === "") {
+                showAlert('warning', '', 'Please select a role before proceeding menu assignment.', '');
+                e.preventDefault();
+            }
+            else
+            {
+                let allVals = [];
+
+                $('ul li input:checked').each(function () {
+                    allVals.push($(this).val());
+                });
+
+                $("#hdnCheckedVal").val(allVals);
+                if (allVals.length === 0)
+                {
+                    showAlert('warning', '', 'Please select at least a single menu right before proceeding menu assignment.', '');
+                    e.preventDefault();
+                }
+                else
+                {
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'JSON',
+                        url: '@Url.Content("~/")' + "RoleRights/InsertRoleRights", // ✅ fixed (comma instead of ;)
+                        headers: {
+                            "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        data: {
+                            roleId: roleId,
+                            menuIds: allVals.toString()
+                        },
+                        success: function (data) {
+                            if (data.success === 1) {
+                                showAlert('success', '', 'Role rights have been successfully assigned to the selected role.', '');
+                            } else {
+                                showAlert('danger', '', 'The role rights could not be updated.', '');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            showAlert('danger', '', 'An error occurred while processing the request.', '');
+                             }
+                    });
+            }
+        }
+    }
+</script>

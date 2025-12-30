@@ -1,0 +1,204 @@
+﻿@model CHO_Saathi.Models.User
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Edit";
+    if (@Context.Session.GetString("SirjanID") == "1")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="UserId" />
+    <input type="hidden" asp-for="RoleId" />
+    <section id="AboutSection">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3">
+                    <h4 class="Headingcolorbg">Change Password</h4>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                </div>
+                <div class="col-xl-3 col-lg-3">
+                    <div class="pull-right">
+                        <a asp-action="Index" class="btn btn-primary  backtodetailbutton">Back to List</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xl-12 col-lg-12">
+                    <table class="table table-bordered" id="UserTable">
+                        <thead class="table-info">
+                            <tr>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>@Model.Username</p>
+                                </td>
+                                <td>
+                                    <p>@Model.Name</p>
+                                </td>
+                                <td>
+                                    @if (Model.RoleId==11)
+                                    {
+                                        <p>Sirjan-(Medical Officer)</p>
+                                    }
+                                    else if (Model.RoleId == 13)
+                                    {
+                                        <p>Sirjan-(Punjab Facility)</p>
+                                    }
+                                    else if (Model.RoleId == 14)
+                                    {
+                                       <p>Sirjan-ANM</p>
+                                    }
+                                    else
+                                    {
+                                        
+                                    }
+                                </td>
+                                <td>
+                                    <p>@Model.EmailId</p>
+                                </td>
+                                <td>
+                                    <p>@Model.MobileNo</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xl-12 col-lg-12">
+                    <div id="RenderUserDetails"></div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Password</label>
+                        <input name="Password" class="form-control" placeholder="Enter New Password" required />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                    <div class="form-group">
+                        <div class="alert alert-danger" style="font-size:14px" role="alert">
+
+                            <b>NOTE : Password Requirements:</b>
+                            <br />
+                            • Must contain at least one uppercase letter
+                            <br />
+                            • Must contain at least one lowercase letter
+                            <br />
+                            • Must include at least one digit
+                            <br />
+                            • Must include at least one special character (e.g.,@@, #, $, etc.)
+                            <br />
+                            • Must be at least 6 characters long
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-success pull-right" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+
+@if (TempData["message"] != null)
+{
+    <script>
+        //alert('@TempData["message"]');
+        $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> @TempData["message"]", {
+            type: 'danger',
+            align: 'center',
+            width: 'auto',
+            offset: { from: 'top', amount:148 }, // 'top', or 'bottom'
+            allow_dismiss: true,
+            delay: 3000
+        });
+    </script>
+}
+
+<script type="text/javascript">
+    $(document).ready(function ()
+    {
+        GetUserDetails();
+
+    });
+
+    function GetUserDetails()
+    {
+       var User_ID = $("#UserId").val();
+       var Role_ID = $("#RoleId").val();
+
+        var p = {"UserID": User_ID, "RoleID": Role_ID};
+        $.ajax({
+            url: '@Url.Content("~/")' + "Credentails/GetUserDetails", //Your path should be here
+            type: "POST",
+            data: p, success: function (result) {
+                if (result == "0")
+                {
+                    $('#RenderUserDetails').html('');
+                }
+                else
+                {
+                    if (Role_ID == "11" || Role_ID == "13")
+                    {
+                        var loc = "<table class='table table-bordered' id='UserTableLocation'><thead class='table-danger'><tr><th>State</th><th>District</th><th>Block</th><th>Facility</th></tr></thead><tbody>";
+                        $.each(result, function (i, n) {
+                            loc += "<tr><td>" + n.stateName + "</td><td>" + n.district + "</td><td>" + n.blockName + "</td><td>" + n.facilityName + "</td></tr>";
+                        })
+                        loc += "</tbody></table>";
+
+                        $('#RenderUserDetails').html(loc);
+                    }
+                    else if (Role_ID == "14")
+                    {
+                        var loc = "<table class='table table-bordered' id='UserTableLocation'><thead class='table-danger'><tr><th>State</th><th>District</th><th>Block</th><th>Facility</th><th>SubFacility</th></tr></thead><tbody>";
+                        $.each(result, function (i, n) {
+                            loc += "<tr><td>" + n.stateName + "</td><td>" + n.district + "</td><td>" + n.blockName + "</td><td>" + n.facilityName + "</td><td>" + n.subFacility + "</td></tr>";
+                        })
+                        loc += "</tbody></table>";
+
+                        $('#RenderUserDetails').html(loc);
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+        });
+    }
+
+
+
+
+
+</script>
