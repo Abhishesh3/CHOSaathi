@@ -7,101 +7,151 @@
 
 <div class="container-fluid mt-2">
     <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body">
 
-                    <div class="row mt-2">
+        <!-- Left Panel : Select Hierarchy -->
+        <div class="col-xl-2 col-lg-2">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <h4 class="Headingcolorbg">Select Hierarchy</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <hr />
+                </div>
+            </div>
 
-                        <div class="container mt-3">
-                            <div class="row">
-                                <!-- State Dropdown -->
-                                <div class="col-md-2">
-                                    <label for="StateID" class="form-label"><b>State</b></label>
-                                    <select class="form-control form-select" id="StateID" onchange="getPatientReport(1)">
-                                        <option value="0">All</option>
-                                        @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.State)
-                                        {
-                                            <option value="@d.Value">@d.Text</option>
-                                        }
-                                    </select>
-                                </div>
-
-                                <!-- District Dropdown -->
-                                <div class="col-md-2">
-                                    <label for="DistrictID" class="form-label"><b>District</b></label>
-                                    <select class="form-control form-select" id="DistrictID" onchange="getPatientReport(1)">
-                                        <option value="0">All</option>
-                                    </select>
-                                </div>
-
-                                <!-- Block Dropdown -->
-                                <div class="col-md-2">
-                                    <label for="BlockID" class="form-label"><b>Block</b></label>
-                                    <select class="form-control form-select" id="BlockID" onchange="getPatientReport(1)">
-                                        <option value="0">All</option>
-                                    </select>
-                                </div>
-
-                                <!-- Facility Dropdown -->
-                                <div class="col-md-2">
-                                    <label for="FacilityID" class="form-label"><b>Facility</b></label>
-                                    <select class="form-control form-select" id="FacilityID" onchange="getPatientReport(1)">
-                                        <option value="0">All</option>
-                                    </select>
-                                </div>
-
-                                <!-- Sub-Facility Dropdown -->
-                                <div class="col-md-2">
-                                    <label for="SubFacilityID" class="form-label"><b>SubFacility</b></label>
-                                    <select class="form-control form-select" id="SubFacilityID" onchange="getPatientReport(1)">
-                                        <option value="0">All</option>
-                                    </select>
-                                </div>
-
-                                <!-- Symptoms Dropdown -->
-                                <div class="col-md-2">
-                                    <label for="SymptomsID" class="form-label"><b>Symptoms</b></label>
-                                    <select class="form-control form-select" id="SymptomsID" onchange="getPatientReport(1)">
-                                        <option value="0">All</option>
-                                        @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.Symptoms)
-                                        {
-                                            <option value="@d.Value">@d.Text</option>
-                                        }
-                                    </select>
-                                </div>
-
-                                
-                               
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12">
-                            <hr />
-                        </div>
-
-                        <div class="col-md-12 ms-auto">
-                            <div class="d-flex justify-content-between gap-3">
-                                <!-- Export to Excel Button -->
-                                <button type="button" class="btn btn-success" onclick="ExportExcelZIP()"><i class="fa-solid fa-file-excel"></i>&nbsp;Export</button>
-                            </div>
-                        </div>
-
-                        <div class="overflow-auto"
-                             style="max-width: 100%; height: 400px; overflow-x: auto; overflow-y: auto; margin-right: 15px;">
-                            <div id="renderData"></div>
-
-                            <br />
-
-                            <input type="hidden" id="saveSizePage" />
-                        </div>
+            <!-- State -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="StateID" class="form-label"><b>State</b></label>
+                        <select class="form-control form-select" id="StateID" onchange="getPatientReport(1)">
+                            <option value="0">All</option>
+                            @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.State)
+                            {
+                                <option value="@d.Value">@d.Text</option>
+                            }
+                        </select>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
+            <!-- District -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="DistrictID" class="form-label"><b>District</b></label>
+                        <select class="form-control form-select" id="DistrictID" onchange="getPatientReport(1)">
+                            <option value="0">All</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="BlockID" class="form-label"><b>Block</b></label>
+                        <select class="form-control form-select" id="BlockID" onchange="getPatientReport(1)">
+                            <option value="0">All</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="FacilityID" class="form-label"><b>Facility</b></label>
+                        <select class="form-control form-select" id="FacilityID" onchange="getPatientReport(1)">
+                            <option value="0">All</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-Facility -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="form-group">
+                        <label for="SubFacilityID" class="form-label"><b>HWC/Sub-center</b></label>
+                        <select class="form-control form-select" id="SubFacilityID" onchange="getPatientReport(1)">
+                            <option value="0">All</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Search Button -->
+            @* <div class="row mt-2">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary savebutton pull-right" onclick="FillBlockList(1)">
+                            <i class="fa fa-search"></i>&nbsp;Search
+                        </button>
+                    </div>
+                </div>
+            </div> *@
+        </div>
+
+        <!-- Right Panel : Block List -->
+        <div class="col-xl-10 col-lg-10">
+            <div class="row">
+                <div class="col-xl-2 col-lg-2">
+                    <label for="YearID" class="form-label"><b>Year</b></label>
+                    <select class="form-control form-select" id="YearID" onchange="onYearChange()">
+                        <option value="0">All</option>
+                        @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.Year)
+                        {
+                            <option value="@d.Value">@d.Text</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-xl-2 col-lg-2">
+                    <label for="MonthID" class="form-label"><b>Month</b></label>
+                    <select class="form-control form-select" id="MonthID" onchange="getPatientReport(1)" disabled>
+                        <option value="0">All</option>
+                        @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.Month)
+                        {
+                            <option value="@d.Value">@d.Text</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-xl-3 col-lg-3">
+                    <label for="SymptomsID" class="form-label"><b>Symptoms</b></label>
+                    <select class="form-control form-select" id="SymptomsID" onchange="getPatientReport(1)">
+                        <option value="0">All</option>
+                        @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.Symptoms)
+                        {
+                            <option value="@d.Value">@d.Text</option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Partial View for PatientReport -->
+            <div class="overflow-auto"
+                 style="max-width: 100%; height: 400px; overflow-x: auto; overflow-y: auto; margin-right: 15px;">
+
+                <div id="renderData"></div>
+
+                <br />
+
+                <input type="hidden" id="saveSizePage" />
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 @if (TempData["message"] != null)
@@ -212,8 +262,21 @@
         });
     }
 
+    function onYearChange() {
+        var year = $('#YearID').val();
+
+        if (year != "0") {
+            $('#MonthID').prop('disabled', false);   
+        } else {
+            $('#MonthID').prop('disabled', true);    
+            $('#MonthID').val("0");                  
+        }
+
+        getPatientReport(1);
+    }
+
+
     function getPatientReport(pageNumber){
-       debugger;
        var pageSize = $('#pageSize').val()|| 10;
         pageSize = parseInt(pageSize, 10);
         $('#saveSizePage').val(pageSize);
@@ -223,13 +286,15 @@
         var BlockID = $('#BlockID').val();
         var FacilityID = $('#FacilityID').val();
         var SubFacilityID = $('#SubFacilityID').val();
+        var YearID = $('#YearID').val();
+        var MonthID = $('#MonthID').val();
         var SymptomsID = $('#SymptomsID').val();
         var baseUrl = '@Url.Content("~/")';
 
         $.ajax({
             url: baseUrl + 'PatientReport/getPatientReport',
             type: 'POST',
-            data: { pageIndex: pageNumber, pageSize: pageSize,StateId: StateID, DistrictId: DistrictID, BlockId: BlockID, FacilityId: FacilityID, SubfacilityId: SubFacilityID, SymptomsId: SymptomsID },
+            data: { pageIndex: pageNumber, pageSize: pageSize,StateId: StateID, DistrictId: DistrictID, BlockId: BlockID, FacilityId: FacilityID, SubfacilityId: SubFacilityID, YearId: YearID, MonthId: MonthID, SymptomsId: SymptomsID },
             success: function (response) {
                 if (response.length > 0) {
                     if(response == "0"){
@@ -248,14 +313,15 @@
 
     function ExportExcelZIP()
     {
-        debugger;
         var StateID = $("#StateID").val();
         var DistrictID = $("#DistrictID").val();
         var BlockID = $("#BlockID").val();
         var FacilityID = $('#FacilityID').val();
         var SubFacilityID = $('#SubFacilityID').val();
+        var YearID = $('#YearID').val();
+        var MonthID = $('#MonthID').val();
         var SymptomsID = $('#SymptomsID').val();
-        var url = "/PatientReport/ExportToExcel?StateId=" + StateID + "&DistrictId=" + DistrictID + "&BlockId=" + BlockID + "&FacilityId=" + FacilityID + "&SubfacilityId=" + SubFacilityID + "&SymptomsId=" + SymptomsID;
+        var url = "/PatientReport/ExportToExcel?StateId=" + StateID + "&DistrictId=" + DistrictID + "&BlockId=" + BlockID + "&FacilityId=" + FacilityID + "&SubfacilityId=" + SubFacilityID + "&YearId=" + YearID + "&MonthId=" + MonthID + "&SymptomsId=" + SymptomsID;
         window.location.href = url;
     }
 

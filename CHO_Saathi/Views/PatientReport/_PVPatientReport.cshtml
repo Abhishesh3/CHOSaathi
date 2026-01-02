@@ -53,61 +53,105 @@
     }
 </style>
 
+
+
+
 @if (Model != null)
 {
-    @*
+    
     <div class="row">
-        <div class="col-xl-12">
+        <div class="col-xl-12 mt-3">
 
             @foreach (var items in Model.patientGraphData)
             {
-                <div class="row row-cols-1 row-cols-md-3 g-3">
+                <div class="row row-cols-1 row-cols-md-5 g-5">
 
-                    <!-- Total Content -->
+                    <!-- Total Patient -->
                     <div class="col">
-                        <div class="card radius-10" style="background: linear-gradient(90deg,#4f2af0,#2196f3);">
+                        <div class="card radius-10" style="background: linear-gradient(90deg,#1e88e5,#42a5f5);">
                             <div class="card-body">
                                 <div class="d-flex align-items-center text-white">
                                     <h5 class="card-title">
-                                        Registered Patients : <span class="text-white">@items.TotalRegisteredPatients</span>
+                                        Total Patient : <span class="text-white">@items.TotalPatient</span>
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Pending Content -->
+                    <!-- Total Referral -->
                     <div class="col">
-                        <div class="card radius-10" style="background: linear-gradient(90deg,#f72585,#ff6f31);">
+                        <div class="card radius-10" style="background: linear-gradient(90deg,#fb8c00,#ffa726);">
                             <div class="card-body">
                                 <div class="d-flex align-items-center text-white">
                                     <h5 class="card-title">
-                                        Follow-up Patients : <span class="text-white">@items.TotalFollowupPatients</span>
+                                        Total Referral : <span class="text-white">@items.TotalReferral</span>
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- In Progress -->
+                    <!-- Live Cases -->
                     <div class="col">
-                        <div class="card radius-10" style="background: linear-gradient(90deg,#0bb7a4,#1dd9c1);">
+                        <div class="card radius-10" style="background: linear-gradient(90deg,#fbc02d,#fff176); color:#000;">
                             <div class="card-body">
                                 <div class="d-flex align-items-center text-white">
                                     <h5 class="card-title">
-                                        Referred Patients : <span class="text-white">@items.TotalReferredPatients</span>
+                                        Live Cases : <span class="text-white">@items.LiveCases</span>
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Closed Cases -->
+                    <div class="col">
+                        <div class="card radius-10" style="background: linear-gradient(90deg,#43a047,#66bb6a);">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center text-white">
+                                    <h5 class="card-title">
+                                        Closed Cases : <span class="text-white">@items.ClosedCases</span>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Services -->
+                    <div class="col">
+                        <div class="card radius-10" style="background: linear-gradient(90deg,#e53935,#ef5350);">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center text-white">
+                                    <h5 class="card-title">
+                                        Emergency Services : <span class="text-white">@items.EmergencyServices</span>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             }
             
         </div>
     </div>
-    *@
 
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-success" onclick="ExportExcelZIP()">
+                <i class="fa-solid fa-file-excel"></i>&nbsp;Export
+            </button>
+            <button type="button" class="btn btn-danger" onclick="onEmergencyMedicalServices()">
+                <i class="fa fa-hospital"></i>&nbsp;Emergency Medical Services
+            </button>
+            <button type="button" class="btn btn-primary text-white" onclick="onReferredPatient()">
+                <i class="fa fa-ambulance"></i>&nbsp;Referred Patient
+            </button>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-xl-12">
@@ -116,14 +160,14 @@
                 <thead>
                     <tr>
                         <th>S No</th>
-                        <th>Full Name</th>
-                        <th>DOB</th>
-                        <th>Gender</th>
+                        <th>Name W/o Guardian Name</th>
                         <th>Mobile</th>
-                       @*  <th>State</th>
+                        <th>State</th>
                         <th>District</th>
-                        <th>Block</th> *@
+                        <th>Block</th>
                         <th>Village</th>
+                        <th>Facility</th>
+                        <th>HWC/Sub-center</th>
                         <th>Registered Date</th>
                         <th>Follow Up Date</th>
                     </tr>
@@ -136,23 +180,43 @@
 
                     @foreach (var item in Model.patientDetails)
                     {
+                        int age = 0;
+
+                        if (item.DOB != null)
+                        {
+                            var dob = Convert.ToDateTime(item.DOB);
+                            var today = DateTime.Today;
+
+                            age = today.Year - dob.Year;
+                            if (dob.Date > today.AddYears(-age))
+                            {
+                                age--;
+                            }
+                        }
+
                         <tr>
                             <td>@a</td>
-                            <td>@item.fullName</td>
-                            <td>@item.DOB</td>
-                            <td>@item.gender</td>
+
+                            <td>
+                                @item.fullName <br />
+                                @age <br />
+                                @item.gender
+                            </td>
+
                             <td>@item.mobile</td>
-                            @* <td>@item.StateName</td>
+                            <td>@item.StateName</td>
                             <td>@item.District</td>
-                            <td>@item.BlockName</td> *@
+                            <td>@item.BlockName</td>
                             <td>@item.villageName</td>
+                            <td>@item.FacilityName</td>
+                            <td>@item.SubFacility</td>
                             <td>@item.registeredDate</td>
                             <td>@item.visit_date</td>
                         </tr>
 
-                        a += 1;
+                        a++;
                     }
-                </tbody>
+
 
             </table>
 

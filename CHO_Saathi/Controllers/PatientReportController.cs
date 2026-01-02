@@ -40,6 +40,24 @@ namespace CHO_Saathi.Controllers
                 })
                 .ToList();
 
+                ViewBag.Year = _context.MstYears
+                .OrderBy(d => d.YearName)
+                .Select(d => new SelectListItem
+                {
+                    Value = d.YearId.ToString(),
+                    Text = d.YearName
+                })
+                .ToList();
+
+                ViewBag.Month = _context.MstMonths
+                .OrderBy(d => d.MonthId)
+                .Select(d => new SelectListItem
+                {
+                    Value = d.MonthId.ToString(),
+                    Text = d.Month
+                })
+                .ToList();
+
                 ViewBag.Symptoms = _context.CommonSymptomsWebs
                  .Where(d => d.IsDeleted == 0)
                  .OrderBy(d => d.SymptomsName)
@@ -58,7 +76,7 @@ namespace CHO_Saathi.Controllers
             }
         }
 
-        public IActionResult getPatientReport(int pageIndex = 0, int pageSize = 0, int StateId = 0, int DistrictId = 0, int BlockId = 0, int FacilityId = 0, int SubfacilityId = 0, int SymptomsId = 0)
+        public IActionResult getPatientReport(int pageIndex = 0, int pageSize = 0, int StateId = 0, int DistrictId = 0, int BlockId = 0, int FacilityId = 0, int SubfacilityId = 0, int YearId = 0, int MonthId = 0, int SymptomsId = 0)
         {
             try
             {
@@ -72,6 +90,8 @@ namespace CHO_Saathi.Controllers
                     new SqlParameter("@BlockId",BlockId),
                     new SqlParameter("@FacilityId",FacilityId),
                     new SqlParameter("@SubfacilityId",SubfacilityId),
+                    new SqlParameter("@Year",YearId),
+                    new SqlParameter("@Month",MonthId),
                     new SqlParameter("@SymptomsId",SymptomsId),
                     new SqlParameter("@PageNumber",pageIndex),
                     new SqlParameter("@pageSize",pageSize),
@@ -149,7 +169,7 @@ namespace CHO_Saathi.Controllers
             return Json(subFacility);
         }
 
-        public ActionResult ExportToExcel(int StateId = 0, int DistrictId = 0, int BlockId = 0, int FacilityId = 0, int SubfacilityId = 0, int SymptomsId = 0)
+        public ActionResult ExportToExcel(int StateId = 0, int DistrictId = 0, int BlockId = 0, int FacilityId = 0, int SubfacilityId = 0, int YearId = 0, int MonthId = 0, int SymptomsId = 0)
         {
             try
             {
@@ -163,6 +183,8 @@ namespace CHO_Saathi.Controllers
                     new SqlParameter("@BlockId", BlockId),
                     new SqlParameter("@FacilityId",FacilityId),
                     new SqlParameter("@SubfacilityId",SubfacilityId),
+                    new SqlParameter("@Year",YearId),
+                    new SqlParameter("@Month",MonthId),
                     new SqlParameter("@SymptomsId",SymptomsId),
                 };
 

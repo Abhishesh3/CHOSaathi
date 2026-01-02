@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text;
+using static CHO_Saathi.Controllers.Api.UserManagementController;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -193,7 +195,8 @@ namespace CHO_Saathi.Controllers.Api
                             facility_name = Convert.ToString(row["FacilityName"]),
                             sub_facility_code = Convert.ToInt32(row["SubFacilityID"]),
                             sub_facility_name = Convert.ToString(row["SubFacility"]),
-                            village = new List<Village>()
+                            village = new List<Village>(),
+                            facility = new List<Facility>()
                         };
 
                         // village list in second table (if procedure returns it)
@@ -206,6 +209,36 @@ namespace CHO_Saathi.Controllers.Api
                                     id = Convert.ToInt32(vRow["VillageID"]),
                                     sid = Convert.ToInt32(vRow["VillageID"]),
                                     name = Convert.ToString(vRow["Village"])
+                                });
+                            }
+                        }
+
+                        // facility list in second table (if procedure returns it)
+                        if (ds.Tables.Count > 1)
+                        {
+                            foreach (DataRow vRow in ds.Tables[2].Rows)
+                            {
+                                response.facility.Add(new Facility
+                                {
+                                    FacilityID = vRow["FacilityID"] != DBNull.Value ? Convert.ToInt32(vRow["FacilityID"]) : 0,
+                                    FacilityName = vRow["FacilityName"]?.ToString(),
+                                    FacilityCode = vRow["FacilityCode"]?.ToString(),
+                                    FacilityAddress = vRow["FacilityAddress"]?.ToString(),
+
+                                    BlockID = vRow["BlockID"] != DBNull.Value ? Convert.ToInt32(vRow["BlockID"]) : 0,
+                                    DistrictID = vRow["DistrictID"] != DBNull.Value ? Convert.ToInt32(vRow["DistrictID"]) : (int?)null,
+                                    StateID = vRow["StateID"] != DBNull.Value ? Convert.ToInt32(vRow["StateID"]) : (int?)null,
+
+                                    FacilityContactNo = vRow["FacilityContactNo"]?.ToString(),
+                                    FacilityTypeID = vRow["FacilityTypeID"] != DBNull.Value ? Convert.ToInt32(vRow["FacilityTypeID"]) : (int?)null,
+
+                                    StateCode = vRow["StateCode"] != DBNull.Value ? Convert.ToInt32(vRow["StateCode"]) : (int?)null,
+
+                                    DistrictCode = vRow["DistrictCode"] != DBNull.Value ? Convert.ToInt32(vRow["DistrictCode"]) : (int?)null,
+                                    BlockCode = vRow["BlockCode"] != DBNull.Value ? Convert.ToInt32(vRow["BlockCode"]) : (int?)null,
+
+                                    TalukaID = vRow["TalukaID"]?.ToString(),
+                                    FacilityPCode = vRow["FacilityPCode"] != DBNull.Value ? Convert.ToInt32(vRow["FacilityPCode"]) : (int?)null
                                 });
                             }
                         }
@@ -234,6 +267,8 @@ namespace CHO_Saathi.Controllers.Api
                 return StatusCode(500, new { Status = 0, Message = ex.Message });
             }
         }
+
+
 
         //[HttpPost("GetCHOData")]
         //public IActionResult GetCHOData()
@@ -297,6 +332,7 @@ namespace CHO_Saathi.Controllers.Api
             public int sub_facility_code { get; set; }
             public string sub_facility_name { get; set; }
             public List<Village> village { get; set; }
+            public List<Facility> facility { get; set; }
         }
 
         public class Village
@@ -304,6 +340,37 @@ namespace CHO_Saathi.Controllers.Api
             public int id { get; set; }
             public int sid { get; set; }
             public string name { get; set; }
+        }
+
+        public class Facility
+        {
+            public int FacilityID { get; set; }
+
+            public string FacilityName { get; set; }
+
+            public string? FacilityCode { get; set; }
+
+            public string? FacilityAddress { get; set; }
+
+            public int BlockID { get; set; }
+
+            public int? DistrictID { get; set; }
+
+            public int? StateID { get; set; }
+
+            public string? FacilityContactNo { get; set; }
+
+            public int? FacilityTypeID { get; set; }
+
+            public int? StateCode { get; set; }
+
+            public int? DistrictCode { get; set; }
+
+            public int? BlockCode { get; set; }
+
+            public string? TalukaID { get; set; }
+
+            public int? FacilityPCode { get; set; }
         }
 
 

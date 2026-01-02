@@ -97,14 +97,19 @@ namespace CHO_Saathi.ViewComponents
         public string? StateName { get; set; }
         public string? District { get; set; }
         public string? BlockName { get; set; }
+        public string FacilityName { get; set; }
+        public string SubFacility { get; set; }
         public string registeredDate { get; set; }
         public string visit_date { get; set; }
+        
     }
 
     public class PatientGraphData
     {
-        public int TotalRegisteredPatients { get; set; }
-        public int TotalFollowupPatients { get; set; }
-        public int TotalReferredPatients { get; set; }
+        public int TotalPatient { get; set; }
+        public int TotalReferral { get; set; }
+        public int LiveCases { get; set; }
+        public int ClosedCases { get; set; }
+        public int EmergencyServices { get; set; }
     }
 }

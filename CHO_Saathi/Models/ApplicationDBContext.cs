@@ -237,6 +237,8 @@ public partial class ApplicationDBContext : DbContext
 
     public virtual DbSet<MstMonth> MstMonths { get; set; }
 
+    public virtual DbSet<MstYear> MstYears { get; set; }
+
     public virtual DbSet<Note> Notes { get; set; }
 
     public virtual DbSet<Operation> Operations { get; set; }
@@ -4244,6 +4246,15 @@ public partial class ApplicationDBContext : DbContext
                 .IsUnicode(false);
         });
 
+        modelBuilder.Entity<MstYear>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("MstYear");
+
+            entity.Property(e => e.YearName).HasMaxLength(10);
+        });
+
         modelBuilder.Entity<Note>(entity =>
         {
             entity.HasKey(e => e.Sno).HasName("PK__notes__DDDF64465F79FE2A");
@@ -4351,6 +4362,8 @@ public partial class ApplicationDBContext : DbContext
             entity.HasKey(e => e.Sno).HasName("PK__patients__DDDF6446ABFB93D6");
 
             entity.ToTable("patients");
+
+            entity.HasIndex(e => e.Mobile, "IX_patients_mobile").IsUnique();
 
             entity.Property(e => e.Sno).HasColumnName("sno");
             entity.Property(e => e.AbhaId).HasColumnName("abhaId");
