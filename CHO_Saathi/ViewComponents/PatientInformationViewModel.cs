@@ -7,6 +7,7 @@ namespace CHO_Saathi.ViewComponents
     {
         public List<PatientDetails> patientDetails { get; set; }
         public List<PatientGraphData> patientGraphData { get; set; }
+        public List<EmergencyServiceCount> emergencyServiceCounts { get; set; }
     }
     public class PatientDetails
     {
@@ -110,6 +111,10 @@ namespace CHO_Saathi.ViewComponents
         public int TotalReferral { get; set; }
         public int LiveCases { get; set; }
         public int ClosedCases { get; set; }
+    }
+
+    public class EmergencyServiceCount
+    {
         public int EmergencyServices { get; set; }
     }
 }

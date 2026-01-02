@@ -54,122 +54,35 @@
 </style>
 
 
-
-
 @if (Model != null)
 {
-    
-    <div class="row">
-        <div class="col-xl-12 mt-3">
-
-            @foreach (var items in Model.patientGraphData)
-            {
-                <div class="row row-cols-1 row-cols-md-5 g-5">
-
-                    <!-- Total Patient -->
-                    <div class="col">
-                        <div class="card radius-10" style="background: linear-gradient(90deg,#1e88e5,#42a5f5);">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center text-white">
-                                    <h5 class="card-title">
-                                        Total Patient : <span class="text-white">@items.TotalPatient</span>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Total Referral -->
-                    <div class="col">
-                        <div class="card radius-10" style="background: linear-gradient(90deg,#fb8c00,#ffa726);">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center text-white">
-                                    <h5 class="card-title">
-                                        Total Referral : <span class="text-white">@items.TotalReferral</span>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Live Cases -->
-                    <div class="col">
-                        <div class="card radius-10" style="background: linear-gradient(90deg,#fbc02d,#fff176); color:#000;">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center text-white">
-                                    <h5 class="card-title">
-                                        Live Cases : <span class="text-white">@items.LiveCases</span>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Closed Cases -->
-                    <div class="col">
-                        <div class="card radius-10" style="background: linear-gradient(90deg,#43a047,#66bb6a);">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center text-white">
-                                    <h5 class="card-title">
-                                        Closed Cases : <span class="text-white">@items.ClosedCases</span>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Emergency Services -->
-                    <div class="col">
-                        <div class="card radius-10" style="background: linear-gradient(90deg,#e53935,#ef5350);">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center text-white">
-                                    <h5 class="card-title">
-                                        Emergency Services : <span class="text-white">@items.EmergencyServices</span>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            }
-            
-        </div>
-    </div>
-
     <div class="row mt-3">
         <div class="col-md-6">
             <button type="button" class="btn btn-success" onclick="ExportExcelZIP()">
                 <i class="fa-solid fa-file-excel"></i>&nbsp;Export
             </button>
-            <button type="button" class="btn btn-danger" onclick="onEmergencyMedicalServices()">
+            <button type="button" class="btn btn-danger" onclick="ExportEmergencyMedicalServices()">
                 <i class="fa fa-hospital"></i>&nbsp;Emergency Medical Services
             </button>
-            <button type="button" class="btn btn-primary text-white" onclick="onReferredPatient()">
+            <button type="button" class="btn btn-primary text-white" onclick="ExportReferredPatient()">
                 <i class="fa fa-ambulance"></i>&nbsp;Referred Patient
             </button>
         </div>
         <div class="col-md-6">
         </div>
     </div>
-
     <div class="row">
-        <div class="col-xl-12">
-
-            <table id="PatientDetails" class="table table-striped table-bordered cell-border" style="width:100%">
+        <div class="col-xl-12 w-100">
+            <table id="PatientDetails" class="table table-bordered mt-2">
                 <thead>
                     <tr>
-                        <th>S No</th>
-                        <th>Name W/o Guardian Name</th>
-                        <th>Mobile</th>
-                        <th>State</th>
-                        <th>District</th>
-                        <th>Block</th>
-                        <th>Village</th>
-                        <th>Facility</th>
-                        <th>HWC/Sub-center</th>
-                        <th>Registered Date</th>
-                        <th>Follow Up Date</th>
+                        <th style="width:10px;">S No</th>
+                        <th style="width:20px;">Patient Details</th>
+                        <th style="width:40px;">Mobile</th>
+                        <th style="width:350px;">Location</th>
+                        <th style="width:50px;">Registered Date</th>
+                        <th style="width:50px;">Follow Up Date</th>
+                        @* <th style="width:2%;">Summary</th> *@
                     </tr>
                 </thead>
 
@@ -198,20 +111,92 @@
                             <td>@a</td>
 
                             <td>
-                                @item.fullName <br />
-                                @age <br />
-                                @item.gender
+                                <table class="table table-bordered mt-0">
+                                    <tr>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <td>
+                                            @item.fullName
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Husband Name
+                                        </th>
+                                        <td>
+                                            @item.spouseName
+                                        </td>
+                        </tr>
+                                    <tr>
+                                        <th>
+                                            Age
+                                        </th>
+                                        <td>
+                                            @age
+                                        </td>
+                                     </tr>
+                                    <tr>
+                                        <th>
+                                            Gender
+                                        </th>
+                                        <td>
+                                            @item.gender
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
 
                             <td>@item.mobile</td>
-                            <td>@item.StateName</td>
-                            <td>@item.District</td>
-                            <td>@item.BlockName</td>
-                            <td>@item.villageName</td>
-                            <td>@item.FacilityName</td>
-                            <td>@item.SubFacility</td>
+                            <td>
+                                <table class="table table-bordered mt-0">
+                                    <tr>
+                                        <th>
+                                            State
+                                        </th>
+                                        <td>
+                                            @item.StateName
+                                        </td>
+                                        <th>
+                                            District
+                                        </th>
+                                        <td>
+                                            @item.District
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Block
+                                        </th>
+                                        <td>
+                                            @item.BlockName
+                                        </td>
+                                        <th>
+                                            Facility
+                                        </th>
+                                        <td>
+                                            @item.FacilityName
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            HWC/Sub-center
+                                        </th>
+                                        <td>
+                                            @item.SubFacility
+                                        </td>
+                                        <th>
+                                            Village
+                                        </th>
+                                        <td>
+                                            @item.villageName
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
                             <td>@item.registeredDate</td>
                             <td>@item.visit_date</td>
+                            @* <td style="width:20px;"></td> *@
                         </tr>
 
                         a++;
@@ -219,15 +204,11 @@
 
 
             </table>
-
-            
-
         </div>
 
-        
-    </div>
 
-    <div class="col-md-12 text-right mt-2">
+    </div>
+    <div class="col-md-12 text-right mt-1">
         <div class="inline-pager float-end">
             @if (TempData["PageIndex"].ToString() == "1")
             {

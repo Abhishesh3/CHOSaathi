@@ -1,0 +1,138 @@
+﻿@using System.Data
+@model CHO_Saathi.ViewComponents.PatientInformationViewModel
+
+
+<style>
+    .stat-card {
+        border: none;
+        border-radius: 14px;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+        }
+
+    .stat-icon {
+        font-size: 38px;
+        opacity: 0.85;
+    }
+
+    .stat-title {
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        opacity: 0.9;
+    }
+
+    .stat-value {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    /* Gradients */
+    .bg-patient {
+        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    }
+
+    .bg-referral {
+        background: linear-gradient(135deg, #11998e, #38ef7d);
+    }
+
+    .bg-live {
+        background: linear-gradient(135deg, #4776e6, #8e54e9);
+    }
+
+    .bg-closed {
+        background: linear-gradient(135deg, #f7971e, #ffd200);
+    }
+
+    .bg-emergency {
+        background: linear-gradient(135deg, #cb2d3e, #ef473a);
+    }
+</style>
+
+<div class="row g-4">
+    @if (Model != null)
+    {
+        @foreach (var items in Model.patientGraphData)
+        {
+
+            <!-- Total Patient -->
+            <div class="col-xl-2 col-lg-3 col-md-4">
+                <div class="card stat-card bg-patient">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="stat-title">Total Patient</div>
+                            <div class="stat-value">@items.TotalPatient</div>
+                        </div>
+                        <i class="fa fa-users stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Referral -->
+            <div class="col-xl-2 col-lg-3 col-md-4">
+                <div class="card stat-card bg-referral">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="stat-title">Total Referral</div>
+                            <div class="stat-value">@items.TotalReferral</div>
+                        </div>
+                        <i class="fa fa-share-nodes stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Cases -->
+            <div class="col-xl-2 col-lg-3 col-md-4">
+                <div class="card stat-card bg-live">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="stat-title">Live Cases</div>
+                            <div class="stat-value">@items.LiveCases</div>
+                        </div>
+                        <i class="fa fa-heart-pulse stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Closed Cases -->
+            <div class="col-xl-2 col-lg-3 col-md-4">
+                <div class="card stat-card bg-closed">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="stat-title">Closed Cases</div>
+                            <div class="stat-value">@items.ClosedCases</div>
+                        </div>
+                        <i class="fa fa-circle-check stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @foreach (var data in Model.emergencyServiceCounts)
+        {
+            <!-- Emergency Services -->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card stat-card bg-emergency">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="stat-title">Emergency Services</div>
+                            <div class="stat-value">@data.EmergencyServices</div>
+                        </div>
+                        <i class="fa fa-truck-medical stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    }
+    else
+    {
+        <p>No records found.</p>
+    }
+
+</div>

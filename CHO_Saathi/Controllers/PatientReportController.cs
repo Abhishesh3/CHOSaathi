@@ -76,6 +76,43 @@ namespace CHO_Saathi.Controllers
             }
         }
 
+        public IActionResult getPatientCardCountReport(int StateId = 0, int DistrictId = 0, int BlockId = 0, int FacilityId = 0, int SubfacilityId = 0, int YearId = 0, int MonthId = 0, int SymptomsId = 0)
+        {
+            try
+            {
+                
+                var param = new SqlParameter[]
+                {
+                    new SqlParameter("@StateId",StateId),
+                    new SqlParameter("@DistrictId",DistrictId),
+                    new SqlParameter("@BlockId",BlockId),
+                    new SqlParameter("@FacilityId",FacilityId),
+                    new SqlParameter("@SubfacilityId",SubfacilityId),
+                    new SqlParameter("@Year",YearId),
+                    new SqlParameter("@Month",MonthId),
+                    new SqlParameter("@SymptomsId",SymptomsId),
+                    new SqlParameter("@PageNumber","1"),
+                    new SqlParameter("@pageSize","10"),
+                };
+
+                DataSet result = CommonController.Procedure_DataSet("USP_Patients_Fetch", param);
+
+                List<PatientInformationViewModel> obj = new List<PatientInformationViewModel>();
+
+                var report = new PatientInformationViewModel
+                {
+                    patientDetails = CommonController.ConvertDataTable<PatientDetails>(result.Tables[1]),
+                    patientGraphData = CommonController.ConvertDataTable<PatientGraphData>(result.Tables[2]),
+                    emergencyServiceCounts = CommonController.ConvertDataTable<EmergencyServiceCount>(result.Tables[3]),
+                };
+                return PartialView("_PVPatientCardCount", report);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public IActionResult getPatientReport(int pageIndex = 0, int pageSize = 0, int StateId = 0, int DistrictId = 0, int BlockId = 0, int FacilityId = 0, int SubfacilityId = 0, int YearId = 0, int MonthId = 0, int SymptomsId = 0)
         {
             try
@@ -105,6 +142,7 @@ namespace CHO_Saathi.Controllers
                 {
                     patientDetails = CommonController.ConvertDataTable<PatientDetails>(result.Tables[1]),
                     patientGraphData = CommonController.ConvertDataTable<PatientGraphData>(result.Tables[2]),
+                    emergencyServiceCounts = CommonController.ConvertDataTable<EmergencyServiceCount>(result.Tables[3]),
                 };
 
                 int countUser = Convert.ToInt32(result.Tables[0].Rows[0].ItemArray[0]);
@@ -240,6 +278,114 @@ namespace CHO_Saathi.Controllers
             }
         }
 
+
+
+        public ActionResult ExportMedicalServices()
+        {
+            try
+            {
+                string filePath = "Medical_Emergency_Data";
+                string ExcelTabName = "Medical_Emergency";
+
+                DataTable dtTable = CommonController.Procedure_Query_ToDataTable(
+                    _context, "USP_Medical_Emergency_Fetch_Excel", CommandType.StoredProcedure, null
+                );
+
+                if (dtTable != null && dtTable.Rows.Count > 0)
+                {
+                    if (dtTable.Columns.Contains("SNo"))
+                        dtTable.Columns["me_id"].ColumnName = "S.No";
+                    else if (dtTable.Columns.Contains("S_No"))
+                        dtTable.Columns["me_id"].ColumnName = "S.No";
+
+                    using (XLWorkbook wb = new XLWorkbook())
+                    {
+                        var ws = wb.Worksheets.Add(dtTable, ExcelTabName);
+
+                        ws.Table(0).ShowAutoFilter = false;
+                        ws.Table(0).Theme = XLTableTheme.TableStyleLight12;
+                        ws.Columns().AdjustToContents();
+
+                        using (var stream = new MemoryStream())
+                        {
+                            wb.SaveAs(stream);
+                            stream.Position = 0;
+
+                            string downloadFileName = filePath + "_" +
+                                DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".xlsx";
+
+                            return File(stream.ToArray(),
+                                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                downloadFileName);
+                        }
+                    }
+                }
+                else
+                {
+                    TempData["message"] = "No Record Found..!!";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception)
+            {
+                TempData["message"] = "Error while exporting data!";
+                return RedirectToAction("Index");
+            }
+        }
+
+
+        public ActionResult ReferredPatient()
+        {
+            try
+            {
+                string filePath = "Referred_Patient_Data";
+                string ExcelTabName = "Referred_Patient";
+
+                DataTable dtTable = CommonController.Procedure_Query_ToDataTable(
+                    _context, "USP_Referral_Patient_Fetch_Excel", CommandType.StoredProcedure, null
+                );
+
+                if (dtTable != null && dtTable.Rows.Count > 0)
+                {
+                    if (dtTable.Columns.Contains("SNo"))
+                        dtTable.Columns["sno"].ColumnName = "S.No";
+                    else if (dtTable.Columns.Contains("S_No"))
+                        dtTable.Columns["sno"].ColumnName = "S.No";
+
+                    using (XLWorkbook wb = new XLWorkbook())
+                    {
+                        var ws = wb.Worksheets.Add(dtTable, ExcelTabName);
+
+                        ws.Table(0).ShowAutoFilter = false;
+                        ws.Table(0).Theme = XLTableTheme.TableStyleLight12;
+                        ws.Columns().AdjustToContents();
+
+                        using (var stream = new MemoryStream())
+                        {
+                            wb.SaveAs(stream);
+                            stream.Position = 0;
+
+                            string downloadFileName = filePath + "_" +
+                                DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".xlsx";
+
+                            return File(stream.ToArray(),
+                                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                downloadFileName);
+                        }
+                    }
+                }
+                else
+                {
+                    TempData["message"] = "No Record Found..!!";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception)
+            {
+                TempData["message"] = "Error while exporting data!";
+                return RedirectToAction("Index");
+            }
+        }
 
         private bool PatientExists(int id)
         {

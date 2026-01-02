@@ -5,14 +5,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid mt-2">
-    <div class="row">
+<style>
+    .seven h1:after, .seven h1:before {
+        content: " ";
+        display: block;
+        border-bottom: 1px solid #c50000;
+        border-top: 1px solid #c50000;
+        height: 5px;
+        background-color: #f8f8f8;
+    }
 
-        <!-- Left Panel : Select Hierarchy -->
-        <div class="col-xl-2 col-lg-2">
+    .seven h1 {
+        text-align: center;
+        font-size: 25px;
+        font-weight: 600;
+        color: #4037a5;
+        letter-spacing: 1px;
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-template-rows: 12px 0;
+        grid-gap: 5px;
+        align-items: center;
+        text-transform:uppercase;
+    }
+</style>
+
+<div class="container-fluid">
+<div class="row mt-3">
+    <div class="col-lg-12">
+            <div class="seven">
+                <h1>Patient Dashboard</h1>
+            </div>
+</div>
+</div>
+  
+ <div id="renderCardData"></div>
+ <div class="row">
+        <div class="col-lg-12">
+           <hr/>
+        </div>
+   </div>
+ <div class="row">
+
+<!-- Left Panel : Select Hierarchy -->
+<div class="col-xl-2 col-lg-2">
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
-                    <h4 class="Headingcolorbg">Select Hierarchy</h4>
+                    <h5 class="Headingcolorbg"><i class="fa-solid fa-filter"></i>&nbsp;Filters</h5>
                 </div>
             </div>
             <div class="row">
@@ -26,7 +65,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="form-group">
                         <label for="StateID" class="form-label"><b>State</b></label>
-                        <select class="form-control form-select" id="StateID" onchange="getPatientReport(1)">
+                        <select class="form-control form-select" id="StateID">
                             <option value="0">All</option>
                             @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.State)
                             {
@@ -42,7 +81,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="form-group">
                         <label for="DistrictID" class="form-label"><b>District</b></label>
-                        <select class="form-control form-select" id="DistrictID" onchange="getPatientReport(1)">
+                        <select class="form-control form-select" id="DistrictID">
                             <option value="0">All</option>
                         </select>
                     </div>
@@ -54,7 +93,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="form-group">
                         <label for="BlockID" class="form-label"><b>Block</b></label>
-                        <select class="form-control form-select" id="BlockID" onchange="getPatientReport(1)">
+                        <select class="form-control form-select" id="BlockID">
                             <option value="0">All</option>
                         </select>
                     </div>
@@ -66,7 +105,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="form-group">
                         <label for="FacilityID" class="form-label"><b>Facility</b></label>
-                        <select class="form-control form-select" id="FacilityID" onchange="getPatientReport(1)">
+                        <select class="form-control form-select" id="FacilityID">
                             <option value="0">All</option>
                         </select>
                     </div>
@@ -78,7 +117,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="form-group">
                         <label for="SubFacilityID" class="form-label"><b>HWC/Sub-center</b></label>
-                        <select class="form-control form-select" id="SubFacilityID" onchange="getPatientReport(1)">
+                        <select class="form-control form-select" id="SubFacilityID">
                             <option value="0">All</option>
                         </select>
                     </div>
@@ -87,21 +126,21 @@
 
 
             <!-- Search Button -->
-            @* <div class="row mt-2">
+            <div class="row mt-2">
                 <div class="col-xl-12 col-lg-12">
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary savebutton pull-right" onclick="FillBlockList(1)">
+                        <button type="button" class="btn btn-primary savebutton pull-right" onclick="FilteredData()">
                             <i class="fa fa-search"></i>&nbsp;Search
                         </button>
                     </div>
                 </div>
-            </div> *@
+            </div>
         </div>
 
         <!-- Right Panel : Block List -->
-        <div class="col-xl-10 col-lg-10">
+    <div class="col-xl-10 col-lg-10">
             <div class="row">
-                <div class="col-xl-2 col-lg-2">
+                <div class="col-xl-3 col-lg-3">
                     <label for="YearID" class="form-label"><b>Year</b></label>
                     <select class="form-control form-select" id="YearID" onchange="onYearChange()">
                         <option value="0">All</option>
@@ -112,7 +151,7 @@
                     </select>
                 </div>
 
-                <div class="col-xl-2 col-lg-2">
+                <div class="col-xl-3 col-lg-3">
                     <label for="MonthID" class="form-label"><b>Month</b></label>
                     <select class="form-control form-select" id="MonthID" onchange="getPatientReport(1)" disabled>
                         <option value="0">All</option>
@@ -137,19 +176,14 @@
             </div>
 
             <!-- Partial View for PatientReport -->
-            <div class="overflow-auto"
-                 style="max-width: 100%; height: 400px; overflow-x: auto; overflow-y: auto; margin-right: 15px;">
-
-                <div id="renderData"></div>
-
-                <br />
-
-                <input type="hidden" id="saveSizePage" />
-            </div>
+  
+              <div id="renderData"></div>
+              <input type="hidden" id="saveSizePage" />
+        
 
         </div>
 
-    </div>
+  </div>
 
 </div>
 
@@ -167,6 +201,7 @@
         getBlocksByDistrict();
         getFacilityByBlock();
         getSubfacilityByFacility();
+        getPatientCardCountReport(1);
         getPatientReport(1);
     });
 
@@ -276,6 +311,40 @@
     }
 
 
+    function getPatientCardCountReport()
+    {
+        var StateID = $('#StateID').val();
+        var DistrictID = $('#DistrictID').val();
+        var BlockID = $('#BlockID').val();
+        var FacilityID = $('#FacilityID').val();
+        var SubFacilityID = $('#SubFacilityID').val();
+        var YearID = $('#YearID').val();
+        var MonthID = $('#MonthID').val();
+        var SymptomsID = $('#SymptomsID').val();
+        var baseUrl = '@Url.Content("~/")';
+
+        $.ajax({
+            url: baseUrl + 'PatientReport/getPatientCardCountReport',
+            type: 'POST',
+            data: {StateId: StateID, DistrictId: DistrictID, BlockId: BlockID, FacilityId: FacilityID, SubfacilityId: SubFacilityID, YearId: YearID, MonthId: MonthID, SymptomsId: SymptomsID },
+            success: function (response) {
+                if (response.length > 0) {
+                    if(response == "0")
+                    {
+                        $('#renderCardData').html('');
+                    }
+                    else
+                    {
+                        $('#renderCardData').html(response);
+                    }
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Error: " + error);
+            }
+        });
+    }
+
     function getPatientReport(pageNumber){
        var pageSize = $('#pageSize').val()|| 10;
         pageSize = parseInt(pageSize, 10);
@@ -297,9 +366,13 @@
             data: { pageIndex: pageNumber, pageSize: pageSize,StateId: StateID, DistrictId: DistrictID, BlockId: BlockID, FacilityId: FacilityID, SubfacilityId: SubFacilityID, YearId: YearID, MonthId: MonthID, SymptomsId: SymptomsID },
             success: function (response) {
                 if (response.length > 0) {
-                    if(response == "0"){
+                    if(response == "0")
+                    {
+                       
                         $('#renderData').html('');
-                    }else{
+                    }
+                    else
+                    {
                         $('#renderData').html(response);
                         $('#pageSize').val($('#saveSizePage').val());
                     }
@@ -310,6 +383,33 @@
             }
         });
     }
+
+    function FilteredData(){
+        if (!validateFilters()) {
+            return;   
+        }
+        getPatientReport(1);
+    }
+
+    function validateFilters() {
+        if ($('#StateID').val() == "0" || $('#StateID').val() == "") {
+            alert("Please select State");
+            $('#StateID').focus();
+            return false;
+        }
+        if ($('#DistrictID').val() == "0" || $('#DistrictID').val() == "") {
+            alert("Please select District");
+            $('#DistrictID').focus();
+            return false;
+        }
+        if ($('#BlockID').val() == "0" || $('#BlockID').val() == "") {
+            alert("Please select Block");
+            $('#BlockID').focus();
+            return false;
+        }
+        return true;
+    }
+
 
     function ExportExcelZIP()
     {
@@ -322,6 +422,18 @@
         var MonthID = $('#MonthID').val();
         var SymptomsID = $('#SymptomsID').val();
         var url = "/PatientReport/ExportToExcel?StateId=" + StateID + "&DistrictId=" + DistrictID + "&BlockId=" + BlockID + "&FacilityId=" + FacilityID + "&SubfacilityId=" + SubFacilityID + "&YearId=" + YearID + "&MonthId=" + MonthID + "&SymptomsId=" + SymptomsID;
+        window.location.href = url;
+    }
+
+    function ExportEmergencyMedicalServices()
+    {
+       var url = "/PatientReport/ExportMedicalServices";
+        window.location.href = url;
+    }
+
+    function ExportReferredPatient()
+    {
+        var url = "/PatientReport/ReferredPatient";
         window.location.href = url;
     }
 
