@@ -42,6 +42,8 @@
     <!--end::Required Plugin(AdminLTE)-->
     <script src="~/js/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+ 
    
     <style>
         .header-text {
@@ -141,6 +143,30 @@
     </div>
     <!--end::App Wrapper-->
     <!--begin::Script-->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop_Session" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop_SessionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content modal-filled bg-warning">
+                <div class="modal-body p-4">
+                    <div class="text-center">
+                        <i class="dripicons-wrong h1 text-white"></i>
+                        <h4 class="mt-2">
+                            Alert !!
+                        </h4>
+                        <p class="mt-2">
+                            Your session will expire within <br /> <span id="lbltimeOut" class="h3"></span> <br /> Please click OK to continue the session.
+                        </p>
+                        <a class="btn btn-success btn-sm" style="cursor:pointer" onclick="ExtentSessionMethod();">
+                            Ok &nbsp; <i class="fa-solid fa-thumbs-up"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" style="cursor:pointer" title="Click here to Logout" href="@Url.Action("Logout", "Login")">
+                            <i class="fa-solid fa-right-from-bracket"></i>&nbsp;Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="alert-container" class="alert-top-center"></div>
 
@@ -161,7 +187,58 @@
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     @await RenderSectionAsync("Scripts", required: false)
 
-   
+    <script type="text/javascript">
+        var sessionTimeoutWarning = 20; // total session minutes
+        var sTimeout = sessionTimeoutWarning * 60 * 1000;
+        var warningTimer, countdownTimer;
+        var sessionModal;
+
+        function startSessionTimeout() {
+            clearTimeout(warningTimer);
+            clearInterval(countdownTimer);
+
+            warningTimer = setTimeout(SessionEnd, sTimeout - 300000); // 5 min before
+        }
+
+        function SessionEnd() {
+            var countDownDate = new Date().getTime() + (5 * 60000);
+
+            countdownTimer = setInterval(function () {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("lbltimeOut").innerText =
+                    minutes + "M : " + seconds + "S";
+
+                if (distance < 30000) {
+                    clearInterval(countdownTimer);
+                    window.location.href = '@Url.Action("Login", "Login")';
+                }
+            }, 1000);
+
+            var modalEl = document.getElementById('staticBackdrop_Session');
+            sessionModal = new bootstrap.Modal(modalEl, {
+                backdrop: 'static',
+                keyboard: false
+            });
+
+            sessionModal.show();
+        }
+
+        function ExtentSessionMethod() {
+            if (sessionModal) {
+                sessionModal.hide();
+            }
+            startSessionTimeout();
+        }
+
+        startSessionTimeout();
+    </script>
+
+
 
     <script type="text/javascript">
         function preventBack() { window.history.forward(); }

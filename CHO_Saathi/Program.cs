@@ -35,14 +35,14 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         options.LoginPath = "/Login/Login";
         options.LogoutPath = "/Login/Login";
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(35);
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(25);
         options.SlidingExpiration = true; // recommended
     });
 
 // Session configuration
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(35);
+    options.IdleTimeout = TimeSpan.FromMinutes(25);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });

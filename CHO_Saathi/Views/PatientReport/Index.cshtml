@@ -26,29 +26,29 @@
         grid-template-rows: 12px 0;
         grid-gap: 5px;
         align-items: center;
-        text-transform:uppercase;
+        text-transform: uppercase;
     }
 </style>
 
 <div class="container-fluid">
-<div class="row mt-3">
-    <div class="col-lg-12">
+    <div class="row mt-3">
+        <div class="col-lg-12">
             <div class="seven">
                 <h1>Patient Dashboard</h1>
             </div>
-</div>
-</div>
-  
- <div id="renderCardData"></div>
- <div class="row">
-        <div class="col-lg-12">
-           <hr/>
         </div>
-   </div>
- <div class="row">
+    </div>
 
-<!-- Left Panel : Select Hierarchy -->
-<div class="col-xl-2 col-lg-2">
+    <div id="renderCardData"></div>
+    <div class="row">
+        <div class="col-lg-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+
+        <!-- Left Panel : Select Hierarchy -->
+        <div class="col-xl-2 col-lg-2">
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <h5 class="Headingcolorbg"><i class="fa-solid fa-filter"></i>&nbsp;Filters</h5>
@@ -138,7 +138,7 @@
         </div>
 
         <!-- Right Panel : Block List -->
-    <div class="col-xl-10 col-lg-10">
+        <div class="col-xl-10 col-lg-10">
             <div class="row">
                 <div class="col-xl-3 col-lg-3">
                     <label for="YearID" class="form-label"><b>Year</b></label>
@@ -153,7 +153,7 @@
 
                 <div class="col-xl-3 col-lg-3">
                     <label for="MonthID" class="form-label"><b>Month</b></label>
-                    <select class="form-control form-select" id="MonthID" onchange="getPatientReport(1)" disabled>
+                    <select class="form-control form-select" id="MonthID" onchange="getPatientReport(1),getPatientCardCountReport()" disabled>
                         <option value="0">All</option>
                         @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.Month)
                         {
@@ -164,7 +164,7 @@
 
                 <div class="col-xl-3 col-lg-3">
                     <label for="SymptomsID" class="form-label"><b>Symptoms</b></label>
-                    <select class="form-control form-select" id="SymptomsID" onchange="getPatientReport(1)">
+                    <select class="form-control form-select" id="SymptomsID" onchange="getPatientReport(1),getPatientCardCountReport()">
                         <option value="0">All</option>
                         @foreach (var d in (IEnumerable<SelectListItem>)ViewBag.Symptoms)
                         {
@@ -176,14 +176,14 @@
             </div>
 
             <!-- Partial View for PatientReport -->
-  
-              <div id="renderData"></div>
-              <input type="hidden" id="saveSizePage" />
-        
+
+            <div id="renderData"></div>
+            <input type="hidden" id="saveSizePage" />
+
 
         </div>
 
-  </div>
+    </div>
 
 </div>
 
@@ -298,16 +298,19 @@
     }
 
     function onYearChange() {
+        debugger;
         var year = $('#YearID').val();
 
         if (year != "0") {
-            $('#MonthID').prop('disabled', false);   
+            $('#MonthID').prop('disabled', false);
+            $('#MonthID').val("0");
         } else {
-            $('#MonthID').prop('disabled', true);    
-            $('#MonthID').val("0");                  
+            $('#MonthID').prop('disabled', true);
+            $('#MonthID').val("0");
         }
 
         getPatientReport(1);
+        getPatientCardCountReport();
     }
 
 
@@ -368,7 +371,7 @@
                 if (response.length > 0) {
                     if(response == "0")
                     {
-                       
+
                         $('#renderData').html('');
                     }
                     else
@@ -386,9 +389,10 @@
 
     function FilteredData(){
         if (!validateFilters()) {
-            return;   
+            return;
         }
         getPatientReport(1);
+        getPatientCardCountReport();
     }
 
     function validateFilters() {
@@ -421,21 +425,30 @@
         var YearID = $('#YearID').val();
         var MonthID = $('#MonthID').val();
         var SymptomsID = $('#SymptomsID').val();
-        var url = "/PatientReport/ExportToExcel?StateId=" + StateID + "&DistrictId=" + DistrictID + "&BlockId=" + BlockID + "&FacilityId=" + FacilityID + "&SubfacilityId=" + SubFacilityID + "&YearId=" + YearID + "&MonthId=" + MonthID + "&SymptomsId=" + SymptomsID;
+
+        var url = '@Url.Content("~/PatientReport/ExportToExcel")'
+        + "?StateId=" + StateID
+        + "&DistrictId=" + DistrictID
+        + "&BlockId=" + BlockID
+        + "&FacilityId=" + FacilityID
+        + "&SubfacilityId=" + SubFacilityID
+        + "&YearId=" + YearID
+        + "&MonthId=" + MonthID
+        + "&SymptomsId=" + SymptomsID;
+
+         window.location.href = url;
+    }
+
+    function ExportEmergencyMedicalServices() {
+        var url = '@Url.Content("~/PatientReport/ExportMedicalServices")';
         window.location.href = url;
     }
 
-    function ExportEmergencyMedicalServices()
-    {
-       var url = "/PatientReport/ExportMedicalServices";
+    function ExportReferredPatient() {
+        var url = '@Url.Content("~/PatientReport/ReferredPatient")';
         window.location.href = url;
     }
 
-    function ExportReferredPatient()
-    {
-        var url = "/PatientReport/ReferredPatient";
-        window.location.href = url;
-    }
 
 </script>
 
