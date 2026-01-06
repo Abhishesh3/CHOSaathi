@@ -63,7 +63,7 @@ namespace CHO_Saathi.Controllers
                  .OrderBy(d => d.SymptomsName)
                  .Select(d => new SelectListItem
                  {
-                     Value = d.SymptomsId.ToString(),
+                     Value = d.SymptomTypeId.ToString(),
                      Text = d.SymptomsName
                  })
                  .ToList();

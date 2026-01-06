@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CHO_Saathi.Models;
 
-public partial class CmpSymptom
+public partial class Mstcommon
 {
     public int Sno { get; set; }
 

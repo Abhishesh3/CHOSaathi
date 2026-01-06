@@ -239,6 +239,8 @@ public partial class ApplicationDBContext : DbContext
 
     public virtual DbSet<MstYear> MstYears { get; set; }
 
+    public virtual DbSet<Mstcommon> Mstcommons { get; set; }
+
     public virtual DbSet<Note> Notes { get; set; }
 
     public virtual DbSet<Operation> Operations { get; set; }
@@ -316,6 +318,8 @@ public partial class ApplicationDBContext : DbContext
     public virtual DbSet<SurgicalHistory> SurgicalHistories { get; set; }
 
     public virtual DbSet<Symptom> Symptoms { get; set; }
+
+    public virtual DbSet<SymptomsType> SymptomsTypes { get; set; }
 
     public virtual DbSet<TblCounselling> TblCounsellings { get; set; }
 
@@ -4255,6 +4259,26 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.YearName).HasMaxLength(10);
         });
 
+        modelBuilder.Entity<Mstcommon>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("mstcommon");
+
+            entity.Property(e => e.Code)
+                .HasMaxLength(10)
+                .HasColumnName("code");
+            entity.Property(e => e.Sno)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("sno");
+            entity.Property(e => e.SymptomEn)
+                .HasMaxLength(255)
+                .HasColumnName("symptom_en");
+            entity.Property(e => e.SymptomHi)
+                .HasMaxLength(255)
+                .HasColumnName("symptom_hi");
+        });
+
         modelBuilder.Entity<Note>(entity =>
         {
             entity.HasKey(e => e.Sno).HasName("PK__notes__DDDF64465F79FE2A");
@@ -5166,6 +5190,17 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.SymptomHi)
                 .HasMaxLength(255)
                 .HasColumnName("symptom_hi");
+        });
+
+        modelBuilder.Entity<SymptomsType>(entity =>
+        {
+            entity.HasKey(e => e.SymptomTypeId).HasName("PK__Symptoms__C39FDFA9A0A758CF");
+
+            entity.ToTable("SymptomsType");
+
+            entity.Property(e => e.SymptomTypeName)
+                .HasMaxLength(500)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<TblCounselling>(entity =>

@@ -16,4 +16,6 @@ public partial class CommonSymptomsWeb
     public DateTime? CreatedOn { get; set; }
 
     public int? CreatedBy { get; set; }
+
+    public int? SymptomTypeId { get; set; }
 }

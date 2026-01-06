@@ -76,13 +76,13 @@
             <table id="PatientDetails" class="table table-bordered mt-2">
                 <thead>
                     <tr>
-                        <th style="width:10px;">S No</th>
-                        <th style="width:20px;">Patient Details</th>
-                        <th style="width:40px;">Mobile</th>
-                        <th style="width:350px;">Location</th>
-                        <th style="width:50px;">Registered Date</th>
-                        <th style="width:50px;">Follow Up Date</th>
-                        <th style="width:20px;">Summary</th>
+                        <th>S No</th>
+                        <th>Patient Details</th>
+                        <th>Mobile</th>
+                        <th>Location</th>
+                        <th>Registered Date</th>
+                        <th>Follow Up Date</th>
+                        <th>Summary</th>
                     </tr>
                 </thead>
 
@@ -113,36 +113,36 @@
                             <td>
                                 <table class="table table-bordered mt-0">
                                     <tr>
-                                        <th>
+                                        <td>
                                             Name
-                                        </th>
-                                        <td>
+                                        </td>
+                                        <th>
                                             @item.fullName
-                                        </td>
+                                        </th>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             Husband Name
-                                        </th>
-                                        <td>
+                                        </td>
+                                        <th>
                                             @item.spouseName
-                                        </td>
+                                        </th>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             Age
-                                        </th>
-                                        <td>
-                                            @age
                                         </td>
+                                        <th>
+                                            @age
+                                        </th>
                                     </tr>
                                     <tr>
-                                        <th>
-                                            Gender
-                                        </th>
                                         <td>
-                                            @item.gender
+                                            Gender
                                         </td>
+                                        <th>
+                                            @item.gender
+                                        </th>
                                     </tr>
                                 </table>
                             </td>
@@ -151,46 +151,46 @@
                             <td>
                                 <table class="table table-bordered mt-0">
                                     <tr>
-                                        <th>
+                                        <td>
                                             State
-                                        </th>
-                                        <td>
+                                        </td>
+                                        <th>
                                             @item.StateName
-                                        </td>
-                                        <th>
+                                        </th>
+                                        <td>
                                             District
-                                        </th>
-                                        <td>
+                                        </td>
+                                        <th>
                                             @item.District
-                                        </td>
+                                        </th>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             Block
-                                        </th>
-                                        <td>
-                                            @item.BlockName
                                         </td>
                                         <th>
-                                            Facility
+                                            @item.BlockName
                                         </th>
                                         <td>
-                                            @item.FacilityName
+                                            Facility
                                         </td>
+                                        <th>
+                                            @item.FacilityName
+                                        </th>
                                     </tr>
                                     <tr>
-                                        <th>
+                                        <td>
                                             HWC/Sub-center
-                                        </th>
-                                        <td>
-                                            @item.SubFacility
                                         </td>
                                         <th>
-                                            Village
+                                            @item.SubFacility
                                         </th>
                                         <td>
-                                            @item.villageName
+                                            Village
                                         </td>
+                                        <th>
+                                            @item.villageName
+                                        </th>
                                     </tr>
                                 </table>
                             </td>

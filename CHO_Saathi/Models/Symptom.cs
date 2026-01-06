@@ -12,4 +12,6 @@ public partial class Symptom
     public string? SymptomHi { get; set; }
 
     public string? Code { get; set; }
+
+    public int? SymptomTypeId { get; set; }
 }
