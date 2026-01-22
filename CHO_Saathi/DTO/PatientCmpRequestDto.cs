@@ -94,6 +94,7 @@ namespace CHO_Saathi.DTO
         //public DateTime TimeStamp { get; set; }
         public long TimeStamp { get; set; }
         public string PatientGUID { get; set; }
+        public string? SummaryKey { get; set; }
     }
 
     public class CmpResultDto

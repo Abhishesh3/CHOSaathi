@@ -1,0 +1,3337 @@
+[
+  {
+    "id": "Danger_Sign_CMP",
+    "order": 0,
+    "condition": "Possible emergency",
+    "advises": [
+      {
+        "advise": "Immediate referral to emergency care to district hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_SUB_CMP",
+    "order": 1,
+    "condition": "Needs further evaluation",
+    "advises": [
+      {
+        "advise": "Refer to primary health centre",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Malaria",
+    "order": 2,
+    "condition": "Malaria",
+    "advises": [
+      {
+        "advise": "Manage as per National guidelines",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_FEVER_1",
+    "order": 1,
+    "condition": "Requires further evaluation",
+    "advises": [
+      {
+        "advise": "Refer to PHC for evaluation and management Provide paracetamol",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_FEVER_2",
+    "order": 2,
+    "condition": "Likely localised infection",
+    "advises": [
+      {
+        "advise": "Teleconsultation with MO Follow up after 3 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_FEVER_3",
+    "order": 3,
+    "condition": "Possible viral infection",
+    "advises": [
+      {
+        "advise": "Give Paracetamol 500 mg sos. F/u after 3 days; if no improvement teleconsultation with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Danger_Sign_HEAD",
+    "order": 1,
+    "condition": "Possibly Migraine or tension type headache",
+    "advises": [
+      {
+        "advise": "Refer to Medical officer for further evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Provide paracetamol",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Do distance vision test",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_HEAD_1",
+    "order": 2,
+    "condition": "Possible sinusitis",
+    "advises": [
+      {
+        "advise": "Common ENT problems for management",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Do distance vision test",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_HEAD_2",
+    "order": 3,
+    "condition": "Unclassified headache",
+    "advises": [
+      {
+        "advise": "Provide analgesics – paracetamol, aspirin",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": " Do distance vision test",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counselling by module (Relaxation exercises, lifestyle modification, yoga)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "If no improvement in 15 days, refer to PHC-MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Respiratory_Problems",
+    "order": 1,
+    "condition": "Needs evaluation to rule out TB",
+    "advises": [
+      {
+        "advise": "Collect sputum samples for TB assessment",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Respiratory_Problems_1",
+    "order": 1,
+    "condition": "Needs to rule out pneumonia",
+    "advises": [
+      {
+        "advise": "Refer to PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Respiratory_Problems_2",
+    "order": 2,
+    "condition": "Needs to rule out Asthma/ COPD",
+    "advises": [
+      {
+        "advise": "Teleconsultation with MO or referral to PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Respiratory_Problems_3",
+    "order": 3,
+    "condition": "Common cold/cough",
+    "advises": [
+      {
+        "advise": "Steam inhalation, levocetirizine 5 mg HS for 3 days. If no improvement after 3 days, teleconsult with MO.",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Danger_Sign_Abdominal_Pain",
+    "order": 0,
+    "condition": "May be angina or Myocardial infarction",
+    "advises": [
+      {
+        "advise": "Immediately refer to emergency care to rule out acute cardiac event",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Abdominal_Pain_1",
+    "order": 0,
+    "condition": "Needs further evaluation",
+    "advises": [
+      {
+        "advise": "Refer to PHC for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Abdominal_Pain_2",
+    "order": 0,
+    "condition": "Likely dyspepsia",
+    "advises": [
+      {
+        "advise": "Provide H2 blocker or Omeprazole 20 mg OD before meals for 5 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Suggest to avoid spicy food & regular exercise; not to lie down immediately after meals.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Review after 5 days: If no improvement or worsening - refer to PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Abdominal_Pain_3",
+    "order": 0,
+    "condition": "Unclassified abdominal pain",
+    "advises": [
+      {
+        "advise": "Deworming- 400 mg albendazole single dose.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Suggest to avoid spicy food & regular exercise; not to lie down immediately after meals.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Review after 5 days: If no improvement or worsening - refer to PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Diarrhea_Sign",
+    "order": 1,
+    "condition": "Persistent diarrhea",
+    "advises": [
+      {
+        "advise": "Refer to PHC for further management",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Diarrhea_Sign_1",
+    "order": 1,
+    "condition": "Diarrhea with dehydration",
+    "advises": [
+      {
+        "advise": "Provide ORS# AND Refer to PHC for further management",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Diarrhea_Sign_2",
+    "order": 3,
+    "condition": "Diarrhea with no dehydration",
+    "advises": [
+      {
+        "advise": "Provide ORS# Advise: Increase oral fluid intake, simple non-spicy foods. DO NOT give antibiotics or antimotility drugs. F/u after 3 days, if no improvement, teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Diarrhea_Sign_2_",
+    "order": 1,
+    "condition": "Likely dysentery",
+    "advises": [
+      {
+        "advise": "Provide ORS# Advise: Increase oral fluid intake, simple non-spicy foods. DO NOT give antibiotics or antimotility drugs. F/u after 3 days, if no improvement, teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Diarrhea_Sign_3",
+    "order": 1,
+    "condition": "Needs further evaluation",
+    "advises": [
+      {
+        "advise": "Refer to PHC for further management",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Constipation_Sign",
+    "order": 1,
+    "condition": "Likely hemorrhoids/anal fissure",
+    "advises": [
+      {
+        "advise": "Refer to PHC for further evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Constipation_Sign_1",
+    "order": 3,
+    "condition": "Constipation with no complication",
+    "advises": [
+      {
+        "advise": "Isabgol 10 g with 1 glass water HS",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Drink plenty of water about 2-3 liters per day.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Increase dietary fibre (whole grains, leafy vegetables, legumes and fruit)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": " Increase physical activity.If no improvement after two weeks or worsening of symptoms anytime, teleconsult with MO.",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Urinary_Sign",
+    "order": 1,
+    "condition": "Possible urinary tract infection(UTI)",
+    "advises": [
+      {
+        "advise": "Refer to Medical officer at Primary Health Centre",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Needs urine lab examination",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Urinary_Sign_1",
+    "order": 1,
+    "condition": "Possible prostatic enlargement",
+    "advises": [
+      {
+        "advise": "Refer to general surgeon in CHC/District hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Urinary_Sign_2",
+    "order": 3,
+    "condition": "May be UTI",
+    "advises": [
+      {
+        "advise": " Give disodium hydrogen citrate/ magnesium citrate (Do not provide in pregnancy)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advice plenty of fluids and maintain good hygiene",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Review after 3 days, if worsen or does not improve then refer to PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Female_Genital_sign",
+    "order": 1,
+    "condition": "Pregnancy",
+    "advises": [
+      {
+        "advise": "Refer to a gynaecologist at CHC/DH",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Female_Genital_sign_1",
+    "order": 1,
+    "condition": "Maybe Pelvic Inflammatory Disease (PID) or Dysfunctional Uterine Bleeding (DUB)",
+    "advises": [
+      {
+        "advise": "Refer to a gynaecologist at CHC/DH",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Female_Genital_sign_2",
+    "order": 1,
+    "condition": "Possible Non Sexually transmitted infection",
+    "advises": [
+      {
+        "advise": "Refer to MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Female_Genital_sign_3",
+    "order": 2,
+    "condition": "Possible sexually transmitted infection (STI)",
+    "advises": [
+      {
+        "advise": "Teleconsultation/Refer with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Provide appropriate kit as per MO’s prescription (inline NACO’s programme)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counselling for HIV testing",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Partner counselling and treatment (in consultation with MO)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Female_Genital_sign_4",
+    "order": 3,
+    "condition": "Normal",
+    "advises": [
+      {
+        "advise": "Suggest to maintain personal hygiene",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Review after a month, if no improvement /change in type and form of discharge, teleconsult with MO.",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Male_Genital_sign",
+    "order": 1,
+    "condition": "Possible Non STI conditions requiring further evaluation",
+    "advises": [
+      {
+        "advise": "Refer to MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Male_Genital_sign_1",
+    "order": 2,
+    "condition": "Possible STI",
+    "advises": [
+      {
+        "advise": "Teleconsultation with the Medical officer",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Provide appropriate kit as per MO’s prescription",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counselling for HIV testing",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Partner counselling and treatment (in consultation with MO)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "BackPain_sign",
+    "order": 1,
+    "condition": "Need specialist consultation And imaging",
+    "advises": [
+      {
+        "advise": "Refer immediately to nearest hospital with orthopedician (DH/medical college)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Lie-down, Do not to bend forwards and avoid sitting",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "BackPain_sign_1",
+    "order": 1,
+    "condition": "Likely chronic back pain (rule out tuberculosis, malignancy)",
+    "advises": [
+      {
+        "advise": "Refer to nearest hospital with orthopedician (DH/medical college)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "BackPain_sign_2",
+    "order": 2,
+    "condition": "Likely occupational back pain syndrome",
+    "advises": [
+      {
+        "advise": "Teleconsult with MO for further guidance",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Do not prescribe exercises before consulting MO Lifestyle advice, weight management and posture advice",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "JointPain_sign",
+    "order": 1,
+    "condition": "Likely infectious / Gout",
+    "advises": [
+      {
+        "advise": "Refer immediately to nearest hospital with orthopedician (DH /medical college)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "JointPain_sign_1",
+    "order": 1,
+    "condition": "Likely Inflammatory arthritis/RA",
+    "advises": [
+      {
+        "advise": "Refer to nearest Hospital with orthopedician (DH /medical college)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "JointPain_sign_2",
+    "order": 1,
+    "condition": "Need evaluation to rule out tuberculosis, malignancy, osteomyelitis)",
+    "advises": [
+      {
+        "advise": "Refer to nearest Hospital with orthopedician (DH /medical college)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "JointPain_sign_3",
+    "order": 2,
+    "condition": "Age related joint changes (Osteoarthritis)",
+    "advises": [
+      {
+        "advise": "Tele consult with PHC MO for further guidance",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advice on lifestyle and  weight management",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "skin_lesion_sign",
+    "order": 1,
+    "condition": "Possible Leprosy or neurological deficit",
+    "advises": [
+      {
+        "advise": "Refer to MO at PHC for further assessment",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "skin_lesion_sign_1",
+    "order": 1,
+    "condition": "Likely herpes",
+    "advises": [
+      {
+        "advise": "Refer to MO at PHC for further assessment",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "skin_lesion_sign_2",
+    "order": 2,
+    "condition": "Likely Pityriasis",
+    "advises": [
+      {
+        "advise": "Teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Suggest Applying moisturizers",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "skin_lesion_sign_3",
+    "order": 2,
+    "condition": "Tinea Corporis",
+    "advises": [
+      {
+        "advise": "Teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Keep skin dry and treat all family members",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "skin_lesion_sign_4",
+    "order": 3,
+    "condition": "Scabies",
+    "advises": [
+      {
+        "advise": "Wash all clothes after using the medicine and treat all family members with Permethrin (5%)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Give Tab chlorpheniramine maleate 25 mg every 12 hours till itching stops",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Refer to MO if not responding by 4 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "skin_lesion_sign_5",
+    "order": 3,
+    "condition": "Papular urticaria",
+    "advises": [
+      {
+        "advise": "Tab chlorpheniramine maleate 25 mg stat and every 12 hourly until symptoms disappearance",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Calamine lotion application",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Refer to MO if not responding by 2 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Category_sign_1",
+    "order": 3,
+    "condition": "Category 1 Exposure",
+    "advises": [
+      {
+        "advise": "Ensure the wound/lick area is cleaned with soap and running water for 15 min",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Antiseptic application",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Reassure patient",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Educate about rabies prevention",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Category_sign_2",
+    "order": 1,
+    "condition": "Category 2 Exposure",
+    "advises": [
+      {
+        "advise": "Ensure the wound/licked area is cleaned with soap and running water for 15 min",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Antiseptic application Refer to PHC/CHC for vaccination",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Category_sign_3",
+    "order":1,
+    "condition": "Category 3 Exposure",
+    "advises": [
+      {
+        "advise": "Ensure the wound/licked area is cleaned with soap and running water for 15 min",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Antiseptic application (preferably iodine based solution) Refer to tertiary care center for vaccination and Immunoglobulin",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Danger_Eye_problem",
+    "order": 0,
+    "condition": "Possible emergency",
+    "advises": [
+      {
+        "advise": "Immediate referral to emergency care with ophthalmologist/District Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Ensure to patch eye before sending",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sub_Eye_problem",
+    "order": 1,
+    "condition": "Needs further evaluation",
+    "advises": [
+      {
+        "advise": "Refer to ophthalmologist in CHC or district hospital during OPD hours",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Eye_problem",
+    "order": 1,
+    "condition": "Possible involvement of cornea or uvea",
+    "advises": [
+      {
+        "advise": "Refer immediately to ophthalmologist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Eye_problem_1",
+    "order": 2,
+    "condition": "Possible bacterial infection",
+    "advises": [
+      {
+        "advise": "Antibiotic eye drops for 2 days Eye Hygiene; If no improvement, refer to ophthalmologist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Eye_problem_2",
+    "order": 3,
+    "condition": "Possilble viral infection OR allergic reaction",
+    "advises": [
+      {
+        "advise": "Eye hygiene; If no improvement in 2 days refer to ophthalmologist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Eye_problem_3",
+    "order": 1,
+    "condition": "Possible non-infectious growth or trichiasis",
+    "advises": [
+      {
+        "advise": "Refer to ophthalmologist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Eye_problem_4",
+    "order": 3,
+    "condition": "Possible stye",
+    "advises": [
+      {
+        "advise": "Antibiotic eye drops",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Warm compresses",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Eye Hygiene",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "If no improvement in 2 days, refer to Opthalmologist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Eye_problem_5",
+    "order": 1,
+    "condition": "Probable eye condition other than refractive errors.",
+    "advises": [
+      {
+        "advise": "Refer to ophthalmologist If older than 50 years, counsel patients on possible cataract requiring surgery",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Eye_problem_6",
+    "order": 2,
+    "condition": "Possible refractive errors",
+    "advises": [
+      {
+        "advise": "Reassure and refer to optometrist for refraction",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Eye_problem_7",
+    "order": 2,
+    "condition": "Presbyopia",
+    "advises": [
+      {
+        "advise": "Provide appropriate near vision glasses; if not available refer to optometrist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Danger_ear_problem",
+    "order": 0,
+    "condition": "Possible ENT emergency - Immediate referral to emergency care Pre-referral care",
+    "advises": [
+      {
+        "advise": "All foreign body ingestion: Do Not provide anything orally",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Button battery ingestion: Give 10 mL (2 tsp) honey immediately by mouth every 10 min for up to 6 doses.",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem",
+    "order": 1,
+    "condition": "Persistent/Profuse bleeding OR Low BP",
+    "advises": [
+      {
+        "advise": "Perform anterior nasal packing",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Start IV access with normal saline or ringer lactate (if low BP)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Refer to the nearest emergency care",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_1",
+    "order": 2,
+    "condition": "Bleeding stops and High BP",
+    "advises": [
+      {
+        "advise": "Ask to take medicine for high BP if already taking/started.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "If not on treatment for hypertension, refer to PHC for hypertension evaluation and management.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Refer to PHC for medication assessment if on aspirin",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_2",
+    "order": 3,
+    "condition": "Bleeding stops and Normal BP",
+    "advises": [
+      {
+        "advise": "Reassure",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "If this repeated episode, refer to ENT surgeon",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_3",
+    "order": 1,
+    "condition": "Likely complication of upper respiratory infection",
+    "advises": [
+      {
+        "advise": "Refer to ENT surgeon",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_4",
+    "order": 2,
+    "condition": "Likely bacterial upper respiratory infection",
+    "advises": [
+      {
+        "advise": "Teleconsult with MO; may require antibiotics",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_5",
+    "order": 3,
+    "condition": "Common viral upper respiratory infection",
+    "advises": [
+      {
+        "advise": "Provide symptomatic treatment - Paracetamol for fever/ Cetirizine if there is running nose/sneezing/Nasal decongestants for blocked nose",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Plenty of fluids, steam inhalation, warm saline gargling if sore throat and hygiene measures",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "If no improvement/worsening of symptoms in 5 days, teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_6",
+    "order": 2,
+    "condition": "Possible otitis externa or otitis media",
+    "advises": [
+      {
+        "advise": "Dry mopping of ear with cotton wick",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "2% boric spirit ear/ ciprofloxacin ear drops 2 drops thrice daily for 7 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Teleconsult with MO if no improvement",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_7",
+    "order": 1,
+    "condition": "Suspected slight/moderate or severe hearing loss",
+    "advises": [
+      {
+        "advise": "Refer to audiometry at DH/medical college",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_8",
+    "order": 3,
+    "condition": "Normal hearing",
+    "advises": [
+      {
+        "advise": "Reassure",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_9",
+    "order": 1,
+    "condition": "Suspected Acure supporative Otitis media",
+    "advises": [
+      {
+        "advise": "Provide paracetamol for pain Refer to MO -PHC for possible need of antibiotics",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Ear_problem_10",
+    "order": 3,
+    "condition": "Ear wax",
+    "advises": [
+      {
+        "advise": "Sodium bicarbonate ear drops 2- 3 drops/thrice a day - 4 days Clean with cotton wick",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "DO NOT USE EAR BUDS",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab paracetamol SOS Refer if no improvement after 4 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "DANGER_SIGN_ORAL",
+    "order": 0,
+    "condition": "Possible emergency",
+    "advises": [
+      {
+        "advise": "Immediate referral to emergency care where dentist\nis available (District Hospital)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Give Analgesic if pain is present.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Store avulsed tooth in the carrying agent. (milk/coconut water/patient’s saliva/saline water/eggwhite).",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Don’t rinse the tooth in tap water/don’t rub or scrape off the tooth debris",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Don’t wrap the tooth in cloth or tissue.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Don’t give hot fomentation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "DANGER_SUB_SIGN_ORAL",
+    "order": 0,
+    "condition": "Refer to facility with dentist",
+    "advises": [
+      {
+        "advise": "Follow-up after 15 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_1",
+    "order": 1,
+    "condition": "Possible Oral cancer Oral potentially malignant disorder (OPMD) - Leukoplakia, Erythroplakia, submucosal fibrosis",
+    "advises": [
+      {
+        "advise": "Facilitated referral to SDH/DH where dentist is available Tobacco cessation counselling",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_2",
+    "order": 3,
+    "condition": "No oral cancer",
+    "advises": [
+      {
+        "advise": "Reassure and re-screening every 5 years Tobacco cessation counselling",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_3",
+    "order": 1,
+    "condition": "Possible tooth decay/broken filling",
+    "advises": [
+      {
+        "advise": "Symptomatic treatment with analgesics Refer to the nearest dentist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_4",
+    "order": 1,
+    "condition": "Possible Temporomandibular Joint issue/ trauma/ acute infections/ OSMF",
+    "advises": [
+      {
+        "advise": "Teleconsultation with Dentist/MO Oral hygiene advice, warm saline/ gum paint massage",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Follow up in 15 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_5",
+    "order": 1,
+    "condition": "Possible severe gum infection Tooth decay involving pulp",
+    "advises": [
+      {
+        "advise": "Application of Lignocaine gel (Topical) ",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Vitamin B complex tablet",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Oral Hygiene advice If no relief in 15 days ",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": " refer to PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_6",
+    "order": 2,
+    "condition": "Possible mild gum infection Plaque/calculus",
+    "advises": [
+      {
+        "advise": "Warm saline gargle ",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advice not to put tongue in the extracted space",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_7",
+    "order": 3,
+    "condition": "Possible Mouth sore or Traumatic ulcer",
+    "advises": [
+      {
+        "advise": "Symptomatic treatment with analgesics if needed Oral Hygiene advice",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Tb_treatment_follow_up_1",
+    "order": 1,
+    "condition": "Likely side effects of anti TB drugs",
+    "advises": [
+      {
+        "advise": "Refer to PHC for evaluation ",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Tb_treatment_follow_up_2",
+    "order": 2,
+    "condition": "May be side effects of anti TB drugs or Persistent symptoms",
+    "advises": [
+      {
+        "advise": " Teleconsult with MO ",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": " Advice to take medicines after food ",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Tb_treatment_follow_up_3",
+    "order": 3,
+    "condition": "Rifampicin induced discolouration",
+    "advises": [
+      {
+        "advise": " Reassure the patient that it is harmless ",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+  {
+    "id": "Tb_treatment_follow_up_4",
+    "order": 3,
+    "condition": "On regular treatment",
+    "advises": [
+      {
+        "advise": "Provide next month’s medication",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Tb_treatment_follow_up_5",
+    "order": 2,
+    "condition": "Likely irregular on treatment",
+    "advises": [
+      {
+        "advise": "Refer to PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel the possibility of restart of medication",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Tb_treatment_follow_up_6",
+    "order": 2,
+    "condition": "At risk of treatment interruption",
+    "advises": [
+      {
+        "advise": "Provide counselling for adherence",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "If non-adherence due to side effects-Teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Family_planing_for_all_women_1",
+    "order": 1,
+    "condition": "Needs Medical doctor intervention for contraception",
+    "advises": [
+      {
+        "advise": "Facilitated Referal to PHC or First Referral Unit",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+  {
+    "id": "Family_planing_for_all_women_2",
+    "order": 2,
+    "condition": "Requires contraception",
+    "advises": [
+      {
+        "advise": "Use GATHER approach for counselling",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+  {
+    "id": "Family_planing_for_all_women_3",
+    "order": 2,
+    "condition": "Contraception discontinuation",
+    "advises": [
+      {
+        "advise": "Family planning counselling and removal of contraceptive devices if woman opts to discontinue",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+  {
+    "id": "Family_planing_for_all_women_4",
+    "order": 1,
+    "condition": "Needs Medical doctor intervention for contraception",
+    "advises": [
+      {
+        "advise": "Facilitated Referal to PHC or First Referral Unit",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+  {
+    "id": "Family_planing_for_all_women_5",
+    "order": 3,
+    "condition": "Minor side effets of contraception",
+    "advises": [
+      {
+        "advise": "Reassurance and provide sysmptomatic treatment and review",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+
+      {
+        "advise": " Counsel and explain on the appropriate method to take OCPs(for OCP users)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+
+  {
+    "id": "Adolocent_specific_problems_1",
+    "order": 1,
+    "condition": "Possible delayed puberty",
+    "advises": [
+      {
+        "advise": "Refer to MO for further evaluation and advice",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_2",
+    "order": 3,
+    "condition": "Delayed puberty unlikely",
+    "advises": [
+      {
+        "advise": "Reassure and follow-up if required",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_3",
+    "order": 1,
+    "condition": "Possible early puberty",
+    "advises": [
+      {
+        "advise": "Refer to MO for further evaluation and advise",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_4",
+    "order": 1,
+    "condition": "Severe Anemia",
+    "advises": [
+      {
+        "advise": "Refer to PHC for evaluation and advice",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_5",
+    "order": 1,
+    "condition": "Mild to moderate anemia",
+    "advises": [
+      {
+        "advise": "Provide deworming - Albendazole 400 mg stat",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Two iron and folic acid tablets/day for 3 months. Counsel for adherence",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Re-evaluate in 1 month, if no improvement , refer to MO-PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Diet counselling",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_6",
+    "order": 2,
+    "condition": "Overweight",
+    "advises": [
+      {
+        "advise": "Counselling on diet and healthy lifestyle",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Ensure deworming & Prophylactic IFA",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_7",
+    "order": 3,
+    "condition": "Normal nutrition status",
+    "advises": [
+      {
+        "advise": "Ensure deworming & Prophylactic IFA",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_8",
+    "order": 1,
+    "condition": "Possible menstrual irregularities",
+    "advises": [
+      {
+        "advise": "Refer to Gynaecologist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_9",
+    "order": 3,
+    "condition": "Menstrual cramps",
+    "advises": [
+      {
+        "advise": "Symptomatic relief (paracetamol)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Reassure and follow-up if required",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_10",
+    "order": 1,
+    "condition": "Suspected abnormality",
+    "advises": [
+      {
+        "advise": "Refer to PHC for further evaluation and advise",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Adolocent_specific_problems_11",
+    "order": 3,
+    "condition": "Abnormality unlikely",
+    "advises": [
+      {
+        "advise": "Reassure and followup if required Facial hygiene Counsel for acne prevention",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Pallative_care_danger_sign",
+    "order": 0,
+    "condition": "Possible emergency - Immediate referral to emergency care",
+    "advises": [
+      {
+        "advise": "Pre-referral care",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "(If significant bleeding can be anticipated, then the patient/family should be\nforewarned about end of life bleed, and a “CRISIS PACK” should be made in\nadvance which contains: sedatives and analgesics, large dark towels,warm\nblankets, and bags– for disposal of waste and blood stained materials,\nhaemostatic dressings)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_1",
+    "order": 1,
+    "condition": "Severe pain",
+    "advises": [
+      {
+        "advise": "Referral to appropriate facility where opioids are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_2",
+    "order": 3,
+    "condition": "Moderate or intermittent pain",
+    "advises": [
+      {
+        "advise": "NSAIDs (twice daily)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Non pharmacological methods-RICE, music therapy, Hot/cold compression",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Teleconsult if required",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_3",
+    "order": 3,
+    "condition": "Mild or occasional pain",
+    "advises": [
+      {
+        "advise": "Non pharmacological methods- RICE, music therapy, Hot/cold compression",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_4",
+    "order": 1,
+    "condition": "Heavy bleeding",
+    "advises": [
+      {
+        "advise": "Refer to surgeon in CHC/DH",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_5",
+    "order": 3,
+    "condition": "Moderate bleeding",
+    "advises": [
+      {
+        "advise": "Pressure Bandage",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_6",
+    "order": 3,
+    "condition": "Mild bleeding",
+    "advises": [
+      {
+        "advise": "Simple gauze dressing",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_7",
+    "order": 2,
+    "condition": "Maggots in wound",
+    "advises": [
+      {
+        "advise": "Teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Irrigate the wound with turpentine oil and remove all the maggots manually with the help of tweezers.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Place metronidazole ointment dressing after the removal of maggots.",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_8",
+    "order": 2,
+    "condition": "Forbidding and foul malodour",
+    "advises": [
+      {
+        "advise": "Teleconsult with MO and treat accordingly (if prescribed give tab metronidazole)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_9",
+    "order": 3,
+    "condition": "Faint malodour",
+    "advises": [
+      {
+        "advise": "Low-cost, home-based wound care and hygiene awareness.",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_10",
+    "order": 1,
+    "condition": "Deep ulcers",
+    "advises": [
+      {
+        "advise": "Apply of metronidazole powder (after crushing metronidazole tablets)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Dress with vaseline/ paraffin placed over gamgee pads then",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Refer the patient to PHC/Palliative care centre",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Refer the patient to PHC/Palliative care centre",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_11",
+    "order": 1,
+    "condition": "Superficial ulcer",
+    "advises": [
+      {
+        "advise": "Clean the wound with saline.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Apply metronidazole powder (after crushing metronidazole tablets).",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Dress with vaseline/paraffin placed over gamgee pads.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advice on home care",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palliative_Care_12",
+    "order": 1,
+    "condition": "Redness",
+    "advises": [
+      {
+        "advise": "Advice on home care",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Non_Communicable_Disease_Hypertension_1",
+    "order": 1,
+    "condition": "Uncontrolled BP",
+    "advises": [
+      {
+        "advise": "Teleconsultation with MO for medication titration as per treatment protocol",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Hypertension_2",
+    "order": 2,
+    "condition": "Uncontrolled BP possibly due to medication nonadherence",
+    "advises": [
+      {
+        "advise":"If non-adherence is due to side effects of drugs, do teleconsultation Otherwise",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Provide counselling for regular intake of all prescribed medications",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refill current blood pressure control medicines for 15 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Follow up in 2 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Hypertension_3",
+    "order": 3,
+    "condition": "Blood pressure under control and adherent to medication",
+    "advises": [
+      {
+        "advise":"Refill current blood pressure control medicines for 30 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Ask to follow up in 4 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Hypertension_4",
+    "order": 3,
+    "condition":"Blood pressure under control and not currently on medication",
+    "advises": [
+      {
+        "advise":"Ask to follow up BP measurement in 4 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Inform that medication may be required if there is increase in BP",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Diabetes_1",
+    "order": 1,
+    "condition":"Probable hypoglycemia",
+    "advises": [
+      {
+        "advise":"Manage hypoglycemia",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refer to PHC for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Diabetes_2",
+    "order": 2,
+    "condition":"Medication nonadherence",
+    "advises": [
+      {
+        "advise":"If non-adherence is due to side effects of drugs, do teleconsultation with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Provide counselling for regular intake of all prescribed medications",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refill current medicines for 15 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refill current medicines for 15 daysDiabetes self-care education",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Follow up in 2 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Diabetes_3",
+    "order": 2,
+    "condition":"Glucose not under control",
+    "advises": [
+      {
+        "advise":"Teleconsultation with MO for uptitration of medication/review of Insulin doses and self monitoring of blood glucose (SMBG)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Reinforce importance for regular intake of all prescribed medications, lifestyle modification counselling",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Diabetes self-care education",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Referral for HbA1c testing or comprehensive review (if due)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"For those who are on insulin- adviceSMBG",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Diabetes_4",
+    "order": 2,
+    "condition":"Glucose under control",
+    "advises": [
+      {
+        "advise":"Diabetes self-care education",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"For those who are on insulin- adviseSMBG",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refill medication for 4 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Referral for HbA1c testing or comprehensive review (if due)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_CAD_1",
+    "order": 1,
+    "condition":"Needs medical consultation",
+    "advises": [
+      {
+        "advise":"Teleconsultation with MO for evaluation and if needed refer the specialist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_CAD_2",
+    "order": 2,
+    "condition":"Needs medical consultation",
+    "advises": [
+      {
+        "advise":"If non-compliance is due to side effects of drugs, do teleconsultation with MO If not,",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Provide counselling for regular intake of all prescribed medications",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refill physician recommended medicines for 15 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Follow up in 2 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_CAD_3",
+    "order": 3,
+    "condition":"Stable CAD Compliant to medication",
+    "advises": [
+      {
+        "advise":"Refill medication for 4 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_TB_DANGER_SIGN",
+    "order": 0,
+    "condition":"Likely severe side effects of anti tuberculosis drugs",
+    "advises": [
+      {
+        "advise":"Refer urgently to Emergency in DH/ Medical College",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Inform the the District TB Officer or Senior Treatment Supervisor and MO-PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Provide a note that patient is on treatment for TB",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_TB_1",
+    "order": 1,
+    "condition":"Likely side effects of anti TB drugs",
+    "advises": [
+      {
+        "advise":"Refer to PHC for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_TB_2",
+    "order": 2,
+    "condition":"Likely irregular on treatment",
+    "advises": [
+      {
+        "advise":"Refer to PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Counsel the possibility of restart of TB medication ",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_TB_3",
+    "order": 2,
+    "condition":"May be side effects of anti TB drugs or Persistent symptoms",
+    "advises": [
+      {
+        "advise":"Teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advice to take medicines after food",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_TB_4",
+    "order": 2,
+    "condition":"At risk of treatment interruption",
+    "advises": [
+      {
+        "advise":"Provide counselling for adherence ",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"If non-adherence due to side effects- Teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_TB_5",
+    "order": 3,
+    "condition":"Rifampicin induced discolouration",
+    "advises": [
+      {
+        "advise":"Reassure the patient that it is harmless",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_TB_6",
+    "order": 3,
+    "condition":"On regular treatment",
+    "advises": [
+      {
+        "advise":"Provide next month’s medication",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Leprosy_danger",
+    "order": 0,
+    "condition":"Likely Lepra reaction",
+    "advises": [
+      {
+        "advise":"Ask patient to not to stop medicine",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Provide paracetamol 1gm stat",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Give rest to the affected part (sling/sprint)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refer urgently to MO-PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Leprosy_1",
+    "order": 0,
+    "condition":"Likely deformity",
+    "advises": [
+      {
+        "advise":"Counseling for care of affected parts as well as hands and feet (soaking in water, scaling and\noiling of skin of affected hands and feet and rest)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refer to PHC for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Leprosy_2",
+    "order": 0,
+    "condition":"Likely irregular on treatment",
+    "advises": [
+      {
+        "advise":"Refer to PHC for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Counsel for restarting MDT",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Leprosy_3",
+    "order": 0,
+    "condition":"Likely side effects",
+    "advises": [
+      {
+        "advise":"Teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advice to take medicines after food",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Provide counselling for adherence",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"If non-adherence due to side effects- Teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Leprosy_4",
+    "order": 0,
+    "condition":"Rifampicin induced discolouration",
+    "advises": [
+      {
+        "advise":"Reassure the patient that it is harmless",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Leprosy_5",
+    "order": 0,
+    "condition":"On regular treatment",
+    "advises": [
+      {
+        "advise":"Provide next month’s medication",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Non_Communicable_Disease_Oral_1",
+    "order": 1,
+    "condition":"Suspected oral cancer or oral potentially malignant disorder(OPMD)",
+    "advises": [
+      {
+        "advise":"Facilitate referral to PHC for further evaluation Follow up through ASHA",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Oral_2",
+    "order": 2,
+    "condition":"Likely other causes",
+    "advises": [
+      {
+        "advise":"Teleconsultation with PHC MO for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Oral_3",
+    "order": 3,
+    "condition":"No oral abnormalities",
+    "advises": [
+      {
+        "advise":"Reassure and inform about re screening after 5 years",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Non_Communicable_Disease_Cervical_1",
+    "order": 1,
+    "condition":"VIA positive",
+    "advises": [
+      {
+        "advise":"Facilitated referral to DH",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Cervical_2",
+    "order": 2,
+    "condition":"Unlikely cancer,likely other causes",
+    "advises": [
+      {
+        "advise":"Teleconsultation with PHC MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Cervical_3",
+    "order": 3,
+    "condition":"No cervical cancer",
+    "advises": [
+      {
+        "advise":"Reassure and inform about re screening after 5 years",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Non_Communicable_Disease_Breast_cancer_1",
+    "order": 1,
+    "condition":"Possible breast cancer or benign breast conditions",
+    "advises": [
+      {
+        "advise":"Facilitated referral to DH",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Breast_cancer_2",
+    "order": 2,
+    "condition":"Unlikely cancer,likely other causes",
+    "advises": [
+      {
+        "advise":"Teleconsultation/refer to PHC MO for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_Breast_cancer_3",
+    "order": 3,
+    "condition":"No breast cancer",
+    "advises": [
+      {
+        "advise":"Reassure and inform about re screening after 5 years",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Non_Communicable_Disease_BreastCancer_1",
+    "order": 0,
+    "condition":"Suspected oralcancer or oral potentially malignant disorder (OPMD)",
+    "advises": [
+      {
+        "advise":"Facilitate referral to PHC for further evaluation Follow up through ASHA",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_BreastCancer_2",
+    "order": 0,
+    "condition":"Likely other causes",
+    "advises": [
+      {
+        "advise":"Teleconsultation with PHC MO for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_BreastCancer_3",
+    "order": 0,
+    "condition":"No oral abnormalities",
+    "advises": [
+      {
+        "advise":"Reassure and Wellness Promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Inform about rescreening after 5 years",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_BreastCancer_4",
+    "order": 0,
+    "condition":"VIA positive",
+    "advises": [
+
+      {
+        "advise":"Facilitated referral to DH",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_BreastCancer_5",
+    "order": 0,
+    "condition":"Unlikely cancer, likely other causes",
+    "advises": [
+
+      {
+        "advise":"Teleconsultation with PHC MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_BreastCancer_6",
+    "order": 0,
+    "condition":"Possible breast cancer or benign breast conditions",
+    "advises": [
+
+      {
+        "advise":"Facilitated referral to DH",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_BreastCancer_7",
+    "order": 0,
+    "condition":"Unlikely cancer, likely other causes",
+    "advises": [
+      {
+        "advise":"Teleconsultation/Refer to PHC MO for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Non_Communicable_Disease_BreastCancer_8",
+    "order": 0,
+    "condition":"No breast cancer",
+    "advises": [
+      {
+        "advise":"Reassure and wellness promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Inform about rescreening after 5 years",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "LEPROSY_1",
+    "order": 0,
+    "condition":"Likely deformity",
+    "advises": [
+      {
+        "advise":"Counseling for care of affected parts as well as hands and feet (soaking in water, scaling and oiling of skin of affected hands and feet and rest)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refer to PHC for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "LEPROSY_2",
+    "order": 0,
+    "condition":"Likely irregular on treatment",
+    "advises": [
+      {
+        "advise":" Counsel for restarting MDT",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refer to PHC for evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "LEPROSY_3",
+    "order": 0,
+    "condition":"At risk of treatment interruption",
+    "advises": [
+      {
+        "advise":"Provide counselling for adherence If non-adherence due to side effects",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "LEPROSY_4",
+    "order": 0,
+    "condition":"Rifampicin induced discolouration",
+    "advises": [
+      {
+        "advise":"Reassure the patient that it is harmless",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "LEPROSY_5",
+    "order": 0,
+    "condition":"On regular treatment",
+    "advises": [
+      {
+        "advise":"Provide next month’s medication",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MENTAL_HEALTH_PROBLEM_DANGER_SIGN",
+    "order": 0,
+    "condition":"Possible mental health emergency",
+    "advises": [
+      {
+        "advise":"Provide psychological first aid [32]",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Immediate referral to mental health\nemergency care at district level/medical\ncollege",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Ensure the person is accompanied with\nfamily/friend/caregiver to referral centre",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP1",
+    "order": 1,
+    "condition":"Possible severe depression",
+    "advises": [
+      {
+        "advise":"Refer to faciltiy to mental health trained MO/psychiatrist",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Psychoeducation- Depression",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP2",
+    "order": 2,
+    "condition":"Possible moderate depression",
+    "advises": [
+      {
+        "advise":"Teleconsultation or connect with telemanas 14416 OR refer to facility with mental health trained MO psychiatrist",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Psychoeducation- Depression",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advice to avoid substance use",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP3",
+    "order": 2,
+    "condition":"Possible mild depression",
+    "advises": [
+      {
+        "advise":"Psychoeducation- Depression",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise ",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advice to avoid substance use",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Repeat screening after 2 weeks( if score increases or no improvement in symptoms, follow management as per above mentioned box)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP4",
+    "order": 3,
+    "condition":"Depression unlikely",
+    "advises": [
+      {
+        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness promotione",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advice to avoid substance use",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP5",
+    "order": 1,
+    "condition":"Possible severe anxiety",
+    "advises": [
+      {
+        "advise":"Refer to Mental Health trained MO Psychiatrist",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Psychoeducation- Anxiety",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP6",
+    "order": 2,
+    "condition":"Possible moderate anxiety",
+    "advises": [
+      {
+        "advise":"Teleconsultation or connect with telemanas 14416 OR refer to mental health trained MO/psychiatrist",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Psychoeducation- Anxiety",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advice to avoid substance use",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP7",
+    "order": 2,
+    "condition":"Possible mild anxiety",
+    "advises": [
+      {
+        "advise":"Psychoeducation- Anxiety",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advice to avoid substance use",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Repeat screening after 2 weeks (if score increases or no improvement in symptoms, follow management as per above mentioned box)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP8",
+    "order": 3,
+    "condition":"Anxiety less likely",
+    "advises": [
+      {
+        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advice to avoid substance use",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "MHP9",
+    "order": 0,
+    "condition":"Tobacco use",
+    "advises": [
+      {
+        "advise":"Psychoeducation- Tobacco Use Disorder",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refer to TCC counsellors (CHC, District) /Tobacco quit line (1800112356)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Follow-up after 15 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP10",
+    "order": 0,
+    "condition":"Problematic use of alcohol/opioids/cannabis/other substances",
+    "advises": [
+      {
+        "advise":"Psychoeducation- Alcohol use disorder",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Refer to psychiatrist/ mental health trained MO for problematic use of alcohol/ addictive drug/ other psychoactive substance",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Follow-up after 15 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "MHP11",
+    "order": 0,
+    "condition":"Low risk of current problematic use",
+    "advises": [
+      {
+        "advise":"Brief intervention by CHO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise ",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Follow-up after one month",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY1",
+    "order": 1,
+    "condition":"Possible urinary incontinence",
+    "advises": [
+      {
+        "advise":"Refer to PHC for advice",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Counsel on behavioural techniques for urinary incontinence",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Kegels exercise",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Suggest use of adult diapers",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY2",
+    "order": 3,
+    "condition":"Incontinence unlikely",
+    "advises": [
+      {
+        "advise":"Kegels exercise",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY3",
+    "order": 1,
+    "condition":"High risk of future fall",
+    "advises": [
+      {
+        "advise":"Referral to geriatrician/ trained Medical Officer",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Universal fall precautions",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY4",
+    "order": 2,
+    "condition":"Moderate risk of fall",
+    "advises": [
+      {
+        "advise":"Teleconsultation with geriatrician/ trained MO (eSanjeevani OPD Number - 0172-6619000)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advise appropriate occupational and physical exercises (strength training, aerobic, balance training, flexibility)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Suggest intake of high protein diet",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Consider providing assistive device to aid mobility as per the guidance from the specialist",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Universal fall precautions",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY5",
+    "order": 3,
+    "condition":"Less risk of fall",
+    "advises": [
+      {
+        "advise":"Universal fall precautions",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY6",
+    "order": 1,
+    "condition":"Malnourished",
+    "advises": [
+      {
+        "advise":"Refer to Geriatrician/ trained MO(eSanjeevani OPD Number - 0172-6619000)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY7",
+    "order": 2,
+    "condition":"At risk of malnutrition",
+    "advises": [
+      {
+        "advise":"Teleconsultation with dietician opinion for optimal food (eSanjeevani OPD Number -0172-6619000)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Dental health check up",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY8",
+    "order": 3,
+    "condition":"Normal",
+    "advises": [
+      {
+        "advise":"Health and wellness Promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Maintain oral hygiene (suggest use of denture if needed)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY9",
+    "order": 1,
+    "condition":"Possible mental health issue",
+    "advises": [
+      {
+        "advise":"Assess and manage common Mental Health Problems",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY10",
+    "order": 3,
+    "condition":"Mental health issue less likely",
+    "advises": [
+      {
+        "advise":"Psychoeducation",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Health and wellness Promotion",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Advice to avoid substance use",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY11",
+    "order": 1,
+    "condition":"Possible cognitive impairment or dementia",
+    "advises": [
+      {
+        "advise":"Refer to PHC MO for further evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY12",
+    "order": 3,
+    "condition":"Mental health issue less likely",
+    "advises": [
+      {
+        "advise":"Self-help strategies",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Encourage social interactions",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Engage in activities that enhance memory and attention- eg.sudoku, word puzzles",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY13",
+    "order": 1,
+    "condition":"High dependence",
+    "advises": [
+      {
+        "advise":"Refer to physical medicine rehabilitation specialist/ trained medical officer",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY14",
+    "order": 3,
+    "condition":"Moderate dependence",
+    "advises": [
+      {
+        "advise":"Teleconsultation with physiotherapist (eSanjeevani OPD Number -0172-6619000)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Strength and balance training",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY15",
+    "order": 3,
+    "condition":"Normal",
+    "advises": [
+      {
+        "advise":"Counsel (adequate protein in diet, adequate water, roughage, maintaining mobility and strength & balance training)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY16",
+    "order": 3,
+    "condition":"Possible limited mobility",
+    "advises": [
+      {
+        "advise":"Refer to physical medicine rehabilitation specialist/ trained MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "ELDERLY17",
+    "order": 3,
+    "condition":"Normal",
+    "advises": [
+      {
+        "advise":"Counsel (adequate protein in diet, adequate water, roughage, maintaining mobility and regular exercise)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+
+  {
+    "id": "HEALTH_AND_WELLNESS",
+    "order": 0,
+    "condition":"Counselling by CHO (Behavioural Techniques):",
+    "advises": [
+      {
+        "advise":"Delay urination after getting the urge to go; start with holding off for 10 minutes and prolong the hold until the time between the trips to the toilet reaches two to four hours.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Double voiding consists of urinating, and then waiting a few minutes and trying again",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Fluid and diet management; reduce intake of caffeine and acidic food, as well as liquid consumption",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Teach pelvic floor muscle exercises (Kegels exercise)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Suggest use of adult diapers",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "HEALTH_AND_WELLNESS_1",
+    "order": 0,
+    "condition":"Poor nutrition",
+    "advises": [
+      {
+        "advise":"Provide nutrition counselling",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "HEALTH_AND_WELLNESS_2",
+    "order": 2,
+    "condition":"Overweight",
+    "advises": [
+      {
+        "advise":"Counselling on weight management [47]",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"May send to PHC to assess for Poly cystic ovarian disease or Thyroid function",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "HEALTH_AND_WELLNESS_3",
+    "order": 2,
+    "condition":"Underweight",
+    "advises": [
+      {
+        "advise":"Suggest to go PHC to rule out medical reasons for underweight/weight loss- eg.TB",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Provide diet counselling",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "HEALTH_AND_WELLNESS_4",
+    "order": 3,
+    "condition":"Normal weight",
+    "advises": [
+      {
+        "advise":"Reassure",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "CNP_1",
+    "order": 0,
+    "condition":"Needs immediate management of seizure",
+    "advises": [
+      {
+        "advise":"Refer to facility with trained physician/neurologist( DH/ medical college) immediately",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "CNP_2",
+    "order": 1,
+    "condition":"Possible seizure",
+    "advises": [
+      {
+        "advise":"Refer to facility with a neurologist for evaluation at the earliest",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "CNP_3",
+    "order": 1,
+    "condition":"Possible cognitive impairment or dementia",
+    "advises": [
+      {
+        "advise":"Refer to PHC for further evaluation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "CNP_4",
+    "order": 3,
+    "condition":"No/mild cognitive impairment",
+    "advises": [
+      {
+        "advise":"Self-help strategies",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"Encourage social interactions for overall well-being",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"engage in sudoku, word puzzles to enhance memory and attention)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise":"review after a month, if no improvement or worsening of symptoms, refer to PHC-MO.",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  }
+
+]

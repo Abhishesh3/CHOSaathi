@@ -30,6 +30,287 @@
     }
 </style>
 
+@* For Modal Popup *@ 
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* Popup Overlay */
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease;
+    }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @@keyframes slideUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Popup Container */
+    .popup-container {
+        background: white;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 600px;
+        max-height: 90vh;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        animation: slideUp 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Popup Header */
+    .popup-header {
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .popup-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+    .popup-close {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+    }
+
+        .popup-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+    /* Popup Content */
+    .popup-content {
+        padding: 20px;
+        overflow-y: auto;
+        flex: 1;
+        background: linear-gradient(to bottom, #f9fafb 0%, #e5e7eb 100%);
+    }
+
+    .cards-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card {
+        border-radius: 12px;
+        padding: 0;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        transition: transform 0.2s;
+        overflow: hidden;
+    }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+    /* Color classes based on Order */
+    .card-red {
+        background: linear-gradient(to bottom, rgba(255, 245, 245, 1) 0%, rgba(255, 235, 235, 1) 20%, rgba(255, 220, 220, 1) 35%, rgba(255, 200, 200, 0.85) 50%, rgba(255, 160, 160, 0.9) 65%, rgba(255, 120, 120, 0.95) 80%, rgba(255, 80, 80, 1) 100%);
+    }
+
+    .card-yellow {
+        background: linear-gradient(to bottom, rgba(255, 253, 245, 1) 0%, rgba(255, 250, 235, 1) 20%, rgba(255, 245, 220, 1) 35%, rgba(255, 240, 200, 0.85) 50%, rgba(255, 230, 170, 0.9) 65%, rgba(255, 220, 130, 0.95) 80%, rgba(255, 210, 90, 1) 100%);
+    }
+
+    .card-blue {
+        background: linear-gradient(to bottom, rgba(245, 250, 255, 1) 0%, rgba(235, 245, 255, 1) 20%, rgba(220, 240, 255, 1) 35%, rgba(200, 230, 255, 0.85) 50%, rgba(170, 215, 255, 0.9) 65%, rgba(130, 195, 255, 0.95) 80%, rgba(90, 170, 255, 1) 100%);
+    }
+
+    .card-green {
+        background: linear-gradient(to bottom, rgba(245, 255, 250, 1) 0%, rgba(235, 252, 245, 1) 20%, rgba(220, 248, 238, 1) 35%, rgba(200, 242, 228, 0.85) 50%, rgba(170, 235, 215, 0.9) 65%, rgba(130, 225, 200, 0.95) 80%, rgba(90, 215, 185, 1) 100%);
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        padding: 15px 15px 8px 15px;
+        background: transparent;
+    }
+
+    .card-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        flex-shrink: 0;
+    }
+
+    .card-red .card-icon {
+        color: #dc2626;
+    }
+
+    .card-yellow .card-icon {
+        color: #d97706;
+    }
+
+    .card-blue .card-icon {
+        color: #2563eb;
+    }
+
+    .card-green .card-icon {
+        color: #059669;
+    }
+
+    .card-title {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #1f2937;
+    }
+
+    .card-divider {
+        display: none;
+    }
+
+    .card-content {
+        font-size: 13px;
+        line-height: 1.5;
+        padding: 8px 15px 15px 15px;
+    }
+
+    .card-red .card-content {
+        color: #7f1d1d;
+    }
+
+    .card-yellow .card-content {
+        color: #78350f;
+    }
+
+    .card-blue .card-content {
+        color: #1e3a8a;
+    }
+
+    .card-green .card-content {
+        color: #064e3b;
+    }
+
+    .advice-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 8px;
+    }
+
+        .advice-item:last-child {
+            margin-bottom: 0;
+        }
+
+    .advice-bullet {
+        display: none;
+    }
+
+    .advice-text {
+        flex: 1;
+    }
+
+    /* Demo Button */
+    .demo-section {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+        .demo-section h1 {
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .demo-section p {
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+    .open-popup-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        /* padding: 15px 40px; */
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .open-popup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+        }
+
+    .btn-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    @@media (max-width: 768px) {
+        .popup-container {
+            width: 95%;
+            max-height: 95vh;
+        }
+
+        .popup-content {
+            padding: 15px;
+        }
+
+        .card {
+            padding: 12px;
+        }
+    }
+</style>
+
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="col-lg-12">
@@ -187,6 +468,18 @@
 
 </div>
 
+<!-- Popup Overlay -->
+<div class="popup-overlay" id="popupOverlay" onclick="closePopupOnOverlay(event)">
+    <div class="popup-container">
+        <div class="popup-header">
+            <h2>Summary</h2>
+            <button class="popup-close" onclick="closePopup()">×</button>
+        </div>
+        <div class="popup-content">
+            <div id="cardContainer" class="cards-grid"></div>
+        </div>
+    </div>
+</div>
 
 @if (TempData["message"] != null)
 {
@@ -196,6 +489,9 @@
 
 
 <script type="text/javascript">
+
+    window.appBasePath = '@Url.Content("~/")';
+
     $(document).ready(function () {
         getDistrictByState();
         getBlocksByDistrict();
@@ -425,32 +721,40 @@
         var YearID = $('#YearID').val();
         var MonthID = $('#MonthID').val();
         var SymptomsID = $('#SymptomsID').val();
-
-        var url = '@Url.Content("~/PatientReport/ExportToExcel")'
-        + "?StateId=" + StateID
-        + "&DistrictId=" + DistrictID
-        + "&BlockId=" + BlockID
-        + "&FacilityId=" + FacilityID
-        + "&SubfacilityId=" + SubFacilityID
-        + "&YearId=" + YearID
-        + "&MonthId=" + MonthID
-        + "&SymptomsId=" + SymptomsID;
-
-         window.location.href = url;
-    }
-
-    function ExportEmergencyMedicalServices() {
-        var url = '@Url.Content("~/PatientReport/ExportMedicalServices")';
+        var url = window.appBasePath + "PatientReport/ExportToExcel?StateId=" + StateID + "&DistrictId=" + DistrictID + "&BlockId=" + BlockID + "&FacilityId=" + FacilityID + "&SubfacilityId=" + SubFacilityID + "&YearId=" + YearID + "&MonthId=" + MonthID + "&SymptomsId=" + SymptomsID;
         window.location.href = url;
     }
 
-    function ExportReferredPatient() {
-        var url = '@Url.Content("~/PatientReport/ReferredPatient")';
+    function ExportEmergencyMedicalServices()
+    {
+       var url = window.appBasePath + "PatientReport/ExportMedicalServices";
         window.location.href = url;
+    }
+
+    function ExportReferredPatient()
+    {
+        var url = window.appBasePath + "PatientReport/ReferredPatient";
+        window.location.href = url;
+    }
+
+    function closePopup() {
+        document.getElementById('popupOverlay').classList.remove('active');
+        document.body.style.overflow = 'auto';
+
+        // Clear old cards
+        document.getElementById('cardContainer').innerHTML = "";
+    }
+
+    function closePopupOnOverlay(e) {
+        if (e.target.id === "popupOverlay") {
+            //closePopup();
+        }
     }
 
 
 </script>
+
+
 
 
 

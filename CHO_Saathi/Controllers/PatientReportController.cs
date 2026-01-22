@@ -63,10 +63,44 @@ namespace CHO_Saathi.Controllers
                  .OrderBy(d => d.SymptomsName)
                  .Select(d => new SelectListItem
                  {
-                     Value = d.SymptomTypeId.ToString(),
+                     Value = d.SymptomsId.ToString(),
                      Text = d.SymptomsName
                  })
                  .ToList();
+
+                //var patientSummary =
+                //                    (from p in _context.Patients
+                //                     join v in _context.CmpPatientVisits
+                //                         on p.PatientId equals v.PatientId into pv
+                //                     select new
+                //                     {
+                //                         patientId = p.PatientId,
+                //                         patientType = p.PatientType,
+                //                         summaryKey = pv
+                //                             .OrderByDescending(x => x.VisitDate)   // or CreatedOn
+                //                             .Select(x => x.SummaryKey)
+                //                             .FirstOrDefault()
+                //                     }).ToList();
+
+                //ViewBag.PatientSummary = patientSummary;
+
+                //var patientSummary1 =
+                //                    (from p in _context.Patients
+                //                     join v in _context.PatientVisits
+                //                         on p.PatientId equals v.PatientId into pv
+                //                     select new
+                //                     {
+                //                         patientId = p.PatientId,
+                //                         patientType = p.PatientType,
+                //                         summaryKey = pv
+                //                             .OrderByDescending(x => x.VisitDate)   // or CreatedOn
+                //                             .Select(x => x.SummaryKey)
+                //                             .FirstOrDefault()
+                //                     }).ToList();
+
+                //ViewBag.PatientSummary1 = patientSummary1;
+
+
 
                 return View();
             }
@@ -119,6 +153,41 @@ namespace CHO_Saathi.Controllers
             {
                 if (pageSize <= 0) pageSize = 10;
                 if (pageIndex <= 0) pageIndex = 1;
+
+
+                var cmpPatientSummary =
+                    (from p in _context.Patients
+                     join v in _context.CmpPatientVisits
+                         on p.PatientId equals v.PatientId into pv
+                     select new
+                     {
+                         patientId = p.PatientId,
+                         patientType = p.PatientType,
+                         summaryKey = pv
+                             .OrderByDescending(x => x.VisitDate)
+                             .Select(x => x.SummaryKey)
+                             .FirstOrDefault()
+                     }).ToList();
+
+                ViewBag.CmpPatientSummary = cmpPatientSummary;
+
+
+                var pwChildPatientSummary =
+                    (from p in _context.Patients
+                     join v in _context.PatientVisits
+                         on p.PatientId equals v.PatientId into pv
+                     select new
+                     {
+                         patientId = p.PatientId,
+                         patientType = p.PatientType,
+                         summaryKey = pv
+                             .OrderByDescending(x => x.VisitDate)
+                             .Select(x => x.SummaryKey)
+                             .FirstOrDefault()
+                     }).ToList();
+
+                ViewBag.PWChildPatientSummary = pwChildPatientSummary;
+
 
                 var param = new SqlParameter[]
                 {

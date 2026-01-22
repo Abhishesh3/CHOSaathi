@@ -1,7 +1,6 @@
 ﻿@using System.Data
 @model CHO_Saathi.ViewComponents.PatientInformationViewModel
 
-
 <style>
     .inline-pager {
         display: inline-flex;
@@ -53,7 +52,6 @@
     }
 </style>
 
-
 @if (Model != null)
 {
     <div class="row mt-3">
@@ -76,13 +74,14 @@
             <table id="PatientDetails" class="table table-bordered mt-2">
                 <thead>
                     <tr>
-                        <th>S No</th>
-                        <th>Patient Details</th>
-                        <th>Mobile</th>
-                        <th>Location</th>
-                        <th>Registered Date</th>
-                        <th>Follow Up Date</th>
-                        <th>Summary</th>
+                        <th style="width:5%">S No</th>
+                        <th style="width:10%">Patient Details</th>
+                        <th style="width:10%">Mobile</th>
+                        <th style="width:10%">Location</th>
+                        <th style="width:20%">Symptoms</th>
+                        <th style="width:10%">Registered Date</th>
+                        <th style="width:10%">Follow Up Date</th>
+                        <th style="width:5%">Summary</th>
                     </tr>
                 </thead>
 
@@ -114,35 +113,13 @@
                                 <table class="table table-bordered mt-0">
                                     <tr>
                                         <td>
-                                            Name
+                                            @item.fullName @(string.IsNullOrEmpty(item.spouseName) ? "" : " C/O " + item.spouseName)
                                         </td>
-                                        <th>
-                                            @item.fullName
-                                        </th>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Husband Name
+                                            Age:@age Gender:@item.gender
                                         </td>
-                                        <th>
-                                            @item.spouseName
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Age
-                                        </td>
-                                        <th>
-                                            @age
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Gender
-                                        </td>
-                                        <th>
-                                            @item.gender
-                                        </th>
                                     </tr>
                                 </table>
                             </td>
@@ -152,51 +129,24 @@
                                 <table class="table table-bordered mt-0">
                                     <tr>
                                         <td>
-                                            State
+                                            @item.District >> @item.BlockName >> @item.FacilityName >> @item.SubFacility
                                         </td>
-                                        <th>
-                                            @item.StateName
-                                        </th>
-                                        <td>
-                                            District
-                                        </td>
-                                        <th>
-                                            @item.District
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Block
-                                        </td>
-                                        <th>
-                                            @item.BlockName
-                                        </th>
-                                        <td>
-                                            Facility
-                                        </td>
-                                        <th>
-                                            @item.FacilityName
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            HWC/Sub-center
-                                        </td>
-                                        <th>
-                                            @item.SubFacility
-                                        </th>
-                                        <td>
-                                            Village
-                                        </td>
-                                        <th>
-                                            @item.villageName
-                                        </th>
                                     </tr>
                                 </table>
                             </td>
+                            <td>
+                                @item.symptom_en
+                            </td>
                             <td>@item.registeredDate</td>
                             <td>@item.visit_date</td>
-                            <td></td>
+                            <td>
+                                <button class="open-popup-btn" onclick="openPopup(@item.patient_id, @item.patientType)">
+                                    <svg class="btn-icon" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                                        <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </td>
                         </tr>
 
                         a++;
@@ -258,4 +208,195 @@ else
 {
     <p>No records found.</p>
 }
+
+<script>
+    var cmpPatientSummaryMap = {};
+    var patientSummaryMap = {};
+
+    @if (ViewBag.CmpPatientSummary != null)
+    {
+        foreach (var item in ViewBag.CmpPatientSummary)
+        {
+            var key = item.summaryKey ?? "";
+
+            <text>
+                cmpPatientSummaryMap[@item.patientId] = "@key";
+            </text>
+        }
+    }
+
+    @if (ViewBag.PWChildPatientSummary != null)
+    {
+        foreach (var item in ViewBag.PWChildPatientSummary)
+        {
+             var key = item.summaryKey ?? "";
+             
+             <text>
+                 patientSummaryMap[@item.patientId] = "@key";
+             </text>
+        }
+    }
+
+</script>
+
+<script>
+    // Complete CMP data from JSON
+    let cmpSummaryJSON = [];
+
+    // Complete PW & Child(Advise Mother Data) data from JSON
+    let pwChildSummaryJSON = [];
+
+    let cmpLoaded = false;
+    let pwLoaded = false;
+
+    window.appBasePath = '@Url.Content("~/")';
+
+    async function loadCMPJson() {
+        if (cmpLoaded) return;
+
+        //const res = await fetch('/JSON/cmp_data.json');
+        const res = await fetch(window.appBasePath + 'JSON/cmp_data.json');
+        cmpSummaryJSON = await res.json();
+        cmpLoaded = true;
+    }
+
+    async function loadPWChildJson() {
+        if (pwLoaded) return;
+
+        //const res = await fetch('/JSON/advise_mother_data.json');
+        const res = await fetch(window.appBasePath + 'JSON/advise_mother_data.json');
+        pwChildSummaryJSON = await res.json();
+        pwLoaded = true;
+    }
+
+    async function openPopup(patientId, patientType) {
+
+        const container = document.getElementById('cardContainer');
+        container.innerHTML = "<p style='text-align:center'>Loading...</p>"; // reset old cards
+
+        document.getElementById('popupOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Load correct JSON
+        if (patientType === 3) {
+            await loadCMPJson();
+        } else {
+            await loadPWChildJson();
+        }
+
+        let summaryKeyFromDb = "";
+
+        if (patientType === 3) {
+            summaryKeyFromDb = cmpPatientSummaryMap[patientId] || "";
+        } else {
+            summaryKeyFromDb = patientSummaryMap[patientId] || "";
+        }
+
+        loadAllCards(summaryKeyFromDb, patientType);
+    }
+
+
+    function loadAllCards(summaryKeyFromDb, patientType) {
+
+        const container = document.getElementById('cardContainer');
+        container.innerHTML = "";   // 💥 VERY IMPORTANT
+
+        const dbKeys = summaryKeyFromDb
+            .split(',')
+            .map(x => x.trim())
+            .filter(x => x !== '');
+
+        if (patientType === 3) {
+            const cmpMatchedConditions = cmpSummaryJSON.filter(item =>
+                dbKeys.includes(item.id)
+            );
+
+            if (cmpMatchedConditions.length === 0) {
+                container.innerHTML = "<p style='text-align:center'>No matching medical conditions</p>";
+                return;
+            }
+
+            const sorted = cmpMatchedConditions.sort((a, b) => a.order - b.order);
+            container.innerHTML = sorted.map(createCard).join('');
+        }
+        else {
+            const pwChildMatchedConditions = pwChildSummaryJSON.filter(item =>
+                dbKeys.includes(item.id)
+            );
+
+            if (pwChildMatchedConditions.length === 0) {
+                container.innerHTML = "<p style='text-align:center'>No matching medical conditions</p>";
+                return;
+            }
+
+            const sorted = pwChildMatchedConditions.sort((a, b) => a.order - b.order);
+            container.innerHTML = sorted.map(createCard).join('');
+        }
+    }
+
+
+
+    function getIconSvg(order) {
+        const icons = {
+            0: `<svg class="card-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>`,
+            1: `<svg class="card-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>`,
+            2: `<svg class="card-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>`,
+            3: `<svg class="card-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>`
+        };
+        return icons[order] || icons[0];
+    }
+
+    function getCardColorClass(order) {
+        const colorMap = {
+            0: '#e32026',   // Emergency - Red
+            1: '#ffd382',   // Warning - Amber
+            2: '#ffffc2',   // Observe - Yellow
+            3: '#b2d9b8'    // Normal - Green
+        };
+        return colorMap[order] || '#f4a261'; // default orange
+    }
+
+
+
+    function createCard(condition) {
+        const bgColor = getCardColorClass(condition.order);
+        const icon = getIconSvg(condition.order);
+
+        const advicesHtml = condition.advises.map(advise => `
+            <div class="advice-item">
+                <div class="advice-bullet"></div>
+                <div class="advice-text">${advise.advise}</div>
+            </div>
+        `).join('');
+
+        return `
+            <div class="card" style="background-color:${bgColor}">
+                <div class="card-header">
+                    ${icon}
+                    <div class="card-title">${condition.condition}</div>
+                </div>
+                <div class="card-content">
+                    ${advicesHtml}
+                </div>
+            </div>
+        `;
+    }
+
+
+
+    // Close popup on ESC key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closePopup();
+        }
+    });
+</script>
 

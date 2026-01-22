@@ -67,6 +67,7 @@
         public long createdAt { get; set; }
         public int create_by { get; set; }
         public int mobileId { get; set; }
+        public string? SummaryKey { get; set; }
     }
 
     public class PatientType

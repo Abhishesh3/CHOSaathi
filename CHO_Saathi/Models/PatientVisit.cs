@@ -54,4 +54,6 @@ public partial class PatientVisit
     public int CurrentStatus { get; set; }
 
     public double Temperature { get; set; }
+
+    public string? SummaryKey { get; set; }
 }

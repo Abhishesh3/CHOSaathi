@@ -109,9 +109,11 @@ namespace CHO_Saathi.Controllers.Api
                 visit.TimeStamp = request.patient_visit.timeStamp;
                 visit.CreatedAt = request.patient_visit.createdAt;
                 visit.CreatedBy = request.patient_visit.create_by;
+                visit.SummaryKey = request.patient_visit.SummaryKey;
 
                 await _context.SaveChangesAsync();
 
+                // 3 immunization
                 if (request.immunization != null)
                 {
                     var immunization = await _context.Immunizations.FirstOrDefaultAsync(x => x.PatientGuid == patient.PatientGuid && x.VisitNo == request.immunization.VisitNo);
@@ -378,6 +380,7 @@ namespace CHO_Saathi.Controllers.Api
                     v.OtherSymptom,
                     v.CurrentStatus,
                     v.Temperature,
+                    v.SummaryKey
                 }).ToList(),
 
                 immunization = immunizations.Select(i => new

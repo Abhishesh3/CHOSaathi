@@ -5,7 +5,7 @@ namespace CHO_Saathi.Models;
 
 public partial class CmpSymptom
 {
-    public int Sno { get; set; }
+    public string? Sno { get; set; }
 
     public string? SymptomEn { get; set; }
 
@@ -13,5 +13,5 @@ public partial class CmpSymptom
 
     public string? Code { get; set; }
 
-    public int? SymptomTypeId { get; set; }
+    public string? SymptomsId { get; set; }
 }

@@ -1,0 +1,2407 @@
+[
+  {
+    "id": "Danger_Sign_Inevitable_Abortion",
+    "order": 0,
+    "condition": "Spontaneous/Complete/Incomplete Abortion/Inevitable Abortion",
+    "advises": [
+      {
+        "advise": "If Women is bleeding and product of conception is coming out from vagina - Remove with your finger",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Start IV RL 500 ml",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Threatened_Abortion",
+    "order": 0,
+    "condition": "Threatened Abortion",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Ectopic_Pregnancy",
+    "order": 0,
+    "condition": "Chance of Ectopic Pregnancy",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist and USG service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Shock_Inevitable_Abortion",
+    "order": 0,
+    "condition": "Shock with Complete/Incomplete Abortion/Inevitable Abortion/Ectopic Pregnancy",
+    "advises": [
+      {
+        "advise": "Start IV RL 500 ml to Manage Shock",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Further_Investigation",
+    "order": 0,
+    "condition": "Need further investigation",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Placenta_Previa",
+    "order": 0,
+    "condition": "Chance of Placenta Previa or Abruptio Placenta",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist and USG service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Indication_Ectopic_Pregnancy",
+    "order": 0,
+    "condition": "Indication of Abortion or Ectopic Pregnancy",
+    "advises": [
+      {
+        "advise": "If Women is bleeding and product of conception is coming out from vagina - Remove with your finger",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Start IV RL 500 ml",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_APH",
+    "order": 0,
+    "condition": "Indication of APH",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist and USG service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Urine_Infection",
+    "order": 0,
+    "condition": "Indication of Urinary Track Infection",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where general physician service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Burning_Micturition",
+    "order": 0,
+    "condition": "Burning Micturition\nWith or without\nFever",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where general physician service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Sexually_Transmitted_Disease",
+    "order": 0,
+    "condition": "Indication of Sexually Transmitted Disease",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where general physician service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_PROM",
+    "order": 0,
+    "condition": "Indication of onset of Labour pain or PROM",
+    "advises": [
+      {
+        "advise": "Explore for other High risk sign",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Prepare for delivery if no HRP and your facility is Delivery point",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer immediately to facility where delivery service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Severe_Pre_Eclampsia",
+    "order": 0,
+    "condition": "Indication of Severe Pre Eclampsia",
+    "advises": [
+      {
+        "advise": "Give IM Dose of Inj MgSo4 5 gm in each buttock",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer immediately to facility where LSCS service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Reflux_Oesophagitis",
+    "order": 1,
+    "condition": "Reflux Oesophagitis",
+    "advises": [
+      {
+        "advise": "Advice woman to avoid spicy and oily food",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Take cold milk for symptoms",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Antacid could be given in severe case",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Morning_Sickness",
+    "order": 1,
+    "condition": "Indication of Physiological Morning Sickness",
+    "advises": [
+      {
+        "advise": "Advice to eat small frequent meals",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Avoid greasy food, take plenty of vegetables and fluid",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Can be taken dry food e.g. Roti/Paratha in morning",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Right_Hypochondrium",
+    "order": 0,
+    "condition": "Can be Lung, Liver, Renal or Iliac pathology",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility with gynaecologist and other specialist services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Left_Hypochondrium",
+    "order": 0,
+    "condition": "\"Can be Lung, Spleen, Pancreas, Renal pathology, Malaria",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility with gynaecologist and other specialist services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Right_Lumbar",
+    "order": 0,
+    "condition": "Can be Renal or Iliac pathology",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility with gynaecologist and other specialist services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Left_Lumbar",
+    "order": 0,
+    "condition": "Can be Renal or Iliac pathology",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility with gynaecologist and other specialist services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Right_Iliac",
+    "order": 0,
+    "condition": "Can be Iliac, Renal, Ovarian pathology or Ectopic pregnancy",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility with gynaecologist and other specialist services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Left_Iliac",
+    "order": 0,
+    "condition": "Can be Iliac, Renal, Ovarian pathology, Ectopic pregnancy, Amoebiasis",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility with gynaecologist and other specialist services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Central",
+    "order": 0,
+    "condition": "Can be Aortic or Iliac Pathology",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility with gynaecologist and other specialist services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Severe_Anaemia",
+    "order": 0,
+    "condition": "Severe Anaemia",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Blood Transfusion service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Moderate_Anaemia",
+    "order": 0,
+    "condition": "Moderate Anaemia",
+    "advises": [
+      {
+        "advise": "Start treatment with Inj Iron Sucrose (if GA > 13 week)",
+        "adviseSpan": "Inj Iron Sucrose",
+        "moreInfo": "Inj Iron sucrose:\n200 mg in 100 ml of NS - IV slowly over 30 min\n3 such dose in 2 weeks - two to three days apart"
+      },
+      {
+        "advise": "Follow up after 1 Month for Hb estimation",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for Iron rich food",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer for further investigations if not improved after 1 Month",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Mild_Anaemia",
+    "order": 0,
+    "condition": "Mild Anaemia",
+    "advises": [
+      {
+        "advise": "Give Tab IFA treatment dose (if GA > 13 week)",
+        "adviseSpan": "Tab IFA",
+        "moreInfo": "IFA Tablet\n60 mg elemental iron with 0.5 mg Folic acid\nTwo times in a day"
+      },
+      {
+        "advise": "Counsel for IFA adherence (if GA > 13 week)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Follow up after 1 Month for Hb estimation",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for iron rich food",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer for further investigations of Sickle cell anemia if not improved after 1 Month",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Hormonal",
+    "order": 1,
+    "condition": "Can be hormonal disorder or other pathology",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Possibility_Lung_Pathology",
+    "order": 1,
+    "condition": "Possibility of Lung pathology",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Dager_Sign_Cardiac_Condition",
+    "order": 1,
+    "condition": "Can be cardiac condition",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Stress",
+    "order": 1,
+    "condition": "Can be Stress or some mental condition",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist and psychologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Hypotension",
+    "order": 1,
+    "condition": "Hypotension",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Cough_Cold",
+    "order": 0,
+    "condition": "Cough/Cold",
+    "advises": [
+      {
+        "advise": "Advice home remedial measures",
+        "adviseSpan": "home remedial",
+        "moreInfo": "Home Remedies\nGinger tea, Gargling with warm water, Steam inhalation, Warm milk with turmeric powder etc."
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where physician service available if not relieved by home remedies",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Covid_19",
+    "order": 0,
+    "condition": "Possibility of COVID 19",
+    "advises": [
+      {
+        "advise": "Counsel for all COVID 19 precautions",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Conduct COVID 19 RAT or refer for COVID test",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Allergic_Cough",
+    "order": 1,
+    "condition": "Can be Allergic/Catarrh",
+    "advises": [
+      {
+        "advise": "Advice home remedial measures",
+        "adviseSpan": "home remedial",
+        "moreInfo": "Home Remedies\nSteam inhalation, Gargle with hot water, take adequate rest"
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where physician service available if symptoms more than 7 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Upper_Respitrack_Infection",
+    "order": 0,
+    "condition": "Upper Respitrack infection",
+    "advises": [
+      {
+        "advise": "Give Tab PCM 500 mg 3 times in a day",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where physician service are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Lower_Respitrack_Infection",
+    "order": 0,
+    "condition": "Lower Respitrack infection",
+    "advises": [
+      {
+        "advise": "Give Tab PCM 500 mg 3 times in a day",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where TB diagnosis and treatment services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Tuberculosis",
+    "order": 0,
+    "condition": "Possibility of Tuberculosis",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where TB diagnosis and treatment services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Allergic",
+    "order": 0,
+    "condition": "Possibility of Allergic condition",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Malaria",
+    "order": 0,
+    "condition": "Possibility of Malaria",
+    "advises": [
+      {
+        "advise": "Presumptive treatment is no longer recommended",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Blood detailed investigation facility is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Typhoid",
+    "order": 0,
+    "condition": "Possibility of Typhoid",
+    "advises": [
+      {
+        "advise": "Advise for adequate Nutrition and Hydration",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where detailed investigation and specialist care is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Dengue",
+    "order": 0,
+    "condition": "Possibility of Dengue",
+    "advises": [
+      {
+        "advise": "Give Tab PCM 500 mg 3 times in a day for fever",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Give ORS if dehydration is present",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where detailed blood investigation and specialist care is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Chikungunya",
+    "order": 0,
+    "condition": "Possibility of Chikungunya",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where serology investigation service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Respiratory_Infection",
+    "order": 0,
+    "condition": "Respitrack infection",
+    "advises": [
+      {
+        "advise": "Give Tab PCM 500 mg 3 times in a day",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where physician service are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_STI_RTI",
+    "order": 0,
+    "condition": "Possibility of STI/RTI",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Hepatitis",
+    "order": 0,
+    "condition": "Possibilities of Hepatitis",
+    "advises": [
+      {
+        "advise": "Advise for diet with low fat and carbohydrate",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Plenty of food orally",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise for Hep B Screening",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where physician service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Eclampsia",
+    "order": 0,
+    "condition": "Eclampsia",
+    "advises": [
+      {
+        "advise": "Give IM Dose of Inj MgSo4 5 gm in each buttock",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer immediately to facility where LSCS service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Epileptic_Fits",
+    "order": 0,
+    "condition": "Possibility of Epileptic fits",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Induced_Hypertension",
+    "order": 0,
+    "condition": "Pregnancy Induced Hypertension",
+    "advises": [
+      {
+        "advise": "Advice to reduce work load and to rest",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for Danger sign",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Follow up in next week - if GA is > 34 week",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Migraine",
+    "order": 0,
+    "condition": "Possibility of Migraine",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Sinusitis",
+    "order": 1,
+    "condition": "Possibility of Sinusitis",
+    "advises": [
+      {
+        "advise": "Give Tab PCM 500 mg 3 times in a day",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where physician service are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_CVS_Pathology",
+    "order": 1,
+    "condition": "Possibility of CVS pathology",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Renal_Pathology",
+    "order": 1,
+    "condition": "Possibility of Renal pathology",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Thyroid_Abnormality",
+    "order": 0,
+    "condition": "Thyroid abnormality",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to District Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_HRP_GDM",
+    "order": 0,
+    "condition": "HRP - GDM",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise for all follow up visit with specialist only",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Hyperemesis_Gravidarum",
+    "order": 0,
+    "condition": "Hyperemesis gravidarum",
+    "advises": [
+      {
+        "advise": "Start IV fluid - RL 500 ml",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Refractive",
+    "order": 0,
+    "condition": "Refractive error",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to higher facility for further diagnosis",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_VITA_Deficiency",
+    "order": 1,
+    "condition": "Possibility of Vita A deficiency",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Foetal_Distress",
+    "order": 0,
+    "condition": "Foetal Distress",
+    "advises": [
+      {
+        "advise": "Inform that baby might not well",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer immediately to Gynaecologist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Abortion",
+    "order": 0,
+    "condition": "Possibility of Abortion",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Antepartum_Hemorrhage",
+    "order": 0,
+    "condition": "Possibility of Antepartum Hemorrhage",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Permature_Rupture_Membrane",
+    "order": 0,
+    "condition": "Premature Rupture of Membrane",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Gonorrhoea",
+    "order": 0,
+    "condition": "Possibility of Gonorrhoea",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to PHC/CHC where MO is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Trichomoniasis",
+    "order": 0,
+    "condition": "Possibility of Trichomoniasis",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to PHC/CHC where MO is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Chlamydia",
+    "order": 0,
+    "condition": "Possibility of Chlamydia",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Bacterial_Vaginosis",
+    "order": 0,
+    "condition": "Possibility of Bacterial Vaginosis",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to PHC/CHC where MO is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Candidiasis",
+    "order": 0,
+    "condition": "Possibility of Candidiasis",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to PHC/CHC where MO is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_HIV",
+    "order": 0,
+    "condition": "HIV Reactive",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where ICTC center service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Syphilis",
+    "order": 0,
+    "condition": "Syphilis",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Chancroid",
+    "order": 0,
+    "condition": "Chancroid",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_LGV",
+    "order": 0,
+    "condition": "Lymphogrenulomavenereum (LGV)",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Granuloma_Inguinal",
+    "order": 0,
+    "condition": "Granuloma Inguinal",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Genital_Herpes",
+    "order": 0,
+    "condition": "Genital Herpes",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Acute_Gastroenteritis",
+    "order": 0,
+    "condition": "Acute Gastro enteritis",
+    "advises": [
+      {
+        "advise": "Keep patient at rest",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Give plenty of fluid orally",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where physician service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Physiological_Cause",
+    "order": 2,
+    "condition": "Indication of physiological cause",
+    "advises": [
+      {
+        "advise": "Reassure her that will be relived on its own",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_GDM",
+    "order": 0,
+    "condition": "GDM",
+    "advises": [
+      {
+        "advise": "Advise for all follow up visit with specialist only",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Physiological_Constipation",
+    "order": 1,
+    "condition": "Physiological Constipation",
+    "advises": [
+      {
+        "advise": "Advise mother for more fluid and fiber rich diet",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "If not relived - give her Isabgol 2 Table spoon at bedtime with water or milk",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Don’t prescribe strong laxatives",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Baby_Normal",
+    "order": 2,
+    "condition": "Baby is Normal",
+    "advises": [
+      {
+        "advise": "Reassure her that baby is normal",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Repeat count after 15 min",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 if abnormal - Refer to gynaecologist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Not_Clinical_Concern_Weight",
+    "order": 2,
+    "condition": "Not clinical concern",
+    "advises": [
+      {
+        "advise": "Reassure her that it is normal to not gaining weight or might loose weight up to 15 week of GA",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Not_Clinical_Concern",
+    "order": 2,
+    "condition": "Not clinical concern",
+    "advises": [
+      {
+        "advise": "Reassure her that it is normal",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel her for Diet and Nutrition",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Not_Appropriate_Weight_Gain",
+    "order": 1,
+    "condition": "Not appropriate weight gain",
+    "advises": [
+      {
+        "advise": "Counsel mother for Diet and Nutrition - Protein rich diet",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for Iron and calcium adherence",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Follow up after 2 weeks",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_DM_GDM",
+    "order": 1,
+    "condition": "Possibility of DM or GDM",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Gestational_Diabetes",
+    "order": 1,
+    "condition": "Gestational Diabetes Mellitus",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer her to Gynaecologist for initiation of treatment",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Multiple_Pregnancy",
+    "order": 1,
+    "condition": "Multiple pregnancy",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer her to Gynaecologist for confirmation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Polyhydramnios",
+    "order": 1,
+    "condition": "Polyhydramnios",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer her to Gynaecologist for confirmation",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Pre_Eclampsia",
+    "order": 1,
+    "condition": "HRP - Pre Eclampsia",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98  Refer to facility where gynaecologist service available \n Advise for all follow up visit with specialist only",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Possibility_Of_Infection",
+    "order": 1,
+    "condition": "Possibility of infection",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98  Refer Immediately to facility where gynaecologist and physician services are available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Lossing_Weight",
+    "order": 1,
+    "condition": "HRP - Loosing weight, Need further investigation",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98  Refer Immediately to facility where Gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Possibility_of_onset_of_labour",
+    "order": 1,
+    "condition": "Possibility of onset of labour",
+    "advises": [
+      {
+        "advise": "Explore for other High risk sign",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Prepare for delivery if no HRP and your facility is Delivery point",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98  Refer immediately to facility where delivery service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Multigravida",
+    "order": 1,
+    "condition": "HRP - Multigravida",
+    "advises": [
+      {
+        "advise": "Counsel her for High risk status",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise for regular follow up at least 4 visit",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise third trimester ANC visit by specialist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Young_Age",
+    "order": 1,
+    "condition": "HRP - Young age/Old age",
+    "advises": [
+      {
+        "advise": "Counsel her for High risk status",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise for regular follow up at least 4 visit",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise third trimester ANC visit by specialist",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Short_Stature",
+    "order": 1,
+    "condition": "HRP - Short stature",
+    "advises": [
+      {
+        "advise": "Counsel her for High risk status",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise for regular follow up at least 4 visit",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Plan delivery at facility where LSCS service is available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Diabetic",
+    "order": 1,
+    "condition": "HRP - Diabetic",
+    "advises": [
+      {
+        "advise": "Advise for all follow up visit with specialist only",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Malpresentation",
+    "order": 1,
+    "condition": "HRP - Malpresentation",
+    "advises": [
+      {
+        "advise": "Advise for all follow up visit with specialist only",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer to facility where gynaecologist service available",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "NON_HRP_CASE",
+    "order": 2,
+    "condition": "Non HRP case",
+    "advises": [
+      {
+        "advise": "Refer her to higher facility for BGRh",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Refer for HIV and Syphilis test - if testing is not done",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Give Tab Folic acid as appropriate",
+        "adviseSpan": "Tab Folic acid",
+        "moreInfo": "Tab Folic acid (5 mg) (if GA < 13 week) 1 Tab once in a day"
+      },
+      {
+        "advise": "Give Tab IFA and Tab Calcium as appropriate",
+        "adviseSpan": "Tab IFA and Tab Calcium",
+        "moreInfo": "Tab IFA (if GA > 13 week) 1 Tab once in a day if Hb is >= 11 gm 1 Tab Twice in a day if Hb is < 11 gm Tab Calcium (if GA > 13 week) 1 Tab Twice in a day (500 mg Cal with 2500 IU Vita D3)"
+      },
+      {
+        "advise": "Refer for Inj Td first/Booster dose",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for life style modification",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for diet/nutrition and hygiene",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for Nutritional supplement adherence",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for at least 4 ANC visit",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for at least 4 ANC visit",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer for registration (if not register)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+
+  {
+    "id": "Danger_Sign_Unconscious",
+    "order": 0,
+    "condition": "Unconscious (Very Severe Disease)",
+    "advises": [
+      {
+        "advise": "Quickly complete assessment and give pre referral treatment",
+        "adviseSpan": "pre referral treatment",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\n\nInj Gentamycin dose (5mg/kg/Dose): $2"
+      },
+      {
+        "advise": "Keep child warm and \uD83C\uDD98 Refer Urgently",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Unable_feed",
+    "order": 0,
+    "condition": "Unable To Feed/Drink (Very Severe Disease)",
+    "advises": [
+      {
+        "advise": "Quickly complete assessment and give pre referral treatment",
+        "adviseSpan": "pre referral treatment",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\n\nInj Gentamycin dose (5mg/kg/Dose): $2"
+      },
+      {
+        "advise": "Keep child warm and \uD83C\uDD98 Refer Urgently",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Vomit_Everything",
+    "order": 0,
+    "condition": "Vomiting Everything (Very Severe Disease)",
+    "advises": [
+      {
+        "advise": "Quickly complete assessment and give pre referral treatment",
+        "adviseSpan": "pre referral treatment",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\n\nInj Gentamycin dose (5mg/kg/Dose): $2"
+      },
+      {
+        "advise": "Keep child warm and \uD83C\uDD98 Refer Urgently",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Danger_Sign_Convulsions",
+    "order": 0,
+    "condition": "Convulsions (Very Severe Disease)",
+    "advises": [
+      {
+        "advise": "Quickly complete assessment and give pre referral treatment",
+        "adviseSpan": "pre referral treatment",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\n\nInj Gentamycin dose (5mg/kg/Dose): $2"
+      },
+      {
+        "advise": "Keep child warm and \uD83C\uDD98 Refer Urgently",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Oedema_Yes",
+    "order": 0,
+    "condition": "Severe Acute Malnutrition",
+    "advises": [
+      {
+        "advise": "⚕️Give first dose of Oral Amoxicillin and IM Gentamycin",
+        "adviseSpan": "Oral Amoxicillin and IM Gentamycin",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\n\nInj Gentamycin dose (5mg/kg/Dose): $2"
+      },
+      {
+        "advise": "Keep child warm and \uD83E\uDD31 treat to prevent low blood sugar",
+        "adviseSpan": "prevent low blood sugar",
+        "moreInfo": "If possible ask the mother to breastfeed\n\nIf the child is not able to breastfeed but is able to swallow: give 20-50mL of expressed breast milk/breast-milk substitute/sugar water\n\nIf the child is not able to swallow: give 50mL of milk or sugar water via a nasogastric tube. If a nasogastric tube is unavailable, give 1 tsp of sugar moistened with 1-2 drops of water sublingually (repeat doses every 20 min)"
+      },
+      {
+        "advise": "\uD83E\uDD31 Treat the child to prevent low blood sugar",
+        "adviseSpan": "prevent low blood sugar",
+        "moreInfo": "If possible ask the mother to breastfeed\n\nIf the child is not able to breastfeed but is able to swallow: give 20-50mL of expressed breast milk/breast-milk substitute/sugar water\n\nIf the child is not able to swallow: give 50mL of milk or sugar water via a nasogastric tube. If a nasogastric tube is unavailable, give 1 tsp of sugar moistened with 1-2 drops of water sublingually (repeat doses every 20 min)"
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "While referral is organized, warm the child",
+        "adviseSpan": "warm the child",
+        "moreInfo": "Keep the Baby Warm\n\n -Warm the young infant using Skin to Skin contact (Kangaroo Mother Care) by placing the baby prone on mother’s chest, between her breasts, turn baby’s head to one side to keep airways clear .\n -Cover the baby with mother’s blouse, ‘pallu’ or gown; wrap the baby-mother duo with an added blanket or shawl. \n -If possible, warm the room (>25°C) with a heating device."
+
+      },
+      {
+        "advise": "Keep the child warm on the way to hospital",
+        "adviseSpan": "warm on the way to hospital",
+        "moreInfo": "Keep the young infant warm on the way to the hospitaln\n\n -By Skin to Skin contact OR \n - Clothe the baby in 3-4 layers, cover head with a cap and body with a blanket or a shawl; hold baby close to caregiver’s body."
+      }
+    ]
+  },
+  {
+    "id": "Palmer_Pallor_Severe",
+    "order": 0,
+    "condition": "Severe Anaemia",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palmer_Pallor_Moderate",
+    "order": 1,
+    "condition": "Anaemia",
+    "advises": [
+      {
+        "advise": "⚕️Give Iron Folic Acid Therapy for 45 days",
+        "adviseSpan": "Iron Folic Acid Therapy",
+        "isDynamicDose": true,
+        "unit": "month",
+        "moreInfo": "Iron Folic Acid Therapy (Syp Iron: 20 mg elemental iron and 100 mcg folic acid in 1 ml)\n\n\nSyp IFA: $1 daily for 60 days"
+      },
+      {
+        "advise": "Assess child feeding and counsel mother accordingly",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up in 5 days in case of a feeding problem",
+        "hasFollowUp": true,
+        "days": 5,
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up after 45 days",
+        "hasFollowUp": true,
+        "days": 14,
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Palmer_Pallor_None",
+    "order": 2,
+    "condition": "No Anaemia",
+    "advises": [
+      {
+        "advise": "Give prophylactic IFA if child 6 month or older",
+        "adviseSpan": "prophylactic IFA",
+        "moreInfo": "Iron Folic Acid Prophylaxis (Syp Iron: 20 mg elemental iron and 100 mcg folic acid in 1 ml): 1 ml two times in a week"
+      }
+    ]
+  },
+  {
+    "id": "Physical_Exam_Severe_Acute_Malnutrition",
+    "order": 0,
+    "condition": "Severe Acute Malnutrition",
+    "advises": [
+      {
+        "advise": "⚕️Give first dose of Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "adviseSpan": "Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\nInj Gentamycin dose (5mg/kg/Dose): $2"
+      },
+      {
+        "advise": "Keep child warm and \uD83E\uDD31 treat to prevent low blood sugar",
+        "adviseSpan": "prevent low blood sugar",
+        "moreInfo": "If possible ask the mother to breastfeed\n\nIf the child is not able to breastfeed but is able to swallow: give 20-50mL of expressed breast milk/breast-milk substitute/sugar water\n\nIf the child is not able to swallow: give 50mL of milk or sugar water via a nasogastric tube. If a nasogastric tube is unavailable, give 1 tsp of sugar moistened with 1-2 drops of water sublingually (repeat doses every 20 min)"
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Physical_Exam_Moderate_Acute_Malnutrition",
+    "order": 1,
+    "condition": "Moderate Acute Malnutrition",
+    "advises": [
+      {
+        "advise": "Assess the feeding and counsel mother on how to feed the child",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise mother when to return immediately",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up in 30 days",
+        "hasFollowUp": true,
+        "days": 30,
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Physical_Exam_No_Acute_Malnutrition",
+    "order": 2,
+    "condition": "No Acute Malnutrition",
+    "advises": [
+      {
+        "advise": "Assess child feeding if child < 2 years and counsel mother on feeding",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise mother when to return immediately",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up in 5 days in case of a feeding problem",
+        "hasFollowUp": true,
+        "days": 5,
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Stridor_Present",
+    "order": 0,
+    "condition": "Severe Pneumonia or Very Severe Disease",
+    "advises": [
+      {
+        "advise": "Treat wheeze if present, if the child has wheezing give 3 doses of nebulized salbutamol for 20 minutes or 2-4 puffs of salbutamol MDI (at a gap of 2-3 minutes between each puff) with spacer repeated every 20 minutes and if there is improvement continue bronocodilators under monitoring. ",
+        "adviseSpan": "",
+        "moreInfo": ""
+      },
+      {
+        "advise": "⚕️Give pre referral dose of Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "adviseSpan": "Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\nInj Gentamycin dose (5mg/kg/Dose): $2"
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Stridor_Absent",
+    "order": 1,
+    "condition": "Pneumonia",
+    "advises": [
+      {
+        "advise": "⚕️Give Amoxicillin twice a day (25mg/kg/Dose) for 5 days",
+        "adviseSpan": "Amoxicillin",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1"
+      },
+      {
+        "advise": "Treat wheeze if present, if the child has wheezing give 3 doses of nebulized salbutamol for 20 minutes or 2-4 puffs of salbutamol MDI (at a gap of 2-3 minutes between each puff) with spacer repeated every 20 minutes and if there is improvement continue bronocodilators under monitoring. ",
+        "adviseSpan": "",
+        "moreInfo": ""
+      },
+      {
+        "advise": "Advise home care for cough and cold",
+        "adviseSpan": "home care for cough and cold",
+        "moreInfo": "Home Care for Cough:\n\n\n<6 months: only breast feeding\n>6 months: Honey, Tulsi, Ginger (avoid cough syrup)\nNose could be clean with saline Nasal drops (2.5g salt in 1 glass of clean drinking water)"
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up after 2 days",
+        "hasFollowUp": true,
+        "days": 2,
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tell mother when to return urgently",
+        "adviseSpan": "when to return urgently",
+        "moreInfo": "Tell mother when to return urgently:\n\n\n 1. General Danger Sign OR\n 2. Severe Chest Indrawing OR \n 3. Grunting"
+      }
+    ]
+  },
+  {
+    "id": "Breath_less_than_50",
+    "order": 1,
+    "condition": "Cough or Cold",
+    "advises": [
+      {
+        "advise": "Soothe throat and relieve cough with breast milk or home remedies",
+        "adviseSpan": "home remedies",
+        "isDynamicDose": true,
+        "unit": "month",
+        "moreInfo": "$1\nNose can be clean with saline drops (2.5g salt in 1 glass of drinking water)"
+      },
+      {
+        "advise": "If cough > 14 days \uD83C\uDD98 refer for assessment",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Blood_in_stool_Present",
+    "order": 0,
+    "condition": "Dysentery",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "No_Multiselect_Diarrhoea_More",
+    "order": 0,
+    "condition": "Persistent Diarrhoea",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Four_Mutiselect_Diarrhoea_Less",
+    "order": 0,
+    "condition": "Diarrhoea with Severe Dehydration",
+    "advises": [
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital (advise mother to give frequent ORS sips on the way)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83E\uDD31 Advise mother to continue breastfeeding",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Three_Mutiselect_Diarrhoea_Less",
+    "order": 1,
+    "condition": "Diarrhoea with Some Dehydration",
+    "advises": [
+      {
+        "advise": "\uD83D\uDCA7 Give fluid for dehydration (Plan B)",
+        "adviseSpan": "(Plan B)",
+        "moreInfo": "Give ORS 75 ml/kg in first 4 hrs\n\n(re-assess after 4 hrs and continue appropriate treatment"
+      },
+      {
+        "advise": "⚕️Give Zinc Supplements",
+        "adviseSpan": "Zinc Supplements",
+        "moreInfo": "2 - 6 months: Zinc 10 mg daily for 14 days\n\n6 month - 5 years: Zinc 20 mg daily for 14 days"
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up after 2 days if not improving",
+        "hasFollowUp": true,
+        "days": 2,
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "No_Multiselect_Diarrhoea_Less",
+    "order": 2,
+    "condition": "Diarrhoea with No Dehydration",
+    "advises": [
+      {
+        "advise": "\uD83D\uDCA7 Give fluid for dehydration (Plan A)",
+        "adviseSpan": "(Plan A)",
+        "isDynamicDose": true,
+        "unit": "month",
+        "moreInfo": "$1"
+      },
+      {
+        "advise": "⚕️Give Zinc Supplements",
+        "adviseSpan": "Zinc Supplements",
+        "isDynamicDose": true,
+        "unit": "month",
+        "moreInfo": "$1"
+      },
+      {
+        "advise": "Advise mother to continue feeding",
+        "isDynamicDose": true,
+        "unit": "month",
+        "adviseSpan": "continue feeding",
+        "moreInfo": "Advise mother to $1"
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up after 2 days if not improving",
+        "adviseSpan": null,
+        "hasFollowUp": true,
+        "days": 2,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tell mother when to return urgently",
+        "adviseSpan": "when to return urgently",
+        "moreInfo": "Tell mother when to return urgently:\n\n\n1. If the child becomes sicker. OR \n2. Fever OR \n3. Blood in stool OR \n4. Inability to feed"
+      }
+    ]
+  },
+  {
+    "id": "Malaria_YES_Stiff_Neck_YES",
+    "order": 0,
+    "condition": "Very Severe Febrile Disease",
+    "advises": [
+      {
+        "advise": "⚕️Give first dose of Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "adviseSpan": "Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\nInj Gentamycin dose (5mg/kg/Dose): $2"
+      },
+      {
+        "advise": "Keep child warm and \uD83E\uDD31 treat to prevent low blood sugar ⓘ",
+        "adviseSpan": "prevent low blood sugar ⓘ",
+        "moreInfo": "If possible ask the mother to breastfeed\n\nIf the child is not able to breastfeed but is able to swallow: give 20-50mL of expressed breast milk/breast-milk substitute/sugar water\n\nIf the child is not able to swallow: give 50mL of milk or sugar water via a nasogastric tube. If a nasogastric tube is unavailable, give 1 tsp of sugar moistened with 1-2 drops of water sublingually (repeat doses every 20 min)"
+      },
+      {
+        "advise": "⚕️Give first dose of Paracetamol for high fever(>=38.5 ℃)",
+        "adviseSpan": "Paracetamol",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Paracetamol dose(6 hrly):$3"
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Malaria_YES_Stiff_Neck_NO",
+    "order": 1,
+    "condition": "Malaria/Suspected Malaria",
+    "advises": [
+      {
+        "advise": "⚕️Give oral antimalarial as per national guidelines after making smear",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "⚕️Give first dose of Paracetamol for high fever(>=38.5 ℃)",
+        "adviseSpan": "Paracetamol",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Antimalarial:\nFor P Falciparum:\n$1\n\nFor P Vivax:\n$2\n\nFor Mixed Malaria(Pv+Pf):\n$3\n\nParacetamol dose: $4"
+
+      },
+      {
+        "advise": "Advise mother when to return immediately",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up after 2 days",
+        "adviseSpan": null,
+        "hasFollowUp": true,
+        "days": 2,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Malaria_NO_Stiff_Neck_YES",
+    "order": 1,
+    "condition": "Fever",
+    "advises": [
+      {
+        "advise": "⚕️Give first dose of Paracetamol for high fever",
+        "adviseSpan": "Paracetamol",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Paracetamol dose: $3"
+      },
+      {
+        "advise": "Advise mother when to return immediately",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up in 2 days if fever persists",
+        "adviseSpan": null,
+        "hasFollowUp": true,
+        "days": 2,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 If fever persists >7 days, refer for assessment",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Malaria_TestDone_NO_Stiff_Neck_No",
+    "order": 1,
+    "condition": "Fever",
+    "advises": [
+      {
+        "advise": "⚕️Give first dose of Paracetamol for high fever",
+        "adviseSpan": "Paracetamol",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Paracetamol dose: $3"
+      },
+      {
+        "advise": "Advise for Malaria Test Done",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise mother when to return immediately",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up in 2 days if fever persists",
+        "adviseSpan": null,
+        "hasFollowUp": true,
+        "days": 2,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 If fever persists >7 days, refer for assessment",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "bacterial_serious_baby",
+    "order": 0,
+    "condition": "Possible Serious Bacterial Infection",
+    "advises": [
+      {
+        "advise": "⚕️Give first dose of Oral Amoxicillin (25mg/kg/Dose) and IM Gentamicin (5mg/kg/Dose)",
+        "adviseSpan": "Oral Amoxicillin (25mg/kg/Dose) and IM Gentamicin (5mg/kg/Dose)",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\nInj Gentamicin dose(5mg/kg/Dose)- (Dilute 80 mg in 2 ml vial with 6 ml sterile water) : $2"
+      },
+      {
+        "advise": "\uD83E\uDD31 Treat to prevent low blood sugar",
+        "adviseSpan": "prevent low blood sugar",
+        "moreInfo": "If possible ask the mother to breastfeed\n\nIf the child is not able to breastfeed but is able to swallow: give 20-50mL of sugar water if not able to breast fed or give milk.\n\nIf the child is not able to swallow: give 20-50mL of expressed breast milk/milk before departure,give 20-50ml of expressed sugar water if not able to breast fed or give milk by Nasogestric tube."
+      },
+      {
+        "advise": "Advice mother how to keep baby warm",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "bacterial_local_baby",
+    "order": 1,
+    "condition": "Local Bacterial infection",
+    "advises": [
+      {
+        "advise": "⚕️Give oral Amoxicillin (25mg/kg/Dose) for 5 days",
+        "adviseSpan": "Amoxicillin (25mg/kg/Dose)",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose):$1"
+      },
+      {
+        "advise": "Teach mother how to treat local infection at home",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advice mother to give home care for young infant",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up in 2 days",
+        "adviseSpan": null,
+        "hasFollowUp": true,
+        "days": 2,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "no_infection_baby",
+    "order": 2,
+    "condition": "Infection Unlikely",
+    "advises": [
+      {
+        "advise": "Advice mother to exclusively breastfeed and provide home care",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Ask to follow up if a problem arises",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "jaundice_severe_baby",
+    "order": 0,
+    "condition": "Severe Jaundice",
+    "advises": [
+      {
+        "advise": "Keep child warm and 🍼 treat to prevent low blood sugar",
+        "adviseSpan": "prevent low blood sugar",
+        "moreInfo": "If possible ask the mother to breastfeed\n\nIf the child is not able to breastfeed but is able to swallow: give 20-50mL of expressed breast milk/breast-milk substitute/sugar water\n\nIf the child is not able to swallow: give 50mL of milk or sugar water via a nasogastric tube. If a nasogastric tube is unavailable, give 1 tsp of sugar moistened with 1-2 drops of water sublingually (repeat doses every 20 min)"
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "jaundice_baby",
+    "order": 1,
+    "condition": "Jaundice",
+    "advises": [
+      {
+        "advise": "Advice mother to exclusively breastfeed and provide home care",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise mother to return if palms or soles turn yellow",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer if child is >14 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up in 2 days",
+        "adviseSpan": null,
+        "hasFollowUp": true,
+        "days": 2,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "jaundice_severe_baby",
+    "order": 0,
+    "condition": "Severe Jaundice",
+    "advises": [
+      {
+        "advise": "Keep child warm and \uD83E\uDD31 treat to prevent low blood sugar",
+        "adviseSpan": "prevent low blood sugar",
+        "moreInfo": "If possible ask the mother to breastfeed\n\nIf the child is not able to breastfeed but is able to swallow: give 20-50mL of expressed breast milk/breast-milk substitute/sugar water\n\nIf the child is not able to swallow: give 50mL of milk or sugar water via a nasogastric tube. If a nasogastric tube is unavailable, give 1 tsp of sugar moistened with 1-2 drops of water sublingually (repeat doses every 20 min)"
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Two_Mutiselect_Diarrhoea_baby",
+    "order": 0,
+    "condition": "Diarrhoea with Severe Dehydration",
+    "advises": [
+      {
+        "advise": "⚕️Give first dose of Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "adviseSpan": "Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\nInj Gentamycin dose (Dilute 80 mg in 2 ml vial with 6 ml sterile water : 10 mg/ml)\n$2"
+      },
+      {
+        "advise": "\uD83E\uDD31 Advise mother to continue breastfeeding and keep child warm",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital (advise mother to give frequent ORS sips on the way)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Two_Mutiselect_Diarrhoea_Less_baby",
+    "order": 1,
+    "condition": "Diarrhoea with Some Dehydration",
+    "advises": [
+      {
+        "advise": "⚕️Give first dose of Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "adviseSpan": "Oral Amoxicillin (25mg/kg/Dose) and IM Gentamycin (5mg/kg/Dose)",
+        "isDynamicDose": true,
+        "unit": "weight",
+        "moreInfo": "Oral Amoxicillin dose (25mg/kg/Dose): $1\n\n\nInj Gentamycin dose (Dilute 80 mg in 2 ml vial with 6 ml sterile water : 10 mg/ml)\n$2"
+      },
+      {
+        "advise": "\uD83E\uDD31 Advise mother to continue breastfeeding and keep child warm",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital (advise mother to give frequent ORS sips on the way)",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "No_Multiselect_Diarrhoea_baby",
+    "order": 2,
+    "condition": "Diarrhoea with No Dehydration",
+    "advises": [
+      {
+        "advise": "\uD83D\uDCA7 Give fluid for dehydration (Plan A)",
+        "adviseSpan": "(Plan A)",
+        "moreInfo": "give 5 spoons of ORS after each loose stool"
+      },
+      {
+        "advise": "Advise mother to continue breastfeeding",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise mother when to return immediately",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up after 2 days if not improving",
+        "adviseSpan": null,
+        "hasFollowUp": true,
+        "days": 2,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "low_weight_baby",
+    "order": 1,
+    "condition": "Low Weight",
+    "advises": [
+      {
+        "advise": "Counsel mother about breastfeeding more,reducing other foods or drinks(If receiving other foods or drinks)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Teach correct positioning and attachment(if not well attached or not sucking effectively)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise to increase frequency of breastfeeding(if breastfeeding less than 8 times in 24 hours)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Refer for breastfeeding counselling and relactation advise mother for about giving locally appropriate animal milk and teach the mother to feed with a cup and spoon(if not breastfeeding at all)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Teach the mother to treat thrush at home(if Thrush)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Teach the mother how to keep the young infant warm at home, advise to increase frequency of breastfeeding (if low weight for age)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Teach the mother to treat breast or nipple problems (if breast or nipple problem)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise mother to give home care for the young infant",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Follow-up any feeding problem or thrush after 2 days",
+        "hasFollowUp": true,
+        "days": 2,
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83D\uDCC5 Follow-up low weight for age after 14 days",
+        "hasFollowUp": true,
+        "days": 14,
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "good_feeding_baby",
+    "order": 2,
+    "condition": "No Feeding Problem",
+    "advises": [
+      {
+        "advise": "Appraise Mother for having no feeding problem with baby",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise mother to give home care to the infant",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel mother for when to return immediately",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel mother for exclusive breastfeeding",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "very_low_weight_baby",
+    "order": 0,
+    "condition": "Very Low Weight",
+    "advises": [
+      {
+        "advise": "\uD83E\uDD31 Treat to prevent low blood sugar",
+        "adviseSpan": "prevent low blood sugar",
+        "moreInfo": "If possible ask the mother to breastfeed\n\nIf the child is not able to breastfeed but is able to swallow: give 20-50mL of expressed breast milk/breast-milk substitute/sugar water\n\nIf the child is not able to swallow: give 50mL of milk or sugar water via a nasogastric tube. If a nasogastric tube is unavailable, give 1 tsp of sugar moistened with 1-2 drops of water sublingually (repeat doses every 20 min)"
+      },
+      {
+        "advise": "Warm the infant by skin to skin contact if temperature is <36.5 °C (or feels cold to touch) while arranging referral",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Warm the infant by skin to skin contact if temperature is <36.5 °C (or feels cold to touch)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "\uD83C\uDD98 Refer Urgently to Hospital",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "vaccinated",
+    "order": 2,
+    "condition": "Vaccinated till date",
+    "advises": [
+      {
+        "advise": "Praise parent for vaccination status of child",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Counsel for follow up vaccination dose that will be due next",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "vaccination_pending",
+    "order": 1,
+    "condition": "Vaccination Status verification pending",
+    "advises": [
+      {
+        "advise": "Counsel parents to visit ANM if any vaccine is due for age",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "not_vaccinated",
+    "order": 1,
+    "condition": "Not vaccinated till date",
+    "advises": [
+      {
+        "advise": "Counsel parent for vaccination as early as possible",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  }
+
+]

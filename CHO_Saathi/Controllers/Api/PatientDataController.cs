@@ -109,6 +109,7 @@ namespace CHO_Saathi.Controllers.Api
                 visit.CurrentStatus = request.patient_visit.currentStatus;
                 visit.TimeStamp = request.patient_visit.timeStamp;
                 visit.CreatedAt = request.patient_visit.createdAt;
+                visit.SummaryKey = request.patient_visit.SummaryKey;
                 await UpsertPwResults(request, patient);
 
                 //await transaction.CommitAsync();

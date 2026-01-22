@@ -13,5 +13,5 @@ public partial class Symptom
 
     public string? Code { get; set; }
 
-    public int? SymptomTypeId { get; set; }
+    public int? SymptomsId { get; set; }
 }

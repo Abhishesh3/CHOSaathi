@@ -239,8 +239,6 @@ public partial class ApplicationDBContext : DbContext
 
     public virtual DbSet<MstYear> MstYears { get; set; }
 
-    public virtual DbSet<Mstcommon> Mstcommons { get; set; }
-
     public virtual DbSet<Note> Notes { get; set; }
 
     public virtual DbSet<Operation> Operations { get; set; }
@@ -2595,6 +2593,9 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.SkinlesionDay)
                 .HasDefaultValue(0)
                 .HasColumnName("skinlesion_day");
+            entity.Property(e => e.SummaryKey)
+                .IsUnicode(false)
+                .HasColumnName("summary_key");
             entity.Property(e => e.Symptoms).HasColumnName("symptoms");
             entity.Property(e => e.TimeStamp).HasColumnName("timeStamp");
             entity.Property(e => e.VisitDate)
@@ -2646,10 +2647,10 @@ public partial class ApplicationDBContext : DbContext
                 .ToTable("cmp_symptoms");
 
             entity.Property(e => e.Code)
-                .HasMaxLength(10)
+                .HasMaxLength(255)
                 .HasColumnName("code");
             entity.Property(e => e.Sno)
-                .ValueGeneratedOnAdd()
+                .HasMaxLength(255)
                 .HasColumnName("sno");
             entity.Property(e => e.SymptomEn)
                 .HasMaxLength(255)
@@ -2657,6 +2658,7 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.SymptomHi)
                 .HasMaxLength(255)
                 .HasColumnName("symptom_hi");
+            entity.Property(e => e.SymptomsId).HasMaxLength(255);
         });
 
         modelBuilder.Entity<CommonSymptomsWeb>(entity =>
@@ -4259,26 +4261,6 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.YearName).HasMaxLength(10);
         });
 
-        modelBuilder.Entity<Mstcommon>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToTable("mstcommon");
-
-            entity.Property(e => e.Code)
-                .HasMaxLength(10)
-                .HasColumnName("code");
-            entity.Property(e => e.Sno)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("sno");
-            entity.Property(e => e.SymptomEn)
-                .HasMaxLength(255)
-                .HasColumnName("symptom_en");
-            entity.Property(e => e.SymptomHi)
-                .HasMaxLength(255)
-                .HasColumnName("symptom_hi");
-        });
-
         modelBuilder.Entity<Note>(entity =>
         {
             entity.HasKey(e => e.Sno).HasName("PK__notes__DDDF64465F79FE2A");
@@ -4480,6 +4462,9 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.ReferredLocation)
                 .HasMaxLength(255)
                 .HasColumnName("referred_location");
+            entity.Property(e => e.SummaryKey)
+                .IsUnicode(false)
+                .HasColumnName("summary_key");
             entity.Property(e => e.Symptoms).HasColumnName("symptoms");
             entity.Property(e => e.SymptomsId)
                 .HasMaxLength(50)

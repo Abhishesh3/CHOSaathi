@@ -68,4 +68,6 @@ public partial class CmpPatientVisit
     public int? SkinlesionDay { get; set; }
 
     public int? CoughDay { get; set; }
+
+    public string? SummaryKey { get; set; }
 }

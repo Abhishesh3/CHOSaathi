@@ -17,6 +17,8 @@ namespace CHO_Saathi.ViewComponents
 
         public long patient_id { get; set; }
 
+        public int patientType { get; set; }
+
         public int mobile_id { get; set; }
 
         public string? centerId { get; set; }
@@ -102,7 +104,8 @@ namespace CHO_Saathi.ViewComponents
         public string SubFacility { get; set; }
         public string registeredDate { get; set; }
         public string visit_date { get; set; }
-        
+        public string symptom_en { get; set; }
+
     }
 
     public class PatientGraphData

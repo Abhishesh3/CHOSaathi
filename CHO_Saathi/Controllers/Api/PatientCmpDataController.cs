@@ -113,6 +113,7 @@ namespace CHO_Saathi.Controllers.Api
                 visit.TimeStamp = request.cmp_patient_visit.TimeStamp;
 
                 visit.CreatedBy = request.cmp_patient_visit.CreatedBy;
+                visit.SummaryKey = request.cmp_patient_visit.SummaryKey;
 
                 await _context.SaveChangesAsync();
 
@@ -334,6 +335,7 @@ namespace CHO_Saathi.Controllers.Api
                     jointpainDay = visit.JointpainDay,
                     skinlesionDay = visit.SkinlesionDay,
                     coughDay = visit.CoughDay,
+                    summaryKey = visit.SummaryKey
                 }).ToList(),
 
                 cmp_ask_for_result = BuildPwResponseList(askResults),
