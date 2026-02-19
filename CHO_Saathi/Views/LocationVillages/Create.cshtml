@@ -1,0 +1,232 @@
+﻿@model CHO_Saathi.Models.LocationVillage
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Add New Village";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Create">
+    <section id="AboutSection" class="mt-4 ms-4">
+        <div class="container-fluid">
+
+            <!-- HEADER ROW -->
+            <div class="row">
+                <div class="col-xl-3 col-lg-3">
+                    <h4 class="Headingcolorbg">Add New Village</h4>
+                </div>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="alert alert-danger p-2" style="font-size:14px" role="alert">
+                        NOTE : Fields marked with (*) are compulsory fields
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 text-end">
+                    @* <a asp-action="Index" class="btn btn-primary backtodetailbutton">Back to List</a> *@
+                    <a asp-action="Index" class="btn btn-primary"><i class="fa-solid fa-angles-left"></i>&nbsp;Back to List</a>
+                </div>
+            </div>
+
+            <!-- SEPARATOR -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <hr />
+                </div>
+            </div>
+
+            <!-- FORM ROW 1 -->
+            <div class="row">
+
+                <!-- STATE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">State</label><span class="mandatory"> *</span>
+                        <select id="StateID" asp-for="StateId" asp-items="ViewBag.StateList" class="form-control">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- DISTRICT -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">District</label><span class="mandatory"> *</span>
+                        <select asp-for="DistrictId" id="DistrictID" class="form-control" autocomplete="off" asp-items="ViewBag.DistrictID">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- BLOCK -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Block</label><span class="mandatory"> *</span>
+                        <select asp-for="BlockId" id="BlockID" class="form-control" autocomplete="off">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FORM ROW 2 -->
+            <div class="row">
+
+                <!-- STATE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Facility Type</label><span class="mandatory"> *</span>
+                        <select id="FacilityTypeID" asp-for="FacilityTypeId" asp-items="ViewBag.FacilityType" class="form-control">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- DISTRICT -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Facility</label><span class="mandatory"> *</span>
+                        <select asp-for="FacilityId" id="FacilityID" class="form-control" autocomplete="off">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- BLOCK -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Sub Facility</label><span class="mandatory"> *</span>
+                        <select asp-for="SubFacilityId" id="SubFacilityID" class="form-control" autocomplete="off">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FORM ROW 3 -->
+            <div class="row mt-2">
+                <!-- VILLAGE NAME -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Village</label><span class="mandatory"> *</span>
+                        <input asp-for="Village" maxlength="50" required class="form-control" autocomplete="off" id="VillageID" />
+                        <span asp-validation-for="Village" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- VILLAGE CODE -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="control-label">Village Code</label><span class="mandatory"> *</span>
+                        <input asp-for="VillageCode" maxlength="10" required class="form-control" id="VillageCode" />
+                        <span asp-validation-for="VillageCode" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- EMPTY COLUMNS TO MATCH DESIGN -->
+                <div class="col-xl-4 col-lg-4"></div>
+
+            </div>
+
+            <!-- SAVE BUTTON -->
+            <div class="row mt-3">
+                <div class="col-xl-12 text-end">
+                    @* <input type="submit" value="Save" class="btn btn-success savebutton" /> *@
+                    <button type="submit" class="btn btn-success float-end"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Save</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</form>
+
+@if (TempData["message"] != null)
+{
+    <script>
+        //alert('@TempData["message"]');
+        $.bootstrapGrowl("<i class='fa fa-check-circle' aria-hidden='true'></i> @TempData["message"]", {
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            offset: { from: 'top', amount: 155 }, // 'top', or 'bottom'
+            allow_dismiss: true,
+            delay: 3000
+        });
+    </script>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#StateID').change(function () {
+            var url = '@Url.Content("~/")' + "LocationVillages/GetDistrict";
+            $.getJSON(url, { stateid: $('#StateID').val() }, function (data) {
+
+                var districtitems = "<option value=''>Select</option>";
+                $('#DistrictID').empty();
+
+                $.each(data, function (i, district) {
+                    districtitems += "<option value='" + district.districtID + "'>"
+                                    + district.district + "</option>";
+                });
+
+                $('#DistrictID').html(districtitems);
+            });
+        });
+
+
+        $('#DistrictID').change(function () {
+            var url = '@Url.Content("~/")' + "LocationVillages/GetBlock";
+            $.getJSON(url, { DistrictId: $('#DistrictID').val() }, function (data) {
+
+                var blockitems = "<option value=''>Select</option>";
+                $('#BlockID').empty();
+
+                $.each(data, function (i, block) {
+                    blockitems += "<option value='" + block.blockID + "'>"
+                                    + block.blockName + "</option>";
+                });
+
+                $('#BlockID').html(blockitems);
+            });
+        });
+
+
+        $('#BlockID').change(function () {
+            var url = '@Url.Content("~/")' + "LocationVillages/GetFacility";
+            $.getJSON(url, { BlockId: $('#BlockID').val() }, function (data) {
+
+                var facilityitems = "<option value=''>Select</option>";
+                $('#FacilityID').empty();
+
+                $.each(data, function (i, facility) {
+                    facilityitems += "<option value='" + facility.facilityID + "'>"
+                                    + facility.facilityName + "</option>";
+                });
+
+                $('#FacilityID').html(facilityitems);
+            });
+        });
+
+
+        $('#FacilityID').change(function () {
+            var url = '@Url.Content("~/")' + "LocationVillages/GetSubFacility";
+            $.getJSON(url, { FacilityId: $('#FacilityID').val() }, function (data) {
+
+                var subfacilityitems = "<option value=''>Select</option>";
+                $('#SubFacilityID').empty();
+
+                $.each(data, function (i, subfacility) {
+                    subfacilityitems += "<option value='" + subfacility.subFacilityID + "'>"
+                                    + subfacility.subFacility + "</option>";
+                });
+
+                $('#SubFacilityID').html(subfacilityitems);
+            });
+        });
+    });
+
+
+</script>

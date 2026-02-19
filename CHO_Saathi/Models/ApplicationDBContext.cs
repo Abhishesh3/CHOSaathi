@@ -85,15 +85,21 @@ public partial class ApplicationDBContext : DbContext
 
     public virtual DbSet<CmpAskForResult> CmpAskForResults { get; set; }
 
+    public virtual DbSet<CmpDangerSign> CmpDangerSigns { get; set; }
+
     public virtual DbSet<CmpExamination> CmpExaminations { get; set; }
 
     public virtual DbSet<CmpExaminationResult> CmpExaminationResults { get; set; }
+
+    public virtual DbSet<CmpExaminationsOld> CmpExaminationsOlds { get; set; }
 
     public virtual DbSet<CmpPastHistory> CmpPastHistories { get; set; }
 
     public virtual DbSet<CmpPastHistoryResult> CmpPastHistoryResults { get; set; }
 
     public virtual DbSet<CmpPatientVisit> CmpPatientVisits { get; set; }
+
+    public virtual DbSet<CmpSubDangerSign> CmpSubDangerSigns { get; set; }
 
     public virtual DbSet<CmpSubSymptom> CmpSubSymptoms { get; set; }
 
@@ -2416,6 +2422,27 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.VisitNo).HasColumnName("visit_no");
         });
 
+        modelBuilder.Entity<CmpDangerSign>(entity =>
+        {
+            entity.HasKey(e => e.Sno);
+
+            entity.ToTable("cmp_danger_sign");
+
+            entity.Property(e => e.Sno).HasColumnName("sno");
+            entity.Property(e => e.Code)
+                .HasMaxLength(255)
+                .HasColumnName("code");
+            entity.Property(e => e.DangersignEn)
+                .HasMaxLength(255)
+                .HasColumnName("dangersign_en");
+            entity.Property(e => e.DangersignHi)
+                .HasMaxLength(255)
+                .HasColumnName("dangersign_hi");
+            entity.Property(e => e.ProblemType)
+                .HasMaxLength(255)
+                .HasColumnName("problem_type");
+        });
+
         modelBuilder.Entity<CmpExamination>(entity =>
         {
             entity
@@ -2473,6 +2500,48 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.QId).HasColumnName("q_id");
             entity.Property(e => e.VisitDate).HasColumnName("visit_date");
             entity.Property(e => e.VisitNo).HasColumnName("visit_no");
+        });
+
+        modelBuilder.Entity<CmpExaminationsOld>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("cmp_examinations_old");
+
+            entity.Property(e => e.CharLimit)
+                .HasMaxLength(10)
+                .HasColumnName("char_limit");
+            entity.Property(e => e.Code)
+                .HasMaxLength(20)
+                .HasColumnName("code");
+            entity.Property(e => e.DefaultValue)
+                .HasMaxLength(255)
+                .HasColumnName("default_value");
+            entity.Property(e => e.ExaminationEn)
+                .HasMaxLength(255)
+                .HasColumnName("examination_en");
+            entity.Property(e => e.ExaminationHi)
+                .HasMaxLength(255)
+                .HasColumnName("examination_hi");
+            entity.Property(e => e.FieldType)
+                .HasMaxLength(20)
+                .HasColumnName("field_type");
+            entity.Property(e => e.InputType)
+                .HasMaxLength(20)
+                .HasColumnName("input_type");
+            entity.Property(e => e.Mandatory).HasColumnName("mandatory");
+            entity.Property(e => e.MaxValue)
+                .HasMaxLength(10)
+                .HasColumnName("max_value");
+            entity.Property(e => e.MinValue)
+                .HasMaxLength(10)
+                .HasColumnName("min_value");
+            entity.Property(e => e.Sno)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("sno");
+            entity.Property(e => e.Symptoms)
+                .HasMaxLength(255)
+                .HasColumnName("symptoms");
         });
 
         modelBuilder.Entity<CmpPastHistory>(entity =>
@@ -2602,6 +2671,27 @@ public partial class ApplicationDBContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("visit_date");
             entity.Property(e => e.VisitNo).HasColumnName("visit_no");
+        });
+
+        modelBuilder.Entity<CmpSubDangerSign>(entity =>
+        {
+            entity.HasKey(e => e.Sno);
+
+            entity.ToTable("cmp_sub_danger_sign");
+
+            entity.Property(e => e.Sno).HasColumnName("sno");
+            entity.Property(e => e.Code)
+                .HasMaxLength(255)
+                .HasColumnName("code");
+            entity.Property(e => e.ParentProblemType)
+                .HasMaxLength(255)
+                .HasColumnName("parent_problem_type");
+            entity.Property(e => e.SubDangersignEn)
+                .HasMaxLength(255)
+                .HasColumnName("sub_dangersign_en");
+            entity.Property(e => e.SubDangersignHi)
+                .HasMaxLength(255)
+                .HasColumnName("sub_dangersign_hi");
         });
 
         modelBuilder.Entity<CmpSubSymptom>(entity =>
@@ -4019,6 +4109,7 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.Diastolic)
                 .HasMaxLength(50)
                 .HasColumnName("diastolic");
+            entity.Property(e => e.EmergencySymptom).HasColumnName("emergencySymptom");
             entity.Property(e => e.Gender)
                 .HasMaxLength(50)
                 .HasColumnName("gender");

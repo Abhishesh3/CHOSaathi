@@ -88,7 +88,9 @@ namespace CHO_Saathi.Controllers.Api
                             Name = item.name,
                             Age = item.age,
                             Mobile = item.mobile,
-                            Gender = item.gender
+                            Gender = item.gender,
+                            EmergencySymptom = item.emergencySymptom
+
                         };
 
                         _context.MedicalEmergencies.Add(entity);
@@ -136,6 +138,7 @@ namespace CHO_Saathi.Controllers.Api
                         existing.Age = item.age;
                         existing.Mobile = item.mobile;
                         existing.Gender = item.gender;
+                        existing.EmergencySymptom = item.emergencySymptom;
 
                         isUpdate = true;
                     }

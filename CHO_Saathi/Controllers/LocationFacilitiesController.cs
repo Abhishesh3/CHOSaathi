@@ -1,16 +1,20 @@
-﻿using CHO_Saathi.Models;
+﻿using CHO_Saathi.Common;
+using CHO_Saathi.Models;
+using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Mono.TextTemplating;
 using NPOI.SS.UserModel;
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,10 +23,12 @@ namespace CHO_Saathi.Controllers
     public class LocationFacilitiesController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment Environment;
 
-        public LocationFacilitiesController(ApplicationDBContext context)
+        public LocationFacilitiesController(ApplicationDBContext context, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment)
         {
             _context = context;
+            Environment = environment;
         }
 
         
@@ -331,95 +337,6 @@ namespace CHO_Saathi.Controllers
         }
 
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(LocationFacility locationFacility)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (locationFacility.StateId == 0)
-        //        {
-        //            TempData["message"] = "Please Select State..!!";
-        //        }
-        //        else if (locationFacility.DistrictId == 0)
-        //        {
-        //            TempData["message"] = "Please Select District..!!";
-        //        }
-        //        else if (locationFacility.BlockId == 0)
-        //        {
-        //            TempData["message"] = "Please Select Block..!!";
-        //        }
-        //        else if (locationFacility.FacilityTypeId == 0)
-        //        {
-        //            TempData["message"] = "Please Select Facility Type..!!";
-        //        }
-        //        else
-        //        {
-        //            try
-        //            {
-        //                var existingFacility = await _context.LocationFacilities.FindAsync(id);
-        //                if (existingFacility != null)
-        //                {
-        //                    existingFacility.FacilityTypeId = locationFacility.FacilityTypeId;
-        //                    existingFacility.FacilityName = locationFacility.FacilityName;
-        //                    existingFacility.FacilityCode = locationFacility.FacilityCode;
-        //                    existingFacility.FacilityAddress = locationFacility.FacilityAddress;
-        //                    existingFacility.FacilityContactNo = locationFacility.FacilityContactNo;
-        //                    existingFacility.BlockId = locationFacility.BlockId;
-        //                    existingFacility.DistrictId = locationFacility.DistrictId;
-        //                    existingFacility.StateId = locationFacility.StateId;
-        //                    existingFacility.IsDeleted = locationFacility.IsDeleted;
-        //                    existingFacility.UpdatedBy = Convert.ToInt32(HttpContext.Session.GetString("UserId"));
-        //                    existingFacility.UpdatedOn = DateTime.Now;
-        //                    //existingFacility.HFRId = locationFacility.HFRID;
-
-        //                    _context.Update(existingFacility);
-        //                    await _context.SaveChangesAsync();
-
-        //                    // Triggers Facility ML Insertion
-        //                    //var facilityMLs = await _context.LocationFacilityMLs.Where(m => m.FacilityID == id).ToListAsync();
-        //                    //facilityMLs.ForEach(m =>
-        //                    //{
-        //                    //    m.FacilityID = locationFacility.FacilityID;
-        //                    //    m.FacilityName = locationFacility.FacilityName;
-        //                    //    m.FacilityAddress = locationFacility.FacilityAddress;
-        //                    //    m.FacilityContactNo = locationFacility.FacilityContactNo;
-        //                    //});
-
-        //                    //_context.UpdateRange(facilityMLs);
-        //                    //await _context.SaveChangesAsync();
-
-        //                    return RedirectToAction(nameof(Index));
-        //                }
-        //                else
-        //                {
-        //                    return NotFound();
-        //                }
-        //            }
-        //            catch (DbUpdateConcurrencyException)
-        //            {
-        //                if (!LocationFacilityExists(locationFacility.FacilityId))
-        //                {
-        //                    return NotFound();
-        //                }
-        //                else
-        //                {
-        //                    throw;
-        //                }
-        //            }
-        //        }
-        //    }
-
-        //    ViewData["BlockID"] = new SelectList(_context.LocationBlocks.Where(m => m.IsDeleted == 0).OrderBy(m => m.BlockName), "BlockID", "BlockName", locationFacility.BlockId);
-        //    ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "Password", locationFacility.CreatedBy);
-        //    ViewData["DistrictID"] = new SelectList(_context.LocationDistricts.Where(m => m.IsDeleted == 0).OrderBy(m => m.District), "DistrictID", "District", locationFacility.DistrictId);
-        //    ViewData["FacilityTypeID"] = new SelectList(_context.LocationFacilityTypes.Where(m => m.IsDeleted == 0).OrderBy(m => m.FacilityType), "FacilityTypeID", "FacilityType", locationFacility.FacilityTypeId);
-        //    ViewData["StateID"] = new SelectList(_context.LocationStates.Where(m => m.IsDeleted == 0).OrderBy(m => m.StateName), "StateID", "StateName", locationFacility.StateId);
-        //    ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Password", locationFacility.UpdatedBy);
-
-        //    return View(locationFacility);
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(LocationFacility locationFacility)
@@ -538,8 +455,6 @@ namespace CHO_Saathi.Controllers
             ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Password", locationFacility.UpdatedBy);
         }
 
-
-
         public JsonResult GetDistrict(int stateid)
         {
             try
@@ -573,8 +488,6 @@ namespace CHO_Saathi.Controllers
                 return Json(new { error = ex.Message });
             }
         }
-
-
 
         public async Task<IActionResult> Delete(int? id)
         {
@@ -627,6 +540,77 @@ namespace CHO_Saathi.Controllers
         private bool LocationFacilityExists(int id)
         {
             return _context.LocationFacilities.Any(e => e.FacilityId == id);
+        }
+
+        public ActionResult ExportToExcel(int StateId, int DistrictId, int BlockId, int FacilityTypeId, string FacilityName)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlParameter[] s = new SqlParameter[]
+                {
+                    new SqlParameter("@StateID", StateId),
+                    new SqlParameter("@DistrictID", DistrictId),
+                    new SqlParameter("@BlockID", BlockId),
+                    new SqlParameter("@FacilityTypeID", FacilityTypeId),
+                    new SqlParameter("@FacilityName", FacilityName)
+                };
+
+                dt = CommonController.Procedure_Query_ToDataTable(_context, "USP_Facility_Fetch_Excel", CommandType.StoredProcedure, s);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    // ✅ Add S.No column only once at the first position
+                    if (!dt.Columns.Contains("S.No"))
+                    {
+                        dt.Columns.Add("S.No", typeof(int)).SetOrdinal(0);
+                    }
+
+                    // Fill serial numbers
+                    int counter = 1;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        dr["S.No"] = counter++;
+                    }
+
+                    string filePath = "Location_Facility_Data";
+                    string ExcelTabName = "Location Facility";
+
+                    string webRootPath = Environment.WebRootPath;
+                    string sFileDir = Path.Combine(webRootPath, "DataBackup/");
+
+                    if (!Directory.Exists(sFileDir))
+                        Directory.CreateDirectory(sFileDir);
+
+                    string Fullfilename = filePath + "_" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".xlsx";
+
+                    using (XLWorkbook wb = new XLWorkbook())
+                    {
+                        var ws = wb.Worksheets.Add(dt, ExcelTabName);
+                        ws.Table(0).ShowAutoFilter = false;
+                        ws.Table(0).Theme = XLTableTheme.TableStyleLight12;
+                        ws.Columns().AdjustToContents();
+
+                        using (MemoryStream stream = new MemoryStream())
+                        {
+                            wb.SaveAs(stream);
+                            return File(stream.ToArray(),
+                                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                        Fullfilename);
+                        }
+                    }
+                }
+                else
+                {
+                    TempData["message"] = "No Record Found..!!";
+                    return RedirectToAction("Index", "LocationFacilities");
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["message"] = "Error while exporting!";
+                return RedirectToAction("Index", "LocationFacilities");
+            }
         }
     }
 }

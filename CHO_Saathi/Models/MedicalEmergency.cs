@@ -86,4 +86,6 @@ public partial class MedicalEmergency
     public string? Mobile { get; set; }
 
     public string? Gender { get; set; }
+
+    public string? EmergencySymptom { get; set; }
 }

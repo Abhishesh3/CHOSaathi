@@ -41,7 +41,22 @@
     "condition": "Requires further evaluation",
     "advises": [
       {
-        "advise": "Refer to PHC for evaluation and management Provide paracetamol",
+        "advise": "Refer to PHC for evaluation and management",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Paracetamol 500 mg SOS; may be repeated 6-8th hourly",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise moderately cold water sponging and bed rest.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tele-consult with MO if there are any new or worsening of symptoms or fever persists after 3 days.",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -65,13 +80,27 @@
     "condition": "Possible viral infection",
     "advises": [
       {
-        "advise": "Give Paracetamol 500 mg sos. F/u after 3 days; if no improvement teleconsultation with MO",
+        "advise": "Follow up after 3 days; if no improvement teleconsultation with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Paracetamol 500 mg SOS; may be repeated 6-8th hourly",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Advise moderately cold water sponging and bed rest.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tele-consult with MO if there are any new or worsening of symptoms or fever persists after 3 days.",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
   {
     "id": "Danger_Sign_HEAD",
     "order": 1,
@@ -83,12 +112,47 @@
         "moreInfo": null
       },
       {
-        "advise": "Provide paracetamol",
+        "advise": "-----For mild pain------",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise": "Do distance vision test",
+        "advise": "Tab. Paracetamol 500 mg twice daily or SOS",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Dosage should not be exceeded more than 4 times in 24 hours.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----For moderate pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Ibuprofen 400mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Diclofenac 50 mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tele-consult with MO if the pain persists after 3 days.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Note: Ibuprofen and Diclofenac should not be provided in suspected dengue patients",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -103,11 +167,6 @@
         "advise": "Common ENT problems for management",
         "adviseSpan": null,
         "moreInfo": null
-      },
-      {
-        "advise": "Do distance vision test",
-        "adviseSpan": null,
-        "moreInfo": null
       }
     ]
   },
@@ -117,17 +176,47 @@
     "condition": "Unclassified headache",
     "advises": [
       {
-        "advise": "Provide analgesics – paracetamol, aspirin",
+        "advise": "-----For mild pain------",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise": " Do distance vision test",
+        "advise": "Tab. Paracetamol 500 mg twice daily or SOS",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise": "Counselling by module (Relaxation exercises, lifestyle modification, yoga)",
+        "advise": "Dosage should not be exceeded more than 4 times in 24 hours.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----For moderate pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Ibuprofen 400mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Diclofenac 50 mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tele-consult with MO if the pain persists after 3 days.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Note: Ibuprofen and Diclofenac should not be provided in suspected dengue patients",
         "adviseSpan": null,
         "moreInfo": null
       },
@@ -138,14 +227,38 @@
       }
     ]
   },
-
   {
     "id": "Respiratory_Problems",
     "order": 1,
     "condition": "Needs evaluation to rule out TB",
     "advises": [
       {
-        "advise": "Collect sputum samples for TB assessment",
+        "advise": "·Explain: sputum is thick and mucoid as compared to saliva which is thin and watery.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "--------------Ask------------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Rinse his/her mouth to get rid of any food particles",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Inhale deeply (2–3 times), to initiate the cough reflex",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Retained in the mouth and spit into the pre-labelled container without spilling.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Ensure the sputum is of good volume. If less than 2 ml (the size of a fingernail), the patient should be encouraged to provide a better specimen.",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -181,13 +294,67 @@
     "condition": "Common cold/cough",
     "advises": [
       {
-        "advise": "Steam inhalation, levocetirizine 5 mg HS for 3 days. If no improvement after 3 days, teleconsult with MO.",
+        "advise": ". Steam inhalation",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". If no improvement after 3 days, teleconsult with MO.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----------For common cold/cough-----------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Chlorpheniramine Maleate (CPM) 4 mg for 3 to 4 times a day (maximum 24 mg/day)",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Tab. Levocetrizine 5 mg HS until symptoms resolved.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Teleconsult with MO if the symptoms worsen anything or persist after 3 days.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----------For Skin lesions------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Tab. CPM 25 mg stat and every 12 hourly for 7 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Tab. Levocetrizine 5 mg HS for 7 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Teleconsult with MO if the symptoms worsen anything or persist after 7 days.",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
   {
     "id": "Danger_Sign_Abdominal_Pain",
     "order": 0,
@@ -218,7 +385,27 @@
     "condition": "Likely dyspepsia",
     "advises": [
       {
-        "advise": "Provide H2 blocker or Omeprazole 20 mg OD before meals for 5 days",
+        "advise": "-----------Provide H2 blocker/PPI blocker------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Tab. Ranitidine 150 mg twice daily for 5 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Cap. Omeprazole 20 mg OD before meals for 5 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Teleconsult with MO if the symptoms worsen anytime or persists after 5 days",
         "adviseSpan": null,
         "moreInfo": null
       },
@@ -256,7 +443,6 @@
       }
     ]
   },
-
   {
     "id": "Diarrhea_Sign",
     "order": 1,
@@ -275,7 +461,32 @@
     "condition": "Diarrhea with dehydration",
     "advises": [
       {
-        "advise": "Provide ORS# AND Refer to PHC for further management",
+        "advise": "---------------Provide ORS------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· ORS therapy: Mix one ORS sachet in one litre of water",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Pour the entire content of one packet of ORS powder into a clean container (a mixing bowl or jar) for\nmixing the ORS. The container should be large enough to hold at least 1 litre",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Give 200 ml after every loose stool (upto 2000 ml per day).",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Once reconstituted, finish within 24 hrs.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Refer to PHC",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -317,7 +528,6 @@
       }
     ]
   },
-
   {
     "id": "Constipation_Sign",
     "order": 1,
@@ -357,7 +567,6 @@
       }
     ]
   },
-
   {
     "id": "Urinary_Sign",
     "order": 1,
@@ -409,7 +618,6 @@
       }
     ]
   },
-
   {
     "id": "Female_Genital_sign",
     "order": 1,
@@ -490,7 +698,6 @@
       }
     ]
   },
-
   {
     "id": "Male_Genital_sign",
     "order": 1,
@@ -576,7 +783,6 @@
       }
     ]
   },
-
   {
     "id": "JointPain_sign",
     "order": 1,
@@ -630,7 +836,6 @@
       }
     ]
   },
-
   {
     "id": "skin_lesion_sign",
     "order": 1,
@@ -700,7 +905,27 @@
         "moreInfo": null
       },
       {
-        "advise": "Give Tab chlorpheniramine maleate 25 mg every 12 hours till itching stops",
+        "advise": "-----------For Skin lesions------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Tab. CPM 25 mg stat and every 12 hourly for 7 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Tab. Levocetrizine 5 mg HS for 7 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Teleconsult with MO if the symptoms worsen anything or persist after 7 days.",
         "adviseSpan": null,
         "moreInfo": null
       },
@@ -717,7 +942,27 @@
     "condition": "Papular urticaria",
     "advises": [
       {
-        "advise": "Tab chlorpheniramine maleate 25 mg stat and every 12 hourly until symptoms disappearance",
+        "advise": "-----------For Skin lesions------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Tab. CPM 25 mg stat and every 12 hourly for 7 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Tab. Levocetrizine 5 mg HS for 7 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Teleconsult with MO if the symptoms worsen anything or persist after 7 days.",
         "adviseSpan": null,
         "moreInfo": null
       },
@@ -733,7 +978,6 @@
       }
     ]
   },
-
   {
     "id": "Category_sign_1",
     "order": 3,
@@ -780,22 +1024,21 @@
   },
   {
     "id": "Category_sign_3",
-    "order":1,
+    "order": 1,
     "condition": "Category 3 Exposure",
     "advises": [
       {
-        "advise": "Ensure the wound/licked area is cleaned with soap and running water for 15 min",
+        "advise": "Ensure the wound/licked area is cleaned with soap and running water for 15 min.",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise": "Antiseptic application (preferably iodine based solution) Refer to tertiary care center for vaccination and Immunoglobulin",
+        "advise": "Antiseptic application (preferably iodine based solution)\nRefer to tertiary care center for vaccination and Immunoglobulin",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
   {
     "id": "Danger_Eye_problem",
     "order": 0,
@@ -936,7 +1179,6 @@
       }
     ]
   },
-
   {
     "id": "Danger_ear_problem",
     "order": 0,
@@ -960,7 +1202,7 @@
     "condition": "Persistent/Profuse bleeding OR Low BP",
     "advises": [
       {
-        "advise": "Perform anterior nasal packing",
+        "advise": "Ensure patient is upright and not lying down",
         "adviseSpan": null,
         "moreInfo": null
       },
@@ -973,6 +1215,26 @@
         "advise": "Refer to the nearest emergency care",
         "adviseSpan": null,
         "moreInfo": null
+      },
+      {
+        "advise": "Perform anterior nasal packing procedure:-",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Make the patient sit up with a back rest",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". Prepare a long ribbon gauze piece and smear it with abundant lubricant such as petroleum jelly",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": ". The gauze should be pushed in back as far as possible. Packing is continued until the anterior (front part) nasal cavity is filled",
+        "adviseSpan": null,
+        "moreInfo": null
       }
     ]
   },
@@ -981,6 +1243,11 @@
     "order": 2,
     "condition": "Bleeding stops and High BP",
     "advises": [
+      {
+        "advise": "Ensure patient is upright\nand not lying down",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
       {
         "advise": "Ask to take medicine for high BP if already taking/started.",
         "adviseSpan": null,
@@ -1045,17 +1312,77 @@
     "condition": "Common viral upper respiratory infection",
     "advises": [
       {
-        "advise": "Provide symptomatic treatment - Paracetamol for fever/ Cetirizine if there is running nose/sneezing/Nasal decongestants for blocked nose",
-        "adviseSpan": null,
-        "moreInfo": null
-      },
-      {
         "advise": "Plenty of fluids, steam inhalation, warm saline gargling if sore throat and hygiene measures",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
         "advise": "If no improvement/worsening of symptoms in 5 days, teleconsult with MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Provide symptomatic treatment for fever:-",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Tab. Paracetamol 500 mg SOS; may be repeated 6-8th hourly.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Advise moderately cold water sponging and bed rest.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Tele-consult with MO if there are any new or worsening of symptoms or fever persists after 3 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "IF running nose/sneezing/Nasal decongestants for blocked nose:-",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-------------·For common cold/cough---------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Tab. Chlorpheniramine Maleate (CPM) 4 mg for 3 to 4 times a day (maximum 24 mg/day) \n OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Tab. Levocetrizine 5 mg HS until symptoms resolved.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Teleconsult with MO if the symptoms worsen anything or persist after 3 days.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-------------·For Skin lesions---------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Tab. CPM 25 mg stat and every 12 hourly for 7 days \n OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Tab. Levocetrizine 5 mg HS for 7 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "· Teleconsult with MO if the symptoms worsen anything or persist after 7 days.",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1125,7 +1452,7 @@
     "condition": "Ear wax",
     "advises": [
       {
-        "advise": "Sodium bicarbonate ear drops 2- 3 drops/thrice a day - 4 days Clean with cotton wick",
+        "advise": "Sodium bicarbonate ear drops 2- 3 drops/thrice a day - 4 days\nClean with cotton wick",
         "adviseSpan": null,
         "moreInfo": null
       },
@@ -1135,7 +1462,37 @@
         "moreInfo": null
       },
       {
-        "advise": "Tab paracetamol SOS Refer if no improvement after 4 days",
+        "advise": "Refer if no improvement after 4 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Provide analgesics:- ",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "------------For Mild Pain----------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Paracetamol 500 mg twice daily or SOS\nDosage should not be exceeded more than 4 times in 24 hours",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "------------For Moderate Pain----------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Ibuprofen 400mg twice daily\nOR\nTab. Diclofenac 50 mg twice daily\nTele-consult with MO if the pain persists after 3 days",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Note: Ibuprofen and Diclofenac should not be provided in suspected dengue patients.",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1196,7 +1553,7 @@
     "condition": "Possible Oral cancer Oral potentially malignant disorder (OPMD) - Leukoplakia, Erythroplakia, submucosal fibrosis",
     "advises": [
       {
-        "advise": "Facilitated referral to SDH/DH where dentist is available Tobacco cessation counselling",
+        "advise": "Refer to the facility with Dentist",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1205,10 +1562,10 @@
   {
     "id": "Common_oral_dental_problem_2",
     "order": 3,
-    "condition": "No oral cancer",
+    "condition": "Unlikely oral cancer/OPMD",
     "advises": [
       {
-        "advise": "Reassure and re-screening every 5 years Tobacco cessation counselling",
+        "advise": "Reassure and inform about re-screening every 5 years",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1223,16 +1580,180 @@
         "advise": "Symptomatic treatment with analgesics Refer to the nearest dentist",
         "adviseSpan": null,
         "moreInfo": null
+      },
+      {
+        "advise": "-----For mild pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Paracetamol 500 mg twice daily or SOS",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Dosage should not be exceeded more than 4 times in 24 hours.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----For moderate pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Ibuprofen 400mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Diclofenac 50 mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tele-consult with MO if the pain persists after 3 days.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Note: Ibuprofen and Diclofenac should not be provided in suspected dengue patients",
+        "adviseSpan": null,
+        "moreInfo": null
       }
     ]
   },
   {
     "id": "Common_oral_dental_problem_4",
     "order": 1,
-    "condition": "Possible Temporomandibular Joint issue/ trauma/ acute infections/ OSMF",
+    "condition": "Possible temporomandibular joint issue/acute infections/ OSMF (Oral Submucous Fibrosis)",
     "advises": [
       {
-        "advise": "Teleconsultation with Dentist/MO Oral hygiene advice, warm saline/ gum paint massage",
+        "advise": "Refer to the nearest facility with dentist",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----For mild pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Paracetamol 500 mg twice daily or SOS",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Dosage should not be exceeded more than 4 times in 24 hours.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----For moderate pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Ibuprofen 400mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Diclofenac 50 mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tele-consult with MO if the pain persists after 3 days.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Note: Ibuprofen and Diclofenac should not be provided in suspected dengue patients",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_5",
+    "order": 1,
+    "condition": "Possible severe gum infection\nTooth decay involving pulp",
+    "advises": [
+      {
+        "advise": "Refer to the nearest facility with dentist",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----For mild pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Paracetamol 500 mg twice daily or SOS",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Dosage should not be exceeded more than 4 times in 24 hours.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----For moderate pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Ibuprofen 400mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Diclofenac 50 mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tele-consult with MO if the pain persists after 3 days.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Note: Ibuprofen and Diclofenac should not be provided in suspected dengue patients",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_6",
+    "order": 2,
+    "condition": "Possible mild gum infection\nPlaque/calculus",
+    "advises": [
+      {
+        "advise": "Teleconsultation with dentist/MO",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Oral hygiene advice, warm saline/ gum paint massage;",
         "adviseSpan": null,
         "moreInfo": null
       },
@@ -1244,62 +1765,166 @@
     ]
   },
   {
-    "id": "Common_oral_dental_problem_5",
-    "order": 1,
-    "condition": "Possible severe gum infection Tooth decay involving pulp",
-    "advises": [
-      {
-        "advise": "Application of Lignocaine gel (Topical) ",
-        "adviseSpan": null,
-        "moreInfo": null
-      },
-      {
-        "advise": "Vitamin B complex tablet",
-        "adviseSpan": null,
-        "moreInfo": null
-      },
-      {
-        "advise": "Oral Hygiene advice If no relief in 15 days ",
-        "adviseSpan": null,
-        "moreInfo": null
-      },
-      {
-        "advise": " refer to PHC",
-        "adviseSpan": null,
-        "moreInfo": null
-      }
-    ]
-  },
-  {
-    "id": "Common_oral_dental_problem_6",
-    "order": 2,
-    "condition": "Possible mild gum infection Plaque/calculus",
-    "advises": [
-      {
-        "advise": "Warm saline gargle ",
-        "adviseSpan": null,
-        "moreInfo": null
-      },
-      {
-        "advise": "Advice not to put tongue in the extracted space",
-        "adviseSpan": null,
-        "moreInfo": null
-      }
-    ]
-  },
-  {
     "id": "Common_oral_dental_problem_7",
     "order": 3,
     "condition": "Possible Mouth sore or Traumatic ulcer",
     "advises": [
       {
-        "advise": "Symptomatic treatment with analgesics if needed Oral Hygiene advice",
+        "advise": "Application of lignocaine gel (Topical); Vitamin B complex tablet;",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "If no relief in 15 days, refer to PHC",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "---------Oral hygiene advice-----------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Brush teeth at least two times a day (morning and night and if possible, post meal) for at least 2-3\nminutes, with pea sized fluoride toothpaste (0.25 mg of fluoride) using proper brushing technique\ncovering all surfaces of teeth.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Replace the toothbrush every 3 to 4 months. When the bristles are no longer straight and firm,\nreplace the toothbrush with a new one",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Rinse the mouth immediately after finishing every meal or snack. Swish water around the mouth\nfor about 20–30 seconds, making sure to reach all areas, then spit it out.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Schedule regular dental check-ups. Visit the dentist at least once every six months, or early, based\non your individual dental needs.",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
+  {
+    "id": "Common_oral_dental_problem_8",
+    "order": 3,
+    "condition": "Dry Socket",
+    "advises": [
+      {
+        "advise": "-----------Provide Dry Socket care instructions--------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Gentle rinsing of mouth with warm saline water 3-5 times a day",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Avoid touching the area with your fingers, tongue, toothbrush, or any object. Take soft foods and cool or\nlukewarm liquids. Avoid hot and spicy food.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Do not spit forcefully or use a straw.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Refrain from smoking/smokeless tobacco.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Re-visit the Dentist after 48 hours for dressing",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
+  {
+    "id": "Common_oral_dental_problem_9",
+    "order": 3,
+    "condition": "Possible physiological tooth eruption",
+    "advises": [
+      {
+        "advise": "-----------Provide Analgesics--------------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----For mild pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Paracetamol 500 mg twice daily or SOS",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Dosage should not be exceeded more than 4 times in 24 hours.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "-----For moderate pain------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Ibuprofen 400mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "OR",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tab. Diclofenac 50 mg twice daily",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Tele-consult with MO if the pain persists after 3 days.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Note: Ibuprofen and Diclofenac should not be provided in suspected dengue patients",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "---------Oral hygiene advice-----------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Brush teeth at least two times a day (morning and night and if possible, post meal) for at least 2-3\nminutes, with pea sized fluoride toothpaste (0.25 mg of fluoride) using proper brushing technique\ncovering all surfaces of teeth.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Replace the toothbrush every 3 to 4 months. When the bristles are no longer straight and firm,\nreplace the toothbrush with a new one",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Rinse the mouth immediately after finishing every meal or snack. Swish water around the mouth\nfor about 20–30 seconds, making sure to reach all areas, then spit it out.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Schedule regular dental check-ups. Visit the dentist at least once every six months, or early, based\non your individual dental needs.",
+        "adviseSpan": null,
+        "moreInfo": null
+      }
+    ]
+  },
   {
     "id": "Tb_treatment_follow_up_1",
     "order": 1,
@@ -1339,7 +1964,6 @@
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
   {
@@ -1388,7 +2012,6 @@
       }
     ]
   },
-
   {
     "id": "Family_planing_for_all_women_1",
     "order": 1,
@@ -1399,7 +2022,6 @@
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
   {
@@ -1412,7 +2034,6 @@
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
   {
@@ -1425,7 +2046,6 @@
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
   {
@@ -1438,7 +2058,6 @@
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
   {
@@ -1451,16 +2070,13 @@
         "adviseSpan": null,
         "moreInfo": null
       },
-
       {
         "advise": " Counsel and explain on the appropriate method to take OCPs(for OCP users)",
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
-
   {
     "id": "Adolocent_specific_problems_1",
     "order": 1,
@@ -1471,7 +2087,6 @@
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
   {
@@ -1484,7 +2099,6 @@
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
   {
@@ -1509,7 +2123,6 @@
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
   {
@@ -1537,7 +2150,6 @@
         "adviseSpan": null,
         "moreInfo": null
       }
-
     ]
   },
   {
@@ -1833,7 +2445,6 @@
       }
     ]
   },
-
   {
     "id": "Non_Communicable_Disease_Hypertension_1",
     "order": 1,
@@ -1852,22 +2463,22 @@
     "condition": "Uncontrolled BP possibly due to medication nonadherence",
     "advises": [
       {
-        "advise":"If non-adherence is due to side effects of drugs, do teleconsultation Otherwise",
+        "advise": "If non-adherence is due to side effects of drugs, do teleconsultation Otherwise",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Provide counselling for regular intake of all prescribed medications",
+        "advise": "Provide counselling for regular intake of all prescribed medications",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refill current blood pressure control medicines for 15 days",
+        "advise": "Refill current blood pressure control medicines for 15 days",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Follow up in 2 weeks",
+        "advise": "Follow up in 2 weeks",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1879,12 +2490,12 @@
     "condition": "Blood pressure under control and adherent to medication",
     "advises": [
       {
-        "advise":"Refill current blood pressure control medicines for 30 days",
+        "advise": "Refill current blood pressure control medicines for 30 days",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Ask to follow up in 4 weeks",
+        "advise": "Ask to follow up in 4 weeks",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1893,15 +2504,15 @@
   {
     "id": "Non_Communicable_Disease_Hypertension_4",
     "order": 3,
-    "condition":"Blood pressure under control and not currently on medication",
+    "condition": "Blood pressure under control and not currently on medication",
     "advises": [
       {
-        "advise":"Ask to follow up BP measurement in 4 weeks",
+        "advise": "Ask to follow up BP measurement in 4 weeks",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Inform that medication may be required if there is increase in BP",
+        "advise": "Inform that medication may be required if there is increase in BP",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1910,15 +2521,15 @@
   {
     "id": "Non_Communicable_Disease_Diabetes_1",
     "order": 1,
-    "condition":"Probable hypoglycemia",
+    "condition": "Probable hypoglycemia",
     "advises": [
       {
-        "advise":"Manage hypoglycemia",
+        "advise": "Manage hypoglycemia",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refer to PHC for evaluation",
+        "advise": "Refer to PHC for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1927,30 +2538,30 @@
   {
     "id": "Non_Communicable_Disease_Diabetes_2",
     "order": 2,
-    "condition":"Medication nonadherence",
+    "condition": "Medication nonadherence",
     "advises": [
       {
-        "advise":"If non-adherence is due to side effects of drugs, do teleconsultation with MO",
+        "advise": "If non-adherence is due to side effects of drugs, do teleconsultation with MO",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Provide counselling for regular intake of all prescribed medications",
+        "advise": "Provide counselling for regular intake of all prescribed medications",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refill current medicines for 15 days",
+        "advise": "Refill current medicines for 15 days",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refill current medicines for 15 daysDiabetes self-care education",
+        "advise": "Refill current medicines for 15 daysDiabetes self-care education",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Follow up in 2 weeks",
+        "advise": "Follow up in 2 weeks",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1959,30 +2570,30 @@
   {
     "id": "Non_Communicable_Disease_Diabetes_3",
     "order": 2,
-    "condition":"Glucose not under control",
+    "condition": "Glucose not under control",
     "advises": [
       {
-        "advise":"Teleconsultation with MO for uptitration of medication/review of Insulin doses and self monitoring of blood glucose (SMBG)",
+        "advise": "Teleconsultation with MO for uptitration of medication/review of Insulin doses and self monitoring of blood glucose (SMBG)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Reinforce importance for regular intake of all prescribed medications, lifestyle modification counselling",
+        "advise": "Reinforce importance for regular intake of all prescribed medications, lifestyle modification counselling",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Diabetes self-care education",
+        "advise": "Diabetes self-care education",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Referral for HbA1c testing or comprehensive review (if due)",
+        "advise": "Referral for HbA1c testing or comprehensive review (if due)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"For those who are on insulin- adviceSMBG",
+        "advise": "For those who are on insulin- adviceSMBG",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -1991,25 +2602,25 @@
   {
     "id": "Non_Communicable_Disease_Diabetes_4",
     "order": 2,
-    "condition":"Glucose under control",
+    "condition": "Glucose under control",
     "advises": [
       {
-        "advise":"Diabetes self-care education",
+        "advise": "Diabetes self-care education",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"For those who are on insulin- adviseSMBG",
+        "advise": "For those who are on insulin- adviseSMBG",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refill medication for 4 weeks",
+        "advise": "Refill medication for 4 weeks",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Referral for HbA1c testing or comprehensive review (if due)",
+        "advise": "Referral for HbA1c testing or comprehensive review (if due)",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2018,10 +2629,10 @@
   {
     "id": "Non_Communicable_Disease_CAD_1",
     "order": 1,
-    "condition":"Needs medical consultation",
+    "condition": "Needs medical consultation",
     "advises": [
       {
-        "advise":"Teleconsultation with MO for evaluation and if needed refer the specialist",
+        "advise": "Teleconsultation with MO for evaluation and if needed refer the specialist",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2030,25 +2641,25 @@
   {
     "id": "Non_Communicable_Disease_CAD_2",
     "order": 2,
-    "condition":"Needs medical consultation",
+    "condition": "Needs medical consultation",
     "advises": [
       {
-        "advise":"If non-compliance is due to side effects of drugs, do teleconsultation with MO If not,",
+        "advise": "If non-compliance is due to side effects of drugs, do teleconsultation with MO If not,",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Provide counselling for regular intake of all prescribed medications",
+        "advise": "Provide counselling for regular intake of all prescribed medications",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refill physician recommended medicines for 15 days",
+        "advise": "Refill physician recommended medicines for 15 days",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Follow up in 2 weeks",
+        "advise": "Follow up in 2 weeks",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2057,10 +2668,10 @@
   {
     "id": "Non_Communicable_Disease_CAD_3",
     "order": 3,
-    "condition":"Stable CAD Compliant to medication",
+    "condition": "Stable CAD Compliant to medication",
     "advises": [
       {
-        "advise":"Refill medication for 4 weeks",
+        "advise": "Refill medication for 4 weeks",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2069,20 +2680,20 @@
   {
     "id": "Non_Communicable_Disease_TB_DANGER_SIGN",
     "order": 0,
-    "condition":"Likely severe side effects of anti tuberculosis drugs",
+    "condition": "Likely severe side effects of anti tuberculosis drugs",
     "advises": [
       {
-        "advise":"Refer urgently to Emergency in DH/ Medical College",
+        "advise": "Refer urgently to Emergency in DH/ Medical College",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Inform the the District TB Officer or Senior Treatment Supervisor and MO-PHC",
+        "advise": "Inform the the District TB Officer or Senior Treatment Supervisor and MO-PHC",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Provide a note that patient is on treatment for TB",
+        "advise": "Provide a note that patient is on treatment for TB",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2091,10 +2702,10 @@
   {
     "id": "Non_Communicable_Disease_TB_1",
     "order": 1,
-    "condition":"Likely side effects of anti TB drugs",
+    "condition": "Likely side effects of anti TB drugs",
     "advises": [
       {
-        "advise":"Refer to PHC for evaluation",
+        "advise": "Refer to PHC for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2103,15 +2714,15 @@
   {
     "id": "Non_Communicable_Disease_TB_2",
     "order": 2,
-    "condition":"Likely irregular on treatment",
+    "condition": "Likely irregular on treatment",
     "advises": [
       {
-        "advise":"Refer to PHC",
+        "advise": "Refer to PHC",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Counsel the possibility of restart of TB medication ",
+        "advise": "Counsel the possibility of restart of TB medication ",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2120,15 +2731,15 @@
   {
     "id": "Non_Communicable_Disease_TB_3",
     "order": 2,
-    "condition":"May be side effects of anti TB drugs or Persistent symptoms",
+    "condition": "May be side effects of anti TB drugs or Persistent symptoms",
     "advises": [
       {
-        "advise":"Teleconsult with MO",
+        "advise": "Teleconsult with MO",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advice to take medicines after food",
+        "advise": "Advice to take medicines after food",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2137,15 +2748,15 @@
   {
     "id": "Non_Communicable_Disease_TB_4",
     "order": 2,
-    "condition":"At risk of treatment interruption",
+    "condition": "At risk of treatment interruption",
     "advises": [
       {
-        "advise":"Provide counselling for adherence ",
+        "advise": "Provide counselling for adherence ",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"If non-adherence due to side effects- Teleconsult with MO",
+        "advise": "If non-adherence due to side effects- Teleconsult with MO",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2154,10 +2765,10 @@
   {
     "id": "Non_Communicable_Disease_TB_5",
     "order": 3,
-    "condition":"Rifampicin induced discolouration",
+    "condition": "Rifampicin induced discolouration",
     "advises": [
       {
-        "advise":"Reassure the patient that it is harmless",
+        "advise": "Reassure the patient that it is harmless",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2166,10 +2777,10 @@
   {
     "id": "Non_Communicable_Disease_TB_6",
     "order": 3,
-    "condition":"On regular treatment",
+    "condition": "On regular treatment",
     "advises": [
       {
-        "advise":"Provide next month’s medication",
+        "advise": "Provide next month’s medication",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2178,25 +2789,25 @@
   {
     "id": "Non_Communicable_Disease_Leprosy_danger",
     "order": 0,
-    "condition":"Likely Lepra reaction",
+    "condition": "Likely Lepra reaction",
     "advises": [
       {
-        "advise":"Ask patient to not to stop medicine",
+        "advise": "Ask patient to not to stop medicine",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Provide paracetamol 1gm stat",
+        "advise": "Provide paracetamol 1gm stat",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Give rest to the affected part (sling/sprint)",
+        "advise": "Give rest to the affected part (sling/sprint)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refer urgently to MO-PHC",
+        "advise": "Refer urgently to MO-PHC",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2205,15 +2816,15 @@
   {
     "id": "Non_Communicable_Disease_Leprosy_1",
     "order": 0,
-    "condition":"Likely deformity",
+    "condition": "Likely deformity",
     "advises": [
       {
-        "advise":"Counseling for care of affected parts as well as hands and feet (soaking in water, scaling and\noiling of skin of affected hands and feet and rest)",
+        "advise": "Counseling for care of affected parts as well as hands and feet (soaking in water, scaling and\noiling of skin of affected hands and feet and rest)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refer to PHC for evaluation",
+        "advise": "Refer to PHC for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2222,15 +2833,15 @@
   {
     "id": "Non_Communicable_Disease_Leprosy_2",
     "order": 0,
-    "condition":"Likely irregular on treatment",
+    "condition": "Likely irregular on treatment",
     "advises": [
       {
-        "advise":"Refer to PHC for evaluation",
+        "advise": "Refer to PHC for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Counsel for restarting MDT",
+        "advise": "Counsel for restarting MDT",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2239,25 +2850,25 @@
   {
     "id": "Non_Communicable_Disease_Leprosy_3",
     "order": 0,
-    "condition":"Likely side effects",
+    "condition": "Likely side effects",
     "advises": [
       {
-        "advise":"Teleconsult with MO",
+        "advise": "Teleconsult with MO",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advice to take medicines after food",
+        "advise": "Advice to take medicines after food",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Provide counselling for adherence",
+        "advise": "Provide counselling for adherence",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"If non-adherence due to side effects- Teleconsult with MO",
+        "advise": "If non-adherence due to side effects- Teleconsult with MO",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2266,10 +2877,10 @@
   {
     "id": "Non_Communicable_Disease_Leprosy_4",
     "order": 0,
-    "condition":"Rifampicin induced discolouration",
+    "condition": "Rifampicin induced discolouration",
     "advises": [
       {
-        "advise":"Reassure the patient that it is harmless",
+        "advise": "Reassure the patient that it is harmless",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2278,23 +2889,22 @@
   {
     "id": "Non_Communicable_Disease_Leprosy_5",
     "order": 0,
-    "condition":"On regular treatment",
+    "condition": "On regular treatment",
     "advises": [
       {
-        "advise":"Provide next month’s medication",
+        "advise": "Provide next month’s medication",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
   {
     "id": "Non_Communicable_Disease_Oral_1",
     "order": 1,
-    "condition":"Suspected oral cancer or oral potentially malignant disorder(OPMD)",
+    "condition": "Suspected oral cancer or oral potentially malignant disorder(OPMD)",
     "advises": [
       {
-        "advise":"Facilitate referral to PHC for further evaluation Follow up through ASHA",
+        "advise": "Facilitate referral to PHC for further evaluation Follow up through ASHA",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2303,10 +2913,10 @@
   {
     "id": "Non_Communicable_Disease_Oral_2",
     "order": 2,
-    "condition":"Likely other causes",
+    "condition": "Likely other causes",
     "advises": [
       {
-        "advise":"Teleconsultation with PHC MO for evaluation",
+        "advise": "Teleconsultation with PHC MO for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2315,23 +2925,22 @@
   {
     "id": "Non_Communicable_Disease_Oral_3",
     "order": 3,
-    "condition":"No oral abnormalities",
+    "condition": "No oral abnormalities",
     "advises": [
       {
-        "advise":"Reassure and inform about re screening after 5 years",
+        "advise": "Reassure and inform about re screening after 5 years",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
   {
     "id": "Non_Communicable_Disease_Cervical_1",
     "order": 1,
-    "condition":"VIA positive",
+    "condition": "VIA positive",
     "advises": [
       {
-        "advise":"Facilitated referral to DH",
+        "advise": "Facilitated referral to DH",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2340,10 +2949,10 @@
   {
     "id": "Non_Communicable_Disease_Cervical_2",
     "order": 2,
-    "condition":"Unlikely cancer,likely other causes",
+    "condition": "Unlikely cancer,likely other causes",
     "advises": [
       {
-        "advise":"Teleconsultation with PHC MO",
+        "advise": "Teleconsultation with PHC MO",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2352,23 +2961,22 @@
   {
     "id": "Non_Communicable_Disease_Cervical_3",
     "order": 3,
-    "condition":"No cervical cancer",
+    "condition": "No cervical cancer",
     "advises": [
       {
-        "advise":"Reassure and inform about re screening after 5 years",
+        "advise": "Reassure and inform about re screening after 5 years",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
   {
     "id": "Non_Communicable_Disease_Breast_cancer_1",
     "order": 1,
-    "condition":"Possible breast cancer or benign breast conditions",
+    "condition": "Possible breast cancer or benign breast conditions",
     "advises": [
       {
-        "advise":"Facilitated referral to DH",
+        "advise": "Facilitated referral to DH",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2377,10 +2985,10 @@
   {
     "id": "Non_Communicable_Disease_Breast_cancer_2",
     "order": 2,
-    "condition":"Unlikely cancer,likely other causes",
+    "condition": "Unlikely cancer,likely other causes",
     "advises": [
       {
-        "advise":"Teleconsultation/refer to PHC MO for evaluation",
+        "advise": "Teleconsultation/refer to PHC MO for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2389,23 +2997,22 @@
   {
     "id": "Non_Communicable_Disease_Breast_cancer_3",
     "order": 3,
-    "condition":"No breast cancer",
+    "condition": "No breast cancer",
     "advises": [
       {
-        "advise":"Reassure and inform about re screening after 5 years",
+        "advise": "Reassure and inform about re screening after 5 years",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
   {
     "id": "Non_Communicable_Disease_BreastCancer_1",
     "order": 0,
-    "condition":"Suspected oralcancer or oral potentially malignant disorder (OPMD)",
+    "condition": "Suspected oralcancer or oral potentially malignant disorder (OPMD)",
     "advises": [
       {
-        "advise":"Facilitate referral to PHC for further evaluation Follow up through ASHA",
+        "advise": "Facilitate referral to PHC for further evaluation Follow up through ASHA",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2414,10 +3021,10 @@
   {
     "id": "Non_Communicable_Disease_BreastCancer_2",
     "order": 0,
-    "condition":"Likely other causes",
+    "condition": "Likely other causes",
     "advises": [
       {
-        "advise":"Teleconsultation with PHC MO for evaluation",
+        "advise": "Teleconsultation with PHC MO for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2426,15 +3033,15 @@
   {
     "id": "Non_Communicable_Disease_BreastCancer_3",
     "order": 0,
-    "condition":"No oral abnormalities",
+    "condition": "No oral abnormalities",
     "advises": [
       {
-        "advise":"Reassure and Wellness Promotion",
+        "advise": "Reassure and Wellness Promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Inform about rescreening after 5 years",
+        "advise": "Inform about rescreening after 5 years",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2443,11 +3050,10 @@
   {
     "id": "Non_Communicable_Disease_BreastCancer_4",
     "order": 0,
-    "condition":"VIA positive",
+    "condition": "VIA positive",
     "advises": [
-
       {
-        "advise":"Facilitated referral to DH",
+        "advise": "Facilitated referral to DH",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2456,11 +3062,10 @@
   {
     "id": "Non_Communicable_Disease_BreastCancer_5",
     "order": 0,
-    "condition":"Unlikely cancer, likely other causes",
+    "condition": "Unlikely cancer, likely other causes",
     "advises": [
-
       {
-        "advise":"Teleconsultation with PHC MO",
+        "advise": "Teleconsultation with PHC MO",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2469,11 +3074,10 @@
   {
     "id": "Non_Communicable_Disease_BreastCancer_6",
     "order": 0,
-    "condition":"Possible breast cancer or benign breast conditions",
+    "condition": "Possible breast cancer or benign breast conditions",
     "advises": [
-
       {
-        "advise":"Facilitated referral to DH",
+        "advise": "Facilitated referral to DH",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2482,10 +3086,10 @@
   {
     "id": "Non_Communicable_Disease_BreastCancer_7",
     "order": 0,
-    "condition":"Unlikely cancer, likely other causes",
+    "condition": "Unlikely cancer, likely other causes",
     "advises": [
       {
-        "advise":"Teleconsultation/Refer to PHC MO for evaluation",
+        "advise": "Teleconsultation/Refer to PHC MO for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2494,33 +3098,32 @@
   {
     "id": "Non_Communicable_Disease_BreastCancer_8",
     "order": 0,
-    "condition":"No breast cancer",
+    "condition": "No breast cancer",
     "advises": [
       {
-        "advise":"Reassure and wellness promotion",
+        "advise": "Reassure and wellness promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Inform about rescreening after 5 years",
+        "advise": "Inform about rescreening after 5 years",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
   {
     "id": "LEPROSY_1",
     "order": 0,
-    "condition":"Likely deformity",
+    "condition": "Likely deformity",
     "advises": [
       {
-        "advise":"Counseling for care of affected parts as well as hands and feet (soaking in water, scaling and oiling of skin of affected hands and feet and rest)",
+        "advise": "Counseling for care of affected parts as well as hands and feet (soaking in water, scaling and oiling of skin of affected hands and feet and rest)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refer to PHC for evaluation",
+        "advise": "Refer to PHC for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2529,15 +3132,15 @@
   {
     "id": "LEPROSY_2",
     "order": 0,
-    "condition":"Likely irregular on treatment",
+    "condition": "Likely irregular on treatment",
     "advises": [
       {
-        "advise":" Counsel for restarting MDT",
+        "advise": " Counsel for restarting MDT",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refer to PHC for evaluation",
+        "advise": "Refer to PHC for evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2546,15 +3149,15 @@
   {
     "id": "LEPROSY_3",
     "order": 0,
-    "condition":"At risk of treatment interruption",
+    "condition": "At risk of treatment interruption",
     "advises": [
       {
-        "advise":"Provide counselling for adherence If non-adherence due to side effects",
+        "advise": "Provide counselling for adherence If non-adherence due to side effects",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Teleconsult with MO",
+        "advise": "Teleconsult with MO",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2563,10 +3166,10 @@
   {
     "id": "LEPROSY_4",
     "order": 0,
-    "condition":"Rifampicin induced discolouration",
+    "condition": "Rifampicin induced discolouration",
     "advises": [
       {
-        "advise":"Reassure the patient that it is harmless",
+        "advise": "Reassure the patient that it is harmless",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2575,10 +3178,10 @@
   {
     "id": "LEPROSY_5",
     "order": 0,
-    "condition":"On regular treatment",
+    "condition": "On regular treatment",
     "advises": [
       {
-        "advise":"Provide next month’s medication",
+        "advise": "Provide next month’s medication",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2587,20 +3190,30 @@
   {
     "id": "MENTAL_HEALTH_PROBLEM_DANGER_SIGN",
     "order": 0,
-    "condition":"Possible mental health emergency",
+    "condition": "Possible mental health emergency",
     "advises": [
       {
-        "advise":"Provide psychological first aid [32]",
+        "advise": "-------------Provide psychological first aid-----------",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Immediate referral to mental health\nemergency care at district level/medical\ncollege",
+        "advise": "Listen without judgement: Listen to what the person describes without being critical or thinking they are\nweak. Don’t give advice such as ‘just cheer up’ or ‘pull yourself together’\n. It is important that you should\nunderstand that whatever the person is saying is a part of illness and not their personality. It is important that\nyou stay patient with them and not get overwhelmed yourselves. Avoid getting into an argument with the\nperson.",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Ensure the person is accompanied with\nfamily/friend/caregiver to referral centre",
+        "advise": "Give reassurance and information: Provide hope for the person and their family and talk about a good\noutcome for that person. Tell the person that he/she has an illness that can be treated, and it doesn’t mean that\nhe/she is a bad person. Let them know that you want to help.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Immediate referral to mental health\nemergency care at district level/medical\ncollege",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Ensure the person is accompanied with\nfamily/friend/caregiver to referral centre",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2609,15 +3222,15 @@
   {
     "id": "MHP1",
     "order": 1,
-    "condition":"Possible severe depression",
+    "condition": "Possible severe depression",
     "advises": [
       {
-        "advise":"Refer to faciltiy to mental health trained MO/psychiatrist",
+        "advise": "Refer to faciltiy to mental health trained MO/psychiatrist",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Psychoeducation- Depression",
+        "advise": "Psychoeducation- Depression",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2626,30 +3239,30 @@
   {
     "id": "MHP2",
     "order": 2,
-    "condition":"Possible moderate depression",
+    "condition": "Possible moderate depression",
     "advises": [
       {
-        "advise":"Teleconsultation or connect with telemanas 14416 OR refer to facility with mental health trained MO psychiatrist",
+        "advise": "Teleconsultation or connect with telemanas 14416 OR refer to facility with mental health trained MO psychiatrist",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Psychoeducation- Depression",
+        "advise": "Psychoeducation- Depression",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "advise": "Self-help strategies-progressive muscle relaxation, and breathing exercise",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness promotion",
+        "advise": "Health and wellness promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advice to avoid substance use",
+        "advise": "Advice to avoid substance use",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2658,30 +3271,30 @@
   {
     "id": "MHP3",
     "order": 2,
-    "condition":"Possible mild depression",
+    "condition": "Possible mild depression",
     "advises": [
       {
-        "advise":"Psychoeducation- Depression",
+        "advise": "Psychoeducation- Depression",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise ",
+        "advise": "Self-help strategies-progressive muscle relaxation, and breathing exercise ",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness promotion",
+        "advise": "Health and wellness promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advice to avoid substance use",
+        "advise": "Advice to avoid substance use",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Repeat screening after 2 weeks( if score increases or no improvement in symptoms, follow management as per above mentioned box)",
+        "advise": "Repeat screening after 2 weeks( if score increases or no improvement in symptoms, follow management as per above mentioned box)",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2690,20 +3303,20 @@
   {
     "id": "MHP4",
     "order": 3,
-    "condition":"Depression unlikely",
+    "condition": "Depression unlikely",
     "advises": [
       {
-        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "advise": "Self-help strategies-progressive muscle relaxation, and breathing exercise",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness promotione",
+        "advise": "Health and wellness promotione",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advice to avoid substance use",
+        "advise": "Advice to avoid substance use",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2712,15 +3325,15 @@
   {
     "id": "MHP5",
     "order": 1,
-    "condition":"Possible severe anxiety",
+    "condition": "Possible severe anxiety",
     "advises": [
       {
-        "advise":"Refer to Mental Health trained MO Psychiatrist",
+        "advise": "Refer to Mental Health trained MO Psychiatrist",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Psychoeducation- Anxiety",
+        "advise": "Psychoeducation- Anxiety",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2729,30 +3342,30 @@
   {
     "id": "MHP6",
     "order": 2,
-    "condition":"Possible moderate anxiety",
+    "condition": "Possible moderate anxiety",
     "advises": [
       {
-        "advise":"Teleconsultation or connect with telemanas 14416 OR refer to mental health trained MO/psychiatrist",
+        "advise": "Teleconsultation or connect with telemanas 14416 OR refer to mental health trained MO/psychiatrist",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Psychoeducation- Anxiety",
+        "advise": "Psychoeducation- Anxiety",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "advise": "Self-help strategies-progressive muscle relaxation, and breathing exercise",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness promotion",
+        "advise": "Health and wellness promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advice to avoid substance use",
+        "advise": "Advice to avoid substance use",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2761,30 +3374,30 @@
   {
     "id": "MHP7",
     "order": 2,
-    "condition":"Possible mild anxiety",
+    "condition": "Possible mild anxiety",
     "advises": [
       {
-        "advise":"Psychoeducation- Anxiety",
+        "advise": "Psychoeducation- Anxiety",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "advise": "Self-help strategies-progressive muscle relaxation, and breathing exercise",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness promotion",
+        "advise": "Health and wellness promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advice to avoid substance use",
+        "advise": "Advice to avoid substance use",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Repeat screening after 2 weeks (if score increases or no improvement in symptoms, follow management as per above mentioned box)",
+        "advise": "Repeat screening after 2 weeks (if score increases or no improvement in symptoms, follow management as per above mentioned box)",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2793,43 +3406,42 @@
   {
     "id": "MHP8",
     "order": 3,
-    "condition":"Anxiety less likely",
+    "condition": "Anxiety less likely",
     "advises": [
       {
-        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "advise": "Self-help strategies-progressive muscle relaxation, and breathing exercise",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness promotion",
+        "advise": "Health and wellness promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advice to avoid substance use",
+        "advise": "Advice to avoid substance use",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
   {
     "id": "MHP9",
     "order": 0,
-    "condition":"Tobacco use",
+    "condition": "Tobacco use",
     "advises": [
       {
-        "advise":"Psychoeducation- Tobacco Use Disorder",
+        "advise": "Psychoeducation- Tobacco Use Disorder",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refer to TCC counsellors (CHC, District) /Tobacco quit line (1800112356)",
+        "advise": "Refer to TCC counsellors (CHC, District) /Tobacco quit line (1800112356)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Follow-up after 15 days",
+        "advise": "Follow-up after 15 days",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2838,20 +3450,20 @@
   {
     "id": "MHP10",
     "order": 0,
-    "condition":"Problematic use of alcohol/opioids/cannabis/other substances",
+    "condition": "Problematic use of alcohol/opioids/cannabis/other substances",
     "advises": [
       {
-        "advise":"Psychoeducation- Alcohol use disorder",
+        "advise": "Psychoeducation- Alcohol use disorder",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Refer to psychiatrist/ mental health trained MO for problematic use of alcohol/ addictive drug/ other psychoactive substance",
+        "advise": "Refer to psychiatrist/ mental health trained MO for problematic use of alcohol/ addictive drug/ other psychoactive substance",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Follow-up after 15 days",
+        "advise": "Follow-up after 15 days",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2860,25 +3472,25 @@
   {
     "id": "MHP11",
     "order": 0,
-    "condition":"Low risk of current problematic use",
+    "condition": "Low risk of current problematic use",
     "advises": [
       {
-        "advise":"Brief intervention by CHO",
+        "advise": "Brief intervention by CHO",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise ",
+        "advise": "Self-help strategies-progressive muscle relaxation, and breathing exercise ",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness promotion",
+        "advise": "Health and wellness promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Follow-up after one month",
+        "advise": "Follow-up after one month",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2887,25 +3499,25 @@
   {
     "id": "ELDERLY1",
     "order": 1,
-    "condition":"Possible urinary incontinence",
+    "condition": "Possible urinary incontinence",
     "advises": [
       {
-        "advise":"Refer to PHC for advice",
+        "advise": "Refer to PHC for advice",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Counsel on behavioural techniques for urinary incontinence",
+        "advise": "Counsel on behavioural techniques for urinary incontinence",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Kegels exercise",
+        "advise": "Kegels exercise",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Suggest use of adult diapers",
+        "advise": "Suggest use of adult diapers",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2914,15 +3526,15 @@
   {
     "id": "ELDERLY2",
     "order": 3,
-    "condition":"Incontinence unlikely",
+    "condition": "Incontinence unlikely",
     "advises": [
       {
-        "advise":"Kegels exercise",
+        "advise": "Kegels exercise",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness promotion",
+        "advise": "Health and wellness promotion",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2931,15 +3543,15 @@
   {
     "id": "ELDERLY3",
     "order": 1,
-    "condition":"High risk of future fall",
+    "condition": "High risk of future fall",
     "advises": [
       {
-        "advise":"Referral to geriatrician/ trained Medical Officer",
+        "advise": "Referral to geriatrician/ trained Medical Officer",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Universal fall precautions",
+        "advise": "Universal fall precautions",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2948,30 +3560,30 @@
   {
     "id": "ELDERLY4",
     "order": 2,
-    "condition":"Moderate risk of fall",
+    "condition": "Moderate risk of fall",
     "advises": [
       {
-        "advise":"Teleconsultation with geriatrician/ trained MO (eSanjeevani OPD Number - 0172-6619000)",
+        "advise": "Teleconsultation with geriatrician/ trained MO (eSanjeevani OPD Number - 0172-6619000)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advise appropriate occupational and physical exercises (strength training, aerobic, balance training, flexibility)",
+        "advise": "Advise appropriate occupational and physical exercises (strength training, aerobic, balance training, flexibility)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Suggest intake of high protein diet",
+        "advise": "Suggest intake of high protein diet",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Consider providing assistive device to aid mobility as per the guidance from the specialist",
+        "advise": "Consider providing assistive device to aid mobility as per the guidance from the specialist",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Universal fall precautions",
+        "advise": "Universal fall precautions",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2980,15 +3592,15 @@
   {
     "id": "ELDERLY5",
     "order": 3,
-    "condition":"Less risk of fall",
+    "condition": "Less risk of fall",
     "advises": [
       {
-        "advise":"Universal fall precautions",
+        "advise": "Universal fall precautions",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness promotion",
+        "advise": "Health and wellness promotion",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -2997,10 +3609,10 @@
   {
     "id": "ELDERLY6",
     "order": 1,
-    "condition":"Malnourished",
+    "condition": "Malnourished",
     "advises": [
       {
-        "advise":"Refer to Geriatrician/ trained MO(eSanjeevani OPD Number - 0172-6619000)",
+        "advise": "Refer to Geriatrician/ trained MO(eSanjeevani OPD Number - 0172-6619000)",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3009,15 +3621,15 @@
   {
     "id": "ELDERLY7",
     "order": 2,
-    "condition":"At risk of malnutrition",
+    "condition": "At risk of malnutrition",
     "advises": [
       {
-        "advise":"Teleconsultation with dietician opinion for optimal food (eSanjeevani OPD Number -0172-6619000)",
+        "advise": "Teleconsultation with dietician opinion for optimal food (eSanjeevani OPD Number -0172-6619000)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Dental health check up",
+        "advise": "Dental health check up",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3026,15 +3638,15 @@
   {
     "id": "ELDERLY8",
     "order": 3,
-    "condition":"Normal",
+    "condition": "Normal",
     "advises": [
       {
-        "advise":"Health and wellness Promotion",
+        "advise": "Health and wellness Promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Maintain oral hygiene (suggest use of denture if needed)",
+        "advise": "Maintain oral hygiene (suggest use of denture if needed)",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3043,10 +3655,10 @@
   {
     "id": "ELDERLY9",
     "order": 1,
-    "condition":"Possible mental health issue",
+    "condition": "Possible mental health issue",
     "advises": [
       {
-        "advise":"Assess and manage common Mental Health Problems",
+        "advise": "Assess and manage common Mental Health Problems",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3055,25 +3667,25 @@
   {
     "id": "ELDERLY10",
     "order": 3,
-    "condition":"Mental health issue less likely",
+    "condition": "Mental health issue less likely",
     "advises": [
       {
-        "advise":"Psychoeducation",
+        "advise": "Psychoeducation",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Self-help strategies-progressive muscle relaxation, and breathing exercise",
+        "advise": "Self-help strategies-progressive muscle relaxation, and breathing exercise",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Health and wellness Promotion",
+        "advise": "Health and wellness Promotion",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Advice to avoid substance use",
+        "advise": "Advice to avoid substance use",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3082,10 +3694,10 @@
   {
     "id": "ELDERLY11",
     "order": 1,
-    "condition":"Possible cognitive impairment or dementia",
+    "condition": "Possible cognitive impairment or dementia",
     "advises": [
       {
-        "advise":"Refer to PHC MO for further evaluation",
+        "advise": "Refer to PHC MO for further evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3094,20 +3706,20 @@
   {
     "id": "ELDERLY12",
     "order": 3,
-    "condition":"Mental health issue less likely",
+    "condition": "Mental health issue less likely",
     "advises": [
       {
-        "advise":"Self-help strategies",
+        "advise": "Self-help strategies",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Encourage social interactions",
+        "advise": "Encourage social interactions",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Engage in activities that enhance memory and attention- eg.sudoku, word puzzles",
+        "advise": "Engage in activities that enhance memory and attention- eg.sudoku, word puzzles",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3116,10 +3728,10 @@
   {
     "id": "ELDERLY13",
     "order": 1,
-    "condition":"High dependence",
+    "condition": "High dependence",
     "advises": [
       {
-        "advise":"Refer to physical medicine rehabilitation specialist/ trained medical officer",
+        "advise": "Refer to physical medicine rehabilitation specialist/ trained medical officer",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3128,15 +3740,15 @@
   {
     "id": "ELDERLY14",
     "order": 3,
-    "condition":"Moderate dependence",
+    "condition": "Moderate dependence",
     "advises": [
       {
-        "advise":"Teleconsultation with physiotherapist (eSanjeevani OPD Number -0172-6619000)",
+        "advise": "Teleconsultation with physiotherapist (eSanjeevani OPD Number -0172-6619000)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Strength and balance training",
+        "advise": "Strength and balance training",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3145,10 +3757,10 @@
   {
     "id": "ELDERLY15",
     "order": 3,
-    "condition":"Normal",
+    "condition": "Normal",
     "advises": [
       {
-        "advise":"Counsel (adequate protein in diet, adequate water, roughage, maintaining mobility and strength & balance training)",
+        "advise": "Counsel (adequate protein in diet, adequate water, roughage, maintaining mobility and strength & balance training)",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3157,10 +3769,10 @@
   {
     "id": "ELDERLY16",
     "order": 3,
-    "condition":"Possible limited mobility",
+    "condition": "Possible limited mobility",
     "advises": [
       {
-        "advise":"Refer to physical medicine rehabilitation specialist/ trained MO",
+        "advise": "Refer to physical medicine rehabilitation specialist/ trained MO",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3169,44 +3781,42 @@
   {
     "id": "ELDERLY17",
     "order": 3,
-    "condition":"Normal",
+    "condition": "Normal",
     "advises": [
       {
-        "advise":"Counsel (adequate protein in diet, adequate water, roughage, maintaining mobility and regular exercise)",
+        "advise": "Counsel (adequate protein in diet, adequate water, roughage, maintaining mobility and regular exercise)",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   },
-
-
   {
     "id": "HEALTH_AND_WELLNESS",
     "order": 0,
-    "condition":"Counselling by CHO (Behavioural Techniques):",
+    "condition": "Counselling by CHO (Behavioural Techniques):",
     "advises": [
       {
-        "advise":"Delay urination after getting the urge to go; start with holding off for 10 minutes and prolong the hold until the time between the trips to the toilet reaches two to four hours.",
+        "advise": "Delay urination after getting the urge to go; start with holding off for 10 minutes and prolong the hold until the time between the trips to the toilet reaches two to four hours.",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Double voiding consists of urinating, and then waiting a few minutes and trying again",
+        "advise": "Double voiding consists of urinating, and then waiting a few minutes and trying again",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Fluid and diet management; reduce intake of caffeine and acidic food, as well as liquid consumption",
+        "advise": "Fluid and diet management; reduce intake of caffeine and acidic food, as well as liquid consumption",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Teach pelvic floor muscle exercises (Kegels exercise)",
+        "advise": "Teach pelvic floor muscle exercises (Kegels exercise)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Suggest use of adult diapers",
+        "advise": "Suggest use of adult diapers",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3215,10 +3825,10 @@
   {
     "id": "HEALTH_AND_WELLNESS_1",
     "order": 0,
-    "condition":"Poor nutrition",
+    "condition": "Poor nutrition",
     "advises": [
       {
-        "advise":"Provide nutrition counselling",
+        "advise": "Provide nutrition counselling",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3227,15 +3837,65 @@
   {
     "id": "HEALTH_AND_WELLNESS_2",
     "order": 2,
-    "condition":"Overweight",
+    "condition": "Overweight",
     "advises": [
       {
-        "advise":"Counselling on weight management [47]",
+        "advise": "May send to PHC to assess for Poly cystic ovarian disease or Thyroid function",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"May send to PHC to assess for Poly cystic ovarian disease or Thyroid function",
+        "advise": "------------Counselling on weight management----------",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Weight loss is a long-term commitment. Hence, ensure the individual is truly motivated for a healthy weight",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Set a realistic target to lose 5-10% of total body weight over the period of 3-6 months",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Get support of a family member or friend who will keep you motivated.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Prefer a goal setting-based approach with easily achievable goals.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "----Diet-----",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Discuss your weight loss plan with your friends and family and seek their moral support, if feasible and\nappropriate. Preferably, have one accountability partner to assist in the journey",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Having good psychosocial support throughout the journey will help in the successful weight loss journey.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Ensure to have a gap of 3 hours between dinner and sleep",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Avoid alcohol intake as alcohol could hinder weight loss and could have other adverse impacts.",
+        "adviseSpan": null,
+        "moreInfo": null
+      },
+      {
+        "advise": "Discourage fad diets like very low-calorie diets, eating only one type of foods etc.",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3244,15 +3904,15 @@
   {
     "id": "HEALTH_AND_WELLNESS_3",
     "order": 2,
-    "condition":"Underweight",
+    "condition": "Underweight",
     "advises": [
       {
-        "advise":"Suggest to go PHC to rule out medical reasons for underweight/weight loss- eg.TB",
+        "advise": "Suggest to go PHC to rule out medical reasons for underweight/weight loss- eg.TB",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Provide diet counselling",
+        "advise": "Provide diet counselling",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3261,10 +3921,10 @@
   {
     "id": "HEALTH_AND_WELLNESS_4",
     "order": 3,
-    "condition":"Normal weight",
+    "condition": "Normal weight",
     "advises": [
       {
-        "advise":"Reassure",
+        "advise": "Reassure",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3273,10 +3933,10 @@
   {
     "id": "CNP_1",
     "order": 0,
-    "condition":"Needs immediate management of seizure",
+    "condition": "Needs immediate management of seizure",
     "advises": [
       {
-        "advise":"Refer to facility with trained physician/neurologist( DH/ medical college) immediately",
+        "advise": "Refer to facility with trained physician/neurologist( DH/ medical college) immediately",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3285,10 +3945,10 @@
   {
     "id": "CNP_2",
     "order": 1,
-    "condition":"Possible seizure",
+    "condition": "Possible seizure",
     "advises": [
       {
-        "advise":"Refer to facility with a neurologist for evaluation at the earliest",
+        "advise": "Refer to facility with a neurologist for evaluation at the earliest",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3297,10 +3957,10 @@
   {
     "id": "CNP_3",
     "order": 1,
-    "condition":"Possible cognitive impairment or dementia",
+    "condition": "Possible cognitive impairment or dementia",
     "advises": [
       {
-        "advise":"Refer to PHC for further evaluation",
+        "advise": "Refer to PHC for further evaluation",
         "adviseSpan": null,
         "moreInfo": null
       }
@@ -3309,29 +3969,28 @@
   {
     "id": "CNP_4",
     "order": 3,
-    "condition":"No/mild cognitive impairment",
+    "condition": "No/mild cognitive impairment",
     "advises": [
       {
-        "advise":"Self-help strategies",
+        "advise": "Self-help strategies",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"Encourage social interactions for overall well-being",
+        "advise": "Encourage social interactions for overall well-being",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"engage in sudoku, word puzzles to enhance memory and attention)",
+        "advise": "engage in sudoku, word puzzles to enhance memory and attention)",
         "adviseSpan": null,
         "moreInfo": null
       },
       {
-        "advise":"review after a month, if no improvement or worsening of symptoms, refer to PHC-MO.",
+        "advise": "review after a month, if no improvement or worsening of symptoms, refer to PHC-MO.",
         "adviseSpan": null,
         "moreInfo": null
       }
     ]
   }
-
 ]

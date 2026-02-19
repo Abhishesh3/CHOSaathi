@@ -28,91 +28,128 @@ namespace CHO_Saathi.Controllers.Api
         {
             try
             {
-                // Check Existing Patient (by PatientGUID)
-                var patient = await _context.Patients.FirstOrDefaultAsync(p => p.PatientGuid == request.patients.PatientGUID);
+                if (request == null)
+                    return BadRequest("Invalid request.");
 
+                Patient? patient = null;
                 bool isNewPatient = false;
 
-                if (patient == null)
+                // --------------------------------------------------
+                // 1️⃣ HANDLE PATIENT (Only if patient section exists)
+                // --------------------------------------------------
+                if (request.patients != null)
                 {
-                    // ➕ INSERT
-                    patient = new Patient
-                    {   
-                        PatientId=GeneratePatientId(),
-                        PatientGuid = request.patients.PatientGUID,
-                        CreatedAt = request.patients.createdAt,
-                        CreatedBy = request.patients.createdBy
-                    };
+                    patient = await _context.Patients
+                        .FirstOrDefaultAsync(p => p.PatientGuid == request.patients.PatientGUID);
 
-                    _context.Patients.Add(patient);
-                    isNewPatient = true;
-                }
-
-                // UPDATE (for both insert & update)
-                patient.MobileId = request.patients.mobileId;
-                patient.FullName = request.patients.fullName;
-                patient.SpouseName = request.patients.spouseName;
-                patient.Gender = request.patients.gender;
-                patient.Dob = DateOnly.FromDateTime(request.patients.dob);
-                patient.YearOfAge = request.patients.yearOfAge;
-                patient.MonthOfAge = request.patients.monthOfAge;
-                patient.WeeksOfAge = request.patients.weeksOfAge;
-                patient.TotalMonths = request.patients.totalMonths;
-                patient.TotalWeeks = request.patients.totalWeeks;
-                patient.AgeType = request.patients.ageType;
-                patient.HeightCm = (double)request.patients.heightCm;
-                patient.WeightKg = (double)request.patients.weightKg;
-                patient.Mobile = request.patients.mobile;
-                patient.VillageId = request.patients.village_id.ToString();
-                patient.VillageName = request.patients.villageName;
-                patient.CenterId = request.patients.centerId.ToString();
-                patient.PatientType = request.patients.patientType;
-                patient.AncRegistered = request.patients.ancRegistered;
-                patient.IsPregnant = request.patients.isPregnant;
-                patient.IsWomanPregnant = request.patients.isWomanPregnant;
-                patient.LmpDate = request.patients.lmp_date;
-                patient.FlowType = request.patients.flowType;
-                patient.Status = request.patients.status;
-                patient.IsActive = request.patients.isActive;
-
-                await _context.SaveChangesAsync();
-
-                // 2️ VISIT (Upsert by PatientGuid + VisitNo)
-
-                var visit = await _context.PatientVisits.FirstOrDefaultAsync(v =>
-                    v.PatientGuid == patient.PatientGuid &&
-                    v.VisitNo == request.patient_visit.visit_no);
-
-                if (visit == null)
-                {
-                    visit = new PatientVisit
+                    if (patient == null)
                     {
-                        PatientGuid = request.patient_visit.PatientGUID,
-                        PatientId = patient.PatientId
-                    };
-                    _context.PatientVisits.Add(visit);
+                        // ➕ INSERT
+                        patient = new Patient
+                        {
+                            PatientId = GeneratePatientId(),
+                            PatientGuid = request.patients.PatientGUID,
+                            CreatedAt = request.patients.createdAt,
+                            CreatedBy = request.patients.createdBy
+                        };
+
+                        _context.Patients.Add(patient);
+                        isNewPatient = true;
+                    }
+
+                    // 🔄 UPDATE (Insert + Update both)
+                    patient.MobileId = request.patients.mobileId;
+                    patient.FullName = request.patients.fullName;
+                    patient.SpouseName = request.patients.spouseName;
+                    patient.Gender = request.patients.gender;
+                    patient.Dob = DateOnly.FromDateTime(request.patients.dob);
+                    patient.YearOfAge = request.patients.yearOfAge;
+                    patient.MonthOfAge = request.patients.monthOfAge;
+                    patient.WeeksOfAge = request.patients.weeksOfAge;
+                    patient.TotalMonths = request.patients.totalMonths;
+                    patient.TotalWeeks = request.patients.totalWeeks;
+                    patient.AgeType = request.patients.ageType;
+                    patient.HeightCm = (double)request.patients.heightCm;
+                    patient.WeightKg = (double)request.patients.weightKg;
+                    patient.Mobile = request.patients.mobile;
+                    patient.VillageId = request.patients.village_id.ToString();
+                    patient.VillageName = request.patients.villageName;
+                    patient.CenterId = request.patients.centerId.ToString();
+                    patient.PatientType = request.patients.patientType;
+                    patient.AncRegistered = request.patients.ancRegistered;
+                    patient.IsPregnant = request.patients.isPregnant;
+                    patient.IsWomanPregnant = request.patients.isWomanPregnant;
+                    patient.LmpDate = request.patients.lmp_date;
+                    patient.FlowType = request.patients.flowType;
+                    patient.Status = request.patients.status;
+                    patient.IsActive = request.patients.isActive;
+
+                    await _context.SaveChangesAsync();
                 }
 
-                visit.MobileId = request.patient_visit.mobileId;
-                visit.VisitNo = request.patient_visit.visit_no;
-                visit.VisitDate = DateOnly.FromDateTime(request.patient_visit.visit_date);
-                visit.FollowUpDate = DateOnly.FromDateTime(request.patient_visit.followUpDate);
-                visit.GaWeeks = request.patient_visit.ga_weeks;
-                visit.AgeInYears = request.patient_visit.age_in_years;
-                visit.AgeInMonths = request.patient_visit.age_in_months;
-                visit.AgeInWeeks = request.patient_visit.age_in_weeks;
-                visit.AgeInDays = request.patient_visit.age_in_days;
-                visit.Symptoms = request.patient_visit.symptoms;
-                visit.DangerSign = request.patient_visit.dangerSign;
-                visit.Referred = request.patient_visit.referred;
-                visit.ReferredLocation = request.patient_visit.referred_location;
-                visit.CurrentStatus = request.patient_visit.currentStatus;
-                visit.TimeStamp = request.patient_visit.timeStamp;
-                visit.CreatedAt = request.patient_visit.createdAt;
-                visit.SummaryKey = request.patient_visit.SummaryKey;
-                await UpsertPwResults(request, patient);
+                // --------------------------------------------------
+                // 2️⃣ VISIT SECTION
+                // --------------------------------------------------
 
-                //await transaction.CommitAsync();
+                // If patient section not sent, fetch using visit.PatientGUID
+                if (patient == null && request.patient_visit != null)
+                {
+                    patient = await _context.Patients
+                        .FirstOrDefaultAsync(p => p.PatientGuid == request.patient_visit.PatientGUID);
+
+                    if (patient == null)
+                        return BadRequest("Patient not found. Cannot insert visit without patient.");
+                }
+
+                if (request.patient_visit != null)
+                {
+                    var visit = await _context.PatientVisits.FirstOrDefaultAsync(v =>
+                        v.PatientGuid == patient.PatientGuid &&
+                        v.VisitNo == request.patient_visit.visit_no);
+
+                    if (visit == null)
+                    {
+                        visit = new PatientVisit
+                        {
+                            PatientGuid = request.patient_visit.PatientGUID,
+                            PatientId = patient.PatientId
+                        };
+
+                        _context.PatientVisits.Add(visit);
+                    }
+
+                    visit.MobileId = request.patient_visit.mobileId;
+                    visit.VisitNo = request.patient_visit.visit_no;
+                    visit.VisitDate = DateOnly.FromDateTime(request.patient_visit.visit_date);
+                    //visit.FollowUpDate = DateOnly.FromDateTime(request.patient_visit.followUpDate);
+                    visit.FollowUpDate = request.patient_visit.followUpDate.HasValue
+    ? DateOnly.FromDateTime(request.patient_visit.followUpDate.Value)
+    : null;
+
+                    visit.GaWeeks = request.patient_visit.ga_weeks;
+                    visit.AgeInYears = request.patient_visit.age_in_years;
+                    visit.AgeInMonths = request.patient_visit.age_in_months;
+                    visit.AgeInWeeks = request.patient_visit.age_in_weeks;
+                    visit.AgeInDays = request.patient_visit.age_in_days;
+                    visit.Symptoms = request.patient_visit.symptoms;
+                    visit.DangerSign = request.patient_visit.dangerSign;
+                    visit.Referred = request.patient_visit.referred;
+                    visit.ReferredLocation = request.patient_visit.referred_location;
+                    visit.CurrentStatus = request.patient_visit.currentStatus;
+                    visit.TimeStamp = request.patient_visit.timeStamp;
+                    visit.TimeStamp = request.patient_visit.timeStamp;
+                    visit.SummaryKey = request.patient_visit.SummaryKey;
+
+                    await _context.SaveChangesAsync();
+                }
+
+                // --------------------------------------------------
+                // 3️⃣ RESULTS (Only if patient exists)
+                // --------------------------------------------------
+                if (patient != null)
+                {
+                    await UpsertPwResults(request, patient);
+                }
 
                 return Ok(new
                 {
@@ -128,10 +165,120 @@ namespace CHO_Saathi.Controllers.Api
             }
             catch (Exception ex)
             {
-                //await transaction.RollbackAsync();
                 return StatusCode(500, ex.Message);
             }
         }
+
+        //[HttpPost("PatientPWInformation")]
+        //public async Task<IActionResult> PatientPWInformation([FromBody] PatientFullRequestDto request)
+        //{
+        //    try
+        //    {
+        //        // Check Existing Patient (by PatientGUID)
+        //        var patient = await _context.Patients.FirstOrDefaultAsync(p => p.PatientGuid == request.patients.PatientGUID);
+
+        //        bool isNewPatient = false;
+
+        //        if (patient == null)
+        //        {
+        //            // ➕ INSERT
+        //            patient = new Patient
+        //            {   
+        //                PatientId=GeneratePatientId(),
+        //                PatientGuid = request.patients.PatientGUID,
+        //                CreatedAt = request.patients.createdAt,
+        //                CreatedBy = request.patients.createdBy
+        //            };
+
+        //            _context.Patients.Add(patient);
+        //            isNewPatient = true;
+        //        }
+
+        //        // UPDATE (for both insert & update)
+        //        patient.MobileId = request.patients.mobileId;
+        //        patient.FullName = request.patients.fullName;
+        //        patient.SpouseName = request.patients.spouseName;
+        //        patient.Gender = request.patients.gender;
+        //        patient.Dob = DateOnly.FromDateTime(request.patients.dob);
+        //        patient.YearOfAge = request.patients.yearOfAge;
+        //        patient.MonthOfAge = request.patients.monthOfAge;
+        //        patient.WeeksOfAge = request.patients.weeksOfAge;
+        //        patient.TotalMonths = request.patients.totalMonths;
+        //        patient.TotalWeeks = request.patients.totalWeeks;
+        //        patient.AgeType = request.patients.ageType;
+        //        patient.HeightCm = (double)request.patients.heightCm;
+        //        patient.WeightKg = (double)request.patients.weightKg;
+        //        patient.Mobile = request.patients.mobile;
+        //        patient.VillageId = request.patients.village_id.ToString();
+        //        patient.VillageName = request.patients.villageName;
+        //        patient.CenterId = request.patients.centerId.ToString();
+        //        patient.PatientType = request.patients.patientType;
+        //        patient.AncRegistered = request.patients.ancRegistered;
+        //        patient.IsPregnant = request.patients.isPregnant;
+        //        patient.IsWomanPregnant = request.patients.isWomanPregnant;
+        //        patient.LmpDate = request.patients.lmp_date;
+        //        patient.FlowType = request.patients.flowType;
+        //        patient.Status = request.patients.status;
+        //        patient.IsActive = request.patients.isActive;
+
+        //        await _context.SaveChangesAsync();
+
+        //        // 2️ VISIT (Upsert by PatientGuid + VisitNo)
+
+        //        var visit = await _context.PatientVisits.FirstOrDefaultAsync(v =>
+        //            v.PatientGuid == patient.PatientGuid &&
+        //            v.VisitNo == request.patient_visit.visit_no);
+
+        //        if (visit == null)
+        //        {
+        //            visit = new PatientVisit
+        //            {
+        //                PatientGuid = request.patient_visit.PatientGUID,
+        //                PatientId = patient.PatientId
+        //            };
+        //            _context.PatientVisits.Add(visit);
+        //        }
+
+        //        visit.MobileId = request.patient_visit.mobileId;
+        //        visit.VisitNo = request.patient_visit.visit_no;
+        //        visit.VisitDate = DateOnly.FromDateTime(request.patient_visit.visit_date);
+        //        visit.FollowUpDate = DateOnly.FromDateTime(request.patient_visit.followUpDate);
+        //        visit.GaWeeks = request.patient_visit.ga_weeks;
+        //        visit.AgeInYears = request.patient_visit.age_in_years;
+        //        visit.AgeInMonths = request.patient_visit.age_in_months;
+        //        visit.AgeInWeeks = request.patient_visit.age_in_weeks;
+        //        visit.AgeInDays = request.patient_visit.age_in_days;
+        //        visit.Symptoms = request.patient_visit.symptoms;
+        //        visit.DangerSign = request.patient_visit.dangerSign;
+        //        visit.Referred = request.patient_visit.referred;
+        //        visit.ReferredLocation = request.patient_visit.referred_location;
+        //        visit.CurrentStatus = request.patient_visit.currentStatus;
+        //        visit.TimeStamp = request.patient_visit.timeStamp;
+        //        visit.CreatedAt = request.patient_visit.createdAt;
+        //        visit.SummaryKey = request.patient_visit.SummaryKey;
+        //        await UpsertPwResults(request, patient);
+
+        //        //await transaction.CommitAsync();
+
+        //        return Ok(new
+        //        {
+        //            status = true,
+        //            message = isNewPatient ? "Patient inserted successfully" : "Patient updated successfully",
+        //            response = new
+        //            {
+        //                status = 1,
+        //                message = "Success",
+        //                patientId = patient.PatientId
+        //            }
+        //        });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //await transaction.RollbackAsync();
+        //        return StatusCode(500, ex.Message);
+        //    }
+        //}
+
         private async Task UpsertPwResults(PatientFullRequestDto request, Patient patient)
         {
             string patientGuid = patient.PatientGuid;

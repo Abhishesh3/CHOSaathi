@@ -6,7 +6,7 @@ namespace CHO_Saathi.DTO
 {
     public class PatientCmpRequestDto
     {
-        public CmpPatientsDto patients { get; set; }
+        public CmpPatientsDto? patients { get; set; }
         public CmpPatientVisit1 cmp_patient_visit { get; set; }
         public CmpResultDto cmp_ask_for_result { get; set; }
         public CmpResultDto cmp_examination_result { get; set; }
@@ -21,7 +21,7 @@ namespace CHO_Saathi.DTO
         public string fullName { get; set; }
         public string spouseName { get; set; }
         public string gender { get; set; }
-        public DateTime dob { get; set; }
+        public DateTime? dob { get; set; }
         public int yearOfAge { get; set; }
         public int monthOfAge { get; set; }
         public int weeksOfAge { get; set; }
@@ -43,19 +43,23 @@ namespace CHO_Saathi.DTO
         public int status { get; set; }
         public int isActive { get; set; }
         public int createdBy { get; set; }
-        public DateTime createdAt { get; set; }
+        public DateTime? createdAt { get; set; }
     }
 
     public class CmpPatientVisit1
     {
-        [JsonPropertyName("visit_no")]
+        [JsonPropertyName("visitNo")]
         public int VisitNo { get; set; }
+
+        //[JsonPropertyName("visitDate")]
+        //public DateTime VisitDate { get; set; }
+        //[JsonPropertyName("visit_date")]
+        //public DateTime? VisitDate { get; set; }
+        [JsonPropertyName("visit_date")]
+        public DateTime? VisitDate { get; set; }
 
         [JsonPropertyName("mobileId")]
         public int MobileId { get; set; }
-
-        [JsonPropertyName("visit_date")]
-        public DateTime VisitDate { get; set; }
 
         [JsonPropertyName("createdAt")]
         public long CreatedAt { get; set; }
@@ -82,8 +86,11 @@ namespace CHO_Saathi.DTO
         [JsonPropertyName("referred_location")]
         public string? ReferredLocation { get; set; }
 
+        //[JsonPropertyName("followUpDate")]
+        //public DateTime? FollowUpDate { get; set; } = null;
+
         [JsonPropertyName("followUpDate")]
-        public DateTime FollowUpDate { get; set; }
+        public DateTime? FollowUpDate { get; set; }
 
         [JsonPropertyName("dangerSign")]
         public string? DangerSign { get; set; }
@@ -102,7 +109,7 @@ namespace CHO_Saathi.DTO
         public string data { get; set; }   // JSON array string
         public int mobileId { get; set; }
         public int visitNo { get; set; }
-        public DateTime visitDate { get; set; }
+        public DateTime? visitDate { get; set; }
         public string PatientGUID { get; set; }
     }
 

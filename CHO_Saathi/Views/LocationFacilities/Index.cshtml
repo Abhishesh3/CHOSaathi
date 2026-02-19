@@ -292,16 +292,16 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-2 col-lg-2">
-                        <div class="pull-right">
-                            @* <a asp-action="Create"
-                               class="btn btn-primary backtodetailbutton">
-                                Add New Facility
-                            </a> *@
-                            <a asp-action="Create" class="btn btn-primary"><i class="fa-solid fa-plus"></i>&nbsp;Add New Facility</a>
-                        </div>
-                    </div>
+                </div>
 
+
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                        <button type="button" class="btn btn-success" onclick="ExportExcel()"><i class="fa-solid fa-file-excel"></i>&nbsp;Export</button>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <a asp-action="Create" class="btn btn-primary float-end"><i class="fa-solid fa-plus"></i>&nbsp;Add New Facility</a>
+                    </div>
                 </div>
 
                 <!-- Partial View : Facility List -->
@@ -344,34 +344,6 @@
         });
     }
 
-
-    // $('#StateID').change(function () {
-    //     var url = '@Url.Content("~/")' + "LocationFacilities/GetDistrict";
-    //             var ddlsource = "#StateID";
-    //             $.getJSON(url, { stateid: $(ddlsource).val() }, function (data) {
-    //                 var districtitems = "<option value='0'>All</option>";
-    //                 $("#DistrictID").empty();
-    //                 $("#BlockID").html("<option value='0'>All</option>")
-    //                 $.each(data, function (i, district) {
-    //                     districtitems += "<option value='" + district.districtID + "'>" + district.district + "</option>";
-    //                 });
-    //                 $('#DistrictID').html(districtitems);
-    //             });
-    // });
-
-    // $('#DistrictID').change(function () {
-    //     var url = '@Url.Content("~/")' + "LocationFacilities/GetBlock";
-    //             var ddlsource = "#DistrictID";
-    //             $.getJSON(url, { districtId: $(ddlsource).val() }, function (data) {
-    //                 var blockitems = "<option value='0'>All</option>";
-    //                 $("#BlockID").empty();
-    //                 $.each(data, function (i, block) {
-    //                     blockitems += "<option value='" + block.blockID + "'>" + block.blockName + "</option>";
-    //                 });
-    //                 $('#BlockID').html(blockitems);
-    //             });
-    // });
-
     $('#StateID').change(function () {
 
         var url = '@Url.Content("~/")' + "LocationFacilities/GetDistrict";
@@ -379,7 +351,7 @@
 
         $.getJSON(url, { stateId: stateId }, function (data) {
 
-            var districtitems = "<option value=''>Select</option>";
+            var districtitems = "<option value='0'>Select</option>";
             $("#DistrictID").empty();
 
             $.each(data, function (i, district) {
@@ -388,7 +360,7 @@
             });
 
             $('#DistrictID').html(districtitems);
-            $('#BlockID').html("<option value=''>Select</option>");
+            $('#BlockID').html("<option value='0'>Select</option>");
         });
     });
 
@@ -401,7 +373,7 @@
         if (districtId && districtId !== "0") {
             $.getJSON(url, { districtId: districtId }, function (data) {
 
-                var blockitems = "<option value=''>Select</option>";
+                var blockitems = "<option value='0'>Select</option>";
                 $("#BlockID").empty();
 
                 $.each(data, function (i, block) {
@@ -413,7 +385,7 @@
             });
         }
         else {
-            $('#BlockID').html("<option value=''>Select</option>");
+            $('#BlockID').html("<option value='0'>Select</option>");
         }
     });
 
@@ -429,6 +401,17 @@
             }, 500);
         });
     });
+
+    function ExportExcel(){
+        window.appBasePath = '@Url.Content("~/")';
+        var StateId = $("#StateID").val();
+        var DistrictId = $("#DistrictID").val();
+        var BlockId = $("#BlockID").val();
+        var FacilityTypeId = $("#FaclityTypeID").val();
+        var FacilityName = $("#SearchInput").val();
+        var url = window.appBasePath + "LocationFacilities/ExportToExcel?FacilityName=" + FacilityName + "&StateId=" + StateId + "&DistrictId=" + DistrictId + "&BlockId=" + BlockId + "&FacilityTypeId=" + FacilityTypeId;
+        window.location = url;
+    }
 
 </script>
 

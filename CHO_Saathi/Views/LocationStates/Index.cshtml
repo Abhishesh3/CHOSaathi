@@ -199,12 +199,13 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-xl-2 col-lg-2 text-end">
-                @* <a asp-action="Create" class="btn btn-primary backtodetailbutton">
-                    Add New State
-                </a> *@
-                <a asp-action="Create" class="btn btn-primary"><i class="fa-solid fa-plus"></i>&nbsp;Add New State</a>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <button type="button" class="btn btn-success" onclick="ExportExcel()"><i class="fa-solid fa-file-excel"></i>&nbsp;Export</button>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <a asp-action="Create" class="btn btn-primary float-end"><i class="fa-solid fa-plus"></i>&nbsp;Add New State</a>
             </div>
         </div>
 
@@ -220,7 +221,7 @@
 </section>
 
 
-<script>
+<script type="text/javascript">
 
     function getServerdt(pageNumber) {
         var selectedValue = document.querySelector('input[name="searchBy"]:checked').value;
@@ -254,5 +255,12 @@
             }, 500);
         });
     });
+
+    function ExportExcel(){
+        window.appBasePath = '@Url.Content("~/")';
+        var StateName = $("#SearchInput").val();
+        var url = window.appBasePath + "LocationStates/ExportToExcel?Statename=" + StateName;
+        window.location = url;
+    }
 
 </script>

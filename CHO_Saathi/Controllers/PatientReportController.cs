@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,19 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 
 namespace CHO_Saathi.Controllers
 {
     public class PatientReportController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public PatientReportController(ApplicationDBContext context)
+        public PatientReportController(ApplicationDBContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         public IActionResult Index()
@@ -68,40 +72,6 @@ namespace CHO_Saathi.Controllers
                  })
                  .ToList();
 
-                //var patientSummary =
-                //                    (from p in _context.Patients
-                //                     join v in _context.CmpPatientVisits
-                //                         on p.PatientId equals v.PatientId into pv
-                //                     select new
-                //                     {
-                //                         patientId = p.PatientId,
-                //                         patientType = p.PatientType,
-                //                         summaryKey = pv
-                //                             .OrderByDescending(x => x.VisitDate)   // or CreatedOn
-                //                             .Select(x => x.SummaryKey)
-                //                             .FirstOrDefault()
-                //                     }).ToList();
-
-                //ViewBag.PatientSummary = patientSummary;
-
-                //var patientSummary1 =
-                //                    (from p in _context.Patients
-                //                     join v in _context.PatientVisits
-                //                         on p.PatientId equals v.PatientId into pv
-                //                     select new
-                //                     {
-                //                         patientId = p.PatientId,
-                //                         patientType = p.PatientType,
-                //                         summaryKey = pv
-                //                             .OrderByDescending(x => x.VisitDate)   // or CreatedOn
-                //                             .Select(x => x.SummaryKey)
-                //                             .FirstOrDefault()
-                //                     }).ToList();
-
-                //ViewBag.PatientSummary1 = patientSummary1;
-
-
-
                 return View();
             }
             catch (Exception ex)
@@ -114,7 +84,6 @@ namespace CHO_Saathi.Controllers
         {
             try
             {
-                
                 var param = new SqlParameter[]
                 {
                     new SqlParameter("@StateId",StateId),
@@ -154,7 +123,6 @@ namespace CHO_Saathi.Controllers
                 if (pageSize <= 0) pageSize = 10;
                 if (pageIndex <= 0) pageIndex = 1;
 
-
                 var cmpPatientSummary =
                     (from p in _context.Patients
                      join v in _context.CmpPatientVisits
@@ -171,7 +139,6 @@ namespace CHO_Saathi.Controllers
 
                 ViewBag.CmpPatientSummary = cmpPatientSummary;
 
-
                 var pwChildPatientSummary =
                     (from p in _context.Patients
                      join v in _context.PatientVisits
@@ -187,7 +154,6 @@ namespace CHO_Saathi.Controllers
                      }).ToList();
 
                 ViewBag.PWChildPatientSummary = pwChildPatientSummary;
-
 
                 var param = new SqlParameter[]
                 {
@@ -276,7 +242,79 @@ namespace CHO_Saathi.Controllers
             return Json(subFacility);
         }
 
-        public ActionResult ExportToExcel(int StateId = 0, int DistrictId = 0, int BlockId = 0, int FacilityId = 0, int SubfacilityId = 0, int YearId = 0, int MonthId = 0, int SymptomsId = 0)
+        //public ActionResult ExportToExcel(int StateId = 0, int DistrictId = 0, int BlockId = 0, int FacilityId = 0, int SubfacilityId = 0, int YearId = 0, int MonthId = 0, int SymptomsId = 0)
+        //{
+        //    try
+        //    {
+        //        string filePath = "Patient_Data";
+        //        string ExcelTabName = "Patients";
+
+        //        var param = new SqlParameter[]
+        //        {
+        //            new SqlParameter("@StateId", StateId),
+        //            new SqlParameter("@DistrictId", DistrictId),
+        //            new SqlParameter("@BlockId", BlockId),
+        //            new SqlParameter("@FacilityId",FacilityId),
+        //            new SqlParameter("@SubfacilityId",SubfacilityId),
+        //            new SqlParameter("@Year",YearId),
+        //            new SqlParameter("@Month",MonthId),
+        //            new SqlParameter("@SymptomsId",SymptomsId),
+        //        };
+
+        //        DataTable dtTable = CommonController.Procedure_Query_ToDataTable(
+        //            _context, "USP_Patients_Fetch_Excel", CommandType.StoredProcedure, param
+        //        );
+
+        //        if (dtTable != null && dtTable.Rows.Count > 0)
+        //        {
+
+        //            if (dtTable.Columns.Contains("SNo"))
+        //                dtTable.Columns["SNo"].ColumnName = "S.No";
+        //            else if (dtTable.Columns.Contains("S_No"))
+        //                dtTable.Columns["S_No"].ColumnName = "S.No";
+
+        //            using (XLWorkbook wb = new XLWorkbook())
+        //            {
+        //                var ws = wb.Worksheets.Add(dtTable, ExcelTabName);
+
+        //                ws.Table(0).ShowAutoFilter = false;
+        //                ws.Table(0).Theme = XLTableTheme.TableStyleLight12;
+        //                ws.Columns().AdjustToContents();
+
+
+        //                int idCol = dtTable.Columns.IndexOf("sno");
+        //                if (idCol >= 0)
+        //                    ws.Column(idCol + 1).Hide();
+
+        //                using (var stream = new MemoryStream())
+        //                {
+        //                    wb.SaveAs(stream);
+        //                    stream.Position = 0;
+
+        //                    string downloadFileName = filePath + "_" +
+        //                        DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".xlsx";
+
+        //                    return File(stream.ToArray(),
+        //                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        //                        downloadFileName);
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            //TempData["message"] = "No Record Found..!!";
+        //            return RedirectToAction("Index");
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        TempData["message"] = "Error while exporting data!";
+        //        return RedirectToAction("Index");
+        //    }
+        //}
+
+        public ActionResult ExportToExcel(int StateId = 0, int DistrictId = 0, int BlockId = 0,int FacilityId = 0, int SubfacilityId = 0,
+        int YearId = 0, int MonthId = 0, int SymptomsId = 0)
         {
             try
             {
@@ -285,14 +323,14 @@ namespace CHO_Saathi.Controllers
 
                 var param = new SqlParameter[]
                 {
-                    new SqlParameter("@StateId", StateId),
-                    new SqlParameter("@DistrictId", DistrictId),
-                    new SqlParameter("@BlockId", BlockId),
-                    new SqlParameter("@FacilityId",FacilityId),
-                    new SqlParameter("@SubfacilityId",SubfacilityId),
-                    new SqlParameter("@Year",YearId),
-                    new SqlParameter("@Month",MonthId),
-                    new SqlParameter("@SymptomsId",SymptomsId),
+            new SqlParameter("@StateId", StateId),
+            new SqlParameter("@DistrictId", DistrictId),
+            new SqlParameter("@BlockId", BlockId),
+            new SqlParameter("@FacilityId",FacilityId),
+            new SqlParameter("@SubfacilityId",SubfacilityId),
+            new SqlParameter("@Year",YearId),
+            new SqlParameter("@Month",MonthId),
+            new SqlParameter("@SymptomsId",SymptomsId),
                 };
 
                 DataTable dtTable = CommonController.Procedure_Query_ToDataTable(
@@ -301,7 +339,81 @@ namespace CHO_Saathi.Controllers
 
                 if (dtTable != null && dtTable.Rows.Count > 0)
                 {
+                    // ==============================
+                    // 🔥 LOAD JSON FILES
+                    // ==============================
+                    //string cmpJsonPath = Server.MapPath("~/JSON/cmp_data.json");
+                    //string pwChildJsonPath = Server.MapPath("~/JSON/advise_mother_data.json");
+                    //var cmpList = JsonConvert.DeserializeObject<List<SummaryCondition>>(cmpJson);
+                    //var pwChildList = JsonConvert.DeserializeObject<List<SummaryCondition>>(pwChildJson);
 
+                    string cmpJsonPath = Path.Combine(_env.WebRootPath, "JSON", "cmp_data.json");
+                    string pwChildJsonPath = Path.Combine(_env.WebRootPath, "JSON", "advise_mother_data.json");
+
+                    var cmpList = JsonConvert.DeserializeObject<List<SummaryCondition>>(
+                        System.IO.File.ReadAllText(cmpJsonPath)
+                    );
+
+                    var pwChildList = JsonConvert.DeserializeObject<List<SummaryCondition>>(
+                        System.IO.File.ReadAllText(pwChildJsonPath)
+                    );
+
+
+                    var cmpJson = System.IO.File.ReadAllText(cmpJsonPath);
+                    var pwChildJson = System.IO.File.ReadAllText(pwChildJsonPath);
+
+                    
+
+                    // ==============================
+                    // 🔁 MAP summary_key → text
+                    // ==============================
+                    if (dtTable.Columns.Contains("Summary"))
+                    {
+                        foreach (DataRow row in dtTable.Rows)
+                        {
+                            string summaryKey = row["Summary"]?.ToString();
+                            if (string.IsNullOrWhiteSpace(summaryKey))
+                                continue;
+
+                            var keys = summaryKey
+                                .Split(',')
+                                .Select(x => x.Trim())
+                                .ToList();
+
+                            List<SummaryCondition> sourceList;
+
+                            // CASE 1: CMP filter (1–12)
+                            if (SymptomsId >= 1 && SymptomsId <= 12)
+                            {
+                                sourceList = cmpList;
+                            }
+                            // CASE 2: PW / Child filter (13,14)
+                            else if (SymptomsId == 13 || SymptomsId == 14)
+                            {
+                                sourceList = pwChildList;
+                            }
+                            // CASE 3: ALL (SymptomsId = 0)
+                            else
+                            {
+                                // 🔥 Detect source by checking JSON content
+                                bool isCmp = cmpList.Any(c => keys.Contains(c.id));
+                                sourceList = isCmp ? cmpList : pwChildList;
+                            }
+
+                            var summaries = sourceList
+                                .Where(x => keys.Contains(x.id))
+                                .OrderBy(x => x.order)
+                                .Select(x => x.condition)
+                                .ToList();
+
+                            row["Summary"] = string.Join(", ", summaries);
+                        }
+
+                    }
+
+                    // ==============================
+                    // 🔤 COLUMN FIX
+                    // ==============================
                     if (dtTable.Columns.Contains("SNo"))
                         dtTable.Columns["SNo"].ColumnName = "S.No";
                     else if (dtTable.Columns.Contains("S_No"))
@@ -315,10 +427,16 @@ namespace CHO_Saathi.Controllers
                         ws.Table(0).Theme = XLTableTheme.TableStyleLight12;
                         ws.Columns().AdjustToContents();
 
-
                         int idCol = dtTable.Columns.IndexOf("sno");
                         if (idCol >= 0)
                             ws.Column(idCol + 1).Hide();
+
+                        // 🔹 Wrap Summary column
+                        if (dtTable.Columns.Contains("Summary"))
+                        {
+                            int sumCol = dtTable.Columns.IndexOf("Summary") + 1;
+                            ws.Column(sumCol).Style.Alignment.WrapText = true;
+                        }
 
                         using (var stream = new MemoryStream())
                         {
@@ -336,11 +454,10 @@ namespace CHO_Saathi.Controllers
                 }
                 else
                 {
-                    TempData["message"] = "No Record Found..!!";
                     return RedirectToAction("Index");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 TempData["message"] = "Error while exporting data!";
                 return RedirectToAction("Index");
@@ -391,7 +508,7 @@ namespace CHO_Saathi.Controllers
                 }
                 else
                 {
-                    TempData["message"] = "No Record Found..!!";
+                    //TempData["message"] = "No Record Found..!!";
                     return RedirectToAction("Index");
                 }
             }
@@ -445,7 +562,61 @@ namespace CHO_Saathi.Controllers
                 }
                 else
                 {
-                    TempData["message"] = "No Record Found..!!";
+                    //TempData["message"] = "No Record Found..!!";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception)
+            {
+                TempData["message"] = "Error while exporting data!";
+                return RedirectToAction("Index");
+            }
+        }
+
+
+        public ActionResult ExportPatientwiseVisit()
+        {
+            try
+            {
+                string filePath = "Patientwise_Visit_Data";
+                string ExcelTabName = "Patientwise_Visit";
+
+                DataTable dtTable = CommonController.Procedure_Query_ToDataTable(
+                    _context, "USP_Patientwise_Visit_Fetch_Excel", CommandType.StoredProcedure, null
+                );
+
+                if (dtTable != null && dtTable.Rows.Count > 0)
+                {
+                    if (dtTable.Columns.Contains("SNo"))
+                        dtTable.Columns["me_id"].ColumnName = "S.No";
+                    else if (dtTable.Columns.Contains("S_No"))
+                        dtTable.Columns["me_id"].ColumnName = "S.No";
+
+                    using (XLWorkbook wb = new XLWorkbook())
+                    {
+                        var ws = wb.Worksheets.Add(dtTable, ExcelTabName);
+
+                        ws.Table(0).ShowAutoFilter = false;
+                        ws.Table(0).Theme = XLTableTheme.TableStyleLight12;
+                        ws.Columns().AdjustToContents();
+
+                        using (var stream = new MemoryStream())
+                        {
+                            wb.SaveAs(stream);
+                            stream.Position = 0;
+
+                            string downloadFileName = filePath + "_" +
+                                DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".xlsx";
+
+                            return File(stream.ToArray(),
+                                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                downloadFileName);
+                        }
+                    }
+                }
+                else
+                {
+                    //TempData["message"] = "No Record Found..!!";
                     return RedirectToAction("Index");
                 }
             }

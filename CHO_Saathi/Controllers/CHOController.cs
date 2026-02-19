@@ -65,7 +65,7 @@ namespace CHO_Saathi.Controllers
             //ViewData["DistrictId"] = new SelectList(_context.LocationDistricts, "DistrictId", "District");
             //ViewData["FacilityId"] = new SelectList(_context.LocationFacilities, "FacilityId", "FacilityName");
             //ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "Role1");
-            ViewData["StateId"] = new SelectList(_context.LocationStates, "StateId", "StateName");
+            ViewData["StateId"] = new SelectList(_context.LocationStates.Where(m => m.IsDeleted == 0), "StateId", "StateName");
             ViewData["GenderId"] = new SelectList(_context.Genders.Where(m => m.IsDeleted == 0), "GenderId", "Gender1");
             //ViewData["SubFacilityId"] = new SelectList(_context.LocationSubFacilities, "SubFacilityId", "SubFacility");
             return View();

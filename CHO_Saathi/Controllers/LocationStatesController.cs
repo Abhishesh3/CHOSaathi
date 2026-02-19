@@ -1,17 +1,23 @@
-﻿using CHO_Saathi.Models;
+﻿using CHO_Saathi.Common;
+using CHO_Saathi.Models;
+using ClosedXML.Excel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace CHO_Saathi.Controllers
 {
     public class LocationStatesController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment Environment;
 
-        public LocationStatesController(ApplicationDBContext context)
+        public LocationStatesController(ApplicationDBContext context, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment)
         {
             _context = context;
+            Environment = environment;
         }
         public async Task<IActionResult> Index()
         {
@@ -351,5 +357,74 @@ namespace CHO_Saathi.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        public ActionResult ExportToExcel(string Statename)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlParameter[] s = new SqlParameter[]
+                {
+                    //new SqlParameter("@StateID", StateId),
+                    new SqlParameter("@StateName", Statename)
+                };
+
+                dt = CommonController.Procedure_Query_ToDataTable(_context, "USP_States_Fetch_Excel", CommandType.StoredProcedure, s);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    // ✅ Add S.No column only once at the first position
+                    if (!dt.Columns.Contains("S.No"))
+                    {
+                        dt.Columns.Add("S.No", typeof(int)).SetOrdinal(0);
+                    }
+
+                    // Fill serial numbers
+                    int counter = 1;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        dr["S.No"] = counter++;
+                    }
+
+                    string filePath = "Location_State_Data";
+                    string ExcelTabName = "Location State";
+
+                    string webRootPath = Environment.WebRootPath;
+                    string sFileDir = Path.Combine(webRootPath, "DataBackup/");
+
+                    if (!Directory.Exists(sFileDir))
+                        Directory.CreateDirectory(sFileDir);
+
+                    string Fullfilename = filePath + "_" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".xlsx";
+
+                    using (XLWorkbook wb = new XLWorkbook())
+                    {
+                        var ws = wb.Worksheets.Add(dt, ExcelTabName);
+                        ws.Table(0).ShowAutoFilter = false;
+                        ws.Table(0).Theme = XLTableTheme.TableStyleLight12;
+                        ws.Columns().AdjustToContents();
+
+                        using (MemoryStream stream = new MemoryStream())
+                        {
+                            wb.SaveAs(stream);
+                            return File(stream.ToArray(),
+                                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                        Fullfilename);
+                        }
+                    }
+                }
+                else
+                {
+                    TempData["message"] = "No Record Found..!!";
+                    return RedirectToAction("Index", "LocationStates");
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["message"] = "Error while exporting!";
+                return RedirectToAction("Index", "LocationStates");
+            }
+        }
+
     }
 }

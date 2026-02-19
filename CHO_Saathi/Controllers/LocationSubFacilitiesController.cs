@@ -1,13 +1,17 @@
-﻿using CHO_Saathi.Models;
+﻿using CHO_Saathi.Common;
+using CHO_Saathi.Models;
+using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 namespace RCH_UserManagement.Controllers
@@ -16,10 +20,12 @@ namespace RCH_UserManagement.Controllers
     {
 
         private readonly ApplicationDBContext _context;
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment Environment;
 
-        public LocationSubFacilitiesController(ApplicationDBContext context)
+        public LocationSubFacilitiesController(ApplicationDBContext context, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment)
         {
             _context = context;
+            Environment = environment;
         }
 
         // GET: LocationSubFacilities
@@ -629,6 +635,78 @@ namespace RCH_UserManagement.Controllers
         private bool LocationSubFacilityExists(int id)
         {
             return _context.LocationSubFacilities.Any(e => e.SubFacilityId == id);
+        }
+
+        public ActionResult ExportToExcel(int StateId, int DistrictId, int BlockId, int FacilityTypeId, int FacilityId, string SubFacilityName)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlParameter[] s = new SqlParameter[]
+                {
+                    new SqlParameter("@StateID", StateId),
+                    new SqlParameter("@DistrictID", DistrictId),
+                    new SqlParameter("@BlockID", BlockId),
+                    new SqlParameter("@FacilityTypeID", FacilityTypeId),
+                    new SqlParameter("@FacilityID", FacilityId),
+                    new SqlParameter("@SubFacilityName", SubFacilityName)
+                };
+
+                dt = CommonController.Procedure_Query_ToDataTable(_context, "USP_SubFacility_Fetch_Excel", CommandType.StoredProcedure, s);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    // ✅ Add S.No column only once at the first position
+                    if (!dt.Columns.Contains("S.No"))
+                    {
+                        dt.Columns.Add("S.No", typeof(int)).SetOrdinal(0);
+                    }
+
+                    // Fill serial numbers
+                    int counter = 1;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        dr["S.No"] = counter++;
+                    }
+
+                    string filePath = "Location_SubFacility_Data";
+                    string ExcelTabName = "Location SubFacility";
+
+                    string webRootPath = Environment.WebRootPath;
+                    string sFileDir = Path.Combine(webRootPath, "DataBackup/");
+
+                    if (!Directory.Exists(sFileDir))
+                        Directory.CreateDirectory(sFileDir);
+
+                    string Fullfilename = filePath + "_" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".xlsx";
+
+                    using (XLWorkbook wb = new XLWorkbook())
+                    {
+                        var ws = wb.Worksheets.Add(dt, ExcelTabName);
+                        ws.Table(0).ShowAutoFilter = false;
+                        ws.Table(0).Theme = XLTableTheme.TableStyleLight12;
+                        ws.Columns().AdjustToContents();
+
+                        using (MemoryStream stream = new MemoryStream())
+                        {
+                            wb.SaveAs(stream);
+                            return File(stream.ToArray(),
+                                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                        Fullfilename);
+                        }
+                    }
+                }
+                else
+                {
+                    TempData["message"] = "No Record Found..!!";
+                    return RedirectToAction("Index", "LocationSubFacilities");
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["message"] = "Error while exporting!";
+                return RedirectToAction("Index", "LocationSubFacilities");
+            }
         }
     }
 }

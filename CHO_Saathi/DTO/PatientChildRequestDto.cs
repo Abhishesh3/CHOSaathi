@@ -2,7 +2,7 @@
 {
     public class PatientChildRequestDto
     {
-        public PatientsDto1 patients { get; set; }
+        public PatientsDto1? patients { get; set; }
         public PatientVisitDto1 patient_visit { get; set; }
         public Immunization1? immunization { get; set; }
         public CoughTest1? cough_test { get; set; }
@@ -50,7 +50,7 @@
         public string PatientGUID { get; set; }
         public int visit_no { get; set; }
         public DateTime visit_date { get; set; }
-        public DateTime followUpDate { get; set; }
+        public DateTime? followUpDate { get; set; }
         public int ga_weeks { get; set; }
         public int age_in_years { get; set; }
         public int age_in_months { get; set; }

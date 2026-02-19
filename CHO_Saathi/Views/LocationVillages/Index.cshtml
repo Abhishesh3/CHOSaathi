@@ -1,17 +1,9 @@
-﻿@model IEnumerable<CHO_Saathi.Models.LocationSubFacility>
+﻿@model IEnumerable<CHO_Saathi.Models.LocationVillage>
 @using Microsoft.AspNetCore.Http;
 
 @{
-    ViewData["Title"] = "Sub Facility";
+    ViewData["Title"] = "Village";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    // if (@Context.Session.GetString("SirjanID") == "1")
-    // {
-    //     Layout = "~/Views/Shared/_LayoutInnerHorizontalSirjan.cshtml";
-    // }
-    // else
-    // {
-    //     Layout = "~/Views/Shared/_LayoutInnerHorizontal.cshtml";
-    // }
 }
 
 <style>
@@ -112,18 +104,18 @@
         position: relative;
         float: left;
         /*padding: 0px;
-        margin: 13px 12px 0px 12px;*/
+                        margin: 13px 12px 0px 12px;*/
     }
     /*.buttons-html5 {
-        background-color: #4CAF50 !important;*/ /* Green */
+                        background-color: #4CAF50 !important;*/ /* Green */
     /*border: none !important;
-        color: white !important;
-        text-align: center !important;
-        text-decoration: none !important;
-        display: inline-block !important;
-        padding: 5px;
-        margin: 2px;
-    }*/
+                        color: white !important;
+                        text-align: center !important;
+                        text-decoration: none !important;
+                        display: inline-block !important;
+                        padding: 5px;
+                        margin: 2px;
+                    }*/
     #SearchInput {
         background-image: url('images/icons8-search-48.png');
         background-size: 26px 26px;
@@ -131,7 +123,7 @@
         background-position: 10px center;
         padding-left: 36px;
         /* background-position: 10px 12px;
-                    background-repeat: no-repeat;*/
+                            background-repeat: no-repeat;*/
         width: 100%;
         font-size: 16px;
         padding: 12px 20px 12px 40px;
@@ -178,6 +170,7 @@
         }
 </style>
 
+
 <section id="AboutSection" class="mt-4 ms-4">
     <div class="container-fluid">
         <div class="row">
@@ -189,7 +182,6 @@
                         <h4 class="Headingcolorbg">Select Hierarchy</h4>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <hr />
@@ -201,11 +193,8 @@
                     <div class="col-xl-12 col-lg-12">
                         <div class="form-group">
                             <label class="control-label">State</label>
-                            @* <select required id="StateID" class="form-control" asp-items="@ViewBag.StateID">
+                            <select required id="StateID" class="form-control" asp-items="@ViewBag.StateID">
                                 <option value="0">All</option>
-                            </select> *@
-                            <select id="StateID" asp-items="@ViewBag.StateID" class="form-control">
-                                <option value="0">Select</option>
                             </select>
                         </div>
                     </div>
@@ -216,7 +205,7 @@
                     <div class="col-xl-12 col-lg-12">
                         <div class="form-group">
                             <label class="control-label">District</label>
-                            <select required id="DistrictID"" class="form-control" asp-items="@ViewBag.DistrictID">
+                            <select required id="DistrictID" class="form-control" asp-items="@ViewBag.DistrictID">
                                 <option value="0">All</option>
                             </select>
                         </div>
@@ -240,11 +229,8 @@
                     <div class="col-xl-12 col-lg-12">
                         <div class="form-group">
                             <label class="control-label">Facility Type</label>
-                            @* <select id="FaclityTypeID" class="form-control" asp-items="@ViewBag.FaclityTypeID">
-                                <option value="0">All</option>
-                            </select> *@
                             <select id="FacilityTypeID" class="form-control" asp-items="ViewBag.FacilityTypeID">
-                                <option value="">Select</option>
+                                <option value="0">Select</option>
                             </select>
                         </div>
                     </div>
@@ -262,13 +248,23 @@
                     </div>
                 </div>
 
+                <!-- Sub-Facility -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="form-group">
+                            <label class="control-label">Sub Facility</label>
+                            <select id="SubFacilityID" class="form-control" asp-items="@ViewBag.SubFacilityID">
+                                <option value="0">All</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Search Button -->
                 <div class="row mt-2">
                     <div class="col-xl-12 col-lg-12">
                         <div class="form-group">
-                            <button type="button"
-                                    class="btn btn-primary savebutton pull-right"
-                                    onclick="FillFaclitiesList()">
+                            <button type="button" class="btn btn-primary savebutton pull-right" onclick="FillBlockList(1)">
                                 <i class="fa fa-search"></i>&nbsp;Search
                             </button>
                         </div>
@@ -276,61 +272,44 @@
                 </div>
             </div>
 
-            <!-- Right Panel : Sub Facility List -->
+            <!-- Right Panel : Village List -->
             <div class="col-xl-10 col-lg-10">
                 <div class="row">
                     <div class="col-xl-2 col-lg-2">
-                        <h4 class="Headingcolorbg">Sub Facility</h4>
+                        <h4 class="Headingcolorbg">Village</h4>
                     </div>
 
                     <div class="col-xl-8 col-lg-8">
                         <div class="rowSearch">
+
                             <b>Search By</b>
+                            <input type="radio" value="village" name="searchBy" id="villageRadio" checked />
+                            <label for="villageRadio">Village</label>&nbsp;
 
-                            <input type="radio"
-                                   value="subFacility"
-                                   name="searchBy"
-                                   id="subFacilityRadio"
-                                   checked />
-                            <label for="subFacilityRadio">Sub Facility</label>&nbsp;
-
-                            <!-- Search Box (same UI as block & district) -->
+                            <!-- Search Box (same UI as district design) -->
                             <div class="search-box mt-2">
                                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                                <input type="text"
-                                       id="SearchInput"
-                                       placeholder="Search for sub facility.."
-                                       title="Type in a sub facility name"
-                                       autocomplete="off">
+                                <input type="text" id="SearchInput" placeholder="Search for village.." title="Type in a village name" autocomplete="off">
                             </div>
+
                         </div>
                     </div>
-
-                    @* <div class="col-xl-2 col-lg-2">
-                        <div class="pull-right">
-                            <a asp-action="Create" class="btn btn-primary"><i class="fa-solid fa-plus"></i>&nbsp;Add Sub Facility</a>
-                        </div>
-                    </div> *@
-
-
                 </div>
-
-
                 <div class="row">
                     <div class="col-xl-6 col-lg-6">
                         <button type="button" class="btn btn-success" onclick="ExportExcel()"><i class="fa-solid fa-file-excel"></i>&nbsp;Export</button>
                     </div>
                     <div class="col-xl-6 col-lg-6">
-                        <a asp-action="Create" class="btn btn-primary float-end"><i class="fa-solid fa-plus"></i>&nbsp;Add New Sub Facility</a>
+                        <a asp-action="Create" class="btn btn-primary float-end"><i class="fa-solid fa-plus"></i>&nbsp;Add New Village</a>
                     </div>
                 </div>
-
-                <!-- Partial View : Sub Facility List -->
+                <!-- Partial View for Village List -->
                 <div id="divEvidencelist">
                     @{
-                        Html.RenderPartial("_PVSubFaclities.cshtml");
+                        Html.RenderPartial("_PVVillage.cshtml");
                     }
                 </div>
+
             </div>
 
         </div>
@@ -339,17 +318,19 @@
     <input type="hidden" id="saveSizePage" />
 </section>
 
-
 <script type="text/javascript">
+
     function getServerdt(pageNumber) {
         debugger;
         var selectedValue = document.querySelector('input[name="searchBy"]:checked').value;
         var txtSearch = $("#SearchInput").val();
-        $('#saveSizePage').val($('#pageSize').val());
 
-        var p = {"pageSize": $('#pageSize').val(), "pageIndex": pageNumber, "State": $('#StateID').val(), "District": $('#DistrictID').val(), "Block": $('#BlockID').val(), "FacilityType": $('#FacilityTypeID').val() || 0, "Facility": $('#FacilityID').val(), "selectedValue": selectedValue, "txtSearch": txtSearch };
+        $('#saveSizePage').val($('#pageSize').val());
+        var p = { "pageIndex": pageNumber, "pageSize": $('#pageSize').val(), "State": $('#StateID').val(), "District": $('#DistrictID').val(), "Block" : $('#BlockID').val(), "FacilityTypeID" : $('#FacilityTypeID').val() , "Facility" : $('#FacilityID').val(), "SubFacility" : $('#SubFacilityID').val(),
+            "selectedValue": selectedValue, "txtSearch": txtSearch
+        };
         $.ajax({
-            url: '@Url.Content("~/")' + "LocationSubFacilities/getServerdt", //Your path should be here
+            url: '@Url.Content("~/")' + "LocationVillages/getServerdt", //Your path should be here
             type: "POST",
             data: p, success: function (result) {
                 if (result == "0") {
@@ -362,62 +343,92 @@
         });
     }
 
-    $('#StateID').change(function () {
-            var url = '@Url.Content("~/")' + "LocationSubFacilities/GetDistrict";
-            var ddlsource = "#StateID";
-            $.getJSON(url, { stateid: $(ddlsource).val() }, function (data) {
-                var districtitems = "<option value='0'>Select</option>";
-                $("#DistrictID").empty();
-                $.each(data, function (i, district) {
-                    districtitems += "<option value='" + district.districtId + "'>" + district.district + "</option>";
-                });
-                $('#DistrictID').html(districtitems);
-         });
+    function FillBlockList(flag)
+    {
+        getServerdt(flag);
+    }
 
-    });
-
-    $('#DistrictID').change(function () {
-        var districtId = $(this).val(); // get selected value
-        var url = '@Url.Action("GetBlock", "LocationSubFacilities")';
-
-        if (!districtId) {
-            $('#BlockID').html("<option value='0'>Select</option>");
-            return;
-        }
-
-        $.getJSON(url, { districtId: districtId }, function (data) {
-            var blockItems = "<option value='0'>Select</option>";
-            $.each(data, function (i, block) {
-                blockItems += "<option value='" + block.blockId + "'>" + block.blockName + "</option>";
-            });
-            $('#BlockID').html(blockItems);
-        });
-    });
-
-    $('#BlockID').change(function () {
-        var url = '@Url.Content("~/")' + "LocationSubFacilities/GetFacility";
-        var ddlsource = "#BlockID";
-        $.getJSON(url, { blockId: $(ddlsource).val() }, function (data) {
-                    var Facilityitems = "<option value='0'>All</option>";
-                   $("#FacilityID").empty();
-                  $.each(data, function (i, Facility) {
-                      Facilityitems += "<option value='" + Facility.facilityID + "'>" + Facility.facilityName + "</option>";
-                    });
-                  $('#FacilityID').html(Facilityitems);
-                });
-    });
-
-    function FillFaclitiesList(flag) {
+    function applyFilter()
+    {
         getServerdt(1);
     }
 
-    $(document).ready(function(){
+    $('#StateID').change(function () {
+            var url = '@Url.Content("~/")' + "LocationVillages/GetDistrict";
+            $.getJSON(url, { stateid: $('#StateID').val() }, function (data) {
+
+                var districtitems = "<option value='0'>Select</option>";
+                $('#DistrictID').empty();
+
+                $.each(data, function (i, district) {
+                    districtitems += "<option value='" + district.districtID + "'>"
+                                    + district.district + "</option>";
+                });
+
+                $('#DistrictID').html(districtitems);
+            });
+        });
+
+        $('#DistrictID').change(function () {
+            var url = '@Url.Content("~/")' + "LocationVillages/GetBlock";
+            $.getJSON(url, { DistrictId: $('#DistrictID').val() }, function (data) {
+
+                var blockitems = "<option value='0'>Select</option>";
+                $('#BlockID').empty();
+
+                $.each(data, function (i, block) {
+                    blockitems += "<option value='" + block.blockID + "'>"
+                                    + block.blockName + "</option>";
+                });
+
+                $('#BlockID').html(blockitems);
+            });
+        });
+
+
+        $('#BlockID').change(function () {
+            var url = '@Url.Content("~/")' + "LocationVillages/GetFacility";
+            $.getJSON(url, { BlockId: $('#BlockID').val() }, function (data) {
+
+                var facilityitems = "<option value='0'>Select</option>";
+                $('#FacilityID').empty();
+
+                $.each(data, function (i, facility) {
+                    facilityitems += "<option value='" + facility.facilityID + "'>"
+                                    + facility.facilityName + "</option>";
+                });
+
+                $('#FacilityID').html(facilityitems);
+            });
+        });
+
+
+        $('#FacilityID').change(function () {
+            var url = '@Url.Content("~/")' + "LocationVillages/GetSubFacility";
+            $.getJSON(url, { FacilityId: $('#FacilityID').val() }, function (data) {
+
+                var subfacilityitems = "<option value='0'>Select</option>";
+                $('#SubFacilityID').empty();
+
+                $.each(data, function (i, subfacility) {
+                    subfacilityitems += "<option value='" + subfacility.subFacilityID + "'>"
+                                    + subfacility.subFacility + "</option>";
+                });
+
+                $('#SubFacilityID').html(subfacilityitems);
+            });
+        });
+
+
+
+    $(document).ready(function () {
+
         var delayTimer;
-        $("#SearchInput").keyup(function(){
+        $("#SearchInput").keyup(function () {
             clearTimeout(delayTimer);
-            delayTimer=setTimeout(function(){
+            delayTimer = setTimeout(function () {
                 getServerdt(1);
-            },500);
+            }, 500);
         });
     });
 
@@ -428,13 +439,11 @@
         var BlockId = $("#BlockID").val();
         var FacilityTypeId = $("#FaclityTypeID").val();
         var FacilityId = $("#FacilityID").val();
-        var SubFacilityName = $("#SearchInput").val();
-        var url = window.appBasePath + "LocationSubFacilities/ExportToExcel?SubFacilityName=" + SubFacilityName + "&StateId=" + StateId + "&DistrictId=" + DistrictId + "&BlockId=" + BlockId + "&FacilityTypeId=" + FacilityTypeId + "&FacilityId=" + FacilityId;
+        var SubFacilityId = $("#SubFacilityID").val();
+        var VillageName = $("#SearchInput").val();
+        var url = window.appBasePath + "LocationVillages/ExportToExcel?VillageName=" + VillageName + "&StateId=" + StateId + 
+        "&DistrictId=" + DistrictId + "&BlockId=" + BlockId + "&FacilityTypeId=" + FacilityTypeId + "&FacilityId=" + FacilityId +
+        "&SubFacilityId=" +SubFacilityId ;
         window.location = url;
     }
-
 </script>
-
-
-
-

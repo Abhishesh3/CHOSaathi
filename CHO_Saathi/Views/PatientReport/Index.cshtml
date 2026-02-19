@@ -609,7 +609,6 @@
         getPatientCardCountReport();
     }
 
-
     function getPatientCardCountReport()
     {
         var StateID = $('#StateID').val();
@@ -710,7 +709,6 @@
         return true;
     }
 
-
     function ExportExcelZIP()
     {
         var StateID = $("#StateID").val();
@@ -734,6 +732,12 @@
     function ExportReferredPatient()
     {
         var url = window.appBasePath + "PatientReport/ReferredPatient";
+        window.location.href = url;
+    }
+
+    function ExportPatientVisitData()
+    {
+       var url = window.appBasePath + "PatientReport/ExportPatientwiseVisit";
         window.location.href = url;
     }
 

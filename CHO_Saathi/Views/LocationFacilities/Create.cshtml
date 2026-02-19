@@ -109,7 +109,7 @@
                 <div class="col-xl-4 col-lg-4">
                     <div class="form-group">
                         <label class="control-label">Facility Code</label><span class="mandatory"> *</span>
-                        <input asp-for="FacilityCode" maxlength="5" required class="form-control" />
+                        <input asp-for="FacilityCode" maxlength="5" required class="form-control" id="SBFCode" />
                         <span asp-validation-for="FacilityCode" class="text-danger"></span>
                     </div>
                 </div>
@@ -240,6 +240,15 @@
 
         $('#FTAddress').on('keypress', function (event) {
             var regex = new RegExp("^[  ,/-_]*[a-zA-Z0-9 ,/-][a-zA-Z0-9 _ ,/-]*$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+        $('#SBFCode').on('keypress', function (event) {
+            var regex = new RegExp("^[0-9]*$");
             var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
             if (!regex.test(key)) {
                 event.preventDefault();

@@ -1,20 +1,27 @@
-﻿using CHO_Saathi.Models;
+﻿using CHO_Saathi.Common;
+using CHO_Saathi.Models;
 using CHO_Saathi.ViewComponents;
+using ClosedXML.Excel;
+
 //using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace CHO_Saathi.Controllers
 {
     public class LocationDistrictsController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment Environment;
 
-        public LocationDistrictsController(ApplicationDBContext context)
+        public LocationDistrictsController(ApplicationDBContext context, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment)
         {
             _context = context;
+            Environment = environment;
         }
 
         public async Task<IActionResult> Index()
@@ -336,6 +343,74 @@ namespace CHO_Saathi.Controllers
         private bool LocationDistrictExists(int id)
         {
             return _context.LocationDistricts.Any(e => e.DistrictId == id);
+        }
+
+        public ActionResult ExportToExcel(int StateId, string DistrictName)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlParameter[] s = new SqlParameter[]
+                {
+                    new SqlParameter("@StateID", StateId),
+                    new SqlParameter("@DistrictName", DistrictName)
+                };
+
+                dt = CommonController.Procedure_Query_ToDataTable(_context, "USP_Districts_Fetch_Excel", CommandType.StoredProcedure, s);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    // ✅ Add S.No column only once at the first position
+                    if (!dt.Columns.Contains("S.No"))
+                    {
+                        dt.Columns.Add("S.No", typeof(int)).SetOrdinal(0);
+                    }
+
+                    // Fill serial numbers
+                    int counter = 1;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        dr["S.No"] = counter++;
+                    }
+
+                    string filePath = "Location_District_Data";
+                    string ExcelTabName = "Location District";
+
+                    string webRootPath = Environment.WebRootPath;
+                    string sFileDir = Path.Combine(webRootPath, "DataBackup/");
+
+                    if (!Directory.Exists(sFileDir))
+                        Directory.CreateDirectory(sFileDir);
+
+                    string Fullfilename = filePath + "_" + DateTime.Now.ToString("dd_MM_yyyy_hh_mm_ss") + ".xlsx";
+
+                    using (XLWorkbook wb = new XLWorkbook())
+                    {
+                        var ws = wb.Worksheets.Add(dt, ExcelTabName);
+                        ws.Table(0).ShowAutoFilter = false;
+                        ws.Table(0).Theme = XLTableTheme.TableStyleLight12;
+                        ws.Columns().AdjustToContents();
+
+                        using (MemoryStream stream = new MemoryStream())
+                        {
+                            wb.SaveAs(stream);
+                            return File(stream.ToArray(),
+                                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                        Fullfilename);
+                        }
+                    }
+                }
+                else
+                {
+                    TempData["message"] = "No Record Found..!!";
+                    return RedirectToAction("Index", "LocationDistricts");
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["message"] = "Error while exporting!";
+                return RedirectToAction("Index", "LocationDistricts");
+            }
         }
     }
 }
